@@ -77,9 +77,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Samath Makhana — Pure. Roasted. Irresistible." },
+      { title: "Samarth Makhana — Pure. Roasted. Irresistible." },
       { name: "description", content: "Premium handcrafted makhana snacks and cookies. 100% natural, high protein, gluten free — made for the mindful generation." },
-      { property: "og:title", content: "Samath Makhana — Pure. Roasted. Irresistible." },
+      { property: "og:title", content: "Samarth Makhana — Pure. Roasted. Irresistible." },
       { property: "og:description", content: "Premium handcrafted makhana snacks and cookies, made in India." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
