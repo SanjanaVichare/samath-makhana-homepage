@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Clock, ArrowLeft, ArrowRight, Share2 } from "lucide-react";
 import { useState } from "react";
 import PageShell from "@/components/layout/PageShell";
-import { ARTICLES, getArticle } from "@/data/blog";
+import { ARTICLES, getArticle, type Article } from "@/data/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
   component: BlogDetail,
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogDetail() {
-  const { article } = Route.useLoaderData();
+  const { article } = Route.useLoaderData() as { article: Article };
   const idx = ARTICLES.findIndex((a) => a.slug === article.slug);
   const prev = ARTICLES[idx - 1];
   const next = ARTICLES[idx + 1];

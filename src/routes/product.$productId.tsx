@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-ro
 import { useEffect, useState } from "react";
 import { Star, Minus, Plus, Share2, ShoppingBag, ChevronRight } from "lucide-react";
 import PageShell from "@/components/layout/PageShell";
-import { getProduct, PRODUCTS } from "@/data/products";
+import { getProduct, PRODUCTS, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
 const RECENT_KEY = "samarth_recent_v1";
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/product/$productId")({
 });
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: Product };
   const [size, setSize] = useState(product.sizes[0]);
   const [qty, setQty] = useState(1);
   const [activeImg, setActiveImg] = useState(0);
