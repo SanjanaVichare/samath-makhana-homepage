@@ -29,7 +29,6 @@ const NAV = [
   { label: "Products", href: "/products" },
   { label: "About Us", href: "#our-story" },
   { label: "Benefits", href: "#benefits" },
-  { label: "Shop", href: "#products" },
 ];
 
 const PRODUCTS = [
@@ -284,14 +283,12 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
       { label: "Products", href: "#top" },
       { label: "About Us", href: "#our-story" },
       { label: "Benefits", href: "#benefits" },
-      { label: "Shop", href: "#products" },
     ]
     : [
       { label: "Home", href: "#home" },
       { label: "Products", href: "/products" },
       { label: "About Us", href: "#our-story" },
-      { label: "Benefits", href: "#benefits" },
-      { label: "Shop", href: "#products" },
+      { label: "Benefits", href: "#benefits" }
     ];
   return (
     <header
