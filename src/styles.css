@@ -177,17 +177,9 @@
   animation: heroText 0.8s ease-out forwards;
 }
 
-html,
-body,
-* {
+body.home-cursor,
+body.home-cursor * {
   cursor: none !important;
-}
-
-a,
-button,
-input,
-textarea {
-  cursor: none;
 }
 
 /* Scroll cue */
