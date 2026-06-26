@@ -19,6 +19,9 @@ import ig3 from "@/assets/ig-3.jpg";
 import ig4 from "@/assets/ig-4.jpg";
 import ig5 from "@/assets/ig-5.jpg";
 import ig6 from "@/assets/ig-6.jpg";
+import SiteNavbar from "@/components/layout/Navbar";
+import SiteFooter from "@/components/layout/Footer";
+import { WhyChooseUs, NewsletterSection, FinalCTA } from "@/components/sections/HomeAdditions";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -187,9 +190,11 @@ function Home() {
 
   useEffect(() => {
     document.body.style.cursor = `url(${cursorMakhana}) 16 16, auto`;
+    document.body.classList.add("home-cursor");
 
     return () => {
       document.body.style.cursor = "auto";
+      document.body.classList.remove("home-cursor");
     };
   }, []);
 
@@ -210,7 +215,7 @@ function Home() {
     <>
       <MakhanaCursor />
       <div className="min-h-screen bg-cream text-ink">
-        <Navbar scrolled={scrolled} />
+        <SiteNavbar transparentOnTop />
 
         <Hero />
         <Marquee />
@@ -233,7 +238,10 @@ function Home() {
         <PatternBackground>
           <Instagram />
         </PatternBackground>
-        <Footer />
+        <WhyChooseUs />
+        <NewsletterSection />
+        <FinalCTA />
+        <SiteFooter />
         <a
           href="https://wa.me/919876543210"
           target="_blank"
