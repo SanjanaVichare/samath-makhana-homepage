@@ -1,4 +1,5 @@
 import MakhanaCursor from "@/components/MakhanaCursor";
+import makhanaInBowl from "@/assets/makahnainbowl.png";
 import { createFileRoute, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/hero-makhana.jpg";
@@ -13,6 +14,14 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import bestseller from "@/assets/bestseller-cookies.jpg";
+import pcp from "@/assets/packet-chat-pata.png";
+import pcp1 from "@/assets/packet-peri-peri.png";
+import pcp2 from "@/assets/packet-cheese.png";
+import pcp3 from "@/assets/packet-pudina.png";
+import pcp4 from "@/assets/packet-salt-pepper.png";
+import pcp5 from "@/assets/packet-cream-onion.png";
+import cookiep from "@/assets/cookie-pattern.png";
+import cookiesf from "@/assets/cookie-pattern.png";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
 import ig3 from "@/assets/ig-3.jpg";
@@ -37,9 +46,9 @@ const PRODUCTS = [
     desc: "Bold, fiery and packed with smoky peri-peri flavour.",
     tag: "Spicy",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp1,
+      "60g": pcp1,
+      "120g": pcp1,
     },
   },
   {
@@ -47,9 +56,9 @@ const PRODUCTS = [
     desc: "Creamy cheese seasoning with a perfectly crunchy bite.",
     tag: "Cheesy",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp2,
+      "60g": pcp2,
+      "120g": pcp2,
     },
   },
   {
@@ -57,9 +66,9 @@ const PRODUCTS = [
     desc: "Tangy Indian spices with a chatpata kick.",
     tag: "Tangy",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp,
+      "60g": pcp,
+      "120g": pcp,
     },
   },
   {
@@ -67,9 +76,9 @@ const PRODUCTS = [
     desc: "Rich cream balanced with savoury onion flavour.",
     tag: "Popular",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp5,
+      "60g": pcp5,
+      "120g": pcp5,
     },
   },
   {
@@ -77,9 +86,9 @@ const PRODUCTS = [
     desc: "Refreshing mint flavour with a crisp roasted finish.",
     tag: "Fresh",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp3,
+      "60g": pcp3,
+      "120g": pcp3,
     },
   },
   {
@@ -87,9 +96,9 @@ const PRODUCTS = [
     desc: "Simple, classic and incredibly addictive.",
     tag: "Classic",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp4,
+      "60g": pcp4,
+      "120g": pcp4,
     },
   },
   {
@@ -97,9 +106,9 @@ const PRODUCTS = [
     desc: "Crunchy cookies made with wholesome makhana goodness.",
     tag: "Cookies",
     images: {
-      "150g": ig1,
-      "250g": ig2,
-      "500g": ig3,
+      "150g": cookiep,
+      "250g": cookiep,
+      "500g": cookiep,
     },
   },
   {
@@ -107,9 +116,9 @@ const PRODUCTS = [
     desc: "Guilt-free cookies crafted without added sugar.",
     tag: "Sugar Free",
     images: {
-      "150g": ig1,
-      "250g": ig2,
-      "500g": ig3,
+      "150g": cookiesf,
+      "250g": cookiesf,
+      "500g": cookiesf,
     },
   },
 ];
@@ -553,18 +562,18 @@ function Products() {
                 >
                   <article
                     className="
-                    group
-                    bg-white
-                    rounded-[28px]
-                    overflow-hidden
-                    border-2 border-olive/30
-                    flex flex-col
-                    h-full
-                    transition-all
-                    duration-500
-                    hover:-translate-y-2
-                    hover:shadow-[0_25px_60px_-20px_rgba(157,113,60,0.25)]
-                  "
+        group
+        bg-white
+        rounded-[28px]
+        overflow-hidden
+        border-2 border-olive/30
+        flex flex-col
+        h-full
+        transition-all
+        duration-500
+        hover:-translate-y-2
+        hover:shadow-[0_25px_60px_-20px_rgba(157,113,60,0.25)]
+      "
                   >
                     {/* Product Image */}
                     <div
@@ -620,8 +629,8 @@ function Products() {
                         alt={p.name}
                         className="
     w-full
-    h-full
-    object-cover
+    h-[230px]
+    object-contain
     transition-all
     duration-700
     rounded-3xl
@@ -815,21 +824,12 @@ function Benefits() {
               data-reveal
               className="reveal relative flex items-center justify-center"
             >
-              {/* Glow */}
-              <div className="absolute h-[420px] w-[420px] rounded-full bg-olive/10 blur-3xl" />
-
               {/* Floating Product */}
               <img
-                src="/images/makhana-pack.png"
+                src={makhanaInBowl}
                 alt="Samarth Makhana"
                 className="relative z-10 w-[320px] lg:w-[420px] drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
               />
-
-              {/* Floating Makhana Pieces */}
-              <div className="absolute top-10 left-10 h-6 w-6 rounded-full bg-[#E8D5B5] shadow-md animate-bounce" />
-              <div className="absolute bottom-16 left-20 h-5 w-5 rounded-full bg-[#E8D5B5] shadow-md animate-bounce delay-300" />
-              <div className="absolute top-20 right-12 h-7 w-7 rounded-full bg-[#E8D5B5] shadow-md animate-bounce delay-500" />
-              <div className="absolute bottom-12 right-20 h-6 w-6 rounded-full bg-[#E8D5B5] shadow-md animate-bounce delay-700" />
             </div>
           </div>
 

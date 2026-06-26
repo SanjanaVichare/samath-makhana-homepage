@@ -1,6 +1,14 @@
 import productBg from "@/assets/bg-doodle.png";
 import { useRef } from "react";
 import MakhanaCursor from "@/components/MakhanaCursor";
+import pcp from "@/assets/packet-chat-pata.png";
+import pcp1 from "@/assets/packet-peri-peri.png";
+import pcp2 from "@/assets/packet-cheese.png";
+import pcp3 from "@/assets/packet-pudina.png";
+import pcp4 from "@/assets/packet-salt-pepper.png";
+import pcp5 from "@/assets/packet-cream-onion.png";
+import cookiep from "@/assets/cookie-pattern.png";
+import cookiesf from "@/assets/cookie-pattern.png";
 import cursorMakhana from "@/assets/makhana.png";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
@@ -25,9 +33,9 @@ export const PRODUCTS_DATA = [
     tag: "Spicy",
     price: "€29.90",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp1,
+      "60g": pcp1,
+      "120g": pcp1,
     },
     benefits: ["Rich in protein", "High in fiber", "Low in calories", "No artificial flavors"],
     ingredients: ["Makhana (Fox Nuts)", "Peri Peri Spice Blend", "Cold Pressed Oil", "Sea Salt"],
@@ -46,9 +54,9 @@ export const PRODUCTS_DATA = [
     tag: "Cheesy",
     price: "€29.90",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp2,
+      "60g": pcp2,
+      "120g": pcp2,
     },
     benefits: ["Good source of calcium", "Rich in antioxidants", "Gluten-free", "Suitable for vegetarians"],
     ingredients: ["Makhana (Fox Nuts)", "Cheese Powder", "Buttermilk Powder", "Cold Pressed Oil", "Sea Salt"],
@@ -67,9 +75,9 @@ export const PRODUCTS_DATA = [
     tag: "Tangy",
     price: "€29.90",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp,
+      "60g": pcp,
+      "120g": pcp,
     },
     benefits: ["Aids digestion", "Boosts metabolism", "Low glycemic index", "Rich in minerals"],
     ingredients: ["Makhana (Fox Nuts)", "Chat Masala Blend", "Tamarind Powder", "Cold Pressed Oil", "Sea Salt"],
@@ -88,9 +96,9 @@ export const PRODUCTS_DATA = [
     tag: "Popular",
     price: "€29.90",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp5,
+      "60g": pcp5,
+      "120g": pcp5,
     },
     benefits: ["Heart-healthy", "Good source of fiber", "No MSG", "All-natural ingredients"],
     ingredients: ["Makhana (Fox Nuts)", "Onion Powder", "Cream Powder", "Cold Pressed Oil", "Sea Salt"],
@@ -109,9 +117,9 @@ export const PRODUCTS_DATA = [
     tag: "Fresh",
     price: "€29.90",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp3,
+      "60g": pcp3,
+      "120g": pcp3,
     },
     benefits: ["Aids digestion", "Freshens breath", "Rich in antioxidants", "Calming properties"],
     ingredients: ["Makhana (Fox Nuts)", "Mint Extract", "Cold Pressed Oil", "Sea Salt", "Herbal Spices"],
@@ -130,9 +138,9 @@ export const PRODUCTS_DATA = [
     tag: "Classic",
     price: "€29.90",
     images: {
-      "30g": ig1,
-      "60g": ig2,
-      "120g": ig3,
+      "30g": pcp4,
+      "60g": pcp4,
+      "120g": pcp4,
     },
     benefits: ["Low sodium", "Heart-healthy", "Pure ingredients", "Versatile snack"],
     ingredients: ["Makhana (Fox Nuts)", "Sea Salt", "Black Pepper", "Cold Pressed Oil"],
@@ -151,9 +159,9 @@ export const PRODUCTS_DATA = [
     tag: "Cookies",
     price: "€29.90",
     images: {
-      "150g": ig1,
-      "250g": ig2,
-      "500g": ig3,
+      "150g": cookiep,
+      "250g": cookiep,
+      "500g": cookiep,
     },
     benefits: ["Baked not fried", "No preservatives", "Whole grain goodness", "Energy boosting"],
     ingredients: ["Makhana Flour", "Wheat Flour", "Natural Sweetener", "Cold Pressed Oil", "Baking Soda"],
@@ -172,9 +180,9 @@ export const PRODUCTS_DATA = [
     tag: "Sugar Free",
     price: "€29.90",
     images: {
-      "150g": ig1,
-      "250g": ig2,
-      "500g": ig3,
+      "150g": cookiesf,
+      "250g": cookiesf,
+      "500g": cookiesf,
     },
     benefits: ["Sugar-free", "Diabetic-friendly", "High in fiber", "Natural sweetness"],
     ingredients: ["Makhana Flour", "Natural Sugar Substitute", "Wheat Flour", "Cold Pressed Oil", "Baking Soda"],
