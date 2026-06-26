@@ -7,8 +7,8 @@ import pcp2 from "@/assets/packet-cheese.png";
 import pcp3 from "@/assets/packet-pudina.png";
 import pcp4 from "@/assets/packet-salt-pepper.png";
 import pcp5 from "@/assets/packet-cream-onion.png";
-import cookiep from "@/assets/cookie-pattern.png";
-import cookiesf from "@/assets/cookie-pattern.png";
+import cookiep from "@/assets/product-cookies.jpg";
+import cookiesf from "@/assets/product-cookies.jpg";
 import cursorMakhana from "@/assets/makhana.png";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
@@ -435,7 +435,7 @@ function ProductsPage() {
                             ]
                           }
                           alt={p.name}
-                          className="w-full h-full object-cover transition-all duration-700 rounded-3xl group-hover:scale-110"
+                          className="w-[200px] h-[230px] object-cover transition-all duration-700 rounded-3xl group-hover:scale-110"
                         />
                       </div>
 
