@@ -4,10 +4,13 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, type ReactNode } from "react";
+import { CartProvider } from "../context/CartContext";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -114,13 +117,32 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function RouteTransitions() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={pathname}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -4 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <CartProvider>
+        <RouteTransitions />
+      </CartProvider>
     </QueryClientProvider>
   );
 }

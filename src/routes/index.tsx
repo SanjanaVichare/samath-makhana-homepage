@@ -1,5 +1,5 @@
 import MakhanaCursor from "@/components/MakhanaCursor";
-import makhanaInBowl from "@/assets/makahnainbowl.png";
+import makhanaInBowl from "@/assets/makahna-bowl.png";
 import { createFileRoute, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/hero-makhana.jpg";
@@ -28,6 +28,9 @@ import ig3 from "@/assets/ig-3.jpg";
 import ig4 from "@/assets/ig-4.jpg";
 import ig5 from "@/assets/ig-5.jpg";
 import ig6 from "@/assets/ig-6.jpg";
+import SiteNavbar from "@/components/layout/Navbar";
+import SiteFooter from "@/components/layout/Footer";
+import { WhyChooseUs, NewsletterSection, FinalCTA } from "@/components/sections/HomeAdditions";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -196,9 +199,11 @@ function Home() {
 
   useEffect(() => {
     document.body.style.cursor = `url(${cursorMakhana}) 16 16, auto`;
+    document.body.classList.add("home-cursor");
 
     return () => {
       document.body.style.cursor = "auto";
+      document.body.classList.remove("home-cursor");
     };
   }, []);
 
@@ -219,7 +224,7 @@ function Home() {
     <>
       <MakhanaCursor />
       <div className="min-h-screen bg-cream text-ink">
-        <Navbar scrolled={scrolled} />
+        <SiteNavbar transparentOnTop />
 
         <Hero />
         <Marquee />
@@ -242,7 +247,10 @@ function Home() {
         <PatternBackground>
           <Instagram />
         </PatternBackground>
-        <Footer />
+        <WhyChooseUs />
+        <NewsletterSection />
+        <FinalCTA />
+        <SiteFooter />
         <a
           href="https://wa.me/919876543210"
           target="_blank"
@@ -759,6 +767,62 @@ function Story() {
 }
 
 function Benefits() {
+  function NutritionCard({
+    title,
+    value,
+    icon,
+  }: {
+    title: string;
+    value: string;
+    icon: string;
+  }) {
+    return (
+      <div
+        className="
+        relative
+        w-32
+        h-36
+        flex
+        flex-col
+        items-center
+        justify-center
+        text-center
+        px-3
+
+        bg-[#FDF8EE]
+        border
+        border-[#E9DCC6]
+
+        shadow-xl
+
+        hover:scale-110
+        hover:rotate-0
+        transition-all
+        duration-500
+      "
+        style={{
+          borderRadius: "58% 42% 53% 47% / 44% 56% 42% 58%",
+          transform: "rotate(-12deg)",
+        }}
+      >
+        {/* Little brown dots */}
+        <span className="absolute top-4 left-5 w-1 h-1 rounded-full bg-[#A56B42]" />
+        <span className="absolute top-7 right-6 w-1.5 h-1.5 rounded-full bg-[#8D5A32]" />
+        <span className="absolute bottom-5 left-8 w-1 h-1 rounded-full bg-[#9F6A3F]" />
+        <span className="absolute bottom-8 right-7 w-1 h-1 rounded-full bg-[#A56B42]" />
+
+        <div className="text-3xl">{icon}</div>
+
+        <div className="mt-2 text-2xl font-bold text-olive">
+          {value}
+        </div>
+
+        <div className="mt-1 text-xs font-semibold text-olive leading-tight">
+          {title}
+        </div>
+      </div>
+    );
+  }
   const benefits = [
     "Protein Rich",
     "Naturally Gluten Free",
@@ -819,41 +883,75 @@ function Benefits() {
               </button>
             </div>
 
-            {/* RIGHT IMAGE */}
+            {/* RIGHT INFOGRAPHIC */}
             <div
               data-reveal
-              className="reveal relative flex items-center justify-center"
+              className="reveal relative flex items-center justify-center h-[520px]"
             >
-              {/* Floating Product */}
+              {/* Center Product */}
               <img
                 src={makhanaInBowl}
                 alt="Samarth Makhana"
-                className="relative z-10 w-[320px] lg:w-[420px] drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
+                className="relative z-20 w-[280px] lg:w-[320px] drop-shadow-2xl animate-float"
               />
+
+              {/* Protein */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2">
+                <NutritionCard
+                  title="Protein Rich"
+                  value="11.25g+"
+                  icon="💪"
+                />
+              </div>
+
+              {/* Gluten */}
+              <div className="absolute top-24 right-0">
+                <NutritionCard
+                  title="Gluten Free"
+                  value="100%"
+                  icon="🌾"
+                />
+              </div>
+
+              {/* Calories */}
+              <div className="absolute bottom-24 right-4">
+                <NutritionCard
+                  title="Cholestrol Free"
+                  value="0%"
+                  icon="🔥"
+                />
+              </div>
+
+              {/* Fiber */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+                <NutritionCard
+                  title="High Fiber"
+                  value="Rich"
+                  icon="🌿"
+                />
+              </div>
+
+              {/* Natural */}
+              <div className="absolute bottom-24 left-4">
+                <NutritionCard
+                  title="100% Natural"
+                  value="Pure"
+                  icon="🍃"
+                />
+              </div>
+
+              {/* Cholesterol */}
+              <div className="absolute top-24 left-0">
+                <NutritionCard
+                  title="0% Cholesterol"
+                  value="Zero"
+                  icon="❤️"
+                />
+              </div>
+
             </div>
           </div>
 
-          {/* Bottom Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-olive/10">
-            {[
-              ["9g+", "Protein"],
-              ["0%", "Cholesterol"],
-              ["100%", "Natural"],
-              ["High", "Fiber"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="py-8 text-center"
-              >
-                <div className="font-display text-3xl font-semibold text-olive">
-                  {value}
-                </div>
-                <div className="mt-1 text-sm text-ink/60">
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
 
         </div>
       </div>

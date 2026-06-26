@@ -51,6 +51,24 @@
   --font-sans: "Inter", "DM Sans", system-ui, sans-serif;
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
 :root {
   --radius: 0.5rem;
 
@@ -177,17 +195,9 @@
   animation: heroText 0.8s ease-out forwards;
 }
 
-html,
-body,
-* {
+body.home-cursor,
+body.home-cursor * {
   cursor: none !important;
-}
-
-a,
-button,
-input,
-textarea {
-  cursor: none;
 }
 
 /* Scroll cue */
