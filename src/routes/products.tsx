@@ -414,31 +414,84 @@ function ProductsPage() {
                     >
                       {/* Product Image */}
                       <div className="relative h-[240px] mx-4 mt-4 rounded-3xl bg-cream/40 flex items-center justify-center p-6 overflow-hidden">
+
                         {/* Ticket Badge */}
                         <div
                           className={`
-                            absolute top-4 left-4 h-[36px] px-4 flex items-center text-xs font-semibold text-white z-10
-                            ${p.tag === "Popular" ? "bg-gold" : "bg-olive"}
-                          `}
+      absolute top-4 left-4 h-[36px] px-4 flex items-center text-xs font-semibold text-white z-20
+      ${p.tag === "Popular" ? "bg-gold" : "bg-olive"}
+    `}
                           style={{
-                            clipPath: "polygon(12px 0%, 100% 0%, 100% 100%, 12px 100%, 0% 50%)",
+                            clipPath:
+                              "polygon(12px 0%, 100% 0%, 100% 100%, 12px 100%, 0% 50%)",
                           }}
                         >
                           <span className="absolute left-[5px] w-[5px] h-[5px] rounded-full bg-white/80" />
                           {p.tag}
                         </div>
 
+                        {/* Premium Glow */}
+                        <div
+                          className="
+    absolute
+    left-1/2
+    top-[62%]
+    h-52
+    w-52
+    -translate-x-1/2
+    -translate-y-1/2
+    rounded-full
+    bg-[#FFD45C]
+    opacity-80
+    blur-[70px]
+    transition-all
+    duration-700
+    group-hover:scale-125
+    group-hover:opacity-100
+  "
+                        />
+
+                        {/* Secondary Glow */}
+                        <div
+                          className="
+      absolute
+      left-1/2
+      top-1/2
+      h-28
+      w-28
+      -translate-x-1/2
+      -translate-y-1/2
+      rounded-full
+      bg-olive/20
+      blur-2xl
+      transition-all
+      duration-700
+      group-hover:scale-110
+    "
+                        />
+
+                        {/* Product Image */}
                         <img
                           src={
                             p.images[
-                            (selectedWeight[p.name] || Object.keys(p.images)[0]) as keyof typeof p.images
+                            (selectedWeight[p.name] ||
+                              Object.keys(p.images)[0]) as keyof typeof p.images
                             ]
                           }
                           alt={p.name}
-                          className="w-[200px] h-[230px] object-cover transition-all duration-700 rounded-3xl group-hover:scale-110"
+                          className="
+      relative
+      z-10
+      w-[200px]
+      h-[230px]
+      object-contain
+      transition-all
+      duration-700
+      group-hover:scale-110
+      group-hover:-translate-y-2
+    "
                         />
                       </div>
-
                       {/* Content */}
                       <div className="px-6 pb-6 pt-4 flex flex-col flex-1">
                         <h3 className="font-display text-2xl font-semibold text-olive">

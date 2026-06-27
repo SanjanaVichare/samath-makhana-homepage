@@ -104,32 +104,32 @@ export function FinalCTA() {
     {
       src: classic,
       className:
-        "top-8 left-6 w-44 lg:w-56 -rotate-[18deg]",
+        "top-8 left-[8%] w-36 lg:w-44 -rotate-[8deg] z-10",
     },
     {
       src: pepper,
       className:
-        "top-8 right-6 w-44 lg:w-56 rotate-[18deg]",
+        "top-2 left-[22%] w-36 lg:w-44 -rotate-[4deg] z-20",
     },
     {
       src: cream,
       className:
-        "bottom-10 left-2 w-44 lg:w-56 -rotate-[25deg]",
-    },
-    {
-      src: pudina,
-      className:
-        "bottom-0 left-[24%] w-36 lg:w-48 -rotate-[12deg]",
+        "top-0 left-[36%] w-36 lg:w-44 rotate-0 z-30",
     },
     {
       src: cheese,
       className:
-        "bottom-0 right-[24%] w-36 lg:w-48 rotate-[12deg]",
+        "top-0 right-[36%] w-36 lg:w-44 rotate-0 z-30",
+    },
+    {
+      src: pudina,
+      className:
+        "top-2 right-[22%] w-36 lg:w-44 rotate-[4deg] z-20",
     },
     {
       src: peri,
       className:
-        "bottom-10 right-2 w-44 lg:w-56 rotate-[25deg]",
+        "top-8 right-[8%] w-36 lg:w-44 rotate-[8deg] z-10",
     },
   ];
 
@@ -138,7 +138,11 @@ export function FinalCTA() {
       className="
         relative
         overflow-hidden
-        py-36
+        min-h-screen
+        flex
+        items-center
+        justify-center
+        py-4
         px-6
         lg:px-10
 
@@ -181,15 +185,11 @@ export function FinalCTA() {
       {/* Content */}
       <div
         data-reveal
-        className="reveal relative z-20 mx-auto max-w-5xl text-center"
+        className="reveal relative z-20 mx-auto max-w-5xl text-center pt-37"
       >
-        <p className="text-[11px] uppercase tracking-[0.35em] text-[#B98D33] font-semibold">
-          READY WHEN YOU ARE
-        </p>
 
         <h2 className="mt-5 font-display text-5xl lg:text-7xl font-semibold text-olive leading-tight">
           Snack quietly.
-          <br />
           <span className="italic">Live loudly.</span>
         </h2>
 
