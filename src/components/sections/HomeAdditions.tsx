@@ -1,7 +1,6 @@
 import { Leaf, Sprout, Flame, ShieldCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-
 export function WhyChooseUs() {
   const items = [
     { Icon: Leaf, title: "Farm Fresh", text: "Direct from family farms in Bihar — no middlemen, no compromise." },
@@ -93,31 +92,154 @@ export function NewsletterSection() {
   );
 }
 
+import classic from "@/assets/packet-chat-pata.png";
+import cheese from "@/assets/packet-cheese.png";
+import cream from "@/assets/packet-cream-onion.png";
+import peri from "@/assets/packet-peri-peri.png";
+import pudina from "@/assets/packet-pudina.png";
+import pepper from "@/assets/packet-salt-pepper.png";
+
 export function FinalCTA() {
+  const products = [
+    {
+      src: classic,
+      className:
+        "top-8 left-6 w-44 lg:w-56 -rotate-[18deg]",
+    },
+    {
+      src: pepper,
+      className:
+        "top-8 right-6 w-44 lg:w-56 rotate-[18deg]",
+    },
+    {
+      src: cream,
+      className:
+        "bottom-10 left-2 w-44 lg:w-56 -rotate-[25deg]",
+    },
+    {
+      src: pudina,
+      className:
+        "bottom-0 left-[24%] w-36 lg:w-48 -rotate-[12deg]",
+    },
+    {
+      src: cheese,
+      className:
+        "bottom-0 right-[24%] w-36 lg:w-48 rotate-[12deg]",
+    },
+    {
+      src: peri,
+      className:
+        "bottom-10 right-2 w-44 lg:w-56 rotate-[25deg]",
+    },
+  ];
+
   return (
-    <section className="relative py-28 px-6 lg:px-10 bg-cream">
+    <section
+      className="
+        relative
+        overflow-hidden
+        py-36
+        px-6
+        lg:px-10
+
+        bg-gradient-to-br
+        from-[#869D45]
+        via-[#B9C978]
+        to-[#6F8240]
+      "
+    >
+      {/* Center Glow */}
+      <div className="absolute inset-0">
+        <div
+          className="
+            absolute
+            left-1/2
+            top-1/2
+            h-[700px]
+            w-[700px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-white/45
+            blur-[130px]
+          "
+        />
+      </div>
+
+      {/* Decorative Product Images */}
+      <div className="absolute inset-0 pointer-events-none">
+        {products.map((product, index) => (
+          <img
+            key={index}
+            src={product.src}
+            alt=""
+            className={`absolute ${product.className} drop-shadow-2xl transition-transform duration-500 hover:scale-105`}
+          />
+        ))}
+      </div>
+
+      {/* Content */}
       <div
         data-reveal
-        className="reveal mx-auto max-w-6xl text-center"
+        className="reveal relative z-20 mx-auto max-w-5xl text-center"
       >
-        <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Ready when you are</p>
-        <h2 className="mt-4 font-display text-5xl lg:text-7xl font-semibold text-olive leading-[1.05]">
-          Snack quietly. <br />
+        <p className="text-[11px] uppercase tracking-[0.35em] text-[#B98D33] font-semibold">
+          READY WHEN YOU ARE
+        </p>
+
+        <h2 className="mt-5 font-display text-5xl lg:text-7xl font-semibold text-olive leading-tight">
+          Snack quietly.
+          <br />
           <span className="italic">Live loudly.</span>
         </h2>
-        <p className="mt-6 max-w-xl mx-auto text-ink/70 leading-relaxed">
-          Discover the small-batch range or talk to us about wholesale and gifting. We answer every email.
+
+        <p className="mt-8 max-w-2xl mx-auto text-lg text-olive/80 leading-relaxed">
+          Discover the small-batch range or talk to us about wholesale,
+          gifting and premium snack solutions. We answer every email.
         </p>
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+
+        <div className="mt-12 flex flex-wrap justify-center gap-5">
           <Link
             to="/shop"
-            className="inline-flex items-center px-8 py-4 rounded-full bg-olive text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-olive/90 hover:scale-[1.02] transition-all"
+            className="
+              rounded-full
+              bg-olive
+              px-10
+              py-4
+              text-cream
+              uppercase
+              tracking-[0.18em]
+              text-xs
+              font-semibold
+              transition-all
+              duration-300
+              hover:scale-105
+              hover:bg-olive/90
+            "
           >
             Shop Now
           </Link>
+
           <Link
             to="/contact"
-            className="inline-flex items-center px-8 py-4 rounded-full border-2 border-olive text-olive text-xs font-semibold uppercase tracking-[0.18em] hover:bg-olive hover:text-cream transition-all"
+            className="
+              rounded-full
+              border-2
+              border-olive
+              bg-white/20
+              backdrop-blur-sm
+              px-10
+              py-4
+              text-olive
+              uppercase
+              tracking-[0.18em]
+              text-xs
+              font-semibold
+              transition-all
+              duration-300
+              hover:bg-olive
+              hover:text-cream
+            "
           >
             Contact Us
           </Link>

@@ -30,7 +30,7 @@ import ig5 from "@/assets/ig-5.jpg";
 import ig6 from "@/assets/ig-6.jpg";
 import SiteNavbar from "@/components/layout/Navbar";
 import SiteFooter from "@/components/layout/Footer";
-import { WhyChooseUs, NewsletterSection, FinalCTA } from "@/components/sections/HomeAdditions";
+import { NewsletterSection, FinalCTA } from "@/components/sections/HomeAdditions";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -247,8 +247,6 @@ function Home() {
         <PatternBackground>
           <Instagram />
         </PatternBackground>
-        <WhyChooseUs />
-        <NewsletterSection />
         <FinalCTA />
         <SiteFooter />
         <a
