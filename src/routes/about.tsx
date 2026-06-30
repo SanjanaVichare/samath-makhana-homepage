@@ -5,11 +5,28 @@ import hero from "@/assets/hero-makhana.jpg";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
 import ig3 from "@/assets/ig-3.jpg";
-import { Award, Leaf, HandHeart, Sparkles } from "lucide-react";
+import StorySlideshow from "@/components/sections/StorySlideshow";
+import { Award, Leaf, HandHeart, Sparkles, BadgeCheck, ShieldCheck, Wheat, Flag } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
+
+const TRUST = [
+  { Icon: BadgeCheck, label: "FSSAI Certified" },
+  { Icon: ShieldCheck, label: "ISO 22000" },
+  { Icon: Wheat, label: "Gluten Free" },
+  { Icon: Leaf, label: "Vegetarian" },
+  { Icon: Flag, label: "Made in India" },
+];
+
+const PROMISES = [
+  "100% Vegetarian",
+  "Roasted, never fried",
+  "Real ingredients",
+  "Recyclable packaging",
+  "Crafted with care",
+];
 
 const VALUES = [
   { Icon: Leaf, title: "Earth First", text: "We pay farms fair prices and use compostable packaging wherever possible." },
@@ -49,31 +66,86 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
-      <section className="py-24 px-6 lg:px-10">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-14 items-center">
-          <img src={storyImg} alt="Lotus pond" className="rounded-[32px] aspect-[4/5] object-cover" />
-          <div>
+      {/* Story — asymmetric, organic */}
+      <section className="py-24 px-6 lg:px-10 relative">
+        <div className="absolute -top-10 right-10 w-40 h-40 rounded-full bg-gold/15 blur-3xl pointer-events-none" />
+        <div className="mx-auto max-w-6xl grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 relative">
+            <img
+              src={storyImg}
+              alt="Lotus pond"
+              loading="lazy"
+              className="rounded-[40px] aspect-[4/5] object-cover rotate-[-2deg] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.3)]"
+            />
+            <div className="absolute -bottom-6 -right-6 hidden md:block rotate-[6deg] bg-cream border border-wheat px-5 py-3 rounded-2xl shadow-md">
+              <p className="font-display text-xl text-olive italic">Since 2021</p>
+            </div>
+          </div>
+          <div className="lg:col-span-7 lg:pl-6">
             <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Why we started</p>
-            <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold">A snack drawer worth opening.</h2>
-            <p className="mt-6 text-ink/75 leading-relaxed">
+            <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold leading-[1.05]">
+              A snack drawer <span className="italic">worth opening.</span>
+            </h2>
+            <p className="mt-6 text-ink/75 leading-relaxed text-lg">
               Samarth began with a simple frustration — every "healthy" snack we tried felt like a compromise. So we went back to a snack our grandmothers knew well: the lotus seed. Light, ancient, and quietly powerful.
             </p>
             <p className="mt-4 text-ink/75 leading-relaxed">
               We partner directly with family farms in Bihar, slow-roast in iron pans, and season in small batches. No shortcuts. No preservatives. Just makhana the way it was always meant to be.
             </p>
+
+            {/* Trust strip */}
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {TRUST.map(({ Icon, label }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-2 rounded-full bg-olive/5 border border-olive/15 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.18em] text-olive font-semibold"
+                >
+                  <Icon size={13} strokeWidth={1.8} className="text-gold" />
+                  {label}
+                </span>
+              ))}
+            </div>
+
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-1 text-sm text-ink/70">
+              {PROMISES.map((p) => (
+                <li key={p} className="inline-flex items-center gap-1.5">
+                  <span className="h-1 w-1 rounded-full bg-gold" /> {p}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Mission / Vision */}
-      <section className="py-20 px-6 lg:px-10 bg-wheat/30">
-        <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-8">
+      {/* Watercolor story slideshow */}
+      <section className="py-20 px-6 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-2xl">
+            <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">A Watercolor Journey</p>
+            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-olive font-semibold leading-tight">
+              From pond to <span className="italic">pantry.</span>
+            </h2>
+            <p className="mt-4 text-ink/70 leading-relaxed">
+              Eight quiet chapters in the making of every Samarth packet — illustrated by hand.
+            </p>
+          </div>
+          <div className="mt-10">
+            <StorySlideshow />
+          </div>
+        </div>
+      </section>
+
+      {/* Mission / Vision — softer, slight rotation */}
+      <section className="py-20 px-6 lg:px-10 bg-wheat/30 relative overflow-hidden">
+        <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-10">
           {[
-            { title: "Our Mission", text: "To make wholesome snacking effortless — and to put more money in the pockets of the farms that make it possible." },
-            { title: "Our Vision", text: "A pantry where every label is honest, every bite is intentional, and nothing is wasted." },
+            { title: "Our Mission", text: "To make wholesome snacking effortless — and to put more money in the pockets of the farms that make it possible.", rot: "rotate-[-1deg]" },
+            { title: "Our Vision", text: "A pantry where every label is honest, every bite is intentional, and nothing is wasted.", rot: "rotate-[1deg]" },
           ].map((b) => (
-            <div key={b.title} className="bg-white rounded-3xl p-10 border border-wheat/60">
+            <div
+              key={b.title}
+              className={`bg-white rounded-[36px] p-10 border border-wheat/60 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.2)] ${b.rot} hover:rotate-0 transition-transform duration-500`}
+            >
               <h3 className="font-display text-3xl text-olive">{b.title}</h3>
               <p className="mt-4 text-ink/70 leading-relaxed">{b.text}</p>
             </div>
@@ -81,16 +153,19 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* Process */}
+      {/* Process — looser asymmetric */}
       <section className="py-24 px-6 lg:px-10">
         <div className="mx-auto max-w-6xl">
-          <div className="text-center max-w-2xl mx-auto">
+          <div className="max-w-2xl">
             <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Farm to Table</p>
             <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold">How it gets made.</h2>
           </div>
           <ol className="mt-14 grid gap-6 md:grid-cols-4">
             {["Harvest", "Sun Dry", "Slow Roast", "Hand Pack"].map((step, i) => (
-              <li key={step} className="bg-white rounded-3xl p-6 border border-wheat/60">
+              <li
+                key={step}
+                className={`bg-white rounded-[28px] p-6 border border-wheat/60 ${i % 2 === 0 ? "md:translate-y-4" : ""}`}
+              >
                 <span className="text-gold font-display text-3xl">0{i + 1}</span>
                 <h4 className="mt-3 font-display text-xl text-olive">{step}</h4>
                 <p className="mt-2 text-sm text-ink/65">Every batch passes through these four steps. Nothing skipped.</p>

@@ -1,6 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Twitter, Mail } from "lucide-react";
+import { Instagram, Facebook, Twitter, Mail, Leaf, ShieldCheck, Wheat, Flag, BadgeCheck } from "lucide-react";
 import { useState } from "react";
+
+const TRUST = [
+  { Icon: BadgeCheck, label: "FSSAI Certified" },
+  { Icon: ShieldCheck, label: "ISO 22000" },
+  { Icon: Wheat, label: "Gluten Free" },
+  { Icon: Leaf, label: "100% Vegetarian" },
+  { Icon: Flag, label: "Made in India" },
+];
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -17,13 +25,31 @@ export default function Footer() {
 
   return (
     <footer className="bg-olive text-cream pt-20 pb-8 px-6 lg:px-10">
-      <div className="mx-auto max-w-7xl grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      {/* Trust strip */}
+      <div className="mx-auto max-w-7xl pb-12 border-b border-cream/15">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+          {TRUST.map(({ Icon, label }) => (
+            <div
+              key={label}
+              className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cream/90"
+            >
+              <Icon size={14} className="text-wheat" strokeWidth={1.6} />
+              {label}
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-center text-xs text-cream/70 max-w-2xl mx-auto leading-relaxed">
+          Roasted, never fried · Real ingredients · Recyclable packaging — crafted with care in India.
+        </p>
+      </div>
+
+      <div className="mx-auto max-w-7xl pt-14 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-2xl font-semibold">
             Samarth <span className="italic">Makhana</span>
           </h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">
-            Rooted in Nature. Made for You. Handcrafted lotus seed snacks from India.
+            Rooted in nature. Made for you. Handcrafted lotus seed snacks from the wetlands of Bihar.
           </p>
           <div className="mt-6 flex gap-3">
             {[
@@ -96,11 +122,23 @@ export default function Footer() {
           </form>
           {status === "ok" && <p className="mt-3 text-xs text-wheat">Thanks — you're on the list.</p>}
           {status === "err" && <p className="mt-3 text-xs text-wheat">Please enter a valid email.</p>}
+
+          <div className="mt-7 space-y-2 text-[11px] text-cream/70 leading-relaxed">
+            <p>
+              <span className="uppercase tracking-[0.18em] text-wheat font-semibold">FSSAI:</span>{" "}
+              12345678901234
+            </p>
+            <p>
+              <span className="uppercase tracking-[0.18em] text-wheat font-semibold">GSTIN:</span>{" "}
+              22ABCDE1234F1Z5
+            </p>
+          </div>
         </div>
       </div>
+
       <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-xs text-wheat">© {new Date().getFullYear()} Samarth Makhana. All rights reserved.</p>
-        <p className="text-xs text-wheat">Handcrafted in India 🌿</p>
+        <p className="text-xs text-wheat">Made in India · Crafted with care 🌿</p>
       </div>
     </footer>
   );

@@ -41,9 +41,37 @@ function ContactPage() {
         <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Get in Touch</p>
         <h1 className="mt-4 font-display text-5xl lg:text-7xl text-olive font-semibold">We answer every note.</h1>
         <p className="mt-5 max-w-xl mx-auto text-ink/70">Wholesale, recipes, or just to say hi — we'd love to hear from you.</p>
+        <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-olive/10 border border-olive/20 px-4 py-2 text-xs text-olive font-semibold uppercase tracking-[0.18em]">
+          <span className="h-2 w-2 rounded-full bg-olive animate-pulse" /> Avg. response under 24 hours
+        </div>
       </section>
 
-      <section className="px-6 lg:px-10 py-16">
+      {/* Quick contact tiles */}
+      <section className="px-6 lg:px-10 -mt-6">
+        <div className="mx-auto max-w-6xl grid sm:grid-cols-3 gap-4">
+          {[
+            { Icon: Mail, label: "Email us", value: "hello@samarthmakhana.in", href: "mailto:hello@samarthmakhana.in" },
+            { Icon: Phone, label: "Call us", value: "+91 98765 43210", href: "tel:+919876543210" },
+            { Icon: MapPin, label: "Visit", value: "Darbhanga, Bihar", href: "#map" },
+          ].map((q) => (
+            <a
+              key={q.label}
+              href={q.href}
+              className="group bg-white border border-wheat/60 rounded-2xl px-5 py-4 flex items-center gap-4 hover:border-olive transition-colors"
+            >
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-olive/10 text-olive group-hover:bg-olive group-hover:text-cream transition-colors">
+                <q.Icon size={18} strokeWidth={1.6} />
+              </span>
+              <div className="text-left">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-gold font-semibold">{q.label}</p>
+                <p className="text-sm text-ink mt-0.5">{q.value}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-6 lg:px-10 py-10">
         <div className="mx-auto max-w-6xl grid lg:grid-cols-[1.2fr_1fr] gap-10">
           <form onSubmit={submit} noValidate className="bg-white rounded-[32px] p-8 lg:p-10 border border-wheat/60">
             <h2 className="font-display text-3xl text-olive">Send a message</h2>
