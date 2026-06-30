@@ -88,46 +88,99 @@ function BlogPage() {
         </div>
       </section>
 
-      {/* Grid */}
-      <section className="py-16 px-6 lg:px-10">
-        <div className="mx-auto max-w-6xl">
-          {visible.length === 0 ? (
-            <p className="text-center text-ink/60 py-16">No articles match your search.</p>
-          ) : (
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-              {visible.map((a) => (
-                <Link
-                  key={a.slug}
-                  to="/blog/$slug"
-                  params={{ slug: a.slug }}
-                  className="group bg-white rounded-[28px] overflow-hidden border border-wheat/60 transition-all hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <div className="aspect-[16/10] overflow-hidden">
-                    <img src={a.cover} alt={a.title} loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <div className="p-7">
-                    <span className="text-[11px] uppercase tracking-[0.2em] text-gold font-semibold">{a.category}</span>
-                    <h3 className="mt-3 font-display text-2xl text-olive">{a.title}</h3>
-                    <p className="mt-3 text-sm text-ink/65 line-clamp-2">{a.excerpt}</p>
-                    <div className="mt-5 text-xs text-ink/50 flex gap-3">
-                      <span>{a.author}</span><span>·</span>
-                      <span className="inline-flex items-center gap-1"><Clock size={11} /> {a.readTime}</span>
+      {/* Grid + Sidebar */}
+      <section className="pt-10 pb-20 px-6 lg:px-10">
+        <div className="mx-auto max-w-6xl grid lg:grid-cols-[1fr_300px] gap-10">
+          <div>
+            {visible.length === 0 ? (
+              <p className="text-center text-ink/60 py-16">No articles match your search.</p>
+            ) : (
+              <div className="grid gap-6 sm:grid-cols-2">
+                {visible.map((a) => (
+                  <Link
+                    key={a.slug}
+                    to="/blog/$slug"
+                    params={{ slug: a.slug }}
+                    className="group bg-white rounded-[24px] overflow-hidden border border-wheat/60 transition-all hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    <div className="aspect-[16/10] overflow-hidden">
+                      <img src={a.cover} alt={a.title} loading="lazy" className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-          {visible.length < filtered.length && (
-            <div className="mt-12 text-center">
-              <button
-                onClick={() => setPage((n) => n + 1)}
-                className="px-8 py-4 rounded-full border-2 border-olive text-olive text-xs font-semibold uppercase tracking-[0.18em] hover:bg-olive hover:text-cream transition-all"
+                    <div className="p-6">
+                      <span className="text-[11px] uppercase tracking-[0.2em] text-gold font-semibold">{a.category}</span>
+                      <h3 className="mt-2 font-display text-xl text-olive leading-snug">{a.title}</h3>
+                      <p className="mt-2 text-sm text-ink/65 line-clamp-2">{a.excerpt}</p>
+                      <div className="mt-4 text-xs text-ink/50 flex gap-3">
+                        <span>{a.author}</span><span>·</span>
+                        <span className="inline-flex items-center gap-1"><Clock size={11} /> {a.readTime}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+            {visible.length < filtered.length && (
+              <div className="mt-10 text-center">
+                <button
+                  onClick={() => setPage((n) => n + 1)}
+                  className="px-8 py-4 rounded-full border-2 border-olive text-olive text-xs font-semibold uppercase tracking-[0.18em] hover:bg-olive hover:text-cream transition-all"
+                >
+                  Load More
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <aside className="space-y-6 lg:sticky lg:top-28 self-start">
+            <div className="bg-olive text-cream rounded-3xl p-7">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-wheat font-semibold">From the kitchen</p>
+              <h3 className="mt-3 font-display text-2xl leading-snug">Get monthly recipes & restocks.</h3>
+              <p className="mt-2 text-sm text-cream/80">Slow emails, small joys. Once a month, never more.</p>
+              <Link
+                to="/contact"
+                className="mt-5 inline-flex items-center px-5 py-2.5 rounded-full bg-gold text-cream text-[11px] font-semibold uppercase tracking-[0.18em] hover:bg-gold/90 transition-colors"
               >
-                Load More
-              </button>
+                Subscribe
+              </Link>
             </div>
-          )}
+
+            <div className="bg-white rounded-3xl p-6 border border-wheat/60">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-gold font-semibold">Popular</p>
+              <ul className="mt-4 space-y-4">
+                {rest.slice(0, 4).map((a) => (
+                  <li key={a.slug}>
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: a.slug }}
+                      className="group flex gap-3 items-start"
+                    >
+                      <img src={a.cover} alt="" loading="lazy" className="h-14 w-14 rounded-xl object-cover" />
+                      <div>
+                        <p className="text-sm font-semibold text-olive leading-snug group-hover:underline line-clamp-2">{a.title}</p>
+                        <p className="mt-1 text-[11px] text-ink/50">{a.readTime}</p>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-wheat/40 rounded-3xl p-6 border border-wheat/60">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-gold font-semibold">Topics</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {CATS.slice(1).map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => { setCat(c); setPage(1); }}
+                    className="px-3 py-1.5 rounded-full bg-white text-xs text-ink border border-wheat hover:bg-olive hover:text-cream hover:border-olive transition-colors"
+                  >
+                    #{c}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
     </PageShell>
