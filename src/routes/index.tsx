@@ -1715,6 +1715,8 @@ function Crumb({
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[40%] bg-[#C68A4A] shadow-[0_3px_6px_rgba(0,0,0,0.35)]"
     />
   );
+}
+
 
 function Instagram() {
   return (
