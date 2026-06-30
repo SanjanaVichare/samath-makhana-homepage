@@ -287,9 +287,6 @@ function Home() {
 
         <PatternBackground>
           <Bestseller />
-        </PatternBackground>
-
-        <PatternBackground>
           <Benefits />
         </PatternBackground>
 
@@ -982,7 +979,7 @@ function Benefits() {
   return (
     <section
       id="benefits"
-      className="relative min-h-screen flex items-center py-16 lg:py-24 px-4 sm:px-6 lg:px-10 overflow-hidden"
+      className="relative min-h-screen flex items-center py-16 lg:py-24 px-4 sm:px-6 lg:px-10 overflow-hidden bg-fixed"
       style={{
         backgroundImage: `url(${productBg})`,
         backgroundSize: "cover",
@@ -990,14 +987,9 @@ function Benefits() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/10" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="relative rounded-[40px] bg-wheat border border-olive/10 shadow-xl overflow-hidden">
-
-          {/* Background Glow */}
-          <div className="absolute right-0 top-0 h-full w-[40%] bg-olive/5 blur-3xl" />
 
           <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20">
 
@@ -1441,8 +1433,8 @@ function Bestseller() {
               >
                 Shop Now
               </a>
-              <a
 
+              <a
                 href="#products"
                 className="px-8 py-4 rounded-full border border-[#F7ECD9]/20 text-[#F7ECD9] hover:bg-[#F7ECD9]/10 transition"
               >
@@ -1521,6 +1513,7 @@ function Bestseller() {
     min-h-screen
     overflow-hidden
     bg-[#623512]
+    bg-fixed
     bg-cover
     bg-center
     bg-no-repeat
@@ -1530,33 +1523,19 @@ function Bestseller() {
         }}
       >
 
-        {/* Warm Glow */}
+        {/* Dark scrim so light text stays readable over the doodle bg 
         <div
           className="
+      pointer-events-none
       absolute
-      -top-24
-      -left-20
-      w-[520px]
-      h-[520px]
-      rounded-full
-      bg-[#B7793F]/20
-      blur-[160px]
+      inset-0
+      bg-gradient-to-r
+      from-[#2B1B0F]/10
+      via-[#2B1B0F]/55
+      to-[#2B1B0F]/75
+      z-10
     "
-        />
-
-        {/* Right Glow */}
-        <div
-          className="
-      absolute
-      bottom-[-120px]
-      right-[-120px]
-      w-[620px]
-      h-[620px]
-      rounded-full
-      bg-[#B7793F]/12
-      blur-[170px]
-    "
-        />
+        />*/}
 
         {/* LEFT */}
         <div className="relative flex items-center justify-center p-10 lg:p-20">
@@ -1567,7 +1546,6 @@ function Bestseller() {
         w-[460px]
         h-[460px]
         rounded-full
-        bg-[#E7B96C]
         blur-[110px]
       "
           />
@@ -1635,15 +1613,15 @@ function Bestseller() {
 
           <div className="relative z-20 max-w-xl">
 
-            <h3 className="mt-5 font-display text-5xl lg:text-7xl leading-none text-[#FFF7EB] drop-shadow-[0_3px_10px_rgba(0,0,0,0.35)]">
+            <h3 className="mt-5 font-display text-5xl lg:text-7xl leading-none text-[#2B1B0F]">
               Baked With
               <br />
-              <span className="italic text-[#FFD98A]">
+              <span className="italic text-[#A86A1F]">
                 Makhana Magic.
               </span>
             </h3>
 
-            <p className="mt-6 text-lg leading-8 text-[#F4E5CF] max-w-lg">
+            <p className="mt-6 text-lg leading-8 text-[#4A3625] max-w-lg">
               Every bite delivers the perfect balance of roasted makhana,
               buttery richness and satisfying crunch. Premium ingredients,
               handcrafted baking and absolutely no compromises.
@@ -1656,17 +1634,17 @@ mt-10
 inline-flex
 items-center
 rounded-full
-bg-[#FFD98A]
-text-[#3D2414]
+bg-[#2B1B0F]
+text-[#FFF7EB]
 px-8
 py-4
 font-semibold
 tracking-wide
 transition-all
 duration-300
-hover:bg-[#FFE6AA]
+hover:bg-[#3D2414]
 hover:scale-105
-hover:shadow-[0_0_40px_rgba(255,217,138,.45)]
+hover:shadow-[0_0_40px_rgba(43,27,15,.35)]
 "
             >
               Explore Cookies →
@@ -1675,7 +1653,6 @@ hover:shadow-[0_0_40px_rgba(255,217,138,.45)]
           </div>
 
         </div>
-
       </div >
     </section >
   );
