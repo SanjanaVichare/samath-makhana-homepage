@@ -439,7 +439,7 @@ function Hero() {
               Rooted in Nature
             </p>
             <h1
-              className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-olive hero-text-in"
+              className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-[#122300] hero-text-in"
               style={{ animationDelay: "0.3s" }}
             >
               Pure. Roasted.<br />
@@ -457,13 +457,13 @@ function Hero() {
             >
               <a
                 href="#shop"
-                className="inline-flex items-center px-7 py-3.5 rounded-full bg-olive text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-olive/90 hover:scale-[1.02] transition-all duration-200"
+                className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#122300]/90 hover:scale-[1.02] transition-all duration-200"
               >
                 Shop Now
               </a>
               <a
                 href="#products"
-                className="inline-flex items-center px-7 py-3.5 rounded-full border border-gold text-gold text-xs font-semibold uppercase tracking-[0.18em] hover:bg-gold hover:text-cream transition-colors duration-200"
+                className="inline-flex items-center px-7 py-3.5 rounded-full border border-gold text-gold text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#42200B] hover:text-cream transition-colors duration-200"
               >
                 Explore Products
               </a>
@@ -1400,15 +1400,18 @@ function Bestseller() {
     <section ref={sectionRef} className="overflow-hidden">
 
       {/* TOP */}
-      <div className="grid lg:grid-cols-[6fr_4fr] min-h-[650px]">
+      <div
+        className="
+    grid
+    lg:grid-cols-[6fr_4fr]
+    min-h-screen
+    lg:h-screen
+  "
+      >
 
         {/* LEFT */}
         <div className="bg-olive flex items-center px-10 lg:px-20">
           <div className="max-w-xl">
-
-            <p className="uppercase tracking-[0.3em] text-cream/60 text-sm">
-              Bestseller
-            </p>
 
             <h2 className="mt-4 font-display text-5xl lg:text-7xl text-cream leading-[1.05]">
               Craving Cookies?
@@ -1504,6 +1507,7 @@ function Bestseller() {
     relative
     grid
     lg:grid-cols-2
+    h-screen
     min-h-screen
     overflow-hidden
     bg-[#623512]
@@ -1563,12 +1567,24 @@ function Bestseller() {
         w-[460px]
         h-[460px]
         rounded-full
-        bg-[#E7B96C]/20
+        bg-[#E7B96C]
         blur-[110px]
       "
           />
 
-          <div className="relative w-[320px] lg:w-[560px] h-[560px]">
+          <div
+            className="
+    relative
+    w-[300px]
+    h-[300px]
+    sm:w-[360px]
+    sm:h-[360px]
+    lg:w-[480px]
+    lg:h-[480px]
+    xl:w-[520px]
+    xl:h-[520px]
+  "
+          >
 
             {/* Whole Cookie */}
             <motion.img
@@ -1615,13 +1631,9 @@ function Bestseller() {
 
         {/* RIGHT */}
 
-        <div className="relative flex items-center px-10 lg:px-20">
+        <div className="relative flex items-center px-8 lg:px-12">
 
           <div className="relative z-20 max-w-xl">
-
-            <p className="uppercase tracking-[0.35em] text-[#E8C27A] text-sm font-semibold">
-              WHY PEOPLE LOVE THEM
-            </p>
 
             <h3 className="mt-5 font-display text-5xl lg:text-7xl leading-none text-white">
               Baked With
@@ -1631,42 +1643,11 @@ function Bestseller() {
               </span>
             </h3>
 
-            <p className="mt-8 text-lg leading-8 text-white/75">
+            <p className="mt-6 text-lg leading-7 text-white/75">
               Every bite delivers the perfect balance of roasted makhana,
               buttery richness and satisfying crunch. Premium ingredients,
               handcrafted baking and absolutely no compromises.
             </p>
-
-            <div className="mt-10 grid grid-cols-2 gap-5">
-              {[
-                { icon: "💪", title: "Protein Rich" },
-                { icon: "🌾", title: "Gluten Free" },
-                { icon: "🌿", title: "No Preservatives" },
-                { icon: "✨", title: "Perfect Crunch" },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="
-              rounded-3xl
-              bg-white/5
-              backdrop-blur-md
-              border
-              border-white/10
-              p-5
-              transition-all
-              duration-300
-              hover:bg-white/10
-              hover:-translate-y-2
-            "
-                >
-                  <div className="text-3xl">{item.icon}</div>
-
-                  <p className="mt-3 font-semibold text-white">
-                    {item.title}
-                  </p>
-                </div>
-              ))}
-            </div>
 
             <a
               href="/products"
@@ -1729,7 +1710,7 @@ function Instagram() {
 
       <div className="relative z-10">
         <div className="mx-auto max-w-6xl">
-          <h2 data-reveal className="reveal text-center font-display text-4xl lg:text-5xl font-semibold text-olive">
+          <h2 data-reveal className="reveal text-center font-display text-4xl lg:text-5xl font-semibold text-[#122300]">
             Follow <span className="italic">@SamarthMakhana</span>
           </h2>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-1">

@@ -32,15 +32,14 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-[400ms] ease-out ${
-        solid
-          ? "bg-cream/95 backdrop-blur shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-[400ms] ease-out ${solid
+        ? "bg-cream/95 backdrop-blur shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
+        : "bg-transparent"
+        }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="font-display text-2xl font-semibold text-olive tracking-tight">
-          Samarth <span className="italic">Makhana</span>
+        <Link to="/" className="font-display text-2xl font-semibold text-[#122300] tracking-tight">
+          Samarth Makhana
         </Link>
 
         <nav className="hidden lg:flex gap-9" aria-label="Primary">
@@ -50,15 +49,13 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
               <Link
                 key={l.to}
                 to={l.to}
-                className={`relative text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors hover:text-olive ${
-                  active ? "text-olive" : "text-ink"
-                }`}
+                className={`relative text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors hover:text-[#122300] ${active ? "text-[#122300]" : "text-ink"
+                  }`}
               >
                 {l.label}
                 <span
-                  className={`absolute -bottom-1 left-0 h-[2px] bg-olive transition-all duration-300 ${
-                    active ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-[#122300] transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
                 />
               </Link>
             );
@@ -69,7 +66,7 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
           <Link
             to="/cart"
             aria-label={`Cart, ${count} items`}
-            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-ink hover:text-olive transition-colors"
+            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full text-ink hover:text-[#122300] transition-colors"
           >
             <ShoppingBag size={20} strokeWidth={1.6} />
             {count > 0 && (
@@ -80,7 +77,7 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
           </Link>
           <Link
             to="/shop"
-            className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-olive text-cream text-xs font-semibold uppercase tracking-[0.15em] hover:bg-olive/90 hover:scale-[1.02] transition-all duration-200"
+            className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#122300]/90 hover:scale-[1.02] transition-all duration-200"
           >
             Shop Now
           </Link>
@@ -89,7 +86,7 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center text-olive"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center text-[#122300]"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -103,7 +100,7 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
               <Link
                 key={l.to}
                 to={l.to}
-                className="text-sm font-semibold uppercase tracking-[0.2em] text-ink hover:text-olive"
+                className="text-sm font-semibold uppercase tracking-[0.2em] text-ink hover:text-[#122300]"
               >
                 {l.label}
               </Link>

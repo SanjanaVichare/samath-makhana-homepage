@@ -24,25 +24,32 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-olive text-cream pt-20 pb-8 px-6 lg:px-10">
-      {/* Trust strip */}
-      <div className="mx-auto max-w-7xl pb-12 border-b border-cream/15">
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
-          {TRUST.map(({ Icon, label }) => (
-            <div
-              key={label}
-              className="inline-flex items-center gap-2 rounded-full border border-cream/20 bg-cream/5 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-cream/90"
-            >
-              <Icon size={14} className="text-wheat" strokeWidth={1.6} />
-              {label}
-            </div>
-          ))}
-        </div>
-        <p className="mt-6 text-center text-xs text-cream/70 max-w-2xl mx-auto leading-relaxed">
-          Roasted, never fried · Real ingredients · Recyclable packaging — crafted with care in India.
-        </p>
-      </div>
+    <footer className="bg-[#122300] text-cream pt-8 pb-8 px-6 lg:px-10">
+      {/* Top Info Strip */}
+      <div className="border-y border-cream/10 bg-[#122300]">
+        <div className="mx-auto max-w-7xl px-4 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-[11px] uppercase tracking-[0.22em] text-cream/75">
 
+            <div className="flex items-center gap-2">
+              <Leaf size={13} className="text-wheat" strokeWidth={2} />
+              <span>100% Vegetarian</span>
+            </div>
+
+            <span className="hidden sm:block text-wheat/40">•</span>
+
+            <span>
+              Roasted, never fried · Real ingredients · Recyclable packaging
+            </span>
+
+            <span className="hidden lg:block text-wheat/40">•</span>
+
+            <span className="text-wheat">
+              Made in India · Crafted with care
+            </span>
+
+          </div>
+        </div>
+      </div>
       <div className="mx-auto max-w-7xl pt-14 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-2xl font-semibold">
