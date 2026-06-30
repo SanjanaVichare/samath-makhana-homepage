@@ -1357,42 +1357,44 @@ function Bestseller() {
     [3, -3]
   );
 
-  // 3. THEN create cookie animations
+  // 3. THEN create cookie animations — smoother easing & premium pacing
   const cookieProgress = useTransform(
     scrollYProgress,
-    [0.35, 0.75],
-    [0, 1]
-  );
-
-  const wholeOpacity = useTransform(
-    cookieProgress,
-    [0, 0.45],
-    [1, 0]
-  );
-
-  const brokenOpacity = useTransform(
-    cookieProgress,
-    [0.35, 0.7],
-    [0, 1]
-  );
-
-  const cookieScale = useTransform(
-    cookieProgress,
+    [0.32, 0.78],
     [0, 1],
-    [1, 1.08]
+    { clamp: true }
   );
 
-  const cookieRotate = useTransform(
-    cookieProgress,
-    [0, 1],
-    [0, -6]
+  // Slow, soft cross-fade
+  const wholeOpacity = useTransform(cookieProgress, [0, 0.42, 0.55], [1, 1, 0]);
+  const brokenOpacity = useTransform(cookieProgress, [0.45, 0.58, 1], [0, 1, 1]);
+
+  // Gentle continuous transforms — no jump at the swap
+  const cookieScale = useTransform(cookieProgress, [0, 0.5, 1], [1, 1.04, 1.08]);
+  const cookieRotate = useTransform(cookieProgress, [0, 1], [0, -4]);
+  const cookieY = useTransform(cookieProgress, [0, 1], [0, -8]);
+
+  // Subtle "impact" shadow that deepens during the crack
+  const shadowBlur = useTransform(cookieProgress, [0.4, 0.55, 0.7], [35, 55, 40]);
+  const shadowOpacity = useTransform(cookieProgress, [0.4, 0.55, 0.7], [0.45, 0.6, 0.5]);
+  const wholeFilter = useTransform(
+    [shadowBlur, shadowOpacity] as never,
+    ([b, o]: number[]) => `drop-shadow(0 ${Math.round(b * 0.7)}px ${b}px rgba(0,0,0,${o}))`
   );
 
-  const cookieY = useTransform(
-    cookieProgress,
-    [0, 1],
-    [0, -10]
-  );
+  // Crumb particles — appear right at the crack moment
+  const crumbProgress = useTransform(cookieProgress, [0.45, 0.65], [0, 1]);
+  const crumbOpacity = useTransform(cookieProgress, [0.45, 0.55, 0.85], [0, 1, 0]);
+  const CRUMBS = [
+    { x: -120, y: 40, r: 6, dx: -40, dy: 80, rot: -25 },
+    { x: 90, y: -20, r: 4, dx: 60, dy: 90, rot: 30 },
+    { x: -40, y: 100, r: 5, dx: -20, dy: 110, rot: -10 },
+    { x: 140, y: 60, r: 3, dx: 50, dy: 130, rot: 45 },
+    { x: -90, y: -10, r: 3.5, dx: -60, dy: 70, rot: -40 },
+    { x: 30, y: 130, r: 4.5, dx: 20, dy: 140, rot: 20 },
+    { x: 70, y: -60, r: 2.5, dx: 30, dy: 60, rot: 15 },
+    { x: -150, y: 110, r: 3, dx: -50, dy: 120, rot: -20 },
+  ];
 
   return (
     <section ref={sectionRef} className="overflow-hidden">
