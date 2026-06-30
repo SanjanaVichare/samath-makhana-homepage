@@ -1699,6 +1699,23 @@ function Bestseller() {
   );
 }
 
+function Crumb({
+  progress,
+  c,
+}: {
+  progress: import("framer-motion").MotionValue<number>;
+  c: { x: number; y: number; r: number; dx: number; dy: number; rot: number };
+}) {
+  const tx = useTransform(progress, [0, 1], [c.x, c.x + c.dx]);
+  const ty = useTransform(progress, [0, 1], [c.y, c.y + c.dy]);
+  const rot = useTransform(progress, [0, 1], [0, c.rot]);
+  return (
+    <motion.span
+      style={{ x: tx, y: ty, rotate: rot, width: c.r * 2, height: c.r * 2 }}
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[40%] bg-[#C68A4A] shadow-[0_3px_6px_rgba(0,0,0,0.35)]"
+    />
+  );
+
 function Instagram() {
   return (
     <section className="relative py-28 px-6 lg:px-10 overflow-hidden">
