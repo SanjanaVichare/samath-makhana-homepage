@@ -69,6 +69,24 @@
   animation: float 4s ease-in-out infinite;
 }
 
+@keyframes brand-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-brand-marquee {
+  animation: brand-marquee 25s linear infinite;
+}
+
+.animate-brand-marquee:hover {
+  animation-play-state: paused;
+}
+
 :root {
   --radius: 0.5rem;
 

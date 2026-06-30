@@ -418,7 +418,7 @@ function ProductsPage() {
                         {/* Ticket Badge */}
                         <div
                           className={`
-      absolute top-4 left-4 h-[36px] px-4 flex items-center text-xs font-semibold text-white z-20
+      absolute top-4 left-4 h-[36px] px-4 flex items-center text-xs font-semibold text-white z-30
       ${p.tag === "Popular" ? "bg-gold" : "bg-olive"}
     `}
                           style={{
@@ -430,25 +430,48 @@ function ProductsPage() {
                           {p.tag}
                         </div>
 
-                        {/* Premium Glow */}
+                        {/* Main Premium Glow */}
                         <div
                           className="
-    absolute
-    left-1/2
-    top-[62%]
-    h-52
-    w-52
-    -translate-x-1/2
-    -translate-y-1/2
-    rounded-full
-    bg-[#FFD45C]
-    opacity-80
-    blur-[70px]
-    transition-all
-    duration-700
-    group-hover:scale-125
-    group-hover:opacity-100
-  "
+      absolute
+      left-1/2
+      top-[62%]
+      w-56
+      h-56
+      -translate-x-1/2
+      -translate-y-1/2
+      rounded-full
+      bg-[#FFD45C]
+      opacity-80
+      blur-[80px]
+      transition-all
+      duration-700
+      group-hover:scale-125
+      group-hover:opacity-100
+    "
+                        />
+
+                        {/* Product Halo */}
+                        <div
+                          className="
+      absolute
+      left-1/2
+      top-1/2
+      w-[180px]
+      h-[220px]
+      -translate-x-1/2
+      -translate-y-1/2
+      rounded-full
+      bg-gradient-to-b
+      from-[#FFF7DA]
+      via-[#FFE08A]
+      to-transparent
+      opacity-80
+      blur-[45px]
+      transition-all
+      duration-700
+      group-hover:scale-125
+    "
                         />
 
                         {/* Secondary Glow */}
@@ -457,18 +480,26 @@ function ProductsPage() {
       absolute
       left-1/2
       top-1/2
-      h-28
-      w-28
+      h-32
+      w-32
       -translate-x-1/2
       -translate-y-1/2
       rounded-full
       bg-olive/20
-      blur-2xl
+      blur-3xl
       transition-all
       duration-700
       group-hover:scale-110
     "
                         />
+
+                        {/* Floating Sparkles */}
+                        <div className="absolute inset-0 pointer-events-none z-10">
+                          <span className="absolute top-8 left-12 w-2 h-2 rounded-full bg-white/80 blur-sm animate-pulse" />
+                          <span className="absolute top-14 right-10 w-1.5 h-1.5 rounded-full bg-[#FFD45C] blur-sm animate-ping" />
+                          <span className="absolute bottom-12 left-10 w-2 h-2 rounded-full bg-white/60 blur-sm animate-pulse" />
+                          <span className="absolute bottom-10 right-14 w-1.5 h-1.5 rounded-full bg-[#FFE79A] blur-sm animate-pulse" />
+                        </div>
 
                         {/* Product Image */}
                         <img
@@ -481,12 +512,15 @@ function ProductsPage() {
                           alt={p.name}
                           className="
       relative
-      z-10
+      z-20
       w-[200px]
       h-[230px]
       object-contain
       transition-all
       duration-700
+      ease-out
+      drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
+      group-hover:drop-shadow-[0_30px_50px_rgba(255,200,80,0.55)]
       group-hover:scale-110
       group-hover:-translate-y-2
     "

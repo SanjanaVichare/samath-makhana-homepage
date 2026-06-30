@@ -4,11 +4,20 @@ import ig3 from "@/assets/ig-3.jpg";
 import ig4 from "@/assets/ig-4.jpg";
 import ig5 from "@/assets/ig-5.jpg";
 import ig6 from "@/assets/ig-6.jpg";
+import pcp from "@/assets/packet-chat-pata.png";
+import pcp1 from "@/assets/packet-peri-peri.png";
+import pcp2 from "@/assets/packet-cheese.png";
+import pcp3 from "@/assets/packet-pudina.png";
+import pcp4 from "@/assets/packet-salt-pepper.png";
+import pcp5 from "@/assets/packet-cream-onion.png";
+import cookiep from "@/assets/cookie-pattern.png";
+import cookiesf from "@/assets/cookie-pattern.png";
+
 import pClassic from "@/assets/product-classic.jpg";
 import pSpiced from "@/assets/product-spiced.jpg";
 import pCookies from "@/assets/product-cookies.jpg";
 
-export type ProductSize = { weight: string; price: number };
+export type ProductSize = { weight: string; price: number, image: string; };
 export type Product = {
   id: string;
   name: string;
@@ -48,9 +57,21 @@ export const PRODUCTS: Product[] = [
     storage: "Store in a cool, dry place. Consume within 7 days of opening.",
     benefits: ["High protein", "Gluten free", "No preservatives", "Roasted, never fried"],
     sizes: [
-      { weight: "30g", price: 99 },
-      { weight: "60g", price: 179 },
-      { weight: "120g", price: 329 },
+      {
+        weight: "30g",
+        price: 99,
+        image: pcp1,
+      },
+      {
+        weight: "60g",
+        price: 179,
+        image: pcp1,
+      },
+      {
+        weight: "120g",
+        price: 329,
+        image: pcp1,
+      },
     ],
     images: [pSpiced, ig1, ig2],
     tag: "Spicy",
@@ -75,9 +96,9 @@ export const PRODUCTS: Product[] = [
     storage: "Keep airtight, away from sunlight. Best within 7 days of opening.",
     benefits: ["Real cheese", "Gluten free", "High protein", "Kid-friendly"],
     sizes: [
-      { weight: "30g", price: 99 },
-      { weight: "60g", price: 179 },
-      { weight: "120g", price: 329 },
+      { weight: "30g", price: 99, image: pcp2, },
+      { weight: "60g", price: 179, image: pcp2, },
+      { weight: "120g", price: 329, image: pcp2, },
     ],
     images: [pClassic, ig3, ig4],
     tag: "Cheesy",
@@ -101,9 +122,9 @@ export const PRODUCTS: Product[] = [
     storage: "Cool, dry place. Reseal after opening.",
     benefits: ["Low calorie", "Gluten free", "Vegan", "No fried"],
     sizes: [
-      { weight: "30g", price: 89 },
-      { weight: "60g", price: 169 },
-      { weight: "120g", price: 309 },
+      { weight: "30g", price: 89, image: pcp, },
+      { weight: "60g", price: 169, image: pcp, },
+      { weight: "120g", price: 309, image: pcp, },
     ],
     images: [ig5, ig1, ig2],
     tag: "Tangy",
@@ -128,9 +149,9 @@ export const PRODUCTS: Product[] = [
     storage: "Cool, dry place. Consume within 7 days of opening.",
     benefits: ["High protein", "Gluten free", "No artificial colours"],
     sizes: [
-      { weight: "30g", price: 99 },
-      { weight: "60g", price: 179 },
-      { weight: "120g", price: 329 },
+      { weight: "30g", price: 99, image: pcp5, },
+      { weight: "60g", price: 179, image: pcp5, },
+      { weight: "120g", price: 329, image: pcp5, },
     ],
     images: [ig6, ig2, ig3],
     tag: "Popular",
@@ -154,9 +175,9 @@ export const PRODUCTS: Product[] = [
     storage: "Cool, dry place.",
     benefits: ["Refreshing", "Aids digestion", "Vegan"],
     sizes: [
-      { weight: "30g", price: 89 },
-      { weight: "60g", price: 169 },
-      { weight: "120g", price: 309 },
+      { weight: "30g", price: 89, image: pcp3, },
+      { weight: "60g", price: 169, image: pcp3, },
+      { weight: "120g", price: 309, image: pcp3, },
     ],
     images: [ig2, ig1, ig5],
     tag: "Fresh",
@@ -181,9 +202,9 @@ export const PRODUCTS: Product[] = [
     storage: "Cool, dry place.",
     benefits: ["Minimal ingredients", "High protein", "Heart-friendly"],
     sizes: [
-      { weight: "30g", price: 89 },
-      { weight: "60g", price: 169 },
-      { weight: "120g", price: 309 },
+      { weight: "30g", price: 89, image: pcp4, },
+      { weight: "60g", price: 169, image: pcp4, },
+      { weight: "120g", price: 309, image: pcp4, },
     ],
     images: [ig3, ig4, ig6],
     tag: "Classic",
@@ -208,9 +229,9 @@ export const PRODUCTS: Product[] = [
     storage: "Cool, dry place. Best within 10 days of opening.",
     benefits: ["No maida", "No refined sugar", "High protein", "Light texture"],
     sizes: [
-      { weight: "150g", price: 199 },
-      { weight: "250g", price: 319 },
-      { weight: "500g", price: 599 },
+      { weight: "150g", price: 199, image: pcp3, },
+      { weight: "250g", price: 319, image: pcp3, },
+      { weight: "500g", price: 599, image: pcp3, },
     ],
     images: [pCookies, ig4, ig5],
     tag: "Cookies",
@@ -235,9 +256,9 @@ export const PRODUCTS: Product[] = [
     storage: "Cool, dry place. Best within 10 days of opening.",
     benefits: ["No added sugar", "Diabetic friendly", "Rich in fiber"],
     sizes: [
-      { weight: "150g", price: 229 },
-      { weight: "250g", price: 369 },
-      { weight: "500g", price: 679 },
+      { weight: "150g", price: 229, image: pcp3, },
+      { weight: "250g", price: 369, image: pcp3, },
+      { weight: "500g", price: 679, image: pcp3, },
     ],
     images: [pCookies, ig6, ig3],
     tag: "Sugar Free",

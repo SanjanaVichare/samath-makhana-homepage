@@ -13,15 +13,24 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import bestseller from "@/assets/bestseller-cookies.jpg";
+import bcookie from "@/assets/broken-cookie.png"
+import bestcookie from "@/assets/cookie-full.png"
 import pcp from "@/assets/packet-chat-pata.png";
 import pcp1 from "@/assets/packet-peri-peri.png";
 import pcp2 from "@/assets/packet-cheese.png";
 import pcp3 from "@/assets/packet-pudina.png";
 import pcp4 from "@/assets/packet-salt-pepper.png";
 import pcp5 from "@/assets/packet-cream-onion.png";
-import cookiep from "@/assets/cookie-pattern.png";
-import cookiesf from "@/assets/cookie-pattern.png";
+import cookiep from "@/assets/packet-cookies.png";
+import cookiesf from "@/assets/packet-cookies-sugar-free.png";
+import bowlchatpata from "@/assets/bowl-chat-pata.png";
+import bowlcheese from "@/assets/bowl-cheese.png";
+import bowlcookies from "@/assets/bowl-cookies.png";
+import bowlperi from "@/assets/bowl-peri-peri.png";
+import bowlcream from "@/assets/bowl-cream-onion.png";
+import bowlsalt from "@/assets/bowl-salt-pepper.png";
+import bowlpudina from "@/assets/bowl-pudina.png";
+import bowlcookiesf from "@/assets/bowl-cookies-sugar-free.png";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
 import ig3 from "@/assets/ig-3.jpg";
@@ -31,16 +40,22 @@ import ig6 from "@/assets/ig-6.jpg";
 import SiteNavbar from "@/components/layout/Navbar";
 import SiteFooter from "@/components/layout/Footer";
 import { NewsletterSection, FinalCTA } from "@/components/sections/HomeAdditions";
+import amazon from "@/assets/amazon.png";
+import blinkit from "@/assets/blinkit.png";
+import zepto from "@/assets/Zepto.png";
+import instamart from "@/assets/instamart.png";
+import flipkart from "@/assets/flipcart.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const NAV = [
-  { label: "Home", href: "#home" },
-  { label: "Products", href: "/products" },
-  { label: "About Us", href: "#our-story" },
-  { label: "Benefits", href: "#benefits" },
+const BRANDS = [
+  { name: "Amazon", logo: amazon },
+  { name: "Blinkit", logo: blinkit },
+  { name: "Zepto", logo: zepto },
+  { name: "Instamart", logo: instamart },
+  { name: "Flipkart", logo: flipkart },
 ];
 
 const PRODUCTS = [
@@ -53,6 +68,11 @@ const PRODUCTS = [
       "60g": pcp1,
       "120g": pcp1,
     },
+    bowlImages: {
+      "30g": bowlperi,
+      "60g": bowlperi,
+      "120g": bowlperi,
+    },
   },
   {
     name: "Cheese Makhana",
@@ -62,6 +82,11 @@ const PRODUCTS = [
       "30g": pcp2,
       "60g": pcp2,
       "120g": pcp2,
+    },
+    bowlImages: {
+      "30g": bowlcheese,
+      "60g": bowlcheese,
+      "120g": bowlcheese,
     },
   },
   {
@@ -73,6 +98,11 @@ const PRODUCTS = [
       "60g": pcp,
       "120g": pcp,
     },
+    bowlImages: {
+      "30g": bowlchatpata,
+      "60g": bowlchatpata,
+      "120g": bowlchatpata,
+    },
   },
   {
     name: "Cream & Onion Makhana",
@@ -82,6 +112,11 @@ const PRODUCTS = [
       "30g": pcp5,
       "60g": pcp5,
       "120g": pcp5,
+    },
+    bowlImages: {
+      "30g": bowlcream,
+      "60g": bowlcream,
+      "120g": bowlcream,
     },
   },
   {
@@ -93,6 +128,11 @@ const PRODUCTS = [
       "60g": pcp3,
       "120g": pcp3,
     },
+    bowlImages: {
+      "30g": bowlpudina,
+      "60g": bowlpudina,
+      "120g": bowlpudina,
+    },
   },
   {
     name: "Salt & Pepper Makhana",
@@ -102,6 +142,11 @@ const PRODUCTS = [
       "30g": pcp4,
       "60g": pcp4,
       "120g": pcp4,
+    },
+    bowlImages: {
+      "30g": bowlsalt,
+      "60g": bowlsalt,
+      "120g": bowlsalt,
     },
   },
   {
@@ -113,6 +158,11 @@ const PRODUCTS = [
       "250g": cookiep,
       "500g": cookiep,
     },
+    bowlImages: {
+      "150g": bowlcookies,
+      "250g": bowlcookies,
+      "500g": bowlcookies,
+    },
   },
   {
     name: "Sugar Free Cookies",
@@ -122,6 +172,11 @@ const PRODUCTS = [
       "150g": cookiesf,
       "250g": cookiesf,
       "500g": cookiesf,
+    },
+    bowlImages: {
+      "150g": bowlcookiesf,
+      "250g": bowlcookiesf,
+      "500g": bowlcookiesf,
     },
   },
 ];
@@ -170,19 +225,15 @@ function PatternBackground({
 }) {
   return (
     <div className="relative overflow-hidden">
-      <img
-        src={productBg}
-        alt=""
-        className="
-          absolute
-          inset-0
-          w-full
-          h-full
-          object-cover
-          opacity-[0.6]
-          pointer-events-none
-          select-none
-        "
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url(${productBg})`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "1040px",
+          backgroundPosition: "center top",
+          opacity: 0.8,
+        }}
       />
 
       <div className="relative z-10">
@@ -229,6 +280,7 @@ function Home() {
         <Hero />
         <Marquee />
         <PatternBackground>
+          <ShopBrands />
           <Products />
         </PatternBackground>
         <PatternBackground>
@@ -472,21 +524,9 @@ function Products() {
   return (
     <section
       id="products"
-      className="relative py-16 px-6 lg:px-10 overflow-hidden"
+      className="relative pt-0 pb-20 px-6 lg:px-10 overflow-hidden"
     >
-      <img
-        src={productBg}
-        alt=""
-        className="
-          absolute
-          inset-0
-          w-full
-          h-full
-          object-cover
-          opacity-[0.6]
-          pointer-events-none
-        "
-      />
+
 
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Heading */}
@@ -610,11 +650,8 @@ function Products() {
       text-xs
       font-semibold
       text-white
-      z-10
-      ${p.tag === "Popular"
-                            ? "bg-gold"
-                            : "bg-olive"
-                          }
+      z-30
+      ${p.tag === "Popular" ? "bg-gold" : "bg-olive"}
     `}
                         style={{
                           clipPath:
@@ -625,6 +662,78 @@ function Products() {
                         {p.tag}
                       </div>
 
+                      {/* Main Golden Glow */}
+                      <div
+                        className="
+      absolute
+      left-1/2
+      top-[62%]
+      w-56
+      h-56
+      -translate-x-1/2
+      -translate-y-1/2
+      rounded-full
+      bg-[#FFD45C]
+      opacity-80
+      blur-[80px]
+      transition-all
+      duration-700
+      group-hover:scale-125
+      group-hover:opacity-100
+    "
+                      />
+
+                      {/* Soft Product Halo */}
+                      <div
+                        className="
+      absolute
+      left-1/2
+      top-1/2
+      w-[180px]
+      h-[220px]
+      -translate-x-1/2
+      -translate-y-1/2
+      rounded-full
+      bg-gradient-to-b
+      from-[#FFF7DA]
+      via-[#FFE08A]
+      to-transparent
+      opacity-80
+      blur-[45px]
+      transition-all
+      duration-700
+      group-hover:scale-125
+    "
+                      />
+
+                      {/* Secondary Glow */}
+                      <div
+                        className="
+      absolute
+      left-1/2
+      top-1/2
+      w-32
+      h-32
+      -translate-x-1/2
+      -translate-y-1/2
+      rounded-full
+      bg-olive/20
+      blur-3xl
+      transition-all
+      duration-700
+      group-hover:scale-110
+    "
+                      />
+
+                      {/* Floating Sparkles */}
+                      <div className="absolute inset-0 pointer-events-none z-10">
+                        <span className="absolute top-8 left-12 w-2 h-2 rounded-full bg-white/80 blur-sm animate-pulse" />
+                        <span className="absolute top-14 right-10 w-1.5 h-1.5 rounded-full bg-[#FFD45C] blur-sm animate-ping" />
+                        <span className="absolute bottom-12 left-10 w-2 h-2 rounded-full bg-white/60 blur-sm animate-pulse" />
+                        <span className="absolute bottom-10 right-14 w-1.5 h-1.5 rounded-full bg-[#FFE79A] blur-sm animate-pulse" />
+                      </div>
+
+                      {/* Packet Image */}
                       <img
                         src={
                           p.images[
@@ -634,13 +743,49 @@ function Products() {
                         }
                         alt={p.name}
                         className="
+    absolute
+    inset-0
+    z-20
     w-full
     h-[230px]
     object-contain
+    rounded-3xl
     transition-all
     duration-700
+    ease-out
+    drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
+    group-hover:opacity-0
+    group-hover:scale-90
+    group-hover:rotate-[-6deg]
+  "
+                      />
+
+                      {/* Bowl Image */}
+                      <img
+                        src={
+                          p.bowlImages[
+                          (selectedWeight[p.name] ||
+                            Object.keys(p.bowlImages)[0]) as keyof typeof p.bowlImages
+                          ]
+                        }
+                        alt={`${p.name} Bowl`}
+                        className="
+    absolute
+    inset-0
+    z-20
+    w-full
+    h-[230px]
+    object-contain
     rounded-3xl
+    opacity-0
+    scale-125
+    transition-all
+    duration-700
+    ease-out
+    drop-shadow-[0_22px_38px_rgba(255,190,60,0.45)]
+    group-hover:opacity-100
     group-hover:scale-110
+    group-hover:-translate-y-2
   "
                       />
                     </div>
@@ -1193,6 +1338,7 @@ function Bestseller() {
     offset: ["start end", "end start"],
   });
 
+  // 2. Existing animations
   const x = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
@@ -1211,13 +1357,53 @@ function Bestseller() {
     [3, -3]
   );
 
+  // 3. THEN create cookie animations
+  const cookieProgress = useTransform(
+    scrollYProgress,
+    [0.35, 0.75],
+    [0, 1]
+  );
+
+  const wholeOpacity = useTransform(
+    cookieProgress,
+    [0, 0.45],
+    [1, 0]
+  );
+
+  const brokenOpacity = useTransform(
+    cookieProgress,
+    [0.35, 0.7],
+    [0, 1]
+  );
+
+  const cookieScale = useTransform(
+    cookieProgress,
+    [0, 1],
+    [1, 1.08]
+  );
+
+  const cookieRotate = useTransform(
+    cookieProgress,
+    [0, 1],
+    [0, -6]
+  );
+
+  const cookieY = useTransform(
+    cookieProgress,
+    [0, 1],
+    [0, -10]
+  );
+
   return (
     <section ref={sectionRef} className="overflow-hidden">
+
       {/* TOP */}
       <div className="grid lg:grid-cols-[6fr_4fr] min-h-[650px]">
+
         {/* LEFT */}
         <div className="bg-olive flex items-center px-10 lg:px-20">
           <div className="max-w-xl">
+
             <p className="uppercase tracking-[0.3em] text-cream/60 text-sm">
               Bestseller
             </p>
@@ -1248,50 +1434,49 @@ function Bestseller() {
                 Explore
               </a>
             </div>
+
           </div>
         </div>
 
         {/* RIGHT */}
         <div className="relative bg-wheat flex items-center justify-center overflow-visible">
-          <>
-            {/* Glow */}
-            <div
-              className="
-      absolute
-      w-[400px]
-      h-[400px]
-      rounded-full
-      bg-white/20
-      blur-3xl
-    "
-            />
 
-            <motion.img
-              src={cookiePack}
-              alt=""
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                duration: 3.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{
-                x,
-                scale,
-                rotate,
-                marginLeft: "-120px",
-              }}
-              className="
-      w-[380px]
-      lg:w-[550px]
-      relative
-      z-10
-      drop-shadow-[0_40px_60px_rgba(0,0,0,0.25)]
-    "
-            />
-          </>
+          <div
+            className="
+              absolute
+              w-[400px]
+              h-[400px]
+              rounded-full
+              bg-white/20
+              blur-3xl
+            "
+          />
+
+          <motion.img
+            src={cookiePack}
+            alt=""
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            style={{
+              x,
+              scale,
+              rotate,
+              marginLeft: "-120px",
+            }}
+            className="
+              w-[380px]
+              lg:w-[550px]
+              relative
+              z-10
+              drop-shadow-[0_40px_60px_rgba(0,0,0,0.25)]
+            "
+          />
 
           <div className="absolute right-4 top-1/2 -translate-y-1/2 rotate-180">
             <span
@@ -1307,67 +1492,210 @@ function Bestseller() {
               COOKIES
             </span>
           </div>
+
         </div>
       </div>
 
       {/* BOTTOM */}
-      <div className="relative grid lg:grid-cols-2 min-h-screen bg-cream overflow-hidden">
-        {/* Doodle BG */}
+      <div
+        className="
+    relative
+    grid
+    lg:grid-cols-2
+    min-h-screen
+    overflow-hidden
+    bg-[#623512]
+  "
+      >
+        {/* Pattern */}
+        <img
+          src={productBg}
+          alt=""
+          className="
+      absolute
+      inset-0
+      w-full
+      h-full
+      object-cover
+      opacity-[0.08]
+      mix-blend-screen
+      pointer-events-none
+      select-none
+    "
+        />
+
+        {/* Warm Glow */}
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `url(${productBg})`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "400px",
-            opacity: 0.08,
-          }}
+          className="
+      absolute
+      -top-24
+      -left-20
+      w-[520px]
+      h-[520px]
+      rounded-full
+      bg-[#D6A66A]/20
+      blur-[160px]
+    "
+        />
+
+        {/* Right Glow */}
+        <div
+          className="
+      absolute
+      bottom-[-120px]
+      right-[-120px]
+      w-[620px]
+      h-[620px]
+      rounded-full
+      bg-[#8C5A2D]/20
+      blur-[170px]
+    "
         />
 
         {/* LEFT */}
         <div className="relative flex items-center justify-center p-10 lg:p-20">
-          <img
-            src={cookieSplash}
-            alt="Makhana Cookies"
-            className="w-[280px] lg:w-[500px] object-contain"
+
+          <div
+            className="
+        absolute
+        w-[460px]
+        h-[460px]
+        rounded-full
+        bg-[#E7B96C]/20
+        blur-[110px]
+      "
           />
+
+          <div className="relative w-[320px] lg:w-[560px] h-[560px]">
+
+            {/* Whole Cookie */}
+
+            <motion.img
+              src={bestcookie}
+              alt="Cookie"
+              style={{
+                opacity: wholeOpacity,
+                scale: cookieScale,
+                rotate: cookieRotate,
+                y: cookieY,
+              }}
+              className="
+          absolute
+          inset-0
+          z-20
+          w-full
+          h-full
+          object-contain
+          drop-shadow-[0_35px_70px_rgba(0,0,0,.45)]
+        "
+            />
+
+            {/* Broken Cookie */}
+
+            <motion.img
+              src={bcookie}
+              alt="Broken Cookie"
+              style={{
+                opacity: brokenOpacity,
+                scale: cookieScale,
+                rotate: cookieRotate,
+                y: cookieY,
+              }}
+              className="
+          absolute
+          inset-0
+          z-20
+          w-full
+          h-full
+          object-contain
+          drop-shadow-[0_35px_70px_rgba(0,0,0,.45)]
+        "
+            />
+
+          </div>
         </div>
 
         {/* RIGHT */}
-        <div className="relative flex items-center p-10 lg:px-20">
-          <div className="max-w-xl">
-            <p className="uppercase tracking-[0.3em] text-gold text-sm">
-              Why People Love Them
+
+        <div className="relative flex items-center px-10 lg:px-20">
+
+          <div className="relative z-20 max-w-xl">
+
+            <p className="uppercase tracking-[0.35em] text-[#E8C27A] text-sm font-semibold">
+              WHY PEOPLE LOVE THEM
             </p>
 
-            <h3 className="mt-4 font-display text-5xl lg:text-7xl text-olive leading-[1.05]">
-              Not Just Another
+            <h3 className="mt-5 font-display text-5xl lg:text-7xl leading-none text-white">
+              Baked With
               <br />
-              Cookie.
+              <span className="italic text-[#E8C27A]">
+                Makhana Magic.
+              </span>
             </h3>
 
-            <p className="mt-8 text-lg text-olive/70 leading-relaxed">
-              Made with protein-rich makhana and baked for the perfect crunch,
-              these cookies deliver everything you love about snacking without
-              weighing you down.
+            <p className="mt-8 text-lg leading-8 text-white/75">
+              Every bite delivers the perfect balance of roasted makhana,
+              buttery richness and satisfying crunch. Premium ingredients,
+              handcrafted baking and absolutely no compromises.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 grid grid-cols-2 gap-5">
               {[
-                "Protein Rich",
-                "Gluten Free",
-                "No Preservatives",
-                "Light & Crunchy",
+                { icon: "💪", title: "Protein Rich" },
+                { icon: "🌾", title: "Gluten Free" },
+                { icon: "🌿", title: "No Preservatives" },
+                { icon: "✨", title: "Perfect Crunch" },
               ].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-olive/20 bg-white/40 backdrop-blur-sm px-5 py-2 text-sm text-olive"
+                <div
+                  key={item.title}
+                  className="
+              rounded-3xl
+              bg-white/5
+              backdrop-blur-md
+              border
+              border-white/10
+              p-5
+              transition-all
+              duration-300
+              hover:bg-white/10
+              hover:-translate-y-2
+            "
                 >
-                  {item}
-                </span>
+                  <div className="text-3xl">{item.icon}</div>
+
+                  <p className="mt-3 font-semibold text-white">
+                    {item.title}
+                  </p>
+                </div>
               ))}
             </div>
+
+            <a
+              href="/products"
+              className="
+          mt-10
+          inline-flex
+          items-center
+          rounded-full
+          bg-[#E8C27A]
+          text-[#2B1B16]
+          px-8
+          py-4
+          font-semibold
+          tracking-wide
+          transition-all
+          duration-300
+          hover:scale-105
+          hover:shadow-[0_0_40px_rgba(232,194,122,.35)]
+        "
+            >
+              Explore Cookies →
+            </a>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );
@@ -1469,5 +1797,77 @@ export function Footer() {
         <p className="text-xs text-wheat">Handcrafted in India 🌿</p>
       </div>
     </footer>
+  );
+}
+
+function ShopBrands() {
+  return (
+    <section
+      className="
+  relative
+  pt-20
+pb-1
+  overflow-hidden
+  bg-[#FCF8F0]
+"
+    >
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url(${productBg})`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "1060px",
+          opacity: 0.8,
+        }}
+      />
+      <div className="relative z-10 text-center mb-8">
+        <p className="uppercase tracking-[0.35em] text-[11px] text-gold font-semibold">
+          Available On
+        </p>
+
+        <h2 className="mt-3 font-display text-3xl lg:text-4xl text-olive">
+          Shop From Your Favourite Stores
+        </h2>
+      </div>
+
+      <div className="relative z-10 overflow-hidden">
+        {/* Left Fade */}
+        <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#FCF8F0] to-transparent" />
+
+        {/* Right Fade */}
+        <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#FCF8F0] to-transparent" />
+
+        <div className="flex animate-brand-marquee w-max">
+          {[...BRANDS, ...BRANDS].map((brand, index) => (
+            <div
+              key={index}
+              className="
+mx-7
+w-[240px]
+h-[120px]
+flex
+items-center
+justify-center
+transition-all
+duration-300
+"
+            >
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                className="
+    w-[140px]
+    h-[60px]
+    object-contain
+    transition-all
+    duration-300
+    hover:scale-110
+  "
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
