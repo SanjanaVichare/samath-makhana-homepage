@@ -286,6 +286,7 @@ function Home() {
         <PatternBackground>
           <Bestseller />
         </PatternBackground>
+        <FinalCTA />
         <Story />
         <PatternBackground>
           <Benefits />
@@ -299,7 +300,6 @@ function Home() {
         <PatternBackground>
           <Instagram />
         </PatternBackground>
-        <FinalCTA />
         <SiteFooter />
         <a
           href="https://wa.me/919876543210"
