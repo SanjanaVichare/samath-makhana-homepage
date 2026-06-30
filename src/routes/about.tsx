@@ -5,11 +5,28 @@ import hero from "@/assets/hero-makhana.jpg";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
 import ig3 from "@/assets/ig-3.jpg";
-import { Award, Leaf, HandHeart, Sparkles } from "lucide-react";
+import StorySlideshow from "@/components/sections/StorySlideshow";
+import { Award, Leaf, HandHeart, Sparkles, BadgeCheck, ShieldCheck, Wheat, Flag } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
+
+const TRUST = [
+  { Icon: BadgeCheck, label: "FSSAI Certified" },
+  { Icon: ShieldCheck, label: "ISO 22000" },
+  { Icon: Wheat, label: "Gluten Free" },
+  { Icon: Leaf, label: "Vegetarian" },
+  { Icon: Flag, label: "Made in India" },
+];
+
+const PROMISES = [
+  "100% Vegetarian",
+  "Roasted, never fried",
+  "Real ingredients",
+  "Recyclable packaging",
+  "Crafted with care",
+];
 
 const VALUES = [
   { Icon: Leaf, title: "Earth First", text: "We pay farms fair prices and use compostable packaging wherever possible." },
