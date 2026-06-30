@@ -11,6 +11,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, type ReactNode } from "react";
 import { CartProvider } from "../context/CartContext";
+import Chatbot from "@/components/Chatbot";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -142,6 +143,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <CartProvider>
         <RouteTransitions />
+        <Chatbot />
       </CartProvider>
     </QueryClientProvider>
   );
