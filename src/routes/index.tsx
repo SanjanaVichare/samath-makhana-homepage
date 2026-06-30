@@ -1605,24 +1605,9 @@ function Bestseller() {
               style={{ opacity: crumbOpacity }}
               className="absolute inset-0 z-30 pointer-events-none"
             >
-              {CRUMBS.map((c, idx) => {
-                const tx = useTransform(crumbProgress, [0, 1], [c.x, c.x + c.dx]);
-                const ty = useTransform(crumbProgress, [0, 1], [c.y, c.y + c.dy]);
-                const rot = useTransform(crumbProgress, [0, 1], [0, c.rot]);
-                return (
-                  <motion.span
-                    key={idx}
-                    style={{
-                      x: tx,
-                      y: ty,
-                      rotate: rot,
-                      width: c.r * 2,
-                      height: c.r * 2,
-                    }}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[40%] bg-[#C68A4A] shadow-[0_3px_6px_rgba(0,0,0,0.35)]"
-                  />
-                );
-              })}
+              {CRUMBS.map((c, idx) => (
+                <Crumb key={idx} progress={crumbProgress} c={c} />
+              ))}
             </motion.div>
 
           </div>
