@@ -279,27 +279,35 @@ function Home() {
 
         <Hero />
         <Marquee />
+
         <PatternBackground>
           <ShopBrands />
           <Products />
         </PatternBackground>
+
         <PatternBackground>
           <Bestseller />
         </PatternBackground>
-        <FinalCTA />
-        <Story />
+
         <PatternBackground>
           <Benefits />
         </PatternBackground>
+
+        <Story />
+
         <PatternBackground>
           <InfluencerReels />
         </PatternBackground>
+
         <PatternBackground>
           <Testimonials />
         </PatternBackground>
+        <FinalCTA />
+
         <PatternBackground>
           <Instagram />
         </PatternBackground>
+
         <SiteFooter />
         <a
           href="https://wa.me/919876543210"
@@ -456,7 +464,7 @@ function Hero() {
               style={{ animationDelay: "0.6s" }}
             >
               <a
-                href="#shop"
+                href="/products"
                 className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#122300]/90 hover:scale-[1.02] transition-all duration-200"
               >
                 Shop Now
@@ -839,7 +847,7 @@ function Products() {
 
                       {/* Button */}
                       <a
-                        href="#shop"
+                        href="/products"
                         className="
                         mt-6
                         inline-flex
@@ -922,27 +930,24 @@ function Benefits() {
     return (
       <div
         className="
-        relative
-        w-32
-        h-36
-        flex
-        flex-col
-        items-center
-        justify-center
-        text-center
-        px-3
-
-        bg-[#FDF8EE]
-        border
-        border-[#E9DCC6]
-
-        shadow-xl
-
-        hover:scale-110
-        hover:rotate-0
-        transition-all
-        duration-500
-      "
+          relative
+          w-32
+          h-36
+          flex
+          flex-col
+          items-center
+          justify-center
+          text-center
+          px-3
+          bg-[#FDF8EE]
+          border
+          border-[#E9DCC6]
+          shadow-xl
+          hover:scale-110
+          hover:rotate-0
+          transition-all
+          duration-500
+        "
         style={{
           borderRadius: "58% 42% 53% 47% / 44% 56% 42% 58%",
           transform: "rotate(-12deg)",
@@ -966,6 +971,7 @@ function Benefits() {
       </div>
     );
   }
+
   const benefits = [
     "Protein Rich",
     "Naturally Gluten Free",
@@ -976,15 +982,24 @@ function Benefits() {
   return (
     <section
       id="benefits"
-      className="bg-wheat py-24 px-6 lg:px-10 overflow-hidden"
+      className="relative min-h-screen flex items-center py-16 lg:py-24 px-4 sm:px-6 lg:px-10 overflow-hidden"
+      style={{
+        backgroundImage: `url(${productBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="relative rounded-[40px] bg-cream border border-olive/10 shadow-xl overflow-hidden">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/10" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative rounded-[40px] bg-wheat border border-olive/10 shadow-xl overflow-hidden">
 
           {/* Background Glow */}
           <div className="absolute right-0 top-0 h-full w-[40%] bg-olive/5 blur-3xl" />
 
-          <div className="grid lg:grid-cols-2 items-center gap-12 p-8 md:p-14 lg:p-20">
+          <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20">
 
             {/* LEFT CONTENT */}
             <div data-reveal className="reveal">
@@ -1006,10 +1021,7 @@ function Benefits() {
 
               <div className="mt-8 space-y-4">
                 {benefits.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-3"
-                  >
+                  <div key={item} className="flex items-center gap-3">
                     <div className="flex h-7 w-7 items-center justify-center rounded-full bg-olive text-white text-sm">
                       ✓
                     </div>
@@ -1029,13 +1041,13 @@ function Benefits() {
             {/* RIGHT INFOGRAPHIC */}
             <div
               data-reveal
-              className="reveal relative flex items-center justify-center h-[520px]"
+              className="reveal relative flex items-center justify-center h-[420px] sm:h-[500px] lg:h-[600px]"
             >
               {/* Center Product */}
               <img
                 src={makhanaInBowl}
                 alt="Samarth Makhana"
-                className="relative z-20 w-[280px] lg:w-[320px] drop-shadow-2xl animate-float"
+                className="relative z-20 w-[180px] sm:w-[240px] md:w-[280px] lg:w-[340px] xl:w-[380px] drop-shadow-2xl animate-float"
               />
 
               {/* Protein */}
@@ -1059,7 +1071,7 @@ function Benefits() {
               {/* Calories */}
               <div className="absolute bottom-24 right-4">
                 <NutritionCard
-                  title="Cholestrol Free"
+                  title="Cholesterol Free"
                   value="0%"
                   icon="🔥"
                 />
@@ -1091,11 +1103,9 @@ function Benefits() {
                   icon="❤️"
                 />
               </div>
-
             </div>
+
           </div>
-
-
         </div>
       </div>
     </section>
@@ -1410,31 +1420,31 @@ function Bestseller() {
       >
 
         {/* LEFT */}
-        <div className="bg-olive flex items-center px-10 lg:px-20">
+        <div className="bg-[#4A2E18] flex items-center px-10 lg:px-20">
           <div className="max-w-xl">
 
-            <h2 className="mt-4 font-display text-5xl lg:text-7xl text-cream leading-[1.05]">
+            <h2 className="mt-4 font-display text-5xl lg:text-7xl text-[#F7ECD9] leading-[1.05]">
               Craving Cookies?
               <br />
               We've Got The Crunch.
             </h2>
 
-            <p className="mt-6 text-wheat/80 text-lg max-w-md leading-relaxed">
+            <p className="mt-6 text-[#D9B98C]/80 text-lg max-w-md leading-relaxed">
               Crafted with premium makhana and baked to perfection.
               Light, crunchy, and surprisingly wholesome.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="#shop"
-                className="px-8 py-4 rounded-full bg-cream text-olive font-semibold hover:scale-105 transition"
+                href="/products"
+                className="px-8 py-4 rounded-full bg-[#E8C27A] text-[#2B1B16] font-semibold hover:scale-105 transition"
               >
                 Shop Now
               </a>
-
               <a
+
                 href="#products"
-                className="px-8 py-4 rounded-full border border-cream/20 text-cream hover:bg-cream/10 transition"
+                className="px-8 py-4 rounded-full border border-[#F7ECD9]/20 text-[#F7ECD9] hover:bg-[#F7ECD9]/10 transition"
               >
                 Explore
               </a>
@@ -1444,7 +1454,7 @@ function Bestseller() {
         </div>
 
         {/* RIGHT */}
-        <div className="relative bg-wheat flex items-center justify-center overflow-visible">
+        <div className="relative bg-[#D9B98C] flex items-center justify-center overflow-visible">
 
           <div
             className="
@@ -1489,7 +1499,7 @@ function Bestseller() {
                 text-[110px]
                 lg:text-[140px]
                 font-display
-                text-gold/20
+                text-[#E8C27A]/20
                 [writing-mode:vertical-rl]
                 select-none
               "
@@ -1511,24 +1521,14 @@ function Bestseller() {
     min-h-screen
     overflow-hidden
     bg-[#623512]
+    bg-cover
+    bg-center
+    bg-no-repeat
   "
+        style={{
+          backgroundImage: `url(${productBg})`,
+        }}
       >
-        {/* Pattern */}
-        <img
-          src={productBg}
-          alt=""
-          className="
-      absolute
-      inset-0
-      w-full
-      h-full
-      object-cover
-      opacity-[0.08]
-      mix-blend-screen
-      pointer-events-none
-      select-none
-    "
-        />
 
         {/* Warm Glow */}
         <div
@@ -1539,7 +1539,7 @@ function Bestseller() {
       w-[520px]
       h-[520px]
       rounded-full
-      bg-[#D6A66A]/20
+      bg-[#B7793F]/20
       blur-[160px]
     "
         />
@@ -1553,7 +1553,7 @@ function Bestseller() {
       w-[620px]
       h-[620px]
       rounded-full
-      bg-[#8C5A2D]/20
+      bg-[#B7793F]/12
       blur-[170px]
     "
         />
@@ -1635,15 +1635,15 @@ function Bestseller() {
 
           <div className="relative z-20 max-w-xl">
 
-            <h3 className="mt-5 font-display text-5xl lg:text-7xl leading-none text-white">
+            <h3 className="mt-5 font-display text-5xl lg:text-7xl leading-none text-[#FFF7EB] drop-shadow-[0_3px_10px_rgba(0,0,0,0.35)]">
               Baked With
               <br />
-              <span className="italic text-[#E8C27A]">
+              <span className="italic text-[#FFD98A]">
                 Makhana Magic.
               </span>
             </h3>
 
-            <p className="mt-6 text-lg leading-7 text-white/75">
+            <p className="mt-6 text-lg leading-8 text-[#F4E5CF] max-w-lg">
               Every bite delivers the perfect balance of roasted makhana,
               buttery richness and satisfying crunch. Premium ingredients,
               handcrafted baking and absolutely no compromises.
@@ -1652,21 +1652,22 @@ function Bestseller() {
             <a
               href="/products"
               className="
-          mt-10
-          inline-flex
-          items-center
-          rounded-full
-          bg-[#E8C27A]
-          text-[#2B1B16]
-          px-8
-          py-4
-          font-semibold
-          tracking-wide
-          transition-all
-          duration-300
-          hover:scale-105
-          hover:shadow-[0_0_40px_rgba(232,194,122,.35)]
-        "
+mt-10
+inline-flex
+items-center
+rounded-full
+bg-[#FFD98A]
+text-[#3D2414]
+px-8
+py-4
+font-semibold
+tracking-wide
+transition-all
+duration-300
+hover:bg-[#FFE6AA]
+hover:scale-105
+hover:shadow-[0_0_40px_rgba(255,217,138,.45)]
+"
             >
               Explore Cookies →
             </a>
@@ -1675,8 +1676,8 @@ function Bestseller() {
 
         </div>
 
-      </div>
-    </section>
+      </div >
+    </section >
   );
 }
 
