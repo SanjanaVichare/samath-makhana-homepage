@@ -51,7 +51,7 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl grid sm:grid-cols-3 gap-4">
           {[
             { Icon: Mail, label: "Email us", value: "hello@samarthmakhana.in", href: "mailto:hello@samarthmakhana.in" },
-            { Icon: Phone, label: "Call us", value: "+91 98765 43210", href: "tel:+919876543210" },
+            { Icon: Phone, label: "Call us", value: "+91 7900091250", href: "tel:+919876543210" },
             { Icon: MapPin, label: "Visit", value: "Dadar, Mumbai", href: "#map" },
           ].map((q) => (
             <a
@@ -102,7 +102,7 @@ function ContactPage() {
             <InfoCard Icon={Mail} title="Email">
               <a href="mailto:hello@samarthmakhana.in" className="hover:text-olive">hello@samarthmakhana.in</a>
             </InfoCard>
-            <InfoCard Icon={Phone} title="Phone">+91 98765 43210</InfoCard>
+            <InfoCard Icon={Phone} title="Phone">+91 7900091250</InfoCard>
             <InfoCard Icon={MapPin} title="Visit">
               Dadar,<br />Mumbai, India
             </InfoCard>

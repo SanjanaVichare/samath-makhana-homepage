@@ -56,7 +56,7 @@ const CATEGORIES: Category[] = [
     emoji: "✉️",
     faqs: [
       { q: "Email", a: "hello@samarthmakhana.in — we reply within 24 hours." },
-      { q: "Phone number", a: "+91 98765 43210 — Mon to Sat, 9am–6pm IST." },
+      { q: "Phone number", a: "+91 7900091250 — Mon to Sat, 9am–6pm IST." },
       { q: "Location", a: "Dadar East, India." },
     ],
   },

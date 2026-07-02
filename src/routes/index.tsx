@@ -1,3 +1,4 @@
+import StorySlideshow from "@/components/sections/StorySlideshow";
 import MakhanaCursor from "@/components/MakhanaCursor";
 import makhanaInBowl from "@/assets/makahna-bowl.png";
 import { createFileRoute, useRouterState } from "@tanstack/react-router";
@@ -60,6 +61,7 @@ const BRANDS = [
 
 const PRODUCTS = [
   {
+    id: "peri-peri-makhana", // ADD THIS
     name: "Peri Peri Makhana",
     desc: "Bold, fiery and packed with smoky peri-peri flavour.",
     tag: "Spicy",
@@ -75,6 +77,7 @@ const PRODUCTS = [
     },
   },
   {
+    id: "cheese-makhana", // ADD THIS
     name: "Cheese Makhana",
     desc: "Creamy cheese seasoning with a perfectly crunchy bite.",
     tag: "Cheesy",
@@ -90,6 +93,7 @@ const PRODUCTS = [
     },
   },
   {
+    id: "chat-pata-makhana", // ADD THIS
     name: "Chat Pata Makhana",
     desc: "Tangy Indian spices with a chatpata kick.",
     tag: "Tangy",
@@ -105,6 +109,7 @@ const PRODUCTS = [
     },
   },
   {
+    id: "cream-onion-makhana", // ADD THIS
     name: "Cream & Onion Makhana",
     desc: "Rich cream balanced with savoury onion flavour.",
     tag: "Popular",
@@ -120,6 +125,7 @@ const PRODUCTS = [
     },
   },
   {
+    id: "pudina-makhana", // ADD THIS
     name: "Pudina Makhana",
     desc: "Refreshing mint flavour with a crisp roasted finish.",
     tag: "Fresh",
@@ -135,6 +141,7 @@ const PRODUCTS = [
     },
   },
   {
+    id: "salt-pepper-makhana", // ADD THIS
     name: "Salt & Pepper Makhana",
     desc: "Simple, classic and incredibly addictive.",
     tag: "Classic",
@@ -150,6 +157,7 @@ const PRODUCTS = [
     },
   },
   {
+    id: "makhana-cookies", // ADD THIS
     name: "Makhana Cookies",
     desc: "Crunchy cookies made with wholesome makhana goodness.",
     tag: "Cookies",
@@ -165,6 +173,7 @@ const PRODUCTS = [
     },
   },
   {
+    id: "sugar-free-cookies", // ADD THIS
     name: "Sugar Free Cookies",
     desc: "Guilt-free cookies crafted without added sugar.",
     tag: "Sugar Free",
@@ -179,13 +188,6 @@ const PRODUCTS = [
       "500g": bowlcookiesf,
     },
   },
-];
-
-const BENEFITS = [
-  { title: "High in Protein", text: "More protein than popcorn or chips." },
-  { title: "Zero Nasties", text: "No artificial flavors or preservatives." },
-  { title: "Ancient Superfood", text: "Eaten in India for thousands of years." },
-  { title: "Now in Cookie Form", text: "Traditional nutrition, modern taste." },
 ];
 
 const TESTIMONIALS = [
@@ -307,7 +309,7 @@ function Home() {
 
         <SiteFooter />
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/917900091250?text=Hello!%20I%20came%20across%20Samarth%20Makhana%20and%20I'm%20interested%20in%20placing%20an%20order.%20Could%20you%20please%20share%20your%20available%20flavours%20and%20pricing%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="
@@ -328,6 +330,7 @@ function Home() {
     transition-all
   "
         >
+          {/* SVG */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
@@ -504,6 +507,7 @@ function Marquee() {
   );
 }
 
+
 function Products() {
   const [selectedWeight, setSelectedWeight] = useState<Record<string, string>>(
     {}
@@ -531,8 +535,6 @@ function Products() {
       id="products"
       className="relative pt-0 pb-20 px-6 lg:px-10 overflow-hidden"
     >
-
-
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto">
@@ -556,22 +558,22 @@ function Products() {
             type="button"
             onClick={() => emblaApi && emblaApi.scrollPrev()}
             className="
-    absolute
-    left-[-14px]
-    top-1/2
-    -translate-y-1/2
-    z-20
-    w-8
-    h-8
-    rounded-full
-    bg-white
-    shadow-lg
-    border
-    border-olive/30
-    flex
-    items-center
-    justify-center
-  "
+              absolute
+              left-[-14px]
+              top-1/2
+              -translate-y-1/2
+              z-20
+              w-8
+              h-8
+              rounded-full
+              bg-white
+              shadow-lg
+              border
+              border-olive/30
+              flex
+              items-center
+              justify-center
+            "
           >
             <ChevronLeft size={14} />
           </button>
@@ -580,21 +582,21 @@ function Products() {
             type="button"
             onClick={() => emblaApi && emblaApi.scrollNext()}
             className="
-    absolute
-    right-[-14px]
-    top-1/2
-    -translate-y-1/2
-    z-20
-    w-8
-    h-8
-    rounded-full
-    bg-olive
-    text-white
-    shadow-lg
-    flex
-    items-center
-    justify-center
-  "
+              absolute
+              right-[-14px]
+              top-1/2
+              -translate-y-1/2
+              z-20
+              w-8
+              h-8
+              rounded-full
+              bg-olive
+              text-white
+              shadow-lg
+              flex
+              items-center
+              justify-center
+            "
           >
             <ChevronRight size={14} />
           </button>
@@ -603,272 +605,281 @@ function Products() {
             <div className="flex">
               {PRODUCTS.map((p) => (
                 <div
-                  key={p.name}
+                  key={p.id}
                   className="
-                  flex-[0_0_100%]
-                  md:flex-[0_0_50%]
-                  lg:flex-[0_0_33%]
-                  px-4
-                "
+                    flex-[0_0_100%]
+                    md:flex-[0_0_50%]
+                    lg:flex-[0_0_33%]
+                    px-4
+                  "
                 >
-                  <article
-                    className="
-        group
-        bg-white
-        rounded-[28px]
-        overflow-hidden
-        border-2 border-olive/30
-        flex flex-col
-        h-full
-        transition-all
-        duration-500
-        hover:-translate-y-2
-        hover:shadow-[0_25px_60px_-20px_rgba(157,113,60,0.25)]
-      "
+                  <Link
+                    to="/product/$productId"
+                    params={{ productId: p.id }}
+                    className="block"
                   >
-                    {/* Product Image */}
-                    <div
+                    <article
                       className="
-    relative
-    h-[240px]
-    mx-4
-    mt-4
-    rounded-3xl
-    bg-cream/40
-    flex
-    items-center
-    justify-center
-    p-6
-    overflow-hidden
-  "
+                        group
+                        bg-white
+                        rounded-[28px]
+                        overflow-hidden
+                        border-2 border-olive/30
+                        flex flex-col
+                        h-full
+                        transition-all
+                        duration-500
+                        hover:-translate-y-2
+                        hover:shadow-[0_25px_60px_-20px_rgba(157,113,60,0.25)]
+                        cursor-pointer
+                      "
                     >
-                      {/* Ticket Badge */}
+                      {/* Product Image */}
                       <div
-                        className={`
-      absolute
-      top-4
-      left-4
-      h-[36px]
-      px-4
-      flex
-      items-center
-      text-xs
-      font-semibold
-      text-white
-      z-30
-      ${p.tag === "Popular" ? "bg-gold" : "bg-olive"}
-    `}
-                        style={{
-                          clipPath:
-                            "polygon(12px 0%, 100% 0%, 100% 100%, 12px 100%, 0% 50%)",
-                        }}
+                        className="
+                          relative
+                          h-[240px]
+                          mx-4
+                          mt-4
+                          rounded-3xl
+                          bg-cream/40
+                          flex
+                          items-center
+                          justify-center
+                          p-6
+                          overflow-hidden
+                        "
                       >
-                        <span className="absolute left-[5px] w-[5px] h-[5px] rounded-full bg-white/80" />
-                        {p.tag}
+                        {/* Ticket Badge */}
+                        <div
+                          className={`
+                            absolute
+                            top-4
+                            left-4
+                            h-[36px]
+                            px-4
+                            flex
+                            items-center
+                            text-xs
+                            font-semibold
+                            text-white
+                            z-30
+                            ${p.tag === "Popular" ? "bg-gold" : "bg-olive"}
+                          `}
+                          style={{
+                            clipPath:
+                              "polygon(12px 0%, 100% 0%, 100% 100%, 12px 100%, 0% 50%)",
+                          }}
+                        >
+                          <span className="absolute left-[5px] w-[5px] h-[5px] rounded-full bg-white/80" />
+                          {p.tag}
+                        </div>
+
+                        {/* Main Golden Glow */}
+                        <div
+                          className="
+                            absolute
+                            left-1/2
+                            top-[62%]
+                            w-56
+                            h-56
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            rounded-full
+                            bg-[#FFD45C]
+                            opacity-80
+                            blur-[80px]
+                            transition-all
+                            duration-700
+                            group-hover:scale-125
+                            group-hover:opacity-100
+                          "
+                        />
+
+                        {/* Soft Product Halo */}
+                        <div
+                          className="
+                            absolute
+                            left-1/2
+                            top-1/2
+                            w-[180px]
+                            h-[220px]
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            rounded-full
+                            bg-gradient-to-b
+                            from-[#FFF7DA]
+                            via-[#FFE08A]
+                            to-transparent
+                            opacity-80
+                            blur-[45px]
+                            transition-all
+                            duration-700
+                            group-hover:scale-125
+                          "
+                        />
+
+                        {/* Secondary Glow */}
+                        <div
+                          className="
+                            absolute
+                            left-1/2
+                            top-1/2
+                            w-32
+                            h-32
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            rounded-full
+                            bg-olive/20
+                            blur-3xl
+                            transition-all
+                            duration-700
+                            group-hover:scale-110
+                          "
+                        />
+
+                        {/* Floating Sparkles */}
+                        <div className="absolute inset-0 pointer-events-none z-10">
+                          <span className="absolute top-8 left-12 w-2 h-2 rounded-full bg-white/80 blur-sm animate-pulse" />
+                          <span className="absolute top-14 right-10 w-1.5 h-1.5 rounded-full bg-[#FFD45C] blur-sm animate-ping" />
+                          <span className="absolute bottom-12 left-10 w-2 h-2 rounded-full bg-white/60 blur-sm animate-pulse" />
+                          <span className="absolute bottom-10 right-14 w-1.5 h-1.5 rounded-full bg-[#FFE79A] blur-sm animate-pulse" />
+                        </div>
+
+                        {/* Packet Image */}
+                        <img
+                          src={
+                            p.images[
+                            (selectedWeight[p.name] ||
+                              Object.keys(p.images)[0]) as keyof typeof p.images
+                            ]
+                          }
+                          alt={p.name}
+                          className="
+                            absolute
+                            inset-0
+                            z-20
+                            w-full
+                            h-[230px]
+                            object-contain
+                            rounded-3xl
+                            transition-all
+                            duration-700
+                            ease-out
+                            drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
+                            group-hover:opacity-0
+                            group-hover:scale-90
+                            group-hover:rotate-[-6deg]
+                          "
+                        />
+
+                        {/* Bowl Image */}
+                        <img
+                          src={
+                            p.bowlImages[
+                            (selectedWeight[p.name] ||
+                              Object.keys(p.bowlImages)[0]) as keyof typeof p.bowlImages
+                            ]
+                          }
+                          alt={`${p.name} Bowl`}
+                          className="
+                            absolute
+                            inset-0
+                            z-20
+                            w-full
+                            h-[230px]
+                            object-contain
+                            rounded-3xl
+                            opacity-0
+                            scale-125
+                            transition-all
+                            duration-700
+                            ease-out
+                            drop-shadow-[0_22px_38px_rgba(255,190,60,0.45)]
+                            group-hover:opacity-100
+                            group-hover:scale-110
+                            group-hover:-translate-y-2
+                          "
+                        />
                       </div>
 
-                      {/* Main Golden Glow */}
-                      <div
-                        className="
-      absolute
-      left-1/2
-      top-[62%]
-      w-56
-      h-56
-      -translate-x-1/2
-      -translate-y-1/2
-      rounded-full
-      bg-[#FFD45C]
-      opacity-80
-      blur-[80px]
-      transition-all
-      duration-700
-      group-hover:scale-125
-      group-hover:opacity-100
-    "
-                      />
+                      {/* Content */}
+                      <div className="px-6 pb-6 pt-4 flex flex-col flex-1">
+                        <h3 className="font-display text-2xl font-semibold text-olive">
+                          {p.name}
+                        </h3>
 
-                      {/* Soft Product Halo */}
-                      <div
-                        className="
-      absolute
-      left-1/2
-      top-1/2
-      w-[180px]
-      h-[220px]
-      -translate-x-1/2
-      -translate-y-1/2
-      rounded-full
-      bg-gradient-to-b
-      from-[#FFF7DA]
-      via-[#FFE08A]
-      to-transparent
-      opacity-80
-      blur-[45px]
-      transition-all
-      duration-700
-      group-hover:scale-125
-    "
-                      />
-
-                      {/* Secondary Glow */}
-                      <div
-                        className="
-      absolute
-      left-1/2
-      top-1/2
-      w-32
-      h-32
-      -translate-x-1/2
-      -translate-y-1/2
-      rounded-full
-      bg-olive/20
-      blur-3xl
-      transition-all
-      duration-700
-      group-hover:scale-110
-    "
-                      />
-
-                      {/* Floating Sparkles */}
-                      <div className="absolute inset-0 pointer-events-none z-10">
-                        <span className="absolute top-8 left-12 w-2 h-2 rounded-full bg-white/80 blur-sm animate-pulse" />
-                        <span className="absolute top-14 right-10 w-1.5 h-1.5 rounded-full bg-[#FFD45C] blur-sm animate-ping" />
-                        <span className="absolute bottom-12 left-10 w-2 h-2 rounded-full bg-white/60 blur-sm animate-pulse" />
-                        <span className="absolute bottom-10 right-14 w-1.5 h-1.5 rounded-full bg-[#FFE79A] blur-sm animate-pulse" />
-                      </div>
-
-                      {/* Packet Image */}
-                      <img
-                        src={
-                          p.images[
-                          (selectedWeight[p.name] ||
-                            Object.keys(p.images)[0]) as keyof typeof p.images
-                          ]
-                        }
-                        alt={p.name}
-                        className="
-    absolute
-    inset-0
-    z-20
-    w-full
-    h-[230px]
-    object-contain
-    rounded-3xl
-    transition-all
-    duration-700
-    ease-out
-    drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
-    group-hover:opacity-0
-    group-hover:scale-90
-    group-hover:rotate-[-6deg]
-  "
-                      />
-
-                      {/* Bowl Image */}
-                      <img
-                        src={
-                          p.bowlImages[
-                          (selectedWeight[p.name] ||
-                            Object.keys(p.bowlImages)[0]) as keyof typeof p.bowlImages
-                          ]
-                        }
-                        alt={`${p.name} Bowl`}
-                        className="
-    absolute
-    inset-0
-    z-20
-    w-full
-    h-[230px]
-    object-contain
-    rounded-3xl
-    opacity-0
-    scale-125
-    transition-all
-    duration-700
-    ease-out
-    drop-shadow-[0_22px_38px_rgba(255,190,60,0.45)]
-    group-hover:opacity-100
-    group-hover:scale-110
-    group-hover:-translate-y-2
-  "
-                      />
-                    </div>
-
-                    {/* Content */}
-                    <div className="px-6 pb-6 pt-4 flex flex-col flex-1">
-                      <h3 className="font-display text-2xl font-semibold text-olive">
-                        {p.name}
-                      </h3>
-
-                      <p className="mt-3 text-sm text-ink/75 leading-relaxed line-clamp-2">
-                        {p.desc}
-                      </p>
-
-                      {/* Sizes */}
-                      <div className="mt-5">
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-ink/50 mb-3">
-                          Available Sizes
+                        <p className="mt-3 text-sm text-ink/75 leading-relaxed line-clamp-2">
+                          {p.desc}
                         </p>
 
-                        <div className="flex flex-wrap gap-2">
-                          {Object.keys(p.images).map((weight) => (
-                            <button
-                              key={weight}
-                              onMouseEnter={() =>
-                                setSelectedWeight((prev) => ({
-                                  ...prev,
-                                  [p.name]: weight,
-                                }))
-                              }
-                              className={`
-                              px-3
-                              py-1.5
-                              text-xs
-                              rounded-full
-                              border
-                              transition-all
-                              duration-300
-                              ${(selectedWeight[p.name] ||
-                                  Object.keys(p.images)[0]) === weight
-                                  ? "bg-gold text-white border-gold"
-                                  : "border-gold text-gold hover:bg-gold hover:text-white"
+                        {/* Sizes */}
+                        <div className="mt-5">
+                          <p className="text-[10px] uppercase tracking-[0.2em] text-ink/50 mb-3">
+                            Available Sizes
+                          </p>
+
+                          <div className="flex flex-wrap gap-2">
+                            {Object.keys(p.images).map((weight) => (
+                              <button
+                                key={weight}
+                                onMouseEnter={() =>
+                                  setSelectedWeight((prev) => ({
+                                    ...prev,
+                                    [p.name]: weight,
+                                  }))
                                 }
-                            `}
-                            >
-                              {weight}
-                            </button>
-                          ))}
+                                className={`
+                                  px-3
+                                  py-1.5
+                                  text-xs
+                                  rounded-full
+                                  border
+                                  transition-all
+                                  duration-300
+                                  ${(selectedWeight[p.name] ||
+                                    Object.keys(p.images)[0]) === weight
+                                    ? "bg-gold text-white border-gold"
+                                    : "border-gold text-gold hover:bg-gold hover:text-white"
+                                  }
+                                `}
+                              >
+                                {weight}
+                              </button>
+                            ))}
+                          </div>
                         </div>
+
+                        {/* Button */}
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            // Add your navigation logic here
+                          }}
+                          className="
+                            mt-6
+                            inline-flex
+                            items-center
+                            justify-center
+                            w-full
+                            rounded-full
+                            bg-olive
+                            text-cream
+                            py-3
+                            text-[11px]
+                            font-semibold
+                            uppercase
+                            tracking-[0.18em]
+                            transition-all
+                            duration-300
+                            hover:bg-olive/90
+                          "
+                        >
+                          Shop Now
+                        </button>
                       </div>
-
-                      {/* Button */}
-                      <a
-                        href="/shop"
-                        className="
-                        mt-6
-                        inline-flex
-                        items-center
-                        justify-center
-                        w-full
-                        rounded-full
-                        bg-olive
-                        text-cream
-                        py-3
-                        text-[11px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        transition-all
-                        duration-300
-                        hover:bg-olive/90
-                      "
-                      >
-                        Shop Now
-                      </a>
-                    </div>
-                  </article>
-
+                    </article>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -879,7 +890,6 @@ function Products() {
   );
 }
 
-import StorySlideshow from "@/components/sections/StorySlideshow";
 
 function Story() {
   return (
@@ -890,7 +900,7 @@ function Story() {
       <div className="relative h-[450px] lg:h-auto">
         <StorySlideshow />
       </div>
-      <div className="bg-olive text-cream flex items-center px-8 lg:px-20 py-20">
+      <div className="bg-[#122300] text-cream flex items-center px-8 lg:px-20 py-20">
         <div className="max-w-lg">
           <p data-reveal className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-wheat">Our Story</p>
           <h2 data-reveal data-delay="120" className="reveal mt-5 font-display text-4xl lg:text-5xl font-semibold leading-tight">
@@ -1765,7 +1775,7 @@ export function Footer() {
           <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Support</h4>
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
             <li>hello@samarthmakhana.in</li>
-            <li>+91 98765 43210</li>
+            <li>+91 79000 91250</li>
             <li>Shipping & Returns</li>
             <li>FAQs</li>
           </ul>

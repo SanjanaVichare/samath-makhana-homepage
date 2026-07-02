@@ -95,7 +95,7 @@ export default function Footer() {
                                 hello@samarthmakhana.in
                             </a>
                         </li>
-                        <li>+91 98765 43210</li>
+                        <li>+91 79000 91250</li>
                         <li><Link to="/contact" className="hover:text-cream transition-colors">Shipping & Returns</Link></li>
                         <li><Link to="/contact" className="hover:text-cream transition-colors">FAQs</Link></li>
                         <li><a href="#" className="hover:text-cream transition-colors">Privacy Policy</a></li>
