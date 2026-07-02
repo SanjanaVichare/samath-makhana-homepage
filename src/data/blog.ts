@@ -1,10 +1,10 @@
-import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
-import ig3 from "@/assets/ig-3.jpg";
-import ig4 from "@/assets/ig-4.jpg";
-import ig5 from "@/assets/ig-5.jpg";
-import ig6 from "@/assets/ig-6.jpg";
-import story from "@/assets/story-lotus.jpg";
+import blogHealthySnacks from "@/assets/blog-healthy-snacks.jpg";
+import blogSuperfood from "@/assets/blog-superfood.jpg";
+import blogWeightLoss from "@/assets/blog-weight-loss.jpg";
+import blogRecipes from "@/assets/blog-recipes.jpg";
+import blogFarm from "@/assets/blog-farm.jpg";
+import blogLifestyle from "@/assets/blog-lifestyle.jpg";
 
 export type Article = {
   slug: string;
