@@ -68,35 +68,36 @@ function ProductPage() {
       </div>
 
       <section className="py-12 px-6 lg:px-10">
-        <div className="mx-auto max-w-6xl grid gap-12 lg:grid-cols-[1.1fr_1fr]">
-          {/* Gallery */}
-          <div>
+        <div className="mx-auto max-w-6xl grid gap-8 lg:gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+          {/* Gallery — sticky on desktop */}
+          <div className="lg:sticky lg:top-28 self-start">
             <motion.div
               key={activeImg}
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="aspect-square rounded-[32px] overflow-hidden bg-wheat/30"
+              className="aspect-[4/3] rounded-[32px] overflow-hidden bg-wheat/30"
             >
-              <img src={gallery[activeImg]} alt={product.name} className="h-full w-full object-cover transition-all duration-500" />
+              <img src={gallery[activeImg]} alt={product.name} className="h-full w-full object-contain p-6 transition-all duration-500" />
             </motion.div>
-            <div className="mt-4 grid grid-cols-4 gap-3">
+            <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 gap-3">
               {gallery.map((src, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => setActiveImg(i)}
                   aria-label={`Image ${i + 1}`}
-                  className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all ${activeImg === i ? "border-olive" : "border-transparent opacity-70 hover:opacity-100"}`}
+                  className={`aspect-[4/3] rounded-2xl overflow-hidden border-2 bg-wheat/30 transition-all ${activeImg === i ? "border-olive" : "border-transparent opacity-70 hover:opacity-100"}`}
                 >
-                  <img src={src} alt="" className="h-full w-full object-cover" />
+                  <img src={src} alt="" className="h-full w-full object-contain p-2" />
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Buy panel */}
-          <div className="lg:sticky lg:top-28 self-start">
+          {/* Buy panel — scrollable */}
+          <div>
+
             {product.badge && (
               <div className="flex gap-2 mb-5">
                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] bg-olive/10 text-olive px-3 py-1 rounded-full">

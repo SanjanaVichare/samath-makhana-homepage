@@ -43,7 +43,7 @@ const TEAM = [
 
 const TIMELINE = [
   { year: "2021", title: "Quiet Beginnings", text: "Three friends, one kitchen, and a stubborn idea that snacks could be better." },
-  { year: "2022", title: "First Farm Partnership", text: "We signed with our first family-run lotus farm in Darbhanga." },
+  { year: "2022", title: "First Farm Partnership", text: "We signed with our first family-run lotus farm." },
   { year: "2024", title: "10,000 Pantries", text: "Crossed our 10,000th order — still hand-packed, still slow-roasted." },
   { year: "2026", title: "The Cookie Drop", text: "Launched our long-promised makhana cookie line. It sold out in 9 days." },
 ];
