@@ -12,7 +12,7 @@ const CATEGORIES: Category[] = [
     emoji: "🌿",
     faqs: [
       { q: "Who are we?", a: "Samarth Makhana is a premium Indian D2C food brand crafting roasted makhana snacks and makhana cookies. Rooted in tradition, made for the mindful generation." },
-      { q: "Where are you located?", a: "We're headquartered in Darbhanga, Bihar — the heart of India's lotus belt — and ship across the country." },
+      { q: "Where are you located?", a: "Dadar" },
       { q: "Are your products made in India?", a: "Yes. Every product is proudly handcrafted in India, from sourcing to packing." },
       { q: "Why choose Samarth?", a: "Honest ingredients, traditional roasting, small-batch quality, and recyclable packaging. Nothing artificial, ever." },
     ],
@@ -27,7 +27,6 @@ const CATEGORIES: Category[] = [
       { q: "Is it gluten free?", a: "Yes — naturally gluten free and suitable for most dietary preferences." },
       { q: "Is it roasted or fried?", a: "Always roasted, never fried. Slow-roasted in iron pans for a clean, satisfying crunch." },
       { q: "Is it vegetarian?", a: "100% vegetarian. All our products carry the green-dot vegetarian mark." },
-      { q: "Where is it sourced from?", a: "From family-run farms in the wetlands of Bihar — paid fairly, picked carefully." },
     ],
   },
   {
@@ -58,7 +57,7 @@ const CATEGORIES: Category[] = [
     faqs: [
       { q: "Email", a: "hello@samarthmakhana.in — we reply within 24 hours." },
       { q: "Phone number", a: "+91 98765 43210 — Mon to Sat, 9am–6pm IST." },
-      { q: "Location", a: "42 Lotus Lane, Darbhanga, Bihar 846004, India." },
+      { q: "Location", a: "Dadar East, India." },
     ],
   },
 ];
@@ -149,11 +148,10 @@ export default function Chatbot() {
                   className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] text-sm leading-relaxed px-4 py-2.5 rounded-2xl ${
-                      m.from === "user"
-                        ? "bg-olive text-cream rounded-br-sm"
-                        : "bg-white border border-wheat/70 text-ink rounded-bl-sm"
-                    }`}
+                    className={`max-w-[80%] text-sm leading-relaxed px-4 py-2.5 rounded-2xl ${m.from === "user"
+                      ? "bg-olive text-cream rounded-br-sm"
+                      : "bg-white border border-wheat/70 text-ink rounded-bl-sm"
+                      }`}
                   >
                     {m.text}
                   </div>

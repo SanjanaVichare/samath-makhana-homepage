@@ -56,7 +56,7 @@ export default function Footer() {
             Samarth <span className="italic">Makhana</span>
           </h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">
-            Rooted in nature. Made for you. Handcrafted lotus seed snacks from the wetlands of Bihar.
+            Rooted in nature. Made for you. Handcrafted lotus seed snacks from the wetlands.
           </p>
           <div className="mt-6 flex gap-3">
             {[
@@ -80,7 +80,7 @@ export default function Footer() {
           <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Quick Links</h4>
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
             <li><Link to="/shop" className="hover:text-cream transition-colors">Shop All</Link></li>
-            <li><Link to="/about" className="hover:text-cream transition-colors">About Us</Link></li>
+            <li><Link to="/about" className="hover:text-cream transition-colors">Our Story</Link></li>
             <li><Link to="/blog" className="hover:text-cream transition-colors">Journal</Link></li>
             <li><Link to="/contact" className="hover:text-cream transition-colors">Contact</Link></li>
             <li><Link to="/cart" className="hover:text-cream transition-colors">Cart</Link></li>

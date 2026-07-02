@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 export function WhyChooseUs() {
   const items = [
-    { Icon: Leaf, title: "Farm Fresh", text: "Direct from family farms in Bihar — no middlemen, no compromise." },
+    { Icon: Leaf, title: "Farm Fresh", text: "Direct from family farms — no middlemen, no compromise." },
     { Icon: Sprout, title: "High Protein", text: "9-10g protein per 100g. The clean fuel your day deserves." },
     { Icon: Flame, title: "Roasted, Never Fried", text: "Slow-roasted in iron pans for a crunch you can taste." },
     { Icon: ShieldCheck, title: "No Preservatives", text: "Pure ingredients. Nothing artificial. Ever." },

@@ -347,19 +347,19 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
     select: (s) => s.location.pathname,
   });
 
-  const isProductsPage = pathname === "/products";
+  const isProductsPage = pathname === "/shop";
 
   const links = isProductsPage
     ? [
       { label: "Home", href: "/" },
       { label: "Products", href: "#top" },
-      { label: "About Us", href: "#our-story" },
+      { label: "Our Story", href: "#our-story" },
       { label: "Benefits", href: "#benefits" },
     ]
     : [
       { label: "Home", href: "#home" },
-      { label: "Products", href: "/products" },
-      { label: "About Us", href: "#our-story" },
+      { label: "Products", href: "/shop" },
+      { label: "Our Story", href: "#our-story" },
       { label: "Benefits", href: "#benefits" }
     ];
   return (
@@ -461,7 +461,7 @@ function Hero() {
               style={{ animationDelay: "0.6s" }}
             >
               <a
-                href="/products"
+                href="/shop"
                 className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#122300]/90 hover:scale-[1.02] transition-all duration-200"
               >
                 Shop Now
@@ -844,7 +844,7 @@ function Products() {
 
                       {/* Button */}
                       <a
-                        href="/products"
+                        href="/shop"
                         className="
                         mt-6
                         inline-flex
@@ -879,17 +879,16 @@ function Products() {
   );
 }
 
+import StorySlideshow from "@/components/sections/StorySlideshow";
 
 function Story() {
   return (
-    <section id="our-story" className="grid lg:grid-cols-2 min-h-[640px]">
-      <div className="relative overflow-hidden min-h-[420px]">
-        <img
-          src={storyImg}
-          alt="Farmer hands holding raw lotus seeds"
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+    <section
+      id="our-story"
+      className="grid lg:grid-cols-2 min-h-[700px]"
+    >
+      <div className="relative h-[450px] lg:h-auto">
+        <StorySlideshow />
       </div>
       <div className="bg-olive text-cream flex items-center px-8 lg:px-20 py-20">
         <div className="max-w-lg">
@@ -898,10 +897,10 @@ function Story() {
             From the Lotus Ponds of India to Your Snack Bowl.
           </h2>
           <p data-reveal data-delay="240" className="reveal mt-6 text-cream/85 leading-relaxed">
-            Samarth sources lotus seeds from family-run farms in Bihar, then slow-roasts them in small kitchens — the way grandmothers have for generations. No shortcuts, no fillers, just the patient craft of turning a humble seed into something irresistible.
+            Samarth sources lotus seeds from family-run farms, then slow-roasts them in small kitchens — the way grandmothers have for generations. No shortcuts, no fillers, just the patient craft of turning a humble seed into something irresistible.
           </p>
           <a
-            href="#"
+            href="/about"
             data-reveal
             data-delay="360"
             className="reveal mt-9 inline-flex items-center px-7 py-3.5 rounded-full border border-cream text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-cream hover:text-olive transition-colors duration-200"
@@ -1025,9 +1024,28 @@ function Benefits() {
                 ))}
               </div>
 
-              <button className="mt-10 rounded-full bg-olive px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg">
+              <a
+                href="#products"
+                className="
+    group mt-3 inline-flex items-center gap-2
+    rounded-full
+    bg-olive
+    px-7 py-3.5
+    text-sm font-semibold tracking-wide text-white
+    shadow-md shadow-olive/20
+    transition-all duration-300 ease-out
+    hover:-translate-y-1
+    hover:scale-105
+    hover:bg-[#4d6924]
+    hover:shadow-xl hover:shadow-olive/30
+    active:scale-95
+  "
+              >
                 Explore Flavours
-              </button>
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
             </div>
 
             {/* RIGHT INFOGRAPHIC */}
@@ -1428,7 +1446,7 @@ function Bestseller() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="/products"
+                href="/shop"
                 className="px-8 py-4 rounded-full bg-[#E8C27A] text-[#2B1B16] font-semibold hover:scale-105 transition"
               >
                 Shop Now
@@ -1628,7 +1646,7 @@ function Bestseller() {
             </p>
 
             <a
-              href="/products"
+              href="/shop"
               className="
 mt-10
 inline-flex
@@ -1738,7 +1756,7 @@ export function Footer() {
         <div>
           <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Quick Links</h4>
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
-            {["Shop All", "About Us ", "Benefits", "Journal", "Stockists"].map((l) => (
+            {["Shop All", "Our Story ", "Benefits", "Journal", "Stockists"].map((l) => (
               <li key={l}><a href="#" className="hover:text-cream transition-colors">{l}</a></li>
             ))}
           </ul>

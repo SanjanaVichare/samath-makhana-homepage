@@ -90,7 +90,7 @@ function AboutPage() {
               Samarth began with a simple frustration — every "healthy" snack we tried felt like a compromise. So we went back to a snack our grandmothers knew well: the lotus seed. Light, ancient, and quietly powerful.
             </p>
             <p className="mt-4 text-ink/75 leading-relaxed">
-              We partner directly with family farms in Bihar, slow-roast in iron pans, and season in small batches. No shortcuts. No preservatives. Just makhana the way it was always meant to be.
+              We partner directly with family farms, slow-roast in iron pans, and season in small batches. No shortcuts. No preservatives. Just makhana the way it was always meant to be.
             </p>
 
             {/* Trust strip */}

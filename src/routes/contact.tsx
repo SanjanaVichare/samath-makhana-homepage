@@ -52,7 +52,7 @@ function ContactPage() {
           {[
             { Icon: Mail, label: "Email us", value: "hello@samarthmakhana.in", href: "mailto:hello@samarthmakhana.in" },
             { Icon: Phone, label: "Call us", value: "+91 98765 43210", href: "tel:+919876543210" },
-            { Icon: MapPin, label: "Visit", value: "Darbhanga, Bihar", href: "#map" },
+            { Icon: MapPin, label: "Visit", value: "Dadar, Mumbai", href: "#map" },
           ].map((q) => (
             <a
               key={q.label}
@@ -104,7 +104,7 @@ function ContactPage() {
             </InfoCard>
             <InfoCard Icon={Phone} title="Phone">+91 98765 43210</InfoCard>
             <InfoCard Icon={MapPin} title="Visit">
-              42 Lotus Lane, Darbhanga,<br />Bihar 846004, India
+              Dadar,<br />Mumbai, India
             </InfoCard>
             <div className="bg-white rounded-3xl p-6 border border-wheat/60">
               <h3 className="font-display text-xl text-olive">Hours</h3>
@@ -137,7 +137,7 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl relative aspect-[16/6] rounded-[32px] overflow-hidden bg-gradient-to-br from-olive/20 via-wheat/40 to-gold/20 border border-wheat/60 flex items-center justify-center">
           <div className="text-center text-olive">
             <MapPin size={40} strokeWidth={1.5} className="mx-auto" />
-            <p className="mt-3 font-display text-2xl">Darbhanga, Bihar</p>
+            <p className="mt-3 font-display text-2xl">Dadar, Mumbai</p>
             <p className="text-xs uppercase tracking-[0.2em] text-ink/50 mt-1">Map view</p>
           </div>
         </div>
