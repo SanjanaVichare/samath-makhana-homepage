@@ -120,6 +120,9 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RouteTransitions() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, [pathname]);
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
