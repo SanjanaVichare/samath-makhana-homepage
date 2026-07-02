@@ -21,7 +21,6 @@ const TRUST = [
 ];
 
 const PROMISES = [
-  "100% Vegetarian",
   "Roasted, never fried",
   "Real ingredients",
   "Recyclable packaging",
@@ -38,7 +37,7 @@ const VALUES = [
 const TEAM = [
   { name: "Piyush Gupta", role: "Founder", img: ig1 },
   { name: "Mayur Rane", role: "Head of Sourcing", img: ig2 },
-  { name: "Akshay K", role: "Recipe & Flavour", img: ig3 },
+  { name: "Akshay Kirtane", role: "Recipe & Flavour", img: ig3 },
 ];
 
 const TIMELINE = [
@@ -75,11 +74,8 @@ function AboutPage() {
               src={storyImg}
               alt="Lotus pond"
               loading="lazy"
-              className="rounded-[40px] aspect-[4/5] object-cover rotate-[-2deg] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.3)]"
+              className="rounded-[40px] aspect-[4/5] object-cover  shadow-[0_30px_60px_-30px_rgba(0,0,0,0.3)]"
             />
-            <div className="absolute -bottom-6 -right-6 hidden md:block rotate-[6deg] bg-cream border border-wheat px-5 py-3 rounded-2xl shadow-md">
-              <p className="font-display text-xl text-olive italic">Since 2021</p>
-            </div>
           </div>
           <div className="lg:col-span-7 lg:pl-6">
             <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Why we started</p>
@@ -113,24 +109,6 @@ function AboutPage() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Watercolor story slideshow */}
-      <section className="py-20 px-6 lg:px-10">
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-2xl">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">A Watercolor Journey</p>
-            <h2 className="mt-3 font-display text-4xl lg:text-5xl text-olive font-semibold leading-tight">
-              From pond to <span className="italic">pantry.</span>
-            </h2>
-            <p className="mt-4 text-ink/70 leading-relaxed">
-              Eight quiet chapters in the making of every Samarth packet — illustrated by hand.
-            </p>
-          </div>
-          <div className="mt-10">
-            <StorySlideshow />
           </div>
         </div>
       </section>

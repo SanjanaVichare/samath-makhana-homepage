@@ -66,9 +66,9 @@ const PRODUCTS = [
     desc: "Bold, fiery and packed with smoky peri-peri flavour.",
     tag: "Spicy",
     images: {
-      "30g": pcp1,
       "60g": pcp1,
-      "120g": pcp1,
+      "100g": pcp1,
+      "500g": pcp1,
     },
     bowlImages: {
       "30g": bowlperi,
@@ -82,9 +82,9 @@ const PRODUCTS = [
     desc: "Creamy cheese seasoning with a perfectly crunchy bite.",
     tag: "Cheesy",
     images: {
-      "30g": pcp2,
       "60g": pcp2,
-      "120g": pcp2,
+      "100g": pcp2,
+      "500g": pcp2,
     },
     bowlImages: {
       "30g": bowlcheese,
@@ -98,9 +98,9 @@ const PRODUCTS = [
     desc: "Tangy Indian spices with a chatpata kick.",
     tag: "Tangy",
     images: {
-      "30g": pcp,
       "60g": pcp,
-      "120g": pcp,
+      "100g": pcp,
+      "500g": pcp,
     },
     bowlImages: {
       "30g": bowlchatpata,
@@ -114,9 +114,9 @@ const PRODUCTS = [
     desc: "Rich cream balanced with savoury onion flavour.",
     tag: "Popular",
     images: {
-      "30g": pcp5,
       "60g": pcp5,
-      "120g": pcp5,
+      "100g": pcp5,
+      "500g": pcp5,
     },
     bowlImages: {
       "30g": bowlcream,
@@ -130,9 +130,9 @@ const PRODUCTS = [
     desc: "Refreshing mint flavour with a crisp roasted finish.",
     tag: "Fresh",
     images: {
-      "30g": pcp3,
       "60g": pcp3,
-      "120g": pcp3,
+      "100g": pcp3,
+      "500g": pcp3,
     },
     bowlImages: {
       "30g": bowlpudina,
@@ -146,9 +146,9 @@ const PRODUCTS = [
     desc: "Simple, classic and incredibly addictive.",
     tag: "Classic",
     images: {
-      "30g": pcp4,
       "60g": pcp4,
-      "120g": pcp4,
+      "100g": pcp4,
+      "500g": pcp4,
     },
     bowlImages: {
       "30g": bowlsalt,
