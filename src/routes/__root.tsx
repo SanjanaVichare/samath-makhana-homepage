@@ -118,7 +118,7 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-function RouteTransitions() {
+{/*function RouteTransitions() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
@@ -132,13 +132,16 @@ function RouteTransitions() {
         exit={{ opacity: 0, y: -4 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+         Required: nested routes render here. Removing <Outlet /> breaks all child routes. 
         <Outlet />
       </motion.div>
     </AnimatePresence>
   );
-}
+}*/}
 
+function RouteTransitions() {
+  return <Outlet />;
+}
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
