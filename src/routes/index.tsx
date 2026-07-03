@@ -372,7 +372,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
         : "bg-white/15 backdrop-blur-md border-b border-white/15"
         }`}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl pl-1 pr-6 lg:pl-0 lg:pr-10 h-20 flex items-center justify-between">
         <Link
           to="/"
           className={`font-display text-2xl font-semibold tracking-tight transition-colors duration-300 ${scrolled
