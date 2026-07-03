@@ -32,13 +32,16 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-[400ms] ease-out ${solid
-        ? "bg-cream/95 backdrop-blur shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
-        : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-out ${solid
+        ? "bg-cream/95 backdrop-blur-xl shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
+        : "bg-white/25 backdrop-blur-xl border-b border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
         }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="font-display text-2xl font-semibold text-[#122300] tracking-tight">
+        <Link to="/" className={`font-display text-2xl font-semibold tracking-tight transition-colors duration-300 ${solid
+            ? "text-[#122300]"
+            : "text-[#122300]"
+          }`}>
           Samarth Makhana
         </Link>
 

@@ -367,11 +367,19 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
     ];
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-[400ms] ease-out ${scrolled ? "bg-cream/95 backdrop-blur shadow-[0_2px_24px_-12px_rgba(0,0,0,0.2)]" : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-out ${scrolled
+        ? "bg-cream/95 backdrop-blur-xl shadow-[0_2px_24px_-12px_rgba(0,0,0,0.2)]"
+        : "bg-white/15 backdrop-blur-md border-b border-white/15"
         }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="font-display text-2xl font-semibold text-olive tracking-tight">
+        <Link
+          to="/"
+          className={`font-display text-2xl font-semibold tracking-tight transition-colors duration-300 ${scrolled
+            ? "text-[#122300]"
+            : "text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
+            }`}
+        >
           Samarth <span className="italic">Makhana</span>
         </Link>
         <nav className="hidden lg:flex gap-10">
@@ -380,7 +388,10 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink hover:text-olive transition-colors"
+                className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors ${scrolled
+                  ? "text-ink hover:text-olive"
+                  : "text-white hover:text-[#F5D98C]"
+                  }`}
               >
                 {item.label}
               </Link>
@@ -388,7 +399,10 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink hover:text-olive transition-colors"
+                className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors ${scrolled
+                  ? "text-ink hover:text-olive"
+                  : "text-white hover:text-[#F5D98C]"
+                  }`}
               >
                 {item.label}
               </a>
@@ -396,7 +410,13 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
           )}
         </nav>
         <div className="flex items-center gap-5">
-          <button aria-label="Cart" className="text-ink hover:text-olive transition-colors">
+          <button
+            aria-label="Cart"
+            className={`transition-colors ${scrolled
+              ? "text-ink hover:text-olive"
+              : "text-white hover:text-[#F5D98C]"
+              }`}
+          >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
               <path d="M3 4h2l2.4 12.3a2 2 0 0 0 2 1.7h8.2a2 2 0 0 0 2-1.6L21 8H6" />
               <circle cx="10" cy="21" r="1.2" />
@@ -406,14 +426,20 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
           {isProductsPage ? (
             <a
               href="#top"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-olive text-cream text-xs font-semibold uppercase tracking-[0.15em] hover:bg-olive/90 hover:scale-[1.02] transition-all duration-200"
+              className={`hidden sm:inline-flex items-center px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${scrolled
+                ? "bg-olive text-cream hover:bg-olive/90"
+                : "bg-white text-[#122300] hover:bg-[#F8F3E6]"
+                }`}
             >
               Browse
             </a>
           ) : (
             <a
               href="#products"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-olive text-cream text-xs font-semibold uppercase tracking-[0.15em] hover:bg-olive/90 hover:scale-[1.02] transition-all duration-200"
+              className={`hidden sm:inline-flex items-center px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${scrolled
+                ? "bg-olive text-cream hover:bg-olive/90"
+                : "bg-white text-[#122300] hover:bg-[#F8F3E6]"
+                }`}
             >
               Shop Now
             </a>
@@ -479,12 +505,6 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-cue">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-gold">Scroll</span>
-        <svg width="14" height="22" viewBox="0 0 14 22" fill="none" stroke="#9D713C" strokeWidth="1.5">
-          <path d="M7 1v18M1 13l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
     </section>
   );
 }
@@ -509,6 +529,7 @@ function Marquee() {
 
 
 function Products() {
+  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
   const [selectedWeight, setSelectedWeight] = useState<Record<string, string>>(
     {}
   );
@@ -637,18 +658,20 @@ function Products() {
                       {/* Product Image */}
                       <div
                         className="
-                          relative
-                          h-[240px]
-                          mx-4
-                          mt-4
-                          rounded-3xl
-                          bg-cream/40
-                          flex
-                          items-center
-                          justify-center
-                          p-6
-                          overflow-hidden
-                        "
+    relative
+    h-[240px]
+    mx-4
+    mt-4
+    rounded-3xl
+    bg-cream/40
+    flex
+    items-center
+    justify-center
+    p-6
+    overflow-hidden
+  "
+                        onMouseEnter={() => setHoveredProduct(p.id)}
+                        onMouseLeave={() => setHoveredProduct(null)}
                       >
                         {/* Ticket Badge */}
                         <div
@@ -756,21 +779,25 @@ function Products() {
                           }
                           alt={p.name}
                           className="
-                            absolute
-                            inset-0
-                            z-20
-                            w-full
-                            h-[230px]
-                            object-contain
-                            rounded-3xl
-                            transition-all
-                            duration-700
-                            ease-out
-                            drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
-                            group-hover:opacity-0
-                            group-hover:scale-90
-                            group-hover:rotate-[-6deg]
-                          "
+  absolute
+  inset-0
+  z-20
+  w-full
+  h-[230px]
+  object-contain
+  rounded-3xl
+  transition-all
+  duration-700
+  ease-out
+  drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
+"
+                          style={{
+                            opacity: hoveredProduct === p.id ? 0 : 1,
+                            transform:
+                              hoveredProduct === p.id
+                                ? "scale(.9) rotate(-6deg)"
+                                : "scale(1) rotate(0deg)",
+                          }}
                         />
 
                         {/* Bowl Image */}
