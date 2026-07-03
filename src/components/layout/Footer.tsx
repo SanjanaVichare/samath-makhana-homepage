@@ -56,7 +56,7 @@ export default function Footer() {
             Samarth <span className="italic">Makhana</span>
           </h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">
-            Rooted in nature. Made for you. Handcrafted lotus seed snacks from the wetlands.
+            5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers, Naigaon, Dadar(E), Mumbai - 400014.
           </p>
           <div className="mt-6 flex gap-3">
             {[

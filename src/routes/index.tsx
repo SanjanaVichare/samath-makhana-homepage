@@ -510,7 +510,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = "🌿 100% Natural · No Preservatives · High Protein · Gluten Free · Handcrafted in India · Guilt-Free Snacking";
+  const items = "100% Natural · No Preservatives · High Protein · Gluten Free · Handcrafted in India · Guilt-Free Snacking";
   return (
     <div className="bg-olive text-cream py-4 overflow-hidden">
       <div className="flex w-max animate-marquee whitespace-nowrap">
