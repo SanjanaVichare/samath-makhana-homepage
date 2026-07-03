@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import logo from "@/assets/samarthlogo.png";
 
 const LINKS = [
   { label: "Home", to: "/" as const },
@@ -38,8 +39,15 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
         }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="font-display text-2xl font-semibold text-wheat tracking-tight">
-          Samarth Makhana
+        <Link
+          to="/"
+          className="flex items-center"
+        >
+          <img
+            src={logo}
+            alt="Samarth Makhana"
+            className="h-12 w-auto object-contain transition-all duration-300"
+          />
         </Link>
 
         <nav className="hidden lg:flex gap-9" aria-label="Primary">

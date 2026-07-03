@@ -464,8 +464,15 @@ function Hero() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10" />
         </div>
-        <div className="relative flex items-center bg-cream px-8 lg:px-16 py-20">
+        <div className="relative flex items-start bg-cream px-8 lg:px-16 pt-13 pb-20">
           <div className="max-w-xl">
+            <h4
+              className="mt-6 font-display text-[20px] leading-[0.95] sm:text-[20px] lg:text-[25px] font-semibold text-[#122300] hero-text-in"
+              style={{ animationDelay: "0.3s" }}
+            >
+              Samarth Makhana
+            </h4>
+            <br></br>
             <p
               className="text-[11px] font-bold uppercase tracking-[0.3em] text-gold hero-text-in"
               style={{ animationDelay: "0.1s" }}
