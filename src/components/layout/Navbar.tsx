@@ -41,7 +41,7 @@ export default function Navbar({
     setOpen(false);
   }, [pathname]);
 
-  const solid = !transparentOnTop || scrolled;
+  const solid = true;
 
   return (
     <header
@@ -60,7 +60,7 @@ export default function Navbar({
           <img
             src={logo}
             alt="Samarth Makhana"
-            className="h-14 w-auto object-contain transition-all duration-300"
+            className="h-17 w-auto object-contain transition-all duration-300"
           />
         </Link>
 

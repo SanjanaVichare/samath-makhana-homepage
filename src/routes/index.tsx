@@ -3,7 +3,7 @@ import MakhanaCursor from "@/components/MakhanaCursor";
 import makhanaInBowl from "@/assets/makahna-bowl.png";
 import { createFileRoute, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import heroImg from "@/assets/hero-makhana.jpg";
+import heroImg from "@/assets/hero-makhana2.png";
 import storyImg from "@/assets/story-lotus.jpg";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import cookiePack from "@/assets/cookies.png";
@@ -459,11 +459,20 @@ function Hero() {
       <div className="grid h-full grid-cols-1 lg:grid-cols-[55fr_45fr]">
 
         {/* Hero Image */}
-        <div className="relative overflow-hidden bg-wheat">
+        <div className="relative h-[42vh] lg:h-auto overflow-hidden bg-wheat">
           <img
             src={heroImg}
             alt="Roasted makhana in a rustic wooden bowl"
-            className="h-full w-full object-cover hero-img-in"
+            className="
+      h-full
+      w-full
+      object-cover
+      scale-[1.08]
+      lg:scale-[1.03]
+      object-[82%_65%]
+      lg:object-[80%_62%]
+      hero-img-in
+    "
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10" />
         </div>
@@ -1098,22 +1107,22 @@ function Benefits() {
                 ))}
               </div>
 
-              <a
-                href="#products"
+
+              <a href="#products"
                 className="
-    group mt-3 inline-flex items-center gap-2
-    rounded-full
-    bg-olive
-    px-7 py-3.5
-    text-sm font-semibold tracking-wide text-white
-    shadow-md shadow-olive/20
-    transition-all duration-300 ease-out
-    hover:-translate-y-1
-    hover:scale-105
-    hover:bg-[#4d6924]
-    hover:shadow-xl hover:shadow-olive/30
-    active:scale-95
-  "
+              group mt-3 inline-flex items-center gap-2
+              rounded-full
+              bg-olive
+              px-7 py-3.5
+              text-sm font-semibold tracking-wide text-white
+              shadow-md shadow-olive/20
+              transition-all duration-300 ease-out
+              hover:-translate-y-1
+              hover:scale-105
+              hover:bg-[#4d6924]
+              hover:shadow-xl hover:shadow-olive/30
+              active:scale-95
+              "
               >
                 Explore Flavours
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -1125,74 +1134,95 @@ function Benefits() {
             {/* RIGHT INFOGRAPHIC */}
             <div
               data-reveal
-              className="reveal relative flex items-center justify-center h-[420px] sm:h-[500px] lg:h-[600px]"
+              className="
+                reveal
+                flex flex-col items-center gap-6
+                lg:relative lg:flex lg:items-center lg:justify-center
+                lg:h-[600px]
+              "
             >
-              {/* Center Product */}
+              {/* Center Product — hidden on mobile, shown from lg up */}
               <img
                 src={makhanaInBowl}
                 alt="Samarth Makhana"
-                className="relative z-20 w-[180px] sm:w-[240px] md:w-[280px] lg:w-[340px] xl:w-[380px] drop-shadow-2xl animate-float"
+                className="
+                  hidden
+                  lg:block
+                  relative z-20
+                  lg:w-[340px] xl:w-[380px]
+                  lg:absolute
+                  drop-shadow-2xl animate-float
+                "
               />
 
-              {/* Protein */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2">
-                <NutritionCard
-                  title="Protein Rich"
-                  value="11.25g+"
-                  icon="💪"
-                />
-              </div>
+              {/* Cards: simple grid on mobile, orbiting absolute layout from lg up */}
+              <div
+                className="
+                  grid grid-cols-3 gap-3
+                  sm:grid-cols-3 sm:gap-4
+                  lg:contents
+                "
+              >
+                {/* Protein */}
+                <div className="relative lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2">
+                  <NutritionCard
+                    title="Protein Rich"
+                    value="11.25g+"
+                    icon="💪"
+                  />
+                </div>
 
-              {/* Gluten */}
-              <div className="absolute top-24 right-0">
-                <NutritionCard
-                  title="Gluten Free"
-                  value="100%"
-                  icon="🌾"
-                />
-              </div>
+                {/* Gluten */}
+                <div className="relative lg:absolute lg:top-24 lg:right-0">
+                  <NutritionCard
+                    title="Gluten Free"
+                    value="100%"
+                    icon="🌾"
+                  />
+                </div>
 
-              {/* Calories */}
-              <div className="absolute bottom-24 right-4">
-                <NutritionCard
-                  title="Cholesterol Free"
-                  value="0%"
-                  icon="🔥"
-                />
-              </div>
+                {/* Calories */}
+                <div className="relative lg:absolute lg:bottom-24 lg:right-4">
+                  <NutritionCard
+                    title="Cholesterol Free"
+                    value="0%"
+                    icon="🔥"
+                  />
+                </div>
 
-              {/* Fiber */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-                <NutritionCard
-                  title="High Fiber"
-                  value="Rich"
-                  icon="🌿"
-                />
-              </div>
+                {/* Fiber */}
+                <div className="relative lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2">
+                  <NutritionCard
+                    title="High Fiber"
+                    value="Rich"
+                    icon="🌿"
+                  />
+                </div>
 
-              {/* Natural */}
-              <div className="absolute bottom-24 left-4">
-                <NutritionCard
-                  title="100% Natural"
-                  value="Pure"
-                  icon="🍃"
-                />
-              </div>
+                {/* Natural */}
+                <div className="relative lg:absolute lg:bottom-24 lg:left-4">
+                  <NutritionCard
+                    title="100% Natural"
+                    value="Pure"
+                    icon="🍃"
+                  />
+                </div>
 
-              {/* Cholesterol */}
-              <div className="absolute top-24 left-0">
-                <NutritionCard
-                  title="0% Cholesterol"
-                  value="Zero"
-                  icon="❤️"
-                />
+                {/* Cholesterol */}
+                <div className="relative lg:absolute lg:top-24 lg:left-0">
+                  <NutritionCard
+                    title="0% Cholesterol"
+                    value="Zero"
+                    icon="❤️"
+                  />
+                </div>
               </div>
             </div>
 
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
 
@@ -1537,8 +1567,8 @@ function Bestseller() {
           </div>
         </div>
 
-        {/* RIGHT */}
-        <div className="relative bg-[#D9B98C] flex items-center justify-center overflow-visible">
+        {/* RIGHT — hidden on mobile, shown from lg up */}
+        <div className="hidden lg:flex relative bg-[#D9B98C] items-center justify-center overflow-visible">
 
           <div
             className="
