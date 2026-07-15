@@ -66,6 +66,26 @@ export default function Navbar({ transparentOnTop = false }: { transparentOnTop?
         </nav>
 
         <div className="flex items-center gap-4">
+
+
+
+
+          <Link
+            to="/login"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full border border-[#122300] text-[#122300] text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#122300] hover:text-cream transition-all duration-200"
+          >
+            Login
+          </Link>
+
+          {/* Sign Up */}
+          
+          <Link
+            to="/signup"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#122300]/90 transition-all duration-200"
+          >
+            Sign Up
+          </Link>
+
           <Link
             to="/cart"
             aria-label={`Cart, ${count} items`}
