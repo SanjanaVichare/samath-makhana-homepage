@@ -11,10 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as ShopRouteImport } from './routes/shop'
-
-import { Route as ProductsRouteImport } from './routes/products'
 import { Route as LoginRouteImport } from './routes/login'
-
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -32,12 +29,6 @@ const SignupRoute = SignupRouteImport.update({
 const ShopRoute = ShopRouteImport.update({
   id: '/shop',
   path: '/shop',
-  getParentRoute: () => rootRouteImport,
-} as any)
-
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -92,9 +83,7 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRouteWithChildren
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
-
   '/login': typeof LoginRoute
-  '/products': typeof ProductsRoute
   '/shop': typeof ShopRoute
   '/signup': typeof SignupRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -107,9 +96,7 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRouteWithChildren
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
-
   '/login': typeof LoginRoute
-  '/products': typeof ProductsRoute
   '/shop': typeof ShopRoute
   '/signup': typeof SignupRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -123,9 +110,7 @@ export interface FileRoutesById {
   '/blog': typeof BlogRouteWithChildren
   '/cart': typeof CartRoute
   '/contact': typeof ContactRoute
-
   '/login': typeof LoginRoute
-  '/products': typeof ProductsRoute
   '/shop': typeof ShopRoute
   '/signup': typeof SignupRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -140,9 +125,7 @@ export interface FileRouteTypes {
     | '/blog'
     | '/cart'
     | '/contact'
-
     | '/login'
-    | '/products'
     | '/shop'
     | '/signup'
     | '/auth/callback'
@@ -156,7 +139,6 @@ export interface FileRouteTypes {
     | '/cart'
     | '/contact'
     | '/login'
-    | '/products'
     | '/shop'
     | '/signup'
     | '/auth/callback'
@@ -170,7 +152,6 @@ export interface FileRouteTypes {
     | '/cart'
     | '/contact'
     | '/login'
-    | '/products'
     | '/shop'
     | '/signup'
     | '/auth/callback'
@@ -185,7 +166,6 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   ContactRoute: typeof ContactRoute
   LoginRoute: typeof LoginRoute
-  ProductsRoute: typeof ProductsRoute
   ShopRoute: typeof ShopRoute
   SignupRoute: typeof SignupRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
@@ -206,13 +186,6 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -298,7 +271,6 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   ContactRoute: ContactRoute,
   LoginRoute: LoginRoute,
-  ProductsRoute: ProductsRoute,
   ShopRoute: ShopRoute,
   SignupRoute: SignupRoute,
   AuthCallbackRoute: AuthCallbackRoute,
