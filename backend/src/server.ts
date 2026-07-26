@@ -1,20 +1,10 @@
-import express from "express";
-import cors from "cors";
 import dotenv from "dotenv";
-
-import authRoutes from "../routes/auth";
-
 dotenv.config();
 
-const app = express();
+import app from "./app";
 
-app.use(cors());
+const PORT = process.env.PORT || 5000;
 
-app.use(express.json());
-
-app.use("/auth", authRoutes);
-
-app.listen(5000, () => {
-
-    console.log("🚀 Backend running");
+app.listen(PORT, () => {
+  console.log(`🚀 Backend running on port ${PORT}`);
 });

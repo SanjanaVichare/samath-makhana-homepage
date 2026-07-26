@@ -1,12 +1,13 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import authRoutes from "../routes/auth";
 
 const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:8080", // Change if your Vite app runs on a different port
+    origin: "http://localhost:8080", // Change if needed
     credentials: true,
   })
 );
@@ -20,5 +21,7 @@ app.get("/", (req, res) => {
     message: "Samarth Makhana Backend Running 🚀",
   });
 });
+
+app.use("/auth", authRoutes);
 
 export default app;
