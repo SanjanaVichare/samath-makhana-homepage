@@ -1,10 +1,10 @@
-import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
-import ig3 from "@/assets/ig-3.jpg";
-import ig4 from "@/assets/ig-4.jpg";
-import ig5 from "@/assets/ig-5.jpg";
-import ig6 from "@/assets/ig-6.jpg";
-import story from "@/assets/story-lotus.jpg";
+import blogHealthySnacks from "@/assets/blog-healthy-snacks.jpg";
+import blogSuperfood from "@/assets/blog-superfood.jpg";
+import blogWeightLoss from "@/assets/blog-weight-loss.jpg";
+import blogRecipes from "@/assets/blog-recipes.jpg";
+import blogFarm from "@/assets/blog-farm.jpg";
+import blogLifestyle from "@/assets/blog-lifestyle.jpg";
 
 export type Article = {
   slug: string;
@@ -27,7 +27,7 @@ export const ARTICLES: Article[] = [
     author: "Riya Bansal",
     date: "March 12, 2026",
     readTime: "5 min read",
-    cover: ig1,
+    cover: blogHealthySnacks,
     content: [
       { type: "p", text: "We've been told for years that snacking is the enemy. The truth is more nuanced — what matters is what you reach for, not whether you reach at all." },
       { type: "h2", text: "Sustained energy, not sugar spikes" },
@@ -47,9 +47,9 @@ export const ARTICLES: Article[] = [
     author: "Dr. Aman Verma",
     date: "March 5, 2026",
     readTime: "6 min read",
-    cover: story,
+    cover: blogSuperfood,
     content: [
-      { type: "p", text: "Makhana is the seed of the lotus flower, hand-harvested from ponds across Bihar. It has been part of Indian rituals and diets for centuries — and modern nutrition is finally catching up." },
+      { type: "p", text: "Makhana is the seed of the lotus flower, hand-harvested from ponds. It has been part of Indian rituals and diets for centuries — and modern nutrition is finally catching up." },
       { type: "h2", text: "The numbers" },
       { type: "p", text: "100g of roasted makhana delivers around 9-10g of protein, 14g of fiber, and almost no fat. It is naturally gluten-free and low on the glycemic index." },
       { type: "h2", text: "Why it travels well" },
@@ -64,7 +64,7 @@ export const ARTICLES: Article[] = [
     author: "Anjali Kapoor",
     date: "February 22, 2026",
     readTime: "4 min read",
-    cover: ig3,
+    cover: blogWeightLoss,
     content: [
       { type: "p", text: "Weight loss is mostly about consistency. The snack drawer is where most people lose that consistency." },
       { type: "h2", text: "The five swaps" },
@@ -80,7 +80,7 @@ export const ARTICLES: Article[] = [
     author: "Chef Meera Joshi",
     date: "February 14, 2026",
     readTime: "7 min read",
-    cover: ig4,
+    cover: blogRecipes,
     content: [
       { type: "h2", text: "1. Makhana Kheer" },
       { type: "p", text: "Slow-cook makhana in full-fat milk with cardamom and a touch of jaggery. Top with slivered almonds." },
@@ -93,17 +93,17 @@ export const ARTICLES: Article[] = [
   {
     slug: "farm-to-table-journey",
     title: "From Lotus Pond to Pantry: Our Farm-to-Table Journey",
-    excerpt: "A look at how Samarth makhana actually gets made — from family farms in Bihar to your kitchen shelf.",
+    excerpt: "A look at how Samarth makhana actually gets made — from family farms to your kitchen shelf.",
     category: "Story",
     author: "Samarth Team",
     date: "February 1, 2026",
     readTime: "8 min read",
-    cover: ig5,
+    cover: blogFarm,
     content: [
-      { type: "p", text: "Every batch of Samarth makhana starts with a partnership. We work directly with family-run farms in Bihar's Darbhanga region." },
+      { type: "p", text: "Every batch of Samarth makhana starts with a partnership. We work directly with family-run farms." },
       { type: "h2", text: "Harvesting by hand" },
       { type: "p", text: "Lotus seeds are still harvested by hand — divers wade into ponds, collect pods, and dry them in the sun before roasting." },
-      { type: "img", src: story },
+      { type: "img", src: blogFarm },
       { type: "h2", text: "Slow roasting" },
       { type: "p", text: "We roast in small batches in iron pans, then hand-season. Nothing about this is industrial — and you can taste the difference." },
     ],
@@ -116,7 +116,7 @@ export const ARTICLES: Article[] = [
     author: "Riya Bansal",
     date: "January 18, 2026",
     readTime: "5 min read",
-    cover: ig6,
+    cover: blogLifestyle,
     content: [
       { type: "p", text: "There is no single secret. Just a stack of small habits, practised so often they become invisible." },
       { type: "h2", text: "The list" },

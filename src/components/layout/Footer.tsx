@@ -1,6 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Twitter, Mail } from "lucide-react";
+import { Instagram, Facebook, Twitter, Mail, Leaf, ShieldCheck, Wheat, Flag, BadgeCheck } from "lucide-react";
 import { useState } from "react";
+
+const TRUST = [
+  { Icon: BadgeCheck, label: "FSSAI Certified" },
+  { Icon: ShieldCheck, label: "ISO 22000" },
+  { Icon: Wheat, label: "Gluten Free" },
+  { Icon: Leaf, label: "100% Vegetarian" },
+  { Icon: Flag, label: "Made in India" },
+];
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -16,14 +24,39 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-olive text-cream pt-20 pb-8 px-6 lg:px-10">
-      <div className="mx-auto max-w-7xl grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-[#122300] text-cream pt-8 pb-8 px-6 lg:px-10">
+      {/* Top Info Strip */}
+      <div className="border-y border-cream/10 bg-[#122300]">
+        <div className="mx-auto max-w-7xl px-4 py-4">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-[11px] uppercase tracking-[0.22em] text-cream/75">
+
+            <div className="flex items-center gap-2">
+              <Leaf size={13} className="text-wheat" strokeWidth={2} />
+              <span>100% Vegetarian</span>
+            </div>
+
+            <span className="hidden sm:block text-wheat/40">•</span>
+
+            <span>
+              Roasted, never fried · Real ingredients · Recyclable packaging
+            </span>
+
+            <span className="hidden lg:block text-wheat/40">•</span>
+
+            <span className="text-wheat">
+              Made in India · Crafted with care
+            </span>
+
+          </div>
+        </div>
+      </div>
+      <div className="mx-auto max-w-7xl pt-14 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-2xl font-semibold">
             Samarth <span className="italic">Makhana</span>
           </h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">
-            Rooted in Nature. Made for You. Handcrafted lotus seed snacks from India.
+            5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers, Naigaon, Dadar(E), Mumbai - 400014.
           </p>
           <div className="mt-6 flex gap-3">
             {[
@@ -47,7 +80,7 @@ export default function Footer() {
           <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Quick Links</h4>
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
             <li><Link to="/shop" className="hover:text-cream transition-colors">Shop All</Link></li>
-            <li><Link to="/about" className="hover:text-cream transition-colors">About Us</Link></li>
+            <li><Link to="/about" className="hover:text-cream transition-colors">Our Story</Link></li>
             <li><Link to="/blog" className="hover:text-cream transition-colors">Journal</Link></li>
             <li><Link to="/contact" className="hover:text-cream transition-colors">Contact</Link></li>
             <li><Link to="/cart" className="hover:text-cream transition-colors">Cart</Link></li>
@@ -62,7 +95,7 @@ export default function Footer() {
                 hello@samarthmakhana.in
               </a>
             </li>
-            <li>+91 98765 43210</li>
+            <li>+91 79000 91250</li>
             <li><Link to="/contact" className="hover:text-cream transition-colors">Shipping & Returns</Link></li>
             <li><Link to="/contact" className="hover:text-cream transition-colors">FAQs</Link></li>
             <li><a href="#" className="hover:text-cream transition-colors">Privacy Policy</a></li>
@@ -96,11 +129,23 @@ export default function Footer() {
           </form>
           {status === "ok" && <p className="mt-3 text-xs text-wheat">Thanks — you're on the list.</p>}
           {status === "err" && <p className="mt-3 text-xs text-wheat">Please enter a valid email.</p>}
+
+          <div className="mt-7 space-y-2 text-[11px] text-cream/70 leading-relaxed">
+            <p>
+              <span className="uppercase tracking-[0.18em] text-wheat font-semibold">FSSAI:</span>{" "}
+              12345678901234
+            </p>
+            <p>
+              <span className="uppercase tracking-[0.18em] text-wheat font-semibold">GSTIN:</span>{" "}
+              22ABCDE1234F1Z5
+            </p>
+          </div>
         </div>
       </div>
+
       <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-xs text-wheat">© {new Date().getFullYear()} Samarth Makhana. All rights reserved.</p>
-        <p className="text-xs text-wheat">Handcrafted in India 🌿</p>
+        <p className="text-xs text-wheat">Made in India · Crafted with care 🌿</p>
       </div>
     </footer>
   );

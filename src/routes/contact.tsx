@@ -41,9 +41,37 @@ function ContactPage() {
         <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Get in Touch</p>
         <h1 className="mt-4 font-display text-5xl lg:text-7xl text-olive font-semibold">We answer every note.</h1>
         <p className="mt-5 max-w-xl mx-auto text-ink/70">Wholesale, recipes, or just to say hi — we'd love to hear from you.</p>
+        <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-olive/10 border border-olive/20 px-4 py-2 text-xs text-olive font-semibold uppercase tracking-[0.18em]">
+          <span className="h-2 w-2 rounded-full bg-olive animate-pulse" /> Avg. response under 24 hours
+        </div>
       </section>
 
-      <section className="px-6 lg:px-10 py-16">
+      {/* Quick contact tiles */}
+      <section className="px-6 lg:px-10 -mt-6">
+        <div className="mx-auto max-w-6xl grid sm:grid-cols-3 gap-4">
+          {[
+            { Icon: Mail, label: "Email us", value: "hello@samarthmakhana.in", href: "mailto:hello@samarthmakhana.in" },
+            { Icon: Phone, label: "Call us", value: "+91 7900091250", href: "tel:+919876543210" },
+            { Icon: MapPin, label: "Visit", value: "Dadar, Mumbai", href: "#map" },
+          ].map((q) => (
+            <a
+              key={q.label}
+              href={q.href}
+              className="group bg-white border border-wheat/60 rounded-2xl px-5 py-4 flex items-center gap-4 hover:border-olive transition-colors"
+            >
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-olive/10 text-olive group-hover:bg-olive group-hover:text-cream transition-colors">
+                <q.Icon size={18} strokeWidth={1.6} />
+              </span>
+              <div className="text-left">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-gold font-semibold">{q.label}</p>
+                <p className="text-sm text-ink mt-0.5">{q.value}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="px-6 lg:px-10 py-10">
         <div className="mx-auto max-w-6xl grid lg:grid-cols-[1.2fr_1fr] gap-10">
           <form onSubmit={submit} noValidate className="bg-white rounded-[32px] p-8 lg:p-10 border border-wheat/60">
             <h2 className="font-display text-3xl text-olive">Send a message</h2>
@@ -74,9 +102,9 @@ function ContactPage() {
             <InfoCard Icon={Mail} title="Email">
               <a href="mailto:hello@samarthmakhana.in" className="hover:text-olive">hello@samarthmakhana.in</a>
             </InfoCard>
-            <InfoCard Icon={Phone} title="Phone">+91 98765 43210</InfoCard>
+            <InfoCard Icon={Phone} title="Phone">+91 7900091250</InfoCard>
             <InfoCard Icon={MapPin} title="Visit">
-              42 Lotus Lane, Darbhanga,<br />Bihar 846004, India
+              Dadar,<br />Mumbai, India
             </InfoCard>
             <div className="bg-white rounded-3xl p-6 border border-wheat/60">
               <h3 className="font-display text-xl text-olive">Hours</h3>
@@ -109,7 +137,7 @@ function ContactPage() {
         <div className="mx-auto max-w-6xl relative aspect-[16/6] rounded-[32px] overflow-hidden bg-gradient-to-br from-olive/20 via-wheat/40 to-gold/20 border border-wheat/60 flex items-center justify-center">
           <div className="text-center text-olive">
             <MapPin size={40} strokeWidth={1.5} className="mx-auto" />
-            <p className="mt-3 font-display text-2xl">Darbhanga, Bihar</p>
+            <p className="mt-3 font-display text-2xl">Dadar, Mumbai</p>
             <p className="text-xs uppercase tracking-[0.2em] text-ink/50 mt-1">Map view</p>
           </div>
         </div>

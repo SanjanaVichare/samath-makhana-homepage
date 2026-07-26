@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
 import authRoutes from "../routes/auth";
 
 const app = express();
@@ -8,7 +9,7 @@ const app = express();
 app.use(
   cors({
     origin: "http://localhost:8080", // Change if needed
-    credentials: true,
+    origin: "http://localhost:8080", // Change if your Vite app runs on a different port    credentials: true,
   })
 );
 
@@ -22,6 +23,8 @@ app.get("/", (req, res) => {
   });
 });
 
+
 app.use("/auth", authRoutes);
+
 
 export default app;

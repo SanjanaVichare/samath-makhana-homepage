@@ -11,6 +11,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, type ReactNode } from "react";
 import { CartProvider } from "../context/CartContext";
+import Chatbot from "@/components/Chatbot";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -117,8 +118,11 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-function RouteTransitions() {
+{/*function RouteTransitions() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+  }, [pathname]);
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
@@ -128,13 +132,16 @@ function RouteTransitions() {
         exit={{ opacity: 0, y: -4 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+         Required: nested routes render here. Removing <Outlet /> breaks all child routes. 
         <Outlet />
       </motion.div>
     </AnimatePresence>
   );
-}
+}*/}
 
+function RouteTransitions() {
+  return <Outlet />;
+}
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
@@ -142,6 +149,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <CartProvider>
         <RouteTransitions />
+        <Chatbot />
       </CartProvider>
     </QueryClientProvider>
   );
