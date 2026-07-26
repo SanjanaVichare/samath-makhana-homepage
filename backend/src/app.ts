@@ -8,8 +8,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:8080", // Change if needed
-    origin: "http://localhost:8080", // Change if your Vite app runs on a different port    credentials: true,
+    origin: "http://localhost:8080",
+    credentials: true,
   })
 );
 
@@ -23,8 +23,6 @@ app.get("/", (req, res) => {
   });
 });
 
-
 app.use("/auth", authRoutes);
-
 
 export default app;
