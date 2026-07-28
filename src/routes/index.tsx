@@ -309,7 +309,7 @@ function Home() {
 
         <SiteFooter />
         <a
-          href="https://wa.me/917900091250?text=Hello!%20I%20came%20across%20Samarth%20Makhana%20and%20I'm%20interested%20in%20placing%20an%20order.%20Could%20you%20please%20share%20your%20available%20flavours%20and%20pricing%3F"
+          href="https://wa.me/917900091250?text=Hello!%20I%20came%20across%20PRAM%20Makhana%20and%20I'm%20interested%20in%20placing%20an%20order.%20Could%20you%20please%20share%20your%20available%20flavours%20and%20pricing%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="
@@ -380,7 +380,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
             : "text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
             }`}
         >
-          Samarth <span className="italic">Makhana</span>
+          PRAM <span className="italic">Makhana</span>
         </Link>
         <nav className="hidden lg:flex gap-10">
           {links.map((item) =>
@@ -485,7 +485,7 @@ function Hero() {
                 key={i}
                 className="px-8 text-[11px] font-semibold uppercase tracking-[0.3em]"
               >
-                Samarth Makhana • Rooted in Nature • Premium Lotus Seeds •
+                PRAM Makhana • Rooted in Nature • Premium Lotus Seeds •
               </span>
             ))}
           </div>
@@ -500,7 +500,7 @@ function Hero() {
               className="hidden lg:block mt-6 font-display text-[20px] lg:text-[25px] font-semibold text-[#122300] hero-text-in"
               style={{ animationDelay: "0.3s" }}
             >
-              Samarth Makhana
+              PRAM Makhana
             </h4>
 
             <div className="hidden lg:block h-6" />
@@ -678,6 +678,7 @@ function Products() {
                     md:flex-[0_0_50%]
                     lg:flex-[0_0_33%]
                     px-4
+                    flex
                   "
                 >
                   <Link
@@ -694,6 +695,7 @@ function Products() {
                         border-2 border-olive/30
                         flex flex-col
                         h-full
+                        w-full
                         transition-all
                         duration-500
                         hover:-translate-y-2
@@ -980,7 +982,7 @@ function Story() {
             From the Lotus Ponds of India to Your Snack Bowl.
           </h2>
           <p data-reveal data-delay="240" className="reveal mt-6 text-cream/85 leading-relaxed">
-            Samarth sources lotus seeds from family-run farms, then slow-roasts them in small kitchens — the way grandmothers have for generations. No shortcuts, no fillers, just the patient craft of turning a humble seed into something irresistible.
+            PRAM sources lotus seeds from family-run farms, then slow-roasts them in small kitchens — the way grandmothers have for generations. No shortcuts, no fillers, just the patient craft of turning a humble seed into something irresistible.
           </p>
           <a
             href="/about"
@@ -1078,7 +1080,7 @@ function Benefits() {
             {/* LEFT CONTENT */}
             <div data-reveal className="reveal">
               <span className="text-sm uppercase tracking-[0.3em] text-olive/70">
-                Why Choose Samarth
+                Why Choose PRAM
               </span>
 
               <h2 className="mt-4 font-display text-4xl lg:text-6xl leading-tight text-olive font-semibold">
@@ -1089,7 +1091,7 @@ function Benefits() {
 
               <p className="mt-6 text-ink/70 text-lg max-w-lg leading-relaxed">
                 Crafted from premium lotus seeds and roasted to perfection,
-                Samarth delivers the perfect balance of taste, crunch and
+                PRAM delivers the perfect balance of taste, crunch and
                 nutrition.
               </p>
 
@@ -1144,7 +1146,7 @@ function Benefits() {
               {/* Center Product — hidden on mobile, shown from lg up */}
               <img
                 src={makhanaInBowl}
-                alt="Samarth Makhana"
+                alt="PRAM Makhana"
                 className="
                   hidden
                   lg:block
@@ -1811,7 +1813,7 @@ function Instagram() {
       <div className="relative z-10">
         <div className="mx-auto max-w-6xl">
           <h2 data-reveal className="reveal text-center font-display text-4xl lg:text-5xl font-semibold text-[#122300]">
-            Follow <span className="italic">@SamarthMakhana</span>
+            Follow <span className="italic">@PRAMMakhana</span>
           </h2>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-1">
             {IG.map((src, i) => (
@@ -1845,7 +1847,7 @@ export function Footer() {
     <footer className="bg-olive text-cream pt-20 pb-8 px-6 lg:px-10">
       <div className="mx-auto max-w-7xl grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <h3 className="font-display text-2xl font-semibold">Samarth <span className="italic">Makhana</span></h3>
+          <h3 className="font-display text-2xl font-semibold">PRAM <span className="italic">Makhana</span></h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">Rooted in Nature. Made for You.</p>
           <div className="mt-6 flex gap-4">
             {["instagram", "facebook", "twitter"].map((s) => (
@@ -1868,7 +1870,7 @@ export function Footer() {
         <div>
           <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Support</h4>
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
-            <li>hello@samarthmakhana.in</li>
+            <li>hello@PRAMmakhana.in</li>
             <li>+91 79000 91250</li>
             <li>Shipping & Returns</li>
             <li>FAQs</li>
@@ -1891,7 +1893,7 @@ export function Footer() {
         </div>
       </div>
       <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-wheat">© {new Date().getFullYear()} Samarth Makhana. All rights reserved.</p>
+        <p className="text-xs text-wheat">© {new Date().getFullYear()} PRAM Makhana. All rights reserved.</p>
         <p className="text-xs text-wheat">Handcrafted in India 🌿</p>
       </div>
     </footer>

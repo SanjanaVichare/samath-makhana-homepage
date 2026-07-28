@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "Samarth Makhana Backend Running 🚀",
+    message: "PRAM Makhana Backend Running 🚀",
   });
 });
 

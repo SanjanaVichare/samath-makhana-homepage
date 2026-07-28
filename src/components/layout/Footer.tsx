@@ -53,7 +53,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl pt-14 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-2xl font-semibold">
-            Samarth <span className="italic">Makhana</span>
+            PRAM <span className="italic">Makhana</span>
           </h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">
             5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers, Naigaon, Dadar(E), Mumbai - 400014.
@@ -91,8 +91,8 @@ export default function Footer() {
           <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Support</h4>
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
             <li>
-              <a href="mailto:hello@samarthmakhana.in" className="hover:text-cream transition-colors">
-                hello@samarthmakhana.in
+              <a href="mailto:hello@PRAMmakhana.in" className="hover:text-cream transition-colors">
+                hello@PRAMmakhana.in
               </a>
             </li>
             <li>+91 79000 91250</li>
@@ -144,7 +144,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-wheat">© {new Date().getFullYear()} Samarth Makhana. All rights reserved.</p>
+        <p className="text-xs text-wheat">© {new Date().getFullYear()} PRAM Makhana. All rights reserved.</p>
         <p className="text-xs text-wheat">Made in India · Crafted with care 🌿</p>
       </div>
     </footer>

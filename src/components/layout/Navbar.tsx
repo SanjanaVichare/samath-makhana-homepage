@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import logo from "@/assets/samarthlogo.png";
+import logo from "@/assets/PRAMlogo.png";
 
 const LINKS = [
   { label: "Home", to: "/" as const },
@@ -59,7 +59,7 @@ export default function Navbar({
         >
           <img
             src={logo}
-            alt="Samarth Makhana"
+            alt="PRAM Makhana"
             className="h-17 w-auto object-contain transition-all duration-300"
           />
         </Link>

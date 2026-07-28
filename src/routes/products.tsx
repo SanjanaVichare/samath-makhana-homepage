@@ -211,7 +211,7 @@ function ProductsHero() {
           </p>
 
           <h1 className="mt-5 font-display text-5xl lg:text-7xl font-semibold leading-[0.95] text-olive">
-            Samarth
+            PRAM
             <br />
             Makhana
           </h1>

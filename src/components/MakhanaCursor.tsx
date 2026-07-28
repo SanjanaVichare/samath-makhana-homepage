@@ -29,8 +29,8 @@ export default function MakhanaCursor() {
         fixed
         z-[9999]
         pointer-events-none
-        w-24
-        h-24
+        w-20
+        h-20
                 select-none
       "
             style={{
