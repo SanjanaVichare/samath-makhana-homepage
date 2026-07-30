@@ -70,12 +70,16 @@ function ShopPage() {
 <PageShell>
   {/* Hero */}
   <section
-  className="relative overflow-hidden py-28 px-6 lg:px-10 bg-cover bg-center bg-no-repeat"
+  className="relative overflow-hidden py-28 px-6 lg:px-10 bg-center bg-cover"
   style={{
-    backgroundImage: `url(${productBg})`,
+    backgroundImage: `
+      linear-gradient(rgba(255,248,230,0.0), rgba(255,248,230,0.0)),
+      url(${productBg})
+    `,
+    backgroundSize: "cover",
+    backgroundRepeat: "repeat",
   }}
 >
-  <div className="absolute inset-0 bg-gradient-to-b from-wheat/70 via-cream/80 to-white/90" />
 
   <div className="relative mx-auto max-w-6xl text-center">
     <h1 className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-[#122300]">
