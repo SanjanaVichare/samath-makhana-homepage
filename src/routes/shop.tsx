@@ -4,6 +4,7 @@ import { Search, Heart, Eye, Star, ShoppingBag, SlidersHorizontal } from "lucide
 import PageShell from "@/components/layout/PageShell";
 import { PRODUCTS, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import productBg from "@/assets/bg-doodle.png";
 import peri from "@/assets/packet-peri-peri.png";
 import cheese from "@/assets/packet-cheese.png";
 import chatpata from "@/assets/packet-chat-pata.png";
@@ -66,19 +67,27 @@ function ShopPage() {
   const visible = filtered.slice(0, page * PAGE_SIZE);
 
   return (
-    <PageShell>
-      {/* Hero */}
-      <section className="relative py-24 px-6 lg:px-10 bg-gradient-to-b from-wheat/40 to-cream">
-        <div className="mx-auto max-w-6xl text-center">
-          <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Shop the Collection</p>
-          <h1 className="mt-4 font-display text-5xl lg:text-7xl font-semibold text-olive">
-            The <span className="italic">Pantry</span>
-          </h1>
-          <p className="mt-6 max-w-xl mx-auto text-ink/70">
-            Small-batch makhana and wholesome cookies, roasted slow and shipped fresh.
-          </p>
-        </div>
-      </section>
+<PageShell>
+  {/* Hero */}
+  <section
+  className="relative overflow-hidden py-28 px-6 lg:px-10 bg-cover bg-center bg-no-repeat"
+  style={{
+    backgroundImage: `url(${productBg})`,
+  }}
+>
+  <div className="absolute inset-0 bg-gradient-to-b from-wheat/70 via-cream/80 to-white/90" />
+
+  <div className="relative mx-auto max-w-6xl text-center">
+    <h1 className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-[#122300]">
+      The Pantry
+    </h1>
+
+    <p className="mt-8 mx-auto max-w-2xl text-xl font-medium leading-relaxed text-ink/85">
+      Discover our handcrafted range of roasted makhana and wholesome cookies,
+      made in small batches and delivered fresh.
+    </p>
+  </div>
+</section>
 
       {/* Controls */}
       <section className="px-6 lg:px-10">

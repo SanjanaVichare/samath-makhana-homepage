@@ -93,7 +93,7 @@ export const PRODUCTS: Product[] = [
     id: "chat-pata-makhana",
     name: "Chat Pata Makhana",
     tagline: "Tangy desi twist",
-    description: "Tangy Indian spices with a chatpata kick. The street-food snack, reimagined healthier.",
+    description: "Tangy Indian spices with a chatpata kick. Perfectly roasted for a guilt-free crunch.",
     category: "Makhana",
     rating: 4.7,
     reviews: 142,

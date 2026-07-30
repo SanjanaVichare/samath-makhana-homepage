@@ -6,7 +6,7 @@ import PageShell from "@/components/layout/PageShell";
 import { getProduct, PRODUCTS, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
-const RECENT_KEY = "samarth_recent_v1";
+const RECENT_KEY = "PRAM_recent_v1";
 
 export const Route = createFileRoute("/product/$productId")({
   component: ProductPage,
@@ -207,7 +207,7 @@ function ProductPage() {
                   <div className="flex justify-between border-b border-wheat/50 pb-2"><dt className="text-ink/60">Sticker Size</dt><dd className="font-semibold text-olive">240 × 68 mm</dd></div>
                   <div className="flex justify-between border-b border-wheat/50 pb-2"><dt className="text-ink/60">Pouch</dt><dd className="font-semibold text-olive">6.5 × 9.5 in standup</dd></div>
                   <div className="flex justify-between border-b border-wheat/50 pb-2"><dt className="text-ink/60">Manufactured by</dt><dd className="font-semibold text-olive">Shee Food</dd></div>
-                  <div className="flex justify-between border-b border-wheat/50 pb-2 sm:col-span-2"><dt className="text-ink/60">Marketed by</dt><dd className="font-semibold text-olive">Samartha Makhana</dd></div>
+                  <div className="flex justify-between border-b border-wheat/50 pb-2 sm:col-span-2"><dt className="text-ink/60">Marketed by</dt><dd className="font-semibold text-olive">PRAMa Makhana</dd></div>
                 </dl>
               </div>
             )}

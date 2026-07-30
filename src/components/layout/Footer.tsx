@@ -35,13 +35,9 @@ export default function Footer() {
               <span>100% Vegetarian</span>
             </div>
 
-            <span className="hidden sm:block text-wheat/40">•</span>
 
-            <span>
-              Roasted, never fried · Real ingredients · Recyclable packaging
-            </span>
 
-            <span className="hidden lg:block text-wheat/40">•</span>
+
 
             <span className="text-wheat">
               Made in India · Crafted with care
@@ -144,7 +140,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-wheat">© {new Date().getFullYear()} PRAM Makhana. All rights reserved.</p>
+        <p className="text-xs text-wheat">© {new Date().getFullYear()} PRAM Foods. All rights reserved.</p>
         <p className="text-xs text-wheat">Made in India · Crafted with care 🌿</p>
       </div>
     </footer>

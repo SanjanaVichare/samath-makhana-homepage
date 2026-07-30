@@ -59,7 +59,7 @@ export default function Navbar({
         >
           <img
             src={logo}
-            alt="PRAM Makhana"
+            alt="PRAM Foods"
             className="h-17 w-auto object-contain transition-all duration-300"
           />
         </Link>
@@ -133,12 +133,7 @@ export default function Navbar({
             )}
           </Link>
 
-          <Link
-            to="/shop"
-            className="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#122300]/90 hover:scale-[1.02] transition-all duration-200"
-          >
-            Shop Now
-          </Link>
+
 
           <button
             type="button"

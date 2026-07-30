@@ -93,14 +93,14 @@ export const ARTICLES: Article[] = [
   {
     slug: "farm-to-table-journey",
     title: "From Lotus Pond to Pantry: Our Farm-to-Table Journey",
-    excerpt: "A look at how Samarth makhana actually gets made — from family farms to your kitchen shelf.",
+    excerpt: "A look at how PRAM makhana actually gets made — from family farms to your kitchen shelf.",
     category: "Story",
-    author: "Samarth Team",
+    author: "PRAM Team",
     date: "February 1, 2026",
     readTime: "8 min read",
     cover: blogFarm,
     content: [
-      { type: "p", text: "Every batch of Samarth makhana starts with a partnership. We work directly with family-run farms." },
+      { type: "p", text: "Every batch of PRAM makhana starts with a partnership. We work directly with family-run farms." },
       { type: "h2", text: "Harvesting by hand" },
       { type: "p", text: "Lotus seeds are still harvested by hand — divers wade into ponds, collect pods, and dry them in the sun before roasting." },
       { type: "img", src: blogFarm },

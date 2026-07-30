@@ -193,10 +193,10 @@ export function FinalCTA() {
           <span className="italic">Live loudly.</span>
         </h2>
 
-        <p className="mt-8 max-w-2xl mx-auto text-lg text-olive/80 leading-relaxed">
-          Discover the small-batch range or talk to us about wholesale,
-          gifting and premium snack solutions. We answer every email.
-        </p>
+<p className="mt-8 max-w-2xl mx-auto text-xl font-semibold text-olive/90 leading-relaxed tracking-wide">
+  Discover the small-batch range or talk to us about wholesale,
+  gifting and premium snack solutions. We answer every email.
+</p>
 
         <div className="mt-12 flex flex-wrap justify-center gap-5">
           <Link

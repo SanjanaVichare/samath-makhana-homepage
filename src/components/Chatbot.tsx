@@ -8,13 +8,13 @@ type Category = { id: string; label: string; emoji: string; faqs: FAQ[] };
 const CATEGORIES: Category[] = [
   {
     id: "about",
-    label: "About Samarth",
+    label: "About PRAM",
     emoji: "🌿",
     faqs: [
-      { q: "Who are we?", a: "Samarth Makhana is a premium Indian D2C food brand crafting roasted makhana snacks and makhana cookies. Rooted in tradition, made for the mindful generation." },
+      { q: "Who are we?", a: "PRAM Foods is a premium Indian D2C food brand crafting roasted makhana snacks and makhana cookies. Rooted in tradition, made for the mindful generation." },
       { q: "Where are you located?", a: "Dadar" },
       { q: "Are your products made in India?", a: "Yes. Every product is proudly handcrafted in India, from sourcing to packing." },
-      { q: "Why choose Samarth?", a: "Honest ingredients, traditional roasting, small-batch quality, and recyclable packaging. Nothing artificial, ever." },
+      { q: "Why choose PRAM?", a: "Honest ingredients, traditional roasting, small-batch quality, and recyclable packaging. Nothing artificial, ever." },
     ],
   },
   {
@@ -55,7 +55,7 @@ const CATEGORIES: Category[] = [
     label: "Contact",
     emoji: "✉️",
     faqs: [
-      { q: "Email", a: "hello@samarthmakhana.in — we reply within 24 hours." },
+      { q: "Email", a: "hello@PRAMmakhana.in — we reply within 24 hours." },
       { q: "Phone number", a: "+91 7900091250 — Mon to Sat, 9am–6pm IST." },
       { q: "Location", a: "Dadar East, India." },
     ],
@@ -68,7 +68,7 @@ export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [activeCat, setActiveCat] = useState<Category | null>(null);
   const [messages, setMessages] = useState<Msg[]>([
-    { from: "bot", text: "Namaste 🌿  I'm Saathi, your Samarth assistant. Pick a topic below and I'll help right away." },
+    { from: "bot", text: "Namaste 🌿  I'm Saathi, your PRAM assistant. Pick a topic below and I'll help right away." },
   ]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -126,14 +126,14 @@ export default function Chatbot() {
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
             className="fixed bottom-24 left-6 z-[999] w-[min(92vw,380px)] h-[min(72vh,560px)] flex flex-col rounded-[28px] bg-cream border border-wheat/70 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.35)] overflow-hidden"
             role="dialog"
-            aria-label="Samarth FAQ assistant"
+            aria-label="PRAM FAQ assistant"
           >
             {/* Header */}
             <div className="relative bg-olive text-cream px-5 py-4 flex items-center gap-3">
               <div className="h-10 w-10 rounded-full bg-gold/90 flex items-center justify-center text-lg">🌿</div>
               <div className="leading-tight">
                 <p className="font-display text-lg">Saathi</p>
-                <p className="text-[11px] uppercase tracking-[0.18em] text-wheat/90">Samarth Help · Online</p>
+                <p className="text-[11px] uppercase tracking-[0.18em] text-wheat/90">PRAM Help · Online</p>
               </div>
             </div>
 

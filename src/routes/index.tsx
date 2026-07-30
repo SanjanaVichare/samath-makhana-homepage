@@ -95,7 +95,7 @@ const PRODUCTS = [
   {
     id: "chat-pata-makhana", // ADD THIS
     name: "Chat Pata Makhana",
-    desc: "Tangy Indian spices with a chatpata kick.",
+    desc: "Tangy Indian spices with a chatpata kick. Perfectly roasted for a guilt-free crunch.",
     tag: "Tangy",
     images: {
       "60g": pcp,
@@ -143,7 +143,7 @@ const PRODUCTS = [
   {
     id: "salt-pepper-makhana", // ADD THIS
     name: "Salt & Pepper Makhana",
-    desc: "Simple, classic and incredibly addictive.",
+    desc: "Lightly seasoned with salt and cracked pepper a classic you'll keep coming back to",
     tag: "Classic",
     images: {
       "60g": pcp4,
@@ -380,7 +380,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
             : "text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]"
             }`}
         >
-          PRAM <span className="italic">Makhana</span>
+          PRAM <span className="italic">Foods</span>
         </Link>
         <nav className="hidden lg:flex gap-10">
           {links.map((item) =>
@@ -497,16 +497,16 @@ function Hero() {
 
             {/* Desktop Only */}
             <h4
-              className="hidden lg:block mt-6 font-display text-[20px] lg:text-[25px] font-semibold text-[#122300] hero-text-in"
+              className="hidden lg:block mt-6 font-display text-[20px] lg:text-[25px] font-bold text-[#122300] hero-text-in"
               style={{ animationDelay: "0.3s" }}
             >
-              PRAM Makhana
+              PRAM FOODS
             </h4>
 
             <div className="hidden lg:block h-6" />
 
             <p
-              className="text-[11px] font-bold uppercase tracking-[0.3em] text-gold hero-text-in"
+              className="text-[14px] font-bold uppercase tracking-[0.3em] text-gold hero-text-in"
               style={{ animationDelay: "0.1s" }}
             >
               Rooted in Nature
@@ -518,15 +518,15 @@ function Hero() {
             >
               Pure. Roasted.
               <br />
-              <span className="italic">Irresistible.</span>
+              <span>Irresistible.</span>
             </h1>
 
-            <p
-              className="mt-7 text-[17px] leading-relaxed text-ink/70 hero-text-in"
-              style={{ animationDelay: "0.45s" }}
-            >
-              Handcrafted makhana snacks made for the mindful generation.
-            </p>
+<p
+  className="mt-7 text-[17px] font-bold leading-relaxed text-ink/70 hero-text-in"
+  style={{ animationDelay: "0.45s" }}
+>
+  Handcrafted makhana snacks made for the mindful generation.
+</p>
 
             <div
               className="mt-10 flex flex-wrap gap-4 hero-text-in"
@@ -605,7 +605,7 @@ function Products() {
       <div className="relative z-10 mx-auto max-w-7xl">
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-gold">
+          <p className="text-[16px] font-bold uppercase tracking-[0.3em] text-gold">
             Our Signature Range
           </p>
 
@@ -613,9 +613,7 @@ function Products() {
             Explore Our Flavours
           </h2>
 
-          <p className="mt-4 italic text-gold text-lg">
-            Every batch is small. Every flavour is intentional.
-          </p>
+
         </div>
 
         {/* Carousel */}
@@ -1079,9 +1077,7 @@ function Benefits() {
 
             {/* LEFT CONTENT */}
             <div data-reveal className="reveal">
-              <span className="text-sm uppercase tracking-[0.3em] text-olive/70">
-                Why Choose PRAM
-              </span>
+
 
               <h2 className="mt-4 font-display text-4xl lg:text-6xl leading-tight text-olive font-semibold">
                 Wholesome Nutrition
@@ -1089,12 +1085,11 @@ function Benefits() {
                 In Every Bite
               </h2>
 
-              <p className="mt-6 text-ink/70 text-lg max-w-lg leading-relaxed">
-                Crafted from premium lotus seeds and roasted to perfection,
-                PRAM delivers the perfect balance of taste, crunch and
-                nutrition.
-              </p>
-
+<p className="mt-6 max-w-lg text-lg font-semibold leading-relaxed text-ink/80">
+  Crafted from premium lotus seeds and roasted to perfection,
+  PRAM delivers the perfect balance of taste, crunch and
+  nutrition.
+</p>
               <div className="mt-8 space-y-4">
                 {benefits.map((item) => (
                   <div key={item} className="flex items-center gap-3">
@@ -1737,19 +1732,18 @@ function Bestseller() {
 
           <div className="relative z-20 max-w-xl">
 
-            <h3 className="mt-5 font-display text-5xl lg:text-7xl leading-none text-[#2B1B0F]">
-              Baked With
-              <br />
-              <span className="italic text-[#A86A1F]">
-                Makhana Magic.
-              </span>
-            </h3>
-
-            <p className="mt-6 text-lg leading-8 text-[#4A3625] max-w-lg">
-              Every bite delivers the perfect balance of roasted makhana,
-              buttery richness and satisfying crunch. Premium ingredients,
-              handcrafted baking and absolutely no compromises.
-            </p>
+<h3 className="mt-5 font-display text-5xl lg:text-7xl font-semibold leading-none text-[#2B1B0F]">
+  Baked With
+  <br />
+  <span className="font-semibold text-[#A86A1F]">
+    Makhana Magic.
+  </span>
+</h3>
+<p className="mt-6 max-w-lg text-lg font-semibold leading-8 text-[#4A3625]">
+  Every bite delivers the perfect balance of roasted makhana,
+  buttery richness and satisfying crunch. Premium ingredients,
+  handcrafted baking and absolutely no compromises.
+</p>
 
             <a
               href="/shop"
@@ -1893,7 +1887,7 @@ export function Footer() {
         </div>
       </div>
       <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-wheat">© {new Date().getFullYear()} PRAM Makhana. All rights reserved.</p>
+        <p className="text-xs text-wheat">© {new Date().getFullYear()} PRAM Foods. All rights reserved.</p>
         <p className="text-xs text-wheat">Handcrafted in India 🌿</p>
       </div>
     </footer>
@@ -1921,7 +1915,7 @@ pb-1
         }}
       />
       <div className="relative z-10 text-center mb-8">
-        <p className="uppercase tracking-[0.35em] text-[11px] text-gold font-semibold">
+        <p className="uppercase tracking-[0.35em] text-[16px] text-gold font-extrabold">
           Available On
         </p>
 

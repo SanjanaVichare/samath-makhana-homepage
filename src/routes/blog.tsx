@@ -30,10 +30,11 @@ function BlogPage() {
   return (
     <PageShell>
       <section className="py-20 px-6 lg:px-10 bg-gradient-to-b from-wheat/40 to-cream text-center">
-        <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Journal</p>
+        <p className="text-[14px] uppercase tracking-[0.3em] text-gold font-bold">Journal</p>
         <h1 className="mt-4 font-display text-5xl lg:text-7xl font-semibold text-olive">Stories from the kitchen</h1>
-        <p className="mt-5 max-w-xl mx-auto text-ink/70">Recipes, research, and the people behind every batch.</p>
-      </section>
+<p className="mt-5 max-w-xl mx-auto text-ink/70 font-bold">
+  Recipes, research, and the people behind every batch.
+</p>      </section>
 
       {/* Featured */}
       <section className="px-6 lg:px-10">
