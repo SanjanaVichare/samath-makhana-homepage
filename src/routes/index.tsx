@@ -454,103 +454,13 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[720px] w-full overflow-hidden"
+      className="relative mt-20 h-[calc(100vh-5rem)] w-full overflow-hidden bg-[#F8F3E6]"
     >
-      <div className="grid h-full grid-cols-1 lg:grid-cols-[55fr_45fr]">
-
-        {/* Hero Image */}
-        <div className="relative h-[42vh] lg:h-auto overflow-hidden bg-wheat">
-          <img
-            src={heroImg}
-            alt="Roasted makhana in a rustic wooden bowl"
-            className="
-      h-full
-      w-full
-      object-cover
-      scale-[1.08]
-      lg:scale-[1.03]
-      object-[82%_65%]
-      lg:object-[80%_62%]
-      hero-img-in
-    "
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10" />
-        </div>
-
-        {/* Mobile Marquee */}
-        <div className="lg:hidden bg-[#122300] text-cream overflow-hidden py-3">
-          <div className="flex w-max animate-marquee whitespace-nowrap">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <span
-                key={i}
-                className="px-8 text-[11px] font-semibold uppercase tracking-[0.3em]"
-              >
-                PRAM Makhana • Rooted in Nature • Premium Lotus Seeds •
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative flex items-start bg-cream px-8 lg:px-16 pt-13 pb-20">
-          <div className="max-w-xl">
-
-            {/* Desktop Only */}
-            <h4
-              className="hidden lg:block mt-6 font-display text-[20px] lg:text-[25px] font-bold text-[#122300] hero-text-in"
-              style={{ animationDelay: "0.3s" }}
-            >
-              PRAM FOODS
-            </h4>
-
-            <div className="hidden lg:block h-6" />
-
-            <p
-              className="text-[14px] font-bold uppercase tracking-[0.3em] text-gold hero-text-in"
-              style={{ animationDelay: "0.1s" }}
-            >
-              Rooted in Nature
-            </p>
-
-            <h1
-              className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-[#122300] hero-text-in"
-              style={{ animationDelay: "0.3s" }}
-            >
-              Pure. Roasted.
-              <br />
-              <span>Irresistible.</span>
-            </h1>
-
-<p
-  className="mt-7 text-[17px] font-bold leading-relaxed text-ink/70 hero-text-in"
-  style={{ animationDelay: "0.45s" }}
->
-  Handcrafted makhana snacks made for the mindful generation.
-</p>
-
-            <div
-              className="mt-10 flex flex-wrap gap-4 hero-text-in"
-              style={{ animationDelay: "0.6s" }}
-            >
-              <a
-                href="/shop"
-                className="inline-flex items-center px-7 py-3.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#122300]/90 hover:scale-[1.02] transition-all duration-200"
-              >
-                Shop Now
-              </a>
-
-              <a
-                href="#products"
-                className="inline-flex items-center px-7 py-3.5 rounded-full border border-gold text-gold text-xs font-semibold uppercase tracking-[0.18em] hover:bg-[#42200B] hover:text-cream transition-colors duration-200"
-              >
-                Explore Products
-              </a>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
+      <img
+        src={heroImg}
+        alt="PRAM Foods Hero"
+        className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+      />
     </section>
   );
 }
