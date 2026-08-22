@@ -613,7 +613,7 @@ function Products() {
                     <article
                       className="
                         group
-                        bg-[#DCCBC2]
+                        bg-[#FFF8DC]
                         rounded-[28px]
                         overflow-hidden
                         border-2 border-olive/30
