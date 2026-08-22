@@ -10,6 +10,7 @@ import cookiePack from "@/assets/cookies.png";
 import cookieSplash from "@/assets/product-spiced.jpg";
 import cursorMakhana from "@/assets/makhana.png";
 import productBg from "@/assets/bg-doodle.png";
+import productBgt from "@/assets/bg-doodle-t.png";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -1010,11 +1011,11 @@ function Benefits() {
                 In Every Bite
               </h2>
 
-<p className="mt-6 max-w-lg text-lg font-semibold leading-relaxed text-ink/80">
-  Crafted from premium lotus seeds and roasted to perfection,
-  PRAM delivers the perfect balance of taste, crunch and
-  nutrition.
-</p>
+              <p className="mt-6 max-w-lg text-lg font-semibold leading-relaxed text-ink/80">
+                Crafted from premium lotus seeds and roasted to perfection,
+                PRAM delivers the perfect balance of taste, crunch and
+                nutrition.
+              </p>
               <div className="mt-8 space-y-4">
                 {benefits.map((item) => (
                   <div key={item} className="flex items-center gap-3">
@@ -1456,9 +1457,17 @@ function Bestseller() {
       >
 
         {/* LEFT */}
-        <div className="bg-[#4A2E18] flex items-center px-10 lg:px-20">
-          <div className="max-w-xl">
+        <div className="relative overflow-hidden bg-[#4A2E18] flex items-center px-10 lg:px-20">
 
+          {/* Doodle / Texture Overlay */}
+          <img
+            src={productBgt}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+          />
+
+          {/* Content */}
+          <div className="relative z-10 max-w-xl">
             <h2 className="mt-4 font-display text-5xl lg:text-7xl text-[#F7ECD9] leading-[1.05]">
               Craving Cookies?
               <br />
@@ -1485,7 +1494,6 @@ function Bestseller() {
                 Explore
               </a>
             </div>
-
           </div>
         </div>
 
@@ -1657,18 +1665,18 @@ function Bestseller() {
 
           <div className="relative z-20 max-w-xl">
 
-<h3 className="mt-5 font-display text-5xl lg:text-7xl font-semibold leading-none text-[#2B1B0F]">
-  Baked With
-  <br />
-  <span className="font-semibold text-[#A86A1F]">
-    Makhana Magic.
-  </span>
-</h3>
-<p className="mt-6 max-w-lg text-lg font-semibold leading-8 text-[#4A3625]">
-  Every bite delivers the perfect balance of roasted makhana,
-  buttery richness and satisfying crunch. Premium ingredients,
-  handcrafted baking and absolutely no compromises.
-</p>
+            <h3 className="mt-5 font-display text-5xl lg:text-7xl font-semibold leading-none text-[#2B1B0F]">
+              Baked With
+              <br />
+              <span className="font-semibold text-[#A86A1F]">
+                Makhana Magic.
+              </span>
+            </h3>
+            <p className="mt-6 max-w-lg text-lg font-semibold leading-8 text-[#4A3625]">
+              Every bite delivers the perfect balance of roasted makhana,
+              buttery richness and satisfying crunch. Premium ingredients,
+              handcrafted baking and absolutely no compromises.
+            </p>
 
             <a
               href="/shop"
