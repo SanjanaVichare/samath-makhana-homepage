@@ -68,19 +68,17 @@ function ShopPage() {
 
   return (
 <PageShell>
-  {/* Hero */}
-  <section
-  className="relative overflow-hidden py-28 px-6 lg:px-10 bg-center bg-cover"
-  style={{
-    backgroundImage: `
-      linear-gradient(rgba(255,248,230,0.0), rgba(255,248,230,0.0)),
-      url(${productBg})
-    `,
-    backgroundSize: "cover",
-    backgroundRepeat: "repeat",
-  }}
->
+  <div
+    className="min-h-screen bg-[#FFF8E6]"
+    style={{
+      backgroundImage: `url(${productBg})`,
+      backgroundRepeat: "repeat",
+      backgroundSize: "500px",
+    }}
+  >
 
+    {/* Hero */}
+<section className="relative overflow-hidden py-28 px-6 lg:px-10">
   <div className="relative mx-auto max-w-6xl text-center">
     <h1 className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-[#122300]">
       The Pantry
@@ -183,8 +181,10 @@ function ShopPage() {
         </div>
       </section>
 
-      {quick && <QuickView product={quick} onClose={() => setQuick(null)} />}
-    </PageShell>
+    {quick && <QuickView product={quick} onClose={() => setQuick(null)} />}
+
+  </div>
+</PageShell>
   );
 }
 

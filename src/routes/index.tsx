@@ -454,12 +454,27 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative mt-20 h-[calc(100vh-5rem)] w-full overflow-hidden bg-[#F8F3E6]"
+      className="
+        relative
+        mt-20
+        w-full
+        h-[calc(100vh-5rem)]
+        min-h-[720px]
+        overflow-hidden
+        bg-[#F8F3E6]
+      "
     >
       <img
         src={heroImg}
         alt="PRAM Foods Hero"
-        className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+        className="
+          absolute
+          inset-0
+          w-full
+          h-full
+          object-cover
+          object-[38%_42%]
+        "
       />
     </section>
   );
