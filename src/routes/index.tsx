@@ -635,7 +635,7 @@ function Products() {
     mx-4
     mt-4
     rounded-3xl
-    bg-[#F8F1DF]
+    bg-[#EEF0DC]
     flex
     items-center
     justify-center
