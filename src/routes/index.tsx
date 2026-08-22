@@ -1449,11 +1449,12 @@ function Bestseller() {
       {/* TOP */}
       <div
         className="
-    grid
-    lg:grid-cols-[6fr_4fr]
-    min-h-screen
-    lg:h-screen
-  "
+          grid
+          lg:grid-cols-[6fr_4fr]
+          min-h-screen
+          lg:h-screen
+          relative
+        "
       >
 
         {/* LEFT */}
@@ -1553,67 +1554,85 @@ function Bestseller() {
           </div>
 
         </div>
+
+        {/* WAVY DIVIDER - Added at bottom of top section */}
+        <div className="absolute bottom-0 left-0 w-full pointer-events-none z-20">
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="w-full h-[60px] sm:h-[80px] lg:h-[120px]"
+          >
+            {/* Main wave */}
+            <path
+              d="M0,40 C150,100 300,0 450,60 C600,120 750,0 900,50 C1050,100 1150,20 1200,60 L1200,120 L0,120 Z"
+              className="fill-[#623512]"
+            />
+            {/* Secondary wave for more depth */}
+            <path
+              d="M0,60 C200,110 400,20 600,70 C800,120 1000,30 1200,80 L1200,120 L0,120 Z"
+              className="fill-[#623512]"
+              opacity="0.6"
+            />
+            {/* Tertiary wave for extra detail */}
+            <path
+              d="M0,80 C180,110 380,50 580,90 C780,130 980,40 1200,90 L1200,120 L0,120 Z"
+              className="fill-[#623512]"
+              opacity="0.3"
+            />
+          </svg>
+        </div>
       </div>
 
       {/* BOTTOM */}
       <div
         className="
-    relative
-    grid
-    lg:grid-cols-2
-    h-screen
-    min-h-screen
-    overflow-hidden
-    bg-[#623512]
-    bg-fixed
-    bg-cover
-    bg-center
-    bg-no-repeat
-  "
+          relative
+          grid
+          lg:grid-cols-2
+          h-screen
+          min-h-screen
+          overflow-hidden
+          bg-[#623512]
+          bg-fixed
+          bg-cover
+          bg-center
+          bg-no-repeat
+          -mt-[1px]
+        "
         style={{
           backgroundImage: `url(${productBg})`,
         }}
       >
 
-        {/* Dark scrim so light text stays readable over the doodle bg 
-        <div
-          className="
-      pointer-events-none
-      absolute
-      inset-0
-      bg-gradient-to-r
-      from-[#2B1B0F]/10
-      via-[#2B1B0F]/55
-      to-[#2B1B0F]/75
-      z-10
-    "
-        />*/}
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none" />
 
         {/* LEFT */}
-        <div className="relative flex items-center justify-center p-10 lg:p-20">
+        <div className="relative flex items-center justify-center p-10 lg:p-20 z-20">
 
           <div
             className="
-        absolute
-        w-[460px]
-        h-[460px]
-        rounded-full
-        blur-[110px]
-      "
+              absolute
+              w-[460px]
+              h-[460px]
+              rounded-full
+              blur-[110px]
+              bg-[#E8C27A]/10
+            "
           />
 
           <div
             className="
-    relative
-    w-[300px]
-    h-[300px]
-    sm:w-[360px]
-    sm:h-[360px]
-    lg:w-[480px]
-    lg:h-[480px]
-    xl:w-[520px]
-    xl:h-[520px]
-  "
+              relative
+              w-[300px]
+              h-[300px]
+              sm:w-[360px]
+              sm:h-[360px]
+              lg:w-[480px]
+              lg:h-[480px]
+              xl:w-[520px]
+              xl:h-[520px]
+            "
           >
 
             {/* Whole Cookie */}
@@ -1660,19 +1679,18 @@ function Bestseller() {
         </div>
 
         {/* RIGHT */}
-
-        <div className="relative flex items-center px-8 lg:px-12">
+        <div className="relative flex items-center px-8 lg:px-12 z-20">
 
           <div className="relative z-20 max-w-xl">
 
-            <h3 className="mt-5 font-display text-5xl lg:text-7xl font-semibold leading-none text-[#2B1B0F]">
+            <h3 className="mt-5 font-display text-5xl lg:text-7xl font-semibold leading-none text-[#F7ECD9]">
               Baked With
               <br />
-              <span className="font-semibold text-[#A86A1F]">
+              <span className="font-semibold text-[#E8C27A]">
                 Makhana Magic.
               </span>
             </h3>
-            <p className="mt-6 max-w-lg text-lg font-semibold leading-8 text-[#4A3625]">
+            <p className="mt-6 max-w-lg text-lg font-semibold leading-8 text-[#D9B98C]">
               Every bite delivers the perfect balance of roasted makhana,
               buttery richness and satisfying crunch. Premium ingredients,
               handcrafted baking and absolutely no compromises.
@@ -1681,22 +1699,22 @@ function Bestseller() {
             <a
               href="/shop"
               className="
-mt-10
-inline-flex
-items-center
-rounded-full
-bg-[#2B1B0F]
-text-[#FFF7EB]
-px-8
-py-4
-font-semibold
-tracking-wide
-transition-all
-duration-300
-hover:bg-[#3D2414]
-hover:scale-105
-hover:shadow-[0_0_40px_rgba(43,27,15,.35)]
-"
+                mt-10
+                inline-flex
+                items-center
+                rounded-full
+                bg-[#E8C27A]
+                text-[#2B1B0F]
+                px-8
+                py-4
+                font-semibold
+                tracking-wide
+                transition-all
+                duration-300
+                hover:bg-[#F7ECD9]
+                hover:scale-105
+                hover:shadow-[0_0_40px_rgba(232,194,122,0.35)]
+              "
             >
               Explore Cookies →
             </a>
@@ -1704,8 +1722,8 @@ hover:shadow-[0_0_40px_rgba(43,27,15,.35)]
           </div>
 
         </div>
-      </div >
-    </section >
+      </div>
+    </section>
   );
 }
 
