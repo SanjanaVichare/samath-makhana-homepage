@@ -1444,9 +1444,36 @@ function Bestseller() {
   ];
 
   return (
-    <section ref={sectionRef} className="overflow-hidden">
+    <section ref={sectionRef} className="overflow-hidden relative pt-[60px] sm:pt-[80px] lg:pt-[120px]">
 
-      {/* TOP */}
+      {/* WAVY DIVIDER AT THE VERY TOP WITH MORE SPACING */}
+      <div className="absolute top-[-60px] sm:top-[-80px] lg:top-[-120px] left-0 w-full pointer-events-none z-30">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="w-full h-[60px] sm:h-[80px] lg:h-[120px]"
+        >
+          {/* Main wave */}
+          <path
+            d="M0,80 C150,20 300,120 450,60 C600,0 750,120 900,70 C1050,20 1150,100 1200,60 L1200,120 L0,120 Z"
+            className="fill-[#4A2E18]"
+          />
+          {/* Secondary wave */}
+          <path
+            d="M0,60 C200,10 400,100 600,50 C800,0 1000,90 1200,40 L1200,120 L0,120 Z"
+            className="fill-[#4A2E18]"
+            opacity="0.6"
+          />
+          {/* Tertiary wave */}
+          <path
+            d="M0,40 C180,10 380,70 580,30 C780,-10 980,60 1200,20 L1200,120 L0,120 Z"
+            className="fill-[#4A2E18]"
+            opacity="0.3"
+          />
+        </svg>
+      </div>
+
+      {/* TOP SECTION */}
       <div
         className="
           grid
@@ -1501,6 +1528,33 @@ function Bestseller() {
         {/* RIGHT — hidden on mobile, shown from lg up */}
         <div className="hidden lg:flex relative bg-[#D9B98C] items-center justify-center overflow-visible">
 
+          {/* WAVY DIVIDER IN MIDDLE - Between left and right sections */}
+          <div className="absolute left-0 top-0 h-full pointer-events-none z-20 -translate-x-[1px]">
+            <svg
+              viewBox="0 0 120 1200"
+              preserveAspectRatio="none"
+              className="h-full w-[60px] sm:w-[80px] lg:w-[120px]"
+            >
+              {/* Main vertical wave */}
+              <path
+                d="M80,0 C20,150 120,300 60,450 C0,600 120,750 70,900 C20,1050 100,1150 60,1200 L0,1200 L0,0 Z"
+                className="fill-[#4A2E18]"
+              />
+              {/* Secondary vertical wave */}
+              <path
+                d="M60,0 C10,200 100,400 50,600 C0,800 90,1000 40,1200 L0,1200 L0,0 Z"
+                className="fill-[#4A2E18]"
+                opacity="0.6"
+              />
+              {/* Tertiary vertical wave */}
+              <path
+                d="M40,0 C0,180 70,380 30,580 C-10,780 60,980 20,1200 L0,1200 L0,0 Z"
+                className="fill-[#4A2E18]"
+                opacity="0.3"
+              />
+            </svg>
+          </div>
+
           <div
             className="
               absolute
@@ -1554,36 +1608,9 @@ function Bestseller() {
           </div>
 
         </div>
-
-        {/* WAVY DIVIDER - Added at bottom of top section */}
-        <div className="absolute bottom-0 left-0 w-full pointer-events-none z-20">
-          <svg
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="w-full h-[60px] sm:h-[80px] lg:h-[120px]"
-          >
-            {/* Main wave */}
-            <path
-              d="M0,40 C150,100 300,0 450,60 C600,120 750,0 900,50 C1050,100 1150,20 1200,60 L1200,120 L0,120 Z"
-              className="fill-[#623512]"
-            />
-            {/* Secondary wave for more depth */}
-            <path
-              d="M0,60 C200,110 400,20 600,70 C800,120 1000,30 1200,80 L1200,120 L0,120 Z"
-              className="fill-[#623512]"
-              opacity="0.6"
-            />
-            {/* Tertiary wave for extra detail */}
-            <path
-              d="M0,80 C180,110 380,50 580,90 C780,130 980,40 1200,90 L1200,120 L0,120 Z"
-              className="fill-[#623512]"
-              opacity="0.3"
-            />
-          </svg>
-        </div>
       </div>
 
-      {/* BOTTOM */}
+      {/* BOTTOM SECTION */}
       <div
         className="
           relative
@@ -1597,7 +1624,6 @@ function Bestseller() {
           bg-cover
           bg-center
           bg-no-repeat
-          -mt-[1px]
         "
         style={{
           backgroundImage: `url(${productBg})`,
