@@ -10,7 +10,7 @@ import cookiePack from "@/assets/cookies.png";
 import cookieSplash from "@/assets/product-spiced.jpg";
 import cursorMakhana from "@/assets/makhana.png";
 import productBg from "@/assets/bg-doodle.png";
-import productBgt from "@/assets/bg-doodle-t.png";
+import productBgt from "@/assets/product-bg-t1.png";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, useScroll, useTransform } from "framer-motion";
