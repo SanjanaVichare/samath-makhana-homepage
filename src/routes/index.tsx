@@ -1401,16 +1401,55 @@ function Bestseller() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-[#4A2E18]"
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-[#F7ECD9]
+      "
     >
+      {/* =====================================================
+          VERY BACKGROUND — PRODUCT DOODLE BG
+          This is the absolute bottom-most layer
+      ====================================================== */}
+      <div
+        className="
+          absolute
+          inset-0
+          z-0
+          bg-[#F7ECD9]
+          bg-cover
+          bg-center
+          bg-repeat
+          pointer-events-none
+        "
+        style={{
+          backgroundImage: `url(${productBg})`,
+        }}
+      />
+
       {/* =====================================================
           TOP DECORATIVE WAVE
       ====================================================== */}
-      <div className="absolute top-0 left-0 w-full h-[90px] sm:h-[110px] lg:h-[140px] z-30 pointer-events-none">
+      <div
+        className="
+          absolute
+          top-0
+          left-0
+          right-0
+          w-full
+          h-[90px]
+          sm:h-[105px]
+          lg:h-[125px]
+          z-30
+          pointer-events-none
+          overflow-hidden
+        "
+      >
         <svg
           viewBox="0 0 1440 160"
           preserveAspectRatio="none"
-          className="w-full h-full"
+          className="block w-full h-full"
         >
           <path
             d="
@@ -1424,18 +1463,21 @@ function Bestseller() {
               Z
             "
             fill="#F7ECD9"
+            fillOpacity="0.96"
           />
         </svg>
       </div>
 
       {/* =====================================================
-          MAIN HERO
+          MAIN DARK BROWN HERO
       ====================================================== */}
       <div
         className="
           relative
-          min-h-screen
-          lg:h-screen
+          z-10
+          w-full
+          min-h-[85vh]
+          lg:min-h-[85vh]
           flex
           items-center
           overflow-hidden
@@ -1448,26 +1490,31 @@ function Bestseller() {
           lg:px-16
           xl:px-24
           pt-24
-          lg:pt-28
-          pb-16
+          sm:pt-28
+          lg:pt-32
+          pb-28
+          sm:pb-32
+          lg:pb-36
         "
         style={{
-          backgroundImage: `url(${productBgt})`,
+          backgroundImage: `url(${productBg})`,
         }}
       >
-        {/* Background overlay */}
+        {/* =====================================================
+            BROWN BACKGROUND OVERLAY
+        ====================================================== */}
         <div
           className="
             absolute
             inset-0
+            z-0
             bg-[#4A2E18]/85
             pointer-events-none
-            z-0
           "
         />
 
         {/* =====================================================
-            SUBTLE BACKGROUND GLOW
+            SUBTLE BACKGROUND GLOW — LEFT
         ====================================================== */}
         <div
           className="
@@ -1485,6 +1532,9 @@ function Bestseller() {
           "
         />
 
+        {/* =====================================================
+            SUBTLE BACKGROUND GLOW — RIGHT
+        ====================================================== */}
         <div
           className="
             absolute
@@ -1518,7 +1568,6 @@ function Bestseller() {
             lg:gap-4
           "
         >
-
           {/* ===================================================
               LEFT — TEXT CONTENT
           =================================================== */}
@@ -1587,6 +1636,7 @@ function Bestseller() {
                 gap-4
               "
             >
+              {/* Shop Now */}
               <a
                 href="/shop"
                 className="
@@ -1610,6 +1660,7 @@ function Bestseller() {
                 Shop Now
               </a>
 
+              {/* Explore */}
               <a
                 href="#products"
                 className="
@@ -1672,9 +1723,7 @@ function Bestseller() {
               "
             />
 
-            {/* =================================================
-                COOKIE HAMPER IMAGE
-            ================================================== */}
+            {/* Cookie Hamper */}
             <motion.img
               src={cookieHamper}
               alt="Makhana Cookie Hamper"
@@ -1705,30 +1754,92 @@ function Bestseller() {
             />
           </div>
         </div>
-
-        {/* =====================================================
-            DECORATIVE BOTTOM TEXT
-        ====================================================== */}
-        <div
-          className="
-            absolute
-            right-[-20px]
-            bottom-[-20px]
-            hidden
-            lg:block
-            pointer-events-none
-            select-none
-          "
-        />
-
-        {/* =====================================================
-            SMALL DECORATIVE DOTS
-        ====================================================== */}
-        <div className="absolute top-[25%] right-[8%] w-3 h-3 rounded-full bg-[#E8C27A]/30" />
-        <div className="absolute top-[35%] right-[5%] w-2 h-2 rounded-full bg-[#F7ECD9]/20" />
-        <div className="absolute bottom-[20%] left-[6%] w-4 h-4 rounded-full bg-[#E8C27A]/20" />
-
       </div>
+
+      {/* =====================================================
+          BOTTOM DECORATIVE WAVE
+          
+          The doodle background is underneath this wave,
+          so it continues naturally into the next section.
+      ====================================================== */}
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          right-0
+          w-full
+          h-[90px]
+          sm:h-[105px]
+          lg:h-[125px]
+          z-30
+          pointer-events-none
+          overflow-hidden
+        "
+      >
+        <svg
+          viewBox="0 0 1440 160"
+          preserveAspectRatio="none"
+          className="block w-full h-full"
+        >
+          <path
+            d="
+              M0 105
+              C120 145 220 145 340 100
+              C460 55 560 55 680 105
+              C800 150 900 150 1020 100
+              C1140 55 1260 55 1440 105
+              L1440 160
+              L0 160
+              Z
+            "
+            fill="#F7ECD9"
+            fillOpacity="0.94"
+          />
+        </svg>
+      </div>
+
+      {/* =====================================================
+          SMALL DECORATIVE DOTS
+      ====================================================== */}
+      <div
+        className="
+          absolute
+          top-[25%]
+          right-[8%]
+          w-3
+          h-3
+          rounded-full
+          bg-[#E8C27A]/30
+          z-20
+        "
+      />
+
+      <div
+        className="
+          absolute
+          top-[35%]
+          right-[5%]
+          w-2
+          h-2
+          rounded-full
+          bg-[#F7ECD9]/20
+          z-20
+        "
+      />
+
+      <div
+        className="
+          absolute
+          bottom-[20%]
+          left-[6%]
+          w-4
+          h-4
+          rounded-full
+          bg-[#E8C27A]/20
+          z-20
+        "
+      />
     </section>
   );
 }
