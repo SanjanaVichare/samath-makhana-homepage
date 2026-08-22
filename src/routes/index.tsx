@@ -11,6 +11,7 @@ import cookieSplash from "@/assets/product-spiced.jpg";
 import cursorMakhana from "@/assets/makhana.png";
 import productBg from "@/assets/bg-doodle.png";
 import productBgt from "@/assets/bg-doodle-t.png";
+import cookieHamper from "@/assets/gift.png";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -1385,369 +1386,348 @@ function Bestseller() {
     offset: ["start end", "end start"],
   });
 
-  // 2. Existing animations
-  const x = useTransform(
+  const imageScale = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [100, 0, 0, -30]
+    [0, 0.3, 1],
+    [0.85, 1, 1.05]
   );
 
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.2, 1],
-    [0.9, 1, 1.05]
-  );
-
-  const rotate = useTransform(
+  const imageRotate = useTransform(
     scrollYProgress,
     [0, 1],
-    [3, -3]
+    [4, -3]
   );
-
-  // 3. THEN create cookie animations — smoother easing & premium pacing
-  const cookieProgress = useTransform(
-    scrollYProgress,
-    [0.32, 0.78],
-    [0, 1],
-    { clamp: true }
-  );
-
-  // Slow, soft cross-fade
-  const wholeOpacity = useTransform(cookieProgress, [0, 0.42, 0.55], [1, 1, 0]);
-  const brokenOpacity = useTransform(cookieProgress, [0.45, 0.58, 1], [0, 1, 1]);
-
-  // Gentle continuous transforms — no jump at the swap
-  const cookieScale = useTransform(cookieProgress, [0, 0.5, 1], [1, 1.04, 1.08]);
-  const cookieRotate = useTransform(cookieProgress, [0, 1], [0, -4]);
-  const cookieY = useTransform(cookieProgress, [0, 1], [0, -8]);
-
-  // Subtle "impact" shadow that deepens during the crack
-  const shadowBlur = useTransform(cookieProgress, [0.4, 0.55, 0.7], [35, 55, 40]);
-  const shadowOpacity = useTransform(cookieProgress, [0.4, 0.55, 0.7], [0.45, 0.6, 0.5]);
-  const wholeFilter = useTransform(
-    [shadowBlur, shadowOpacity] as never,
-    ([b, o]: number[]) => `drop-shadow(0 ${Math.round(b * 0.7)}px ${b}px rgba(0,0,0,${o}))`
-  );
-
-  // Crumb particles — appear right at the crack moment
-  const crumbProgress = useTransform(cookieProgress, [0.45, 0.65], [0, 1]);
-  const crumbOpacity = useTransform(cookieProgress, [0.45, 0.55, 0.85], [0, 1, 0]);
-  const CRUMBS = [
-    { x: -120, y: 40, r: 6, dx: -40, dy: 80, rot: -25 },
-    { x: 90, y: -20, r: 4, dx: 60, dy: 90, rot: 30 },
-    { x: -40, y: 100, r: 5, dx: -20, dy: 110, rot: -10 },
-    { x: 140, y: 60, r: 3, dx: 50, dy: 130, rot: 45 },
-    { x: -90, y: -10, r: 3.5, dx: -60, dy: 70, rot: -40 },
-    { x: 30, y: 130, r: 4.5, dx: 20, dy: 140, rot: 20 },
-    { x: 70, y: -60, r: 2.5, dx: 30, dy: 60, rot: 15 },
-    { x: -150, y: 110, r: 3, dx: -50, dy: 120, rot: -20 },
-  ];
 
   return (
-    <section ref={sectionRef} className="overflow-hidden relative pt-[60px] sm:pt-[80px] lg:pt-[120px]">
-
-      {/* WAVY DIVIDER AT THE VERY TOP WITH MORE SPACING */}
-      <div className="absolute top-[-60px] sm:top-[-80px] lg:top-[-120px] left-0 w-full pointer-events-none z-30">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen overflow-hidden bg-[#4A2E18]"
+    >
+      {/* =====================================================
+          TOP DECORATIVE WAVE
+      ====================================================== */}
+      <div className="absolute top-0 left-0 w-full h-[90px] sm:h-[110px] lg:h-[140px] z-30 pointer-events-none">
         <svg
-          viewBox="0 0 1200 120"
+          viewBox="0 0 1440 160"
           preserveAspectRatio="none"
-          className="w-full h-[60px] sm:h-[80px] lg:h-[120px]"
+          className="w-full h-full"
         >
-          {/* Main wave */}
           <path
-            d="M0,80 C150,20 300,120 450,60 C600,0 750,120 900,70 C1050,20 1150,100 1200,60 L1200,120 L0,120 Z"
-            className="fill-[#4A2E18]"
-          />
-          {/* Secondary wave */}
-          <path
-            d="M0,60 C200,10 400,100 600,50 C800,0 1000,90 1200,40 L1200,120 L0,120 Z"
-            className="fill-[#4A2E18]"
-            opacity="0.6"
-          />
-          {/* Tertiary wave */}
-          <path
-            d="M0,40 C180,10 380,70 580,30 C780,-10 980,60 1200,20 L1200,120 L0,120 Z"
-            className="fill-[#4A2E18]"
-            opacity="0.3"
+            d="
+              M0 70
+              C120 20 220 20 340 70
+              C460 120 560 120 680 70
+              C800 20 900 20 1020 70
+              C1140 120 1260 120 1440 55
+              L1440 0
+              L0 0
+              Z
+            "
+            fill="#F7ECD9"
           />
         </svg>
       </div>
 
-      {/* TOP SECTION */}
+      {/* =====================================================
+          MAIN HERO
+      ====================================================== */}
       <div
         className="
-          grid
-          lg:grid-cols-[6fr_4fr]
+          relative
           min-h-screen
           lg:h-screen
-          relative
+          flex
+          items-center
+          overflow-hidden
+          bg-[#4A2E18]
+          bg-cover
+          bg-center
+          bg-no-repeat
+          px-6
+          sm:px-10
+          lg:px-16
+          xl:px-24
+          pt-24
+          lg:pt-28
+          pb-16
         "
+        style={{
+          backgroundImage: `url(${productBgt})`,
+        }}
       >
+        {/* Background overlay */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-[#4A2E18]/85
+            pointer-events-none
+            z-0
+          "
+        />
 
-        {/* LEFT */}
-        <div className="relative overflow-hidden bg-[#4A2E18] flex items-center px-10 lg:px-20">
+        {/* =====================================================
+            SUBTLE BACKGROUND GLOW
+        ====================================================== */}
+        <div
+          className="
+            absolute
+            left-[5%]
+            top-1/2
+            -translate-y-1/2
+            w-[500px]
+            h-[500px]
+            rounded-full
+            bg-[#E8C27A]/10
+            blur-[120px]
+            pointer-events-none
+            z-[1]
+          "
+        />
 
-          {/* Doodle / Texture Overlay */}
-          <img
-            src={productBgt}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
-          />
+        <div
+          className="
+            absolute
+            right-[5%]
+            bottom-[-150px]
+            w-[500px]
+            h-[500px]
+            rounded-full
+            bg-[#F7ECD9]/5
+            blur-[120px]
+            pointer-events-none
+            z-[1]
+          "
+        />
 
-          {/* Content */}
-          <div className="relative z-10 max-w-xl">
-            <h2 className="mt-4 font-display text-5xl lg:text-7xl text-[#F7ECD9] leading-[1.05]">
-              Craving Cookies?
+        {/* =====================================================
+            CONTENT WRAPPER
+        ====================================================== */}
+        <div
+          className="
+            relative
+            z-10
+            w-full
+            max-w-[1500px]
+            mx-auto
+            grid
+            grid-cols-1
+            lg:grid-cols-2
+            items-center
+            gap-10
+            lg:gap-4
+          "
+        >
+
+          {/* ===================================================
+              LEFT — TEXT CONTENT
+          =================================================== */}
+          <div
+            className="
+              relative
+              z-20
+              flex
+              flex-col
+              justify-center
+              lg:pr-8
+              xl:pr-16
+              order-2
+              lg:order-1
+              text-center
+              lg:text-left
+            "
+          >
+            {/* Heading */}
+            <h2
+              className="
+                font-display
+                text-5xl
+                sm:text-6xl
+                lg:text-7xl
+                xl:text-8xl
+                font-semibold
+                leading-[0.95]
+                text-[#F7ECD9]
+              "
+            >
+              Craving
               <br />
-              We've Got The Crunch.
+
+              <span className="text-[#E8C27A]">
+                Cookies?
+              </span>
             </h2>
 
-            <p className="mt-6 text-[#D9B98C]/80 text-lg max-w-md leading-relaxed">
+            {/* Description */}
+            <p
+              className="
+                mt-7
+                max-w-lg
+                mx-auto
+                lg:mx-0
+                text-base
+                sm:text-lg
+                lg:text-xl
+                leading-8
+                text-[#D9B98C]
+              "
+            >
               Crafted with premium makhana and baked to perfection.
-              Light, crunchy, and surprisingly wholesome.
+              Light, crunchy, delicious and surprisingly wholesome.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            {/* Buttons */}
+            <div
+              className="
+                mt-9
+                flex
+                flex-wrap
+                justify-center
+                lg:justify-start
+                gap-4
+              "
+            >
               <a
                 href="/shop"
-                className="px-8 py-4 rounded-full bg-[#E8C27A] text-[#2B1B16] font-semibold hover:scale-105 transition"
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#E8C27A]
+                  px-8
+                  py-4
+                  text-[#2B1B0F]
+                  font-semibold
+                  tracking-wide
+                  transition-all
+                  duration-300
+                  hover:bg-[#F7ECD9]
+                  hover:scale-105
+                  hover:shadow-[0_0_40px_rgba(232,194,122,0.3)]
+                "
               >
                 Shop Now
               </a>
 
               <a
                 href="#products"
-                className="px-8 py-4 rounded-full border border-[#F7ECD9]/20 text-[#F7ECD9] hover:bg-[#F7ECD9]/10 transition"
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#F7ECD9]/25
+                  px-8
+                  py-4
+                  text-[#F7ECD9]
+                  font-semibold
+                  tracking-wide
+                  transition-all
+                  duration-300
+                  hover:bg-[#F7ECD9]/10
+                  hover:border-[#F7ECD9]/50
+                "
               >
-                Explore
+                Explore →
               </a>
             </div>
           </div>
-        </div>
 
-        {/* RIGHT — hidden on mobile, shown from lg up */}
-        <div className="hidden lg:flex relative bg-[#D9B98C] items-center justify-center overflow-visible">
-
-          {/* WAVY DIVIDER IN MIDDLE - Between left and right sections */}
-          <div className="absolute left-0 top-0 h-full pointer-events-none z-20 -translate-x-[1px]">
-            <svg
-              viewBox="0 0 120 1200"
-              preserveAspectRatio="none"
-              className="h-full w-[60px] sm:w-[80px] lg:w-[120px]"
-            >
-              {/* Main vertical wave */}
-              <path
-                d="M80,0 C20,150 120,300 60,450 C0,600 120,750 70,900 C20,1050 100,1150 60,1200 L0,1200 L0,0 Z"
-                className="fill-[#4A2E18]"
-              />
-              {/* Secondary vertical wave */}
-              <path
-                d="M60,0 C10,200 100,400 50,600 C0,800 90,1000 40,1200 L0,1200 L0,0 Z"
-                className="fill-[#4A2E18]"
-                opacity="0.6"
-              />
-              {/* Tertiary vertical wave */}
-              <path
-                d="M40,0 C0,180 70,380 30,580 C-10,780 60,980 20,1200 L0,1200 L0,0 Z"
-                className="fill-[#4A2E18]"
-                opacity="0.3"
-              />
-            </svg>
-          </div>
-
-          <div
-            className="
-              absolute
-              w-[400px]
-              h-[400px]
-              rounded-full
-              bg-white/20
-              blur-3xl
-            "
-          />
-
-          <motion.img
-            src={cookiePack}
-            alt=""
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 3.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              x,
-              scale,
-              rotate,
-              marginLeft: "-120px",
-            }}
-            className="
-              w-[380px]
-              lg:w-[550px]
-              relative
-              z-10
-              drop-shadow-[0_40px_60px_rgba(0,0,0,0.25)]
-            "
-          />
-
-          <div className="absolute right-4 top-1/2 -translate-y-1/2 rotate-180">
-            <span
-              className="
-                text-[110px]
-                lg:text-[140px]
-                font-display
-                text-[#E8C27A]/20
-                [writing-mode:vertical-rl]
-                select-none
-              "
-            >
-              COOKIES
-            </span>
-          </div>
-
-        </div>
-      </div>
-
-      {/* BOTTOM SECTION */}
-      <div
-        className="
-          relative
-          grid
-          lg:grid-cols-2
-          h-screen
-          min-h-screen
-          overflow-hidden
-          bg-[#623512]
-          bg-fixed
-          bg-cover
-          bg-center
-          bg-no-repeat
-        "
-        style={{
-          backgroundImage: `url(${productBg})`,
-        }}
-      >
-
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none" />
-
-        {/* LEFT */}
-        <div className="relative flex items-center justify-center p-10 lg:p-20 z-20">
-
-          <div
-            className="
-              absolute
-              w-[460px]
-              h-[460px]
-              rounded-full
-              blur-[110px]
-              bg-[#E8C27A]/10
-            "
-          />
-
+          {/* ===================================================
+              RIGHT — COOKIE HAMPER IMAGE
+          =================================================== */}
           <div
             className="
               relative
-              w-[300px]
-              h-[300px]
-              sm:w-[360px]
-              sm:h-[360px]
-              lg:w-[480px]
-              lg:h-[480px]
-              xl:w-[520px]
-              xl:h-[520px]
+              flex
+              items-center
+              justify-center
+              lg:justify-center
+              min-h-[320px]
+              sm:min-h-[300px]
+              lg:min-h-[350px]
+              order-1
+              lg:order-2
             "
           >
-
-            {/* Whole Cookie */}
-            <motion.img
-              src={bestcookie}
-              alt="Cookie"
-              style={{
-                opacity: wholeOpacity,
-                scale: cookieScale,
-                rotate: cookieRotate,
-                y: cookieY,
-                filter: wholeFilter,
-                willChange: "transform, opacity, filter",
-              }}
-              className="absolute inset-0 z-20 w-full h-full object-contain"
-            />
-
-            {/* Broken Cookie */}
-            <motion.img
-              src={bcookie}
-              alt="Broken Cookie"
-              style={{
-                opacity: brokenOpacity,
-                scale: cookieScale,
-                rotate: cookieRotate,
-                y: cookieY,
-                filter: wholeFilter,
-                willChange: "transform, opacity, filter",
-              }}
-              className="absolute inset-0 z-20 w-full h-full object-contain"
-            />
-
-            {/* Natural crumb particles */}
-            <motion.div
-              style={{ opacity: crumbOpacity }}
-              className="absolute inset-0 z-30 pointer-events-none"
-            >
-              {CRUMBS.map((c, idx) => (
-                <Crumb key={idx} progress={crumbProgress} c={c} />
-              ))}
-            </motion.div>
-
-          </div>
-        </div>
-
-        {/* RIGHT */}
-        <div className="relative flex items-center px-8 lg:px-12 z-20">
-
-          <div className="relative z-20 max-w-xl">
-
-            <h3 className="mt-5 font-display text-5xl lg:text-7xl font-semibold leading-none text-[#F7ECD9]">
-              Baked With
-              <br />
-              <span className="font-semibold text-[#E8C27A]">
-                Makhana Magic.
-              </span>
-            </h3>
-            <p className="mt-6 max-w-lg text-lg font-semibold leading-8 text-[#D9B98C]">
-              Every bite delivers the perfect balance of roasted makhana,
-              buttery richness and satisfying crunch. Premium ingredients,
-              handcrafted baking and absolutely no compromises.
-            </p>
-
-            <a
-              href="/shop"
+            {/* Image glow */}
+            <div
               className="
-                mt-10
-                inline-flex
-                items-center
+                absolute
+                left-1/2
+                top-1/2
+                -translate-x-1/2
+                -translate-y-1/2
+                w-[220px]
+                h-[220px]
+                sm:w-[280px]
+                sm:h-[280px]
+                lg:w-[360px]
+                lg:h-[360px]
                 rounded-full
-                bg-[#E8C27A]
-                text-[#2B1B0F]
-                px-8
-                py-4
-                font-semibold
-                tracking-wide
-                transition-all
-                duration-300
-                hover:bg-[#F7ECD9]
-                hover:scale-105
-                hover:shadow-[0_0_40px_rgba(232,194,122,0.35)]
+                bg-[#E8C27A]/10
+                blur-[80px]
               "
-            >
-              Explore Cookies →
-            </a>
+            />
 
+            {/* =================================================
+                COOKIE HAMPER IMAGE
+            ================================================== */}
+            <motion.img
+              src={cookieHamper}
+              alt="Makhana Cookie Hamper"
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                scale: imageScale,
+                rotate: imageRotate,
+              }}
+              className="
+                relative
+                z-10
+                w-[140px]
+                sm:w-[180px]
+                md:w-[210px]
+                lg:w-[250px]
+                xl:w-[290px]
+                max-w-full
+                object-contain
+                drop-shadow-[0_25px_40px_rgba(0,0,0,0.45)]
+              "
+            />
           </div>
-
         </div>
+
+        {/* =====================================================
+            DECORATIVE BOTTOM TEXT
+        ====================================================== */}
+        <div
+          className="
+            absolute
+            right-[-20px]
+            bottom-[-20px]
+            hidden
+            lg:block
+            pointer-events-none
+            select-none
+          "
+        />
+
+        {/* =====================================================
+            SMALL DECORATIVE DOTS
+        ====================================================== */}
+        <div className="absolute top-[25%] right-[8%] w-3 h-3 rounded-full bg-[#E8C27A]/30" />
+        <div className="absolute top-[35%] right-[5%] w-2 h-2 rounded-full bg-[#F7ECD9]/20" />
+        <div className="absolute bottom-[20%] left-[6%] w-4 h-4 rounded-full bg-[#E8C27A]/20" />
+
       </div>
     </section>
   );
