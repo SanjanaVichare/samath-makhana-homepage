@@ -613,7 +613,7 @@ function Products() {
                     <article
                       className="
                         group
-                        bg-white
+                        bg-[#F8F1DF]
                         rounded-[28px]
                         overflow-hidden
                         border-2 border-olive/30
@@ -635,7 +635,7 @@ function Products() {
     mx-4
     mt-4
     rounded-3xl
-    bg-red
+    bg-[#F8F1DF]
     flex
     items-center
     justify-center
