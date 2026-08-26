@@ -1409,19 +1409,20 @@ function Bestseller() {
       "
     >
       {/* =====================================================
-          VERY BACKGROUND — PRODUCT DOODLE BG
-          This is the absolute bottom-most layer
+          BACKGROUND
+          productBg is the ONLY background behind the wave.
+          It fills the complete section.
       ====================================================== */}
       <div
         className="
           absolute
           inset-0
           z-0
-          bg-[#F7ECD9]
+          w-full
+          h-full
           bg-cover
           bg-center
           bg-repeat
-          pointer-events-none
         "
         style={{
           backgroundImage: `url(${productBg})`,
@@ -1429,47 +1430,7 @@ function Bestseller() {
       />
 
       {/* =====================================================
-          TOP DECORATIVE WAVE
-      ====================================================== */}
-      <div
-        className="
-          absolute
-          top-0
-          left-0
-          right-0
-          w-full
-          h-[90px]
-          sm:h-[105px]
-          lg:h-[125px]
-          z-30
-          pointer-events-none
-          overflow-hidden
-        "
-      >
-        <svg
-          viewBox="0 0 1440 160"
-          preserveAspectRatio="none"
-          className="block w-full h-full"
-        >
-          <path
-            d="
-              M0 70
-              C120 20 220 20 340 70
-              C460 120 560 120 680 70
-              C800 20 900 20 1020 70
-              C1140 120 1260 120 1440 55
-              L1440 0
-              L0 0
-              Z
-            "
-            fill="#F7ECD9"
-            fillOpacity="0.96"
-          />
-        </svg>
-      </div>
-
-      {/* =====================================================
-          MAIN DARK BROWN HERO
+          BROWN WAVE SECTION
       ====================================================== */}
       <div
         className="
@@ -1478,330 +1439,348 @@ function Bestseller() {
           w-full
           min-h-[85vh]
           lg:min-h-[85vh]
-          flex
-          items-center
           overflow-hidden
-          bg-[#4A2E18]
-          bg-cover
-          bg-center
-          bg-no-repeat
-          px-6
-          sm:px-10
-          lg:px-16
-          xl:px-24
-          pt-24
-          sm:pt-28
-          lg:pt-32
-          pb-28
-          sm:pb-32
-          lg:pb-36
         "
-        style={{
-          backgroundImage: `url(${productBg})`,
-        }}
       >
-        {/* =====================================================
-            BROWN BACKGROUND OVERLAY
-        ====================================================== */}
-        <div
+
+        {/* =================================================
+            BROWN WAVE + SINGLE COMPLETE productBgt IMAGE
+        ================================================== */}
+        <svg
           className="
             absolute
             inset-0
+            w-full
+            h-full
             z-0
-            bg-[#4A2E18]/85
             pointer-events-none
           "
-        />
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="none"
+        >
+          <defs>
 
-        {/* =====================================================
-            SUBTLE BACKGROUND GLOW — LEFT
-        ====================================================== */}
-        <div
-          className="
-            absolute
-            left-[5%]
-            top-1/2
-            -translate-y-1/2
-            w-[500px]
-            h-[500px]
-            rounded-full
-            bg-[#E8C27A]/10
-            blur-[120px]
-            pointer-events-none
-            z-[1]
-          "
-        />
+            {/* =================================================
+                EXACT BROWN WAVE SHAPE
+            ================================================== */}
+            <clipPath id="brownWaveClip">
+              <path
+                d="
+                  M0 90
 
-        {/* =====================================================
-            SUBTLE BACKGROUND GLOW — RIGHT
-        ====================================================== */}
-        <div
-          className="
-            absolute
-            right-[5%]
-            bottom-[-150px]
-            w-[500px]
-            h-[500px]
-            rounded-full
-            bg-[#F7ECD9]/5
-            blur-[120px]
-            pointer-events-none
-            z-[1]
-          "
-        />
+                  C120 25 220 25 340 85
+                  C460 145 560 145 680 85
 
-        {/* =====================================================
-            CONTENT WRAPPER
-        ====================================================== */}
+                  C800 25 900 25 1020 85
+                  C1140 145 1260 145 1440 70
+
+                  L1440 830
+
+                  C1260 760 1140 760 1020 815
+                  C900 870 800 870 680 815
+
+                  C560 760 460 760 340 815
+                  C220 870 120 870 0 810
+
+                  Z
+                "
+              />
+            </clipPath>
+
+          </defs>
+
+          {/* =================================================
+              BROWN BASE
+          ================================================== */}
+          <path
+            d="
+              M0 90
+
+              C120 25 220 25 340 85
+              C460 145 560 145 680 85
+
+              C800 25 900 25 1020 85
+              C1140 145 1260 145 1440 70
+
+              L1440 830
+
+              C1260 760 1140 760 1020 815
+              C900 870 800 870 680 815
+
+              C560 760 460 760 340 815
+              C220 870 120 870 0 810
+
+              Z
+            "
+            fill="#4A2E18"
+          />
+
+          {/* =================================================
+              ONE COMPLETE productBgt IMAGE
+
+              NO PATTERN
+              NO REPEAT
+              NO TILING
+              NO SLICING
+
+              The entire image is shown once and clipped
+              to the exact brown wave.
+          ================================================== */}
+          <image
+            href={productBgt}
+            x="0"
+            y="0"
+            width="1440"
+            height="900"
+            preserveAspectRatio="xMidYMid meet"
+            clipPath="url(#brownWaveClip)"
+            opacity="0.5"
+          />
+        </svg>
+
+        {/* =================================================
+            CONTENT
+        ================================================== */}
         <div
           className="
             relative
             z-10
             w-full
-            max-w-[1500px]
-            mx-auto
-            grid
-            grid-cols-1
-            lg:grid-cols-2
+            min-h-[85vh]
+            lg:min-h-[85vh]
+            flex
             items-center
-            gap-10
-            lg:gap-4
+            overflow-hidden
+            px-6
+            sm:px-10
+            lg:px-16
+            xl:px-24
+            pt-24
+            sm:pt-28
+            lg:pt-32
+            pb-28
+            sm:pb-32
+            lg:pb-36
           "
         >
-          {/* ===================================================
-              LEFT — TEXT CONTENT
-          =================================================== */}
+
+          {/* =================================================
+              CONTENT WRAPPER
+          ================================================== */}
           <div
             className="
               relative
-              z-20
-              flex
-              flex-col
-              justify-center
-              lg:pr-8
-              xl:pr-16
-              order-2
-              lg:order-1
-              text-center
-              lg:text-left
-            "
-          >
-            {/* Heading */}
-            <h2
-              className="
-                font-display
-                text-5xl
-                sm:text-6xl
-                lg:text-7xl
-                xl:text-8xl
-                font-semibold
-                leading-[0.95]
-                text-[#F7ECD9]
-              "
-            >
-              Craving
-              <br />
-
-              <span className="text-[#E8C27A]">
-                Cookies?
-              </span>
-            </h2>
-
-            {/* Description */}
-            <p
-              className="
-                mt-7
-                max-w-lg
-                mx-auto
-                lg:mx-0
-                text-base
-                sm:text-lg
-                lg:text-xl
-                leading-8
-                text-[#D9B98C]
-              "
-            >
-              Crafted with premium makhana and baked to perfection.
-              Light, crunchy, delicious and surprisingly wholesome.
-            </p>
-
-            {/* Buttons */}
-            <div
-              className="
-                mt-9
-                flex
-                flex-wrap
-                justify-center
-                lg:justify-start
-                gap-4
-              "
-            >
-              {/* Shop Now */}
-              <a
-                href="/shop"
-                className="
-                  inline-flex
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-[#E8C27A]
-                  px-8
-                  py-4
-                  text-[#2B1B0F]
-                  font-semibold
-                  tracking-wide
-                  transition-all
-                  duration-300
-                  hover:bg-[#F7ECD9]
-                  hover:scale-105
-                  hover:shadow-[0_0_40px_rgba(232,194,122,0.3)]
-                "
-              >
-                Shop Now
-              </a>
-
-              {/* Explore */}
-              <a
-                href="#products"
-                className="
-                  inline-flex
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-[#F7ECD9]/25
-                  px-8
-                  py-4
-                  text-[#F7ECD9]
-                  font-semibold
-                  tracking-wide
-                  transition-all
-                  duration-300
-                  hover:bg-[#F7ECD9]/10
-                  hover:border-[#F7ECD9]/50
-                "
-              >
-                Explore →
-              </a>
-            </div>
-          </div>
-
-          {/* ===================================================
-              RIGHT — COOKIE HAMPER IMAGE
-          =================================================== */}
-          <div
-            className="
-              relative
-              flex
+              z-10
+              w-full
+              max-w-[1500px]
+              mx-auto
+              grid
+              grid-cols-1
+              lg:grid-cols-2
               items-center
-              justify-center
-              lg:justify-center
-              min-h-[320px]
-              sm:min-h-[300px]
-              lg:min-h-[350px]
-              order-1
-              lg:order-2
+              gap-10
+              lg:gap-4
             "
           >
-            {/* Image glow */}
-            <div
-              className="
-                absolute
-                left-1/2
-                top-1/2
-                -translate-x-1/2
-                -translate-y-1/2
-                w-[220px]
-                h-[220px]
-                sm:w-[280px]
-                sm:h-[280px]
-                lg:w-[360px]
-                lg:h-[360px]
-                rounded-full
-                bg-[#E8C27A]/10
-                blur-[80px]
-              "
-            />
 
-            {/* Cookie Hamper */}
-            <motion.img
-              src={cookieHamper}
-              alt="Makhana Cookie Hamper"
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              style={{
-                scale: imageScale,
-                rotate: imageRotate,
-              }}
+            {/* =================================================
+                LEFT — TEXT CONTENT
+            ================================================= */}
+            <div
               className="
                 relative
-                z-10
-                w-[140px]
-                sm:w-[180px]
-                md:w-[210px]
-                lg:w-[250px]
-                xl:w-[290px]
-                max-w-full
-                object-contain
-                drop-shadow-[0_25px_40px_rgba(0,0,0,0.45)]
+                z-20
+                flex
+                flex-col
+                justify-center
+                lg:pr-8
+                xl:pr-16
+                order-2
+                lg:order-1
+                text-center
+                lg:text-left
               "
-            />
+            >
+              {/* Heading */}
+              <h2
+                className="
+                  font-display
+                  text-5xl
+                  sm:text-6xl
+                  lg:text-7xl
+                  xl:text-8xl
+                  font-semibold
+                  leading-[0.95]
+                  text-[#F7ECD9]
+                "
+              >
+                Craving
+                <br />
+
+                <span className="text-[#E8C27A]">
+                  Cookies?
+                </span>
+              </h2>
+
+              {/* Description */}
+              <p
+                className="
+                  mt-7
+                  max-w-lg
+                  mx-auto
+                  lg:mx-0
+                  text-base
+                  sm:text-lg
+                  lg:text-xl
+                  leading-8
+                  text-[#D9B98C]
+                "
+              >
+                Crafted with premium makhana and baked to perfection.
+                Light, crunchy, delicious and surprisingly wholesome.
+              </p>
+
+              {/* =================================================
+                  BUTTONS
+              ================================================== */}
+              <div
+                className="
+                  mt-9
+                  flex
+                  flex-wrap
+                  justify-center
+                  lg:justify-start
+                  gap-4
+                "
+              >
+                {/* Shop Now */}
+                <a
+                  href="/shop"
+                  className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-[#E8C27A]
+                    px-8
+                    py-4
+                    text-[#2B1B0F]
+                    font-semibold
+                    tracking-wide
+                    transition-all
+                    duration-300
+                    hover:bg-[#F7ECD9]
+                    hover:scale-105
+                    hover:shadow-[0_0_40px_rgba(232,194,122,0.3)]
+                  "
+                >
+                  Shop Now
+                </a>
+
+                {/* Explore */}
+                <a
+                  href="#products"
+                  className="
+                    inline-flex
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-[#F7ECD9]/25
+                    px-8
+                    py-4
+                    text-[#F7ECD9]
+                    font-semibold
+                    tracking-wide
+                    transition-all
+                    duration-300
+                    hover:bg-[#F7ECD9]/10
+                    hover:border-[#F7ECD9]/50
+                  "
+                >
+                  Explore →
+                </a>
+              </div>
+            </div>
+
+            {/* =================================================
+                RIGHT — COOKIE HAMPER IMAGE
+            ================================================= */}
+            <div
+              className="
+                relative
+                z-20
+                flex
+                items-center
+                justify-center
+                lg:justify-center
+                min-h-[320px]
+                sm:min-h-[300px]
+                lg:min-h-[350px]
+                order-1
+                lg:order-2
+              "
+            >
+
+              {/* Image glow */}
+              <div
+                className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  w-[220px]
+                  h-[220px]
+                  sm:w-[280px]
+                  sm:h-[280px]
+                  lg:w-[360px]
+                  lg:h-[360px]
+                  rounded-full
+                  bg-[#E8C27A]/10
+                  blur-[80px]
+                "
+              />
+
+              {/* Cookie Hamper */}
+              <motion.img
+                src={cookieHamper}
+                alt="Makhana Cookie Hamper"
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                style={{
+                  scale: imageScale,
+                  rotate: imageRotate,
+                }}
+                className="
+                  relative
+                  z-10
+                  w-[140px]
+                  sm:w-[180px]
+                  md:w-[210px]
+                  lg:w-[250px]
+                  xl:w-[290px]
+                  max-w-full
+                  object-contain
+                  drop-shadow-[0_25px_40px_rgba(0,0,0,0.45)]
+                "
+              />
+            </div>
+
           </div>
         </div>
       </div>
 
       {/* =====================================================
-          BOTTOM DECORATIVE WAVE
-          
-          The doodle background is underneath this wave,
-          so it continues naturally into the next section.
+          DECORATIVE DOTS
       ====================================================== */}
-      <div
-        className="
-          absolute
-          bottom-0
-          left-0
-          right-0
-          w-full
-          h-[90px]
-          sm:h-[105px]
-          lg:h-[125px]
-          z-30
-          pointer-events-none
-          overflow-hidden
-        "
-      >
-        <svg
-          viewBox="0 0 1440 160"
-          preserveAspectRatio="none"
-          className="block w-full h-full"
-        >
-          <path
-            d="
-              M0 105
-              C120 145 220 145 340 100
-              C460 55 560 55 680 105
-              C800 150 900 150 1020 100
-              C1140 55 1260 55 1440 105
-              L1440 160
-              L0 160
-              Z
-            "
-            fill="#F7ECD9"
-            fillOpacity="0.94"
-          />
-        </svg>
-      </div>
 
-      {/* =====================================================
-          SMALL DECORATIVE DOTS
-      ====================================================== */}
       <div
         className="
           absolute
@@ -1840,6 +1819,7 @@ function Bestseller() {
           z-20
         "
       />
+
     </section>
   );
 }
