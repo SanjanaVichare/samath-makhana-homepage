@@ -1505,7 +1505,7 @@ function Bestseller() {
             y="0"
             width="1440"
             height="900"
-            opacity={0.5}
+            opacity={0.3}
             preserveAspectRatio="xMidYMid meet"
             clipPath="url(#brownWaveClip)"
           />
