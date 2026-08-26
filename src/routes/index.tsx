@@ -1448,96 +1448,68 @@ function Bestseller() {
         ================================================== */}
         <svg
           className="
-            absolute
-            inset-0
-            w-full
-            h-full
-            z-0
-            pointer-events-none
-          "
+    absolute
+    inset-0
+    w-full
+    h-full
+    z-0
+    pointer-events-none
+  "
           viewBox="0 0 1440 900"
           preserveAspectRatio="none"
         >
           <defs>
-
-            {/* =================================================
-                EXACT BROWN WAVE SHAPE
-            ================================================== */}
             <clipPath id="brownWaveClip">
               <path
                 d="
-                  M0 90
+          M0 90
 
-                  C120 25 220 25 340 85
-                  C460 145 560 145 680 85
+          C120 25 220 25 340 85
+          C460 145 560 145 680 85
 
-                  C800 25 900 25 1020 85
-                  C1140 145 1260 145 1440 70
+          C800 25 900 25 1020 85
+          C1140 145 1260 145 1440 70
 
-                  L1440 830
+          L1440 900
+          L0 900
 
-                  C1260 760 1140 760 1020 815
-                  C900 870 800 870 680 815
-
-                  C560 760 460 760 340 815
-                  C220 870 120 870 0 810
-
-                  Z
-                "
+          Z
+        "
               />
             </clipPath>
-
           </defs>
 
-          {/* =================================================
-              BROWN BASE
-          ================================================== */}
+          {/* Brown Base */}
           <path
             d="
-              M0 90
+      M0 90
 
-              C120 25 220 25 340 85
-              C460 145 560 145 680 85
+      C120 25 220 25 340 85
+      C460 145 560 145 680 85
 
-              C800 25 900 25 1020 85
-              C1140 145 1260 145 1440 70
+      C800 25 900 25 1020 85
+      C1140 145 1260 145 1440 70
 
-              L1440 830
+      L1440 900
+      L0 900
 
-              C1260 760 1140 760 1020 815
-              C900 870 800 870 680 815
-
-              C560 760 460 760 340 815
-              C220 870 120 870 0 810
-
-              Z
-            "
+      Z
+    "
             fill="#4A2E18"
           />
 
-          {/* =================================================
-              ONE COMPLETE productBgt IMAGE
-
-              NO PATTERN
-              NO REPEAT
-              NO TILING
-              NO SLICING
-
-              The entire image is shown once and clipped
-              to the exact brown wave.
-          ================================================== */}
+          {/* One Complete Texture */}
           <image
             href={productBgt}
             x="0"
             y="0"
             width="1440"
             height="900"
+            opacity={0.5}
             preserveAspectRatio="xMidYMid meet"
             clipPath="url(#brownWaveClip)"
-            opacity="0.5"
           />
         </svg>
-
         {/* =================================================
             CONTENT
         ================================================== */}
@@ -1708,18 +1680,19 @@ function Bestseller() {
             ================================================= */}
             <div
               className="
-                relative
-                z-20
-                flex
-                items-center
-                justify-center
-                lg:justify-center
-                min-h-[320px]
-                sm:min-h-[300px]
-                lg:min-h-[350px]
-                order-1
-                lg:order-2
-              "
+    relative
+    z-20
+    flex
+    items-center
+    justify-center
+    lg:justify-center
+    lg:translate-x-8
+    min-h-[320px]
+    sm:min-h-[300px]
+    lg:min-h-[350px]
+    order-1
+    lg:order-2
+  "
             >
 
               {/* Image glow */}
@@ -1776,50 +1749,6 @@ function Bestseller() {
           </div>
         </div>
       </div>
-
-      {/* =====================================================
-          DECORATIVE DOTS
-      ====================================================== */}
-
-      <div
-        className="
-          absolute
-          top-[25%]
-          right-[8%]
-          w-3
-          h-3
-          rounded-full
-          bg-[#E8C27A]/30
-          z-20
-        "
-      />
-
-      <div
-        className="
-          absolute
-          top-[35%]
-          right-[5%]
-          w-2
-          h-2
-          rounded-full
-          bg-[#F7ECD9]/20
-          z-20
-        "
-      />
-
-      <div
-        className="
-          absolute
-          bottom-[20%]
-          left-[6%]
-          w-4
-          h-4
-          rounded-full
-          bg-[#E8C27A]/20
-          z-20
-        "
-      />
-
     </section>
   );
 }
