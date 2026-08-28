@@ -12,6 +12,7 @@ import cursorMakhana from "@/assets/makhana.png";
 import productBg from "@/assets/bg-doodle.png";
 import productBgt from "@/assets/bg-doodle-t.png";
 import cookieHamper from "@/assets/gift.png";
+import cookiebs from "@/assets/bscookie.png";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -1389,7 +1390,7 @@ function Bestseller() {
   const imageScale = useTransform(
     scrollYProgress,
     [0, 0.3, 1],
-    [0.85, 1, 1.05]
+    [0.9, 1, 1.08]
   );
 
   const imageRotate = useTransform(
@@ -1405,14 +1406,15 @@ function Bestseller() {
         relative
         w-full
         overflow-hidden
-        bg-[#F7ECD9]
+        py-10
+        sm:py-12
+        lg:py-16
       "
     >
       {/* =====================================================
-          BACKGROUND
-          productBg is the ONLY background behind the wave.
-          It fills the complete section.
+          COMPLETE SECTION BACKGROUND
       ====================================================== */}
+
       <div
         className="
           absolute
@@ -1430,326 +1432,298 @@ function Bestseller() {
       />
 
       {/* =====================================================
-          BROWN WAVE SECTION
+          BROWN CONTAINER
       ====================================================== */}
+
       <div
         className="
           relative
           z-10
-          w-full
-          min-h-[85vh]
-          lg:min-h-[85vh]
-          overflow-hidden
+          mx-5
+          sm:mx-8
+          lg:mx-10
+          xl:mx-16
+          min-h-[430px]
+          sm:min-h-[450px]
+          lg:min-h-[480px]
+          xl:min-h-[500px]
+          rounded-[36px]
+          lg:rounded-[40px]
+          bg-[#6B3E26]
         "
       >
-
         {/* =================================================
-            BROWN WAVE + SINGLE COMPLETE productBgt IMAGE
+            BROWN TEXTURE
         ================================================== */}
-        <svg
+
+        <div
           className="
-    absolute
-    inset-0
-    w-full
-    h-full
-    z-0
-    pointer-events-none
-  "
-          viewBox="0 0 1440 900"
-          preserveAspectRatio="none"
+            absolute
+            inset-0
+            z-0
+            overflow-hidden
+            rounded-[36px]
+            lg:rounded-[40px]
+            pointer-events-none
+          "
         >
-          <defs>
-            <clipPath id="brownWaveClip">
-              <path
-                d="
-          M0 90
-
-          C120 25 220 25 340 85
-          C460 145 560 145 680 85
-
-          C800 25 900 25 1020 85
-          C1140 145 1260 145 1440 70
-
-          L1440 900
-          L0 900
-
-          Z
-        "
-              />
-            </clipPath>
-          </defs>
-
-          {/* Brown Base */}
-          <path
-            d="
-      M0 90
-
-      C120 25 220 25 340 85
-      C460 145 560 145 680 85
-
-      C800 25 900 25 1020 85
-      C1140 145 1260 145 1440 70
-
-      L1440 900
-      L0 900
-
-      Z
-    "
-            fill="#4A2E18"
+          <div
+            className="
+              absolute
+              inset-0
+              bg-cover
+              bg-center
+              bg-repeat
+              opacity-30
+            "
+            style={{
+              backgroundImage: `url(${productBgt})`,
+            }}
           />
+        </div>
 
-          {/* One Complete Texture */}
-          <image
-            href={productBgt}
-            x="0"
-            y="0"
-            width="1440"
-            height="900"
-            opacity={0.3}
-            preserveAspectRatio="xMidYMid meet"
-            clipPath="url(#brownWaveClip)"
-          />
-        </svg>
         {/* =================================================
             CONTENT
         ================================================== */}
+
         <div
           className="
             relative
             z-10
-            w-full
-            min-h-[85vh]
-            lg:min-h-[85vh]
+            mx-auto
             flex
+            min-h-[430px]
+            sm:min-h-[450px]
+            lg:min-h-[480px]
+            xl:min-h-[500px]
+            max-w-[1500px]
             items-center
-            overflow-hidden
-            px-6
+            px-7
             sm:px-10
-            lg:px-16
-            xl:px-24
-            pt-24
-            sm:pt-28
-            lg:pt-32
-            pb-28
-            sm:pb-32
-            lg:pb-36
+            lg:px-14
+            xl:px-20
+            py-12
+            lg:py-14
           "
         >
-
           {/* =================================================
-              CONTENT WRAPPER
+              LEFT — TEXT
           ================================================== */}
+
           <div
             className="
               relative
-              z-10
+              z-30
               w-full
-              max-w-[1500px]
-              mx-auto
-              grid
-              grid-cols-1
-              lg:grid-cols-2
-              items-center
-              gap-10
-              lg:gap-4
+              lg:w-[53%]
+              xl:w-[50%]
+              pr-0
+              lg:pr-8
+              xl:pr-12
+              text-center
+              lg:text-left
             "
           >
+            {/* =================================================
+                HEADING
+            ================================================== */}
+
+            <h2
+              className="
+    text-5xl
+    sm:text-6xl
+    md:text-6xl
+    lg:text-7xl
+    xl:text-7xl
+    font-black
+    leading-[0.92]
+    tracking-[-0.02em]
+    text-[#F7ECD9]
+  "
+              style={{
+                fontFamily:
+                  '"Arial Rounded MT Bold", "Arial Black", "Trebuchet MS", sans-serif',
+              }}
+            >
+              Makhana Chip
+              <br />
+              Cookie
+            </h2>
 
             {/* =================================================
-                LEFT — TEXT CONTENT
-            ================================================= */}
-            <div
+                DESCRIPTION
+            ================================================== */}
+
+            <p
               className="
-                relative
-                z-20
-                flex
-                flex-col
-                justify-center
-                lg:pr-8
-                xl:pr-16
-                order-2
-                lg:order-1
-                text-center
-                lg:text-left
+                mt-5
+                max-w-lg
+                mx-auto
+                lg:mx-0
+                text-base
+                sm:text-lg
+                lg:text-lg
+                xl:text-xl
+                font-semibold
+                leading-7
+                text-[#F7ECD9]
               "
             >
-              {/* Heading */}
-              <h2
-                className="
-                  font-display
-                  text-5xl
-                  sm:text-6xl
-                  lg:text-7xl
-                  xl:text-8xl
-                  font-semibold
-                  leading-[0.95]
-                  text-[#F7ECD9]
-                "
-              >
-                Craving
-                <br />
-
-                <span className="text-[#E8C27A]">
-                  Cookies?
-                </span>
-              </h2>
-
-              {/* Description */}
-              <p
-                className="
-                  mt-7
-                  max-w-lg
-                  mx-auto
-                  lg:mx-0
-                  text-base
-                  sm:text-lg
-                  lg:text-xl
-                  leading-8
-                  text-[#D9B98C]
-                "
-              >
-                Crafted with premium makhana and baked to perfection.
-                Light, crunchy, delicious and surprisingly wholesome.
-              </p>
-
-              {/* =================================================
-                  BUTTONS
-              ================================================== */}
-              <div
-                className="
-                  mt-9
-                  flex
-                  flex-wrap
-                  justify-center
-                  lg:justify-start
-                  gap-4
-                "
-              >
-                {/* Shop Now */}
-                <a
-                  href="/shop"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-[#E8C27A]
-                    px-8
-                    py-4
-                    text-[#2B1B0F]
-                    font-semibold
-                    tracking-wide
-                    transition-all
-                    duration-300
-                    hover:bg-[#F7ECD9]
-                    hover:scale-105
-                    hover:shadow-[0_0_40px_rgba(232,194,122,0.3)]
-                  "
-                >
-                  Shop Now
-                </a>
-
-                {/* Explore */}
-                <a
-                  href="#products"
-                  className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#F7ECD9]/25
-                    px-8
-                    py-4
-                    text-[#F7ECD9]
-                    font-semibold
-                    tracking-wide
-                    transition-all
-                    duration-300
-                    hover:bg-[#F7ECD9]/10
-                    hover:border-[#F7ECD9]/50
-                  "
-                >
-                  Explore →
-                </a>
-              </div>
-            </div>
+              Crafted with premium makhana and baked to perfection.
+              Light, crunchy, delicious and surprisingly wholesome.
+            </p>
 
             {/* =================================================
-                RIGHT — COOKIE HAMPER IMAGE
-            ================================================= */}
+                BUTTONS
+            ================================================== */}
+
             <div
               className="
-    relative
-    z-20
-    flex
-    items-center
-    justify-center
-    lg:justify-center
-    lg:translate-x-8
-    min-h-[320px]
-    sm:min-h-[300px]
-    lg:min-h-[350px]
-    order-1
-    lg:order-2
-  "
+                mt-7
+                flex
+                flex-wrap
+                justify-center
+                lg:justify-start
+                gap-4
+              "
             >
+              {/* Learn More */}
 
-              {/* Image glow */}
-              <div
+              <a
+                href="#products"
                 className="
-                  absolute
-                  left-1/2
-                  top-1/2
-                  -translate-x-1/2
-                  -translate-y-1/2
-                  w-[220px]
-                  h-[220px]
-                  sm:w-[280px]
-                  sm:h-[280px]
-                  lg:w-[360px]
-                  lg:h-[360px]
+                  inline-flex
+                  items-center
+                  justify-center
                   rounded-full
-                  bg-[#E8C27A]/10
-                  blur-[80px]
+                  border-2
+                  border-[#F7ECD9]
+                  px-8
+                  py-3.5
+                  text-[#F7ECD9]
+                  font-bold
+                  tracking-wide
+                  transition-all
+                  duration-300
+                  hover:bg-[#F7ECD9]
+                  hover:text-[#6B3E26]
+                  hover:scale-105
                 "
-              />
+              >
+                Learn More
+              </a>
 
-              {/* Cookie Hamper */}
-              <motion.img
-                src={cookieHamper}
-                alt="Makhana Cookie Hamper"
-                animate={{
-                  y: [0, -10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                style={{
-                  scale: imageScale,
-                  rotate: imageRotate,
-                }}
+              {/* Order Now */}
+
+              <a
+                href="/shop"
                 className="
-                  relative
-                  z-10
-                  w-[140px]
-                  sm:w-[180px]
-                  md:w-[210px]
-                  lg:w-[250px]
-                  xl:w-[290px]
-                  max-w-full
-                  object-contain
-                  drop-shadow-[0_25px_40px_rgba(0,0,0,0.45)]
+                  inline-flex
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#F7ECD9]
+                  px-8
+                  py-3.5
+                  text-[#6B3E26]
+                  font-bold
+                  tracking-wide
+                  transition-all
+                  duration-300
+                  hover:scale-105
+                  hover:bg-[#E8C27A]
+                  hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)]
                 "
-              />
+              >
+                Order Now
+              </a>
             </div>
+          </div>
 
+          {/* =================================================
+              RIGHT — BIG COOKIE
+          ================================================== */}
+
+          <div
+            className="
+              absolute
+              z-40
+              right-[-90px]
+              sm:right-[-100px]
+              md:right-[-110px]
+              lg:right-[-105px]
+              xl:right-[-135px]
+              top-1/2
+              -translate-y-1/2
+              flex
+              items-center
+              justify-center
+              w-[55%]
+              lg:w-[56%]
+              xl:w-[58%]
+              h-[125%]
+            "
+          >
+            {/* =================================================
+                COOKIE GLOW
+            ================================================== */}
+
+            <div
+              className="
+                absolute
+                right-[15%]
+                top-1/2
+                -translate-y-1/2
+                w-[300px]
+                h-[300px]
+                sm:w-[380px]
+                sm:h-[380px]
+                lg:w-[480px]
+                lg:h-[480px]
+                xl:w-[560px]
+                xl:h-[560px]
+                rounded-full
+                bg-[#E8C27A]/10
+                blur-[90px]
+              "
+            />
+
+            {/* =================================================
+                COOKIE IMAGE
+            ================================================== */}
+
+            <motion.img
+              src={cookiebs}
+              alt="Chocolate Chip Cookie"
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                scale: imageScale,
+                rotate: imageRotate,
+              }}
+              className="
+                relative
+                z-10
+                w-[350px]
+                sm:w-[440px]
+                md:w-[500px]
+                lg:w-[580px]
+                xl:w-[680px]
+                max-w-none
+                object-contain
+                drop-shadow-[0_30px_45px_rgba(0,0,0,0.45)]
+              "
+            />
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }
 
