@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+
 import SHOPIFY_CONFIG from "@/lib/shopify/config";
+import { saveSession } from "@/lib/shopify/session";
 
 export const Route = createFileRoute("/auth/callback")({
   component: AuthCallbackPage,
@@ -10,29 +12,28 @@ function AuthCallbackPage() {
   const hasRun = useRef(false);
 
   useEffect(() => {
-    // Prevent React StrictMode from running this twice
     if (hasRun.current) return;
 
     hasRun.current = true;
-
     handleCallback();
   }, []);
 
   async function handleCallback() {
     try {
       const params = new URLSearchParams(
-        window.location.search
+        window.location.search,
       );
 
       const code = params.get("code");
       const state = params.get("state");
       const error = params.get("error");
-      const errorDescription =
-        params.get("error_description");
+      const errorDescription = params.get(
+        "error_description",
+      );
 
       console.log("Shopify callback:", {
-        code,
-        state,
+        hasCode: Boolean(code),
+        hasState: Boolean(state),
         error,
         errorDescription,
       });
@@ -40,216 +41,191 @@ function AuthCallbackPage() {
       // --------------------------------
       // Shopify returned an error
       // --------------------------------
-
       if (error) {
         console.error(
           "Shopify authentication error:",
           error,
-          errorDescription
+          errorDescription,
         );
 
-        window.location.href = "/login";
+        window.location.replace("/login");
         return;
       }
 
       // --------------------------------
-      // Check code
+      // Check authorization code
       // --------------------------------
-
       if (!code) {
         console.error(
-          "No authorization code returned by Shopify."
+          "No authorization code returned by Shopify.",
         );
 
-        window.location.href = "/login";
+        window.location.replace("/login");
         return;
       }
 
       // --------------------------------
-      // Check state
+      // Check OAuth state
       // --------------------------------
-
       const savedState =
         sessionStorage.getItem("shopify_state");
 
       if (!state || !savedState) {
-        console.error(
-          "Missing OAuth state."
-        );
+        console.error("Missing OAuth state.");
 
-        window.location.href = "/login";
+        window.location.replace("/login");
         return;
       }
 
       if (state !== savedState) {
-        console.error(
-          "OAuth state mismatch."
-        );
+        console.error("OAuth state mismatch.");
 
+        sessionStorage.removeItem("shopify_state");
         sessionStorage.removeItem(
-          "shopify_state"
+          "shopify_code_verifier",
         );
 
-        sessionStorage.removeItem(
-          "shopify_code_verifier"
-        );
-
-        window.location.href = "/login";
+        window.location.replace("/login");
         return;
       }
 
       // --------------------------------
       // Get PKCE verifier
       // --------------------------------
-
       const codeVerifier =
         sessionStorage.getItem(
-          "shopify_code_verifier"
+          "shopify_code_verifier",
         );
 
       if (!codeVerifier) {
         console.error(
-          "Missing Shopify PKCE code verifier."
+          "Missing Shopify PKCE code verifier.",
         );
 
-        window.location.href = "/login";
+        window.location.replace("/login");
         return;
       }
 
       // --------------------------------
-      // Exchange code for token
+      // Check Shopify configuration
       // --------------------------------
+      const {
+        customerClientId,
+        tokenUrl,
+        redirectUri,
+      } = SHOPIFY_CONFIG;
 
-      const redirectUri =
-        SHOPIFY_CONFIG.redirectUri ||
+      if (!customerClientId || !tokenUrl) {
+        throw new Error(
+          "Shopify Customer Account API is not configured correctly.",
+        );
+      }
+
+      // --------------------------------
+      // Determine redirect URI
+      // --------------------------------
+      const finalRedirectUri =
+        redirectUri ||
         `${window.location.origin}/auth/callback`;
 
       console.log(
-        "Exchanging Shopify authorization code..."
+        "Exchanging Shopify authorization code...",
       );
 
-      const tokenResponse = await fetch(
-        SHOPIFY_CONFIG.tokenUrl,
-        {
-          method: "POST",
+      // --------------------------------
+      // Exchange authorization code
+      // --------------------------------
+      const tokenResponse = await fetch(tokenUrl, {
+        method: "POST",
 
-          headers: {
-            "Content-Type":
-              "application/x-www-form-urlencoded",
-          },
+        headers: {
+          "Content-Type":
+            "application/x-www-form-urlencoded",
+        },
 
-          body: new URLSearchParams({
-            grant_type:
-              "authorization_code",
+        body: new URLSearchParams({
+          grant_type: "authorization_code",
+          client_id: customerClientId,
+          redirect_uri: finalRedirectUri,
+          code,
+          code_verifier: codeVerifier,
+        }).toString(),
+      });
 
-            client_id:
-              SHOPIFY_CONFIG.customerClientId,
+      const tokenData = await tokenResponse.json();
 
-            redirect_uri:
-              redirectUri,
+      console.log("Shopify token response:", {
+        ok: tokenResponse.ok,
+        hasAccessToken: Boolean(
+          tokenData.access_token,
+        ),
+      });
 
-            code,
-
-            code_verifier:
-              codeVerifier,
-          }).toString(),
-        }
-      );
-
-      const tokenData =
-        await tokenResponse.json();
-
-      console.log(
-        "Shopify token response:",
-        tokenData
-      );
-
+      // --------------------------------
+      // Handle token exchange failure
+      // --------------------------------
       if (!tokenResponse.ok) {
         console.error(
           "Shopify token exchange failed:",
-          tokenData
+          tokenData,
         );
 
         throw new Error(
           tokenData.error_description ||
           tokenData.error ||
-          "Token exchange failed"
+          "Token exchange failed",
         );
       }
 
       // --------------------------------
-      // Make sure we actually got token
+      // Make sure access token exists
       // --------------------------------
-
       if (!tokenData.access_token) {
         throw new Error(
-          "Shopify did not return an access token."
+          "Shopify did not return an access token.",
         );
       }
 
       // --------------------------------
-      // Save customer session
+      // Save Shopify session
       // --------------------------------
-
-      sessionStorage.setItem(
-        "shopify_access_token",
-        tokenData.access_token
-      );
-
-      if (tokenData.id_token) {
-        sessionStorage.setItem(
-          "shopify_id_token",
-          tokenData.id_token
-        );
-      }
-
-      if (tokenData.expires_in) {
-        sessionStorage.setItem(
-          "shopify_token_expires_at",
-          String(
-            Date.now() +
-            tokenData.expires_in * 1000
-          )
-        );
-      }
+      saveSession(tokenData);
 
       // --------------------------------
       // Clean temporary OAuth data
       // --------------------------------
-
       sessionStorage.removeItem(
-        "shopify_state"
+        "shopify_state",
       );
 
       sessionStorage.removeItem(
-        "shopify_code_verifier"
+        "shopify_code_verifier",
       );
 
       console.log(
-        "Shopify login successful!"
+        "Shopify login successful!",
       );
 
       // --------------------------------
-      // GO BACK TO WEBSITE
+      // Return to website
       // --------------------------------
-
       window.location.replace("/");
     } catch (error) {
       console.error(
         "Shopify authentication callback failed:",
-        error
+        error,
       );
 
       sessionStorage.removeItem(
-        "shopify_state"
+        "shopify_state",
       );
 
       sessionStorage.removeItem(
-        "shopify_code_verifier"
+        "shopify_code_verifier",
       );
 
       alert(
-        "Login failed. Please try again."
+        "Login failed. Please try again.",
       );
 
       window.location.replace("/login");
