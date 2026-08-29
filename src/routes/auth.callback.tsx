@@ -2,9 +2,17 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 
 import SHOPIFY_CONFIG from "@/lib/shopify/config";
+
+import {
+  consumeReturnTo,
+  getRedirectUri,
+} from "@/lib/shopify/auth";
+
 import { saveSession } from "@/lib/shopify/session";
 
-export const Route = createFileRoute("/auth/callback")({
+export const Route = createFileRoute(
+  "/auth/callback",
+)({
   component: AuthCallbackPage,
 });
 
@@ -15,6 +23,7 @@ function AuthCallbackPage() {
     if (hasRun.current) return;
 
     hasRun.current = true;
+
     handleCallback();
   }, []);
 
@@ -27,9 +36,8 @@ function AuthCallbackPage() {
       const code = params.get("code");
       const state = params.get("state");
       const error = params.get("error");
-      const errorDescription = params.get(
-        "error_description",
-      );
+      const errorDescription =
+        params.get("error_description");
 
       console.log("Shopify callback:", {
         hasCode: Boolean(code),
@@ -41,6 +49,7 @@ function AuthCallbackPage() {
       // --------------------------------
       // Shopify returned an error
       // --------------------------------
+
       if (error) {
         console.error(
           "Shopify authentication error:",
@@ -49,49 +58,65 @@ function AuthCallbackPage() {
         );
 
         window.location.replace("/login");
+
         return;
       }
 
       // --------------------------------
       // Check authorization code
       // --------------------------------
+
       if (!code) {
         console.error(
           "No authorization code returned by Shopify.",
         );
 
         window.location.replace("/login");
+
         return;
       }
 
       // --------------------------------
-      // Check OAuth state
+      // Validate OAuth state
       // --------------------------------
+
       const savedState =
-        sessionStorage.getItem("shopify_state");
+        sessionStorage.getItem(
+          "shopify_state",
+        );
 
       if (!state || !savedState) {
-        console.error("Missing OAuth state.");
+        console.error(
+          "Missing OAuth state.",
+        );
 
         window.location.replace("/login");
+
         return;
       }
 
       if (state !== savedState) {
-        console.error("OAuth state mismatch.");
+        console.error(
+          "OAuth state mismatch.",
+        );
 
-        sessionStorage.removeItem("shopify_state");
+        sessionStorage.removeItem(
+          "shopify_state",
+        );
+
         sessionStorage.removeItem(
           "shopify_code_verifier",
         );
 
         window.location.replace("/login");
+
         return;
       }
 
       // --------------------------------
       // Get PKCE verifier
       // --------------------------------
+
       const codeVerifier =
         sessionStorage.getItem(
           "shopify_code_verifier",
@@ -103,16 +128,17 @@ function AuthCallbackPage() {
         );
 
         window.location.replace("/login");
+
         return;
       }
 
       // --------------------------------
       // Check Shopify configuration
       // --------------------------------
+
       const {
         customerClientId,
         tokenUrl,
-        redirectUri,
       } = SHOPIFY_CONFIG;
 
       if (!customerClientId || !tokenUrl) {
@@ -122,11 +148,11 @@ function AuthCallbackPage() {
       }
 
       // --------------------------------
-      // Determine redirect URI
+      // Get redirect URI
       // --------------------------------
-      const finalRedirectUri =
-        redirectUri ||
-        `${window.location.origin}/auth/callback`;
+
+      const redirectUri =
+        getRedirectUri();
 
       console.log(
         "Exchanging Shopify authorization code...",
@@ -135,35 +161,58 @@ function AuthCallbackPage() {
       // --------------------------------
       // Exchange authorization code
       // --------------------------------
-      const tokenResponse = await fetch(tokenUrl, {
-        method: "POST",
 
-        headers: {
-          "Content-Type":
-            "application/x-www-form-urlencoded",
+      const tokenResponse = await fetch(
+        tokenUrl,
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type":
+              "application/x-www-form-urlencoded",
+          },
+
+          body: new URLSearchParams({
+            grant_type:
+              "authorization_code",
+
+            client_id:
+              customerClientId,
+
+            redirect_uri:
+              redirectUri,
+
+            code,
+
+            code_verifier:
+              codeVerifier,
+          }).toString(),
         },
-
-        body: new URLSearchParams({
-          grant_type: "authorization_code",
-          client_id: customerClientId,
-          redirect_uri: finalRedirectUri,
-          code,
-          code_verifier: codeVerifier,
-        }).toString(),
-      });
-
-      const tokenData = await tokenResponse.json();
-
-      console.log("Shopify token response:", {
-        ok: tokenResponse.ok,
-        hasAccessToken: Boolean(
-          tokenData.access_token,
-        ),
-      });
+      );
 
       // --------------------------------
-      // Handle token exchange failure
+      // Parse token response
       // --------------------------------
+
+      const tokenData =
+        await tokenResponse.json();
+
+      console.log(
+        "Shopify token response:",
+        {
+          ok: tokenResponse.ok,
+
+          hasAccessToken:
+            Boolean(
+              tokenData.access_token,
+            ),
+        },
+      );
+
+      // --------------------------------
+      // Handle failed token exchange
+      // --------------------------------
+
       if (!tokenResponse.ok) {
         console.error(
           "Shopify token exchange failed:",
@@ -178,8 +227,9 @@ function AuthCallbackPage() {
       }
 
       // --------------------------------
-      // Make sure access token exists
+      // Verify access token
       // --------------------------------
+
       if (!tokenData.access_token) {
         throw new Error(
           "Shopify did not return an access token.",
@@ -189,11 +239,13 @@ function AuthCallbackPage() {
       // --------------------------------
       // Save Shopify session
       // --------------------------------
+
       saveSession(tokenData);
 
       // --------------------------------
-      // Clean temporary OAuth data
+      // Remove temporary OAuth data
       // --------------------------------
+
       sessionStorage.removeItem(
         "shopify_state",
       );
@@ -207,14 +259,24 @@ function AuthCallbackPage() {
       );
 
       // --------------------------------
-      // Return to website
+      // Return to original page
       // --------------------------------
-      window.location.replace("/");
+
+      const returnTo =
+        consumeReturnTo();
+
+      window.location.replace(
+        returnTo,
+      );
     } catch (error) {
       console.error(
         "Shopify authentication callback failed:",
         error,
       );
+
+      // --------------------------------
+      // Clean temporary OAuth data
+      // --------------------------------
 
       sessionStorage.removeItem(
         "shopify_state",
@@ -228,7 +290,9 @@ function AuthCallbackPage() {
         "Login failed. Please try again.",
       );
 
-      window.location.replace("/login");
+      window.location.replace(
+        "/login",
+      );
     }
   }
 
