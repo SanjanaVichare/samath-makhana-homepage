@@ -1,34 +1,35 @@
+const env = import.meta.env;
+
 const SHOPIFY_CONFIG = {
-  storeDomain:
-    import.meta.env.VITE_SHOPIFY_STORE_DOMAIN,
+  storeDomain: env.VITE_SHOPIFY_STORE_DOMAIN as string | undefined,
 
   storefrontApiVersion:
-    import.meta.env
-      .VITE_SHOPIFY_STOREFRONT_API_VERSION,
+    (env.VITE_SHOPIFY_STOREFRONT_API_VERSION as string | undefined) || "2025-07",
 
-  storefrontToken:
-    import.meta.env
-      .VITE_SHOPIFY_STOREFRONT_PUBLIC_TOKEN,
+  storefrontToken: env.VITE_SHOPIFY_STOREFRONT_PUBLIC_TOKEN as string | undefined,
 
-  customerClientId:
-    import.meta.env
-      .VITE_SHOPIFY_CUSTOMER_ACCOUNT_CLIENT_ID,
+  customerClientId: env.VITE_SHOPIFY_CUSTOMER_ACCOUNT_CLIENT_ID as string | undefined,
 
-  authUrl:
-    import.meta.env
-      .VITE_SHOPIFY_AUTHORIZATION_ENDPOINT,
+  authUrl: env.VITE_SHOPIFY_AUTHORIZATION_ENDPOINT as string | undefined,
 
-  tokenUrl:
-    import.meta.env
-      .VITE_SHOPIFY_TOKEN_ENDPOINT,
+  tokenUrl: env.VITE_SHOPIFY_TOKEN_ENDPOINT as string | undefined,
 
-  logoutUrl:
-    import.meta.env
-      .VITE_SHOPIFY_LOGOUT_ENDPOINT,
+  logoutUrl: env.VITE_SHOPIFY_LOGOUT_ENDPOINT as string | undefined,
 
-  redirectUri:
-    import.meta.env
-      .VITE_SHOPIFY_REDIRECT_URI,
+  redirectUri: env.VITE_SHOPIFY_REDIRECT_URI as string | undefined,
 };
+
+/** True when the Storefront API can be reached (products, cart, checkout). */
+export const isStorefrontConfigured = () =>
+  Boolean(SHOPIFY_CONFIG.storeDomain && SHOPIFY_CONFIG.storefrontToken);
+
+/** True when Shopify hosted customer accounts (OAuth/PKCE) can be used. */
+export const isCustomerAuthConfigured = () =>
+  Boolean(
+    SHOPIFY_CONFIG.storeDomain &&
+      SHOPIFY_CONFIG.customerClientId &&
+      SHOPIFY_CONFIG.authUrl &&
+      SHOPIFY_CONFIG.tokenUrl,
+  );
 
 export default SHOPIFY_CONFIG;
