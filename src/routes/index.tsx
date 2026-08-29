@@ -1414,7 +1414,6 @@ function Bestseller() {
       {/* =====================================================
           COMPLETE SECTION BACKGROUND
       ====================================================== */}
-
       <div
         className="
           absolute
@@ -1434,7 +1433,6 @@ function Bestseller() {
       {/* =====================================================
           BROWN CONTAINER
       ====================================================== */}
-
       <div
         className="
           relative
@@ -1443,10 +1441,10 @@ function Bestseller() {
           sm:mx-8
           lg:mx-10
           xl:mx-16
-          min-h-[430px]
-          sm:min-h-[450px]
-          lg:min-h-[480px]
-          xl:min-h-[500px]
+          min-h-[390px]
+          sm:min-h-[410px]
+          lg:min-h-[440px]
+          xl:min-h-[460px]
           rounded-[36px]
           lg:rounded-[40px]
           bg-[#6B3E26]
@@ -1455,7 +1453,6 @@ function Bestseller() {
         {/* =================================================
             BROWN TEXTURE
         ================================================== */}
-
         <div
           className="
             absolute
@@ -1485,31 +1482,29 @@ function Bestseller() {
         {/* =================================================
             CONTENT
         ================================================== */}
-
         <div
           className="
             relative
             z-10
             mx-auto
             flex
-            min-h-[430px]
-            sm:min-h-[450px]
-            lg:min-h-[480px]
-            xl:min-h-[500px]
+            min-h-[390px]
+            sm:min-h-[410px]
+            lg:min-h-[440px]
+            xl:min-h-[460px]
             max-w-[1500px]
             items-center
             px-7
             sm:px-10
             lg:px-14
             xl:px-20
-            py-12
-            lg:py-14
+            py-10
+            lg:py-12
           "
         >
           {/* =================================================
               LEFT — TEXT
           ================================================== */}
-
           <div
             className="
               relative
@@ -1527,19 +1522,18 @@ function Bestseller() {
             {/* =================================================
                 HEADING
             ================================================== */}
-
             <h2
               className="
-    text-5xl
-    sm:text-6xl
-    md:text-6xl
-    lg:text-7xl
-    xl:text-7xl
-    font-black
-    leading-[0.92]
-    tracking-[-0.02em]
-    text-[#F7ECD9]
-  "
+                text-4xl
+                sm:text-5xl
+                md:text-5xl
+                lg:text-6xl
+                xl:text-6xl
+                font-black
+                leading-[0.92]
+                tracking-[-0.02em]
+                text-[#F7ECD9]
+              "
               style={{
                 fontFamily:
                   '"Arial Rounded MT Bold", "Arial Black", "Trebuchet MS", sans-serif',
@@ -1553,17 +1547,16 @@ function Bestseller() {
             {/* =================================================
                 DESCRIPTION
             ================================================== */}
-
             <p
               className="
-                mt-5
+                mt-4
                 max-w-lg
                 mx-auto
                 lg:mx-0
-                text-base
-                sm:text-lg
-                lg:text-lg
-                xl:text-xl
+                text-sm
+                sm:text-base
+                lg:text-base
+                xl:text-lg
                 font-semibold
                 leading-7
                 text-[#F7ECD9]
@@ -1576,10 +1569,9 @@ function Bestseller() {
             {/* =================================================
                 BUTTONS
             ================================================== */}
-
             <div
               className="
-                mt-7
+                mt-6
                 flex
                 flex-wrap
                 justify-center
@@ -1588,7 +1580,6 @@ function Bestseller() {
               "
             >
               {/* Learn More */}
-
               <a
                 href="#products"
                 className="
@@ -1598,8 +1589,8 @@ function Bestseller() {
                   rounded-full
                   border-2
                   border-[#F7ECD9]
-                  px-8
-                  py-3.5
+                  px-7
+                  py-3
                   text-[#F7ECD9]
                   font-bold
                   tracking-wide
@@ -1614,7 +1605,6 @@ function Bestseller() {
               </a>
 
               {/* Order Now */}
-
               <a
                 href="/shop"
                 className="
@@ -1623,8 +1613,8 @@ function Bestseller() {
                   justify-center
                   rounded-full
                   bg-[#F7ECD9]
-                  px-8
-                  py-3.5
+                  px-7
+                  py-3
                   text-[#6B3E26]
                   font-bold
                   tracking-wide
@@ -1643,45 +1633,43 @@ function Bestseller() {
           {/* =================================================
               RIGHT — BIG COOKIE
           ================================================== */}
-
           <div
             className="
               absolute
               z-40
-              right-[-90px]
-              sm:right-[-100px]
-              md:right-[-110px]
-              lg:right-[-105px]
-              xl:right-[-135px]
+              right-[-70px]
+              sm:right-[-80px]
+              md:right-[-90px]
+              lg:right-[-90px]
+              xl:right-[-110px]
               top-1/2
               -translate-y-1/2
               flex
               items-center
               justify-center
-              w-[55%]
-              lg:w-[56%]
-              xl:w-[58%]
-              h-[125%]
+              w-[52%]
+              lg:w-[54%]
+              xl:w-[56%]
+              h-[120%]
             "
           >
             {/* =================================================
                 COOKIE GLOW
             ================================================== */}
-
             <div
               className="
                 absolute
                 right-[15%]
                 top-1/2
                 -translate-y-1/2
-                w-[300px]
-                h-[300px]
-                sm:w-[380px]
-                sm:h-[380px]
-                lg:w-[480px]
-                lg:h-[480px]
-                xl:w-[560px]
-                xl:h-[560px]
+                w-[260px]
+                h-[260px]
+                sm:w-[320px]
+                sm:h-[320px]
+                lg:w-[420px]
+                lg:h-[420px]
+                xl:w-[500px]
+                xl:h-[500px]
                 rounded-full
                 bg-[#E8C27A]/10
                 blur-[90px]
@@ -1691,7 +1679,6 @@ function Bestseller() {
             {/* =================================================
                 COOKIE IMAGE
             ================================================== */}
-
             <motion.img
               src={cookiebs}
               alt="Chocolate Chip Cookie"
@@ -1710,11 +1697,11 @@ function Bestseller() {
               className="
                 relative
                 z-10
-                w-[350px]
-                sm:w-[440px]
-                md:w-[500px]
-                lg:w-[580px]
-                xl:w-[680px]
+                w-[300px]
+                sm:w-[380px]
+                md:w-[430px]
+                lg:w-[500px]
+                xl:w-[580px]
                 max-w-none
                 object-contain
                 drop-shadow-[0_30px_45px_rgba(0,0,0,0.45)]
@@ -1723,7 +1710,7 @@ function Bestseller() {
           </div>
         </div>
       </div>
-    </section >
+    </section>
   );
 }
 
