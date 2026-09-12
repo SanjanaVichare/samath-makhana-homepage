@@ -64,7 +64,7 @@ const BRANDS = [
 
 const PRODUCTS = [
   {
-    id: "peri-peri-makhana", // ADD THIS
+    id: "peri-peri-makhana",
     name: "Peri Peri Makhana",
     desc: "Bold, fiery and packed with smoky peri-peri flavour.",
     tag: "Spicy",
@@ -80,7 +80,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "cheese-makhana", // ADD THIS
+    id: "cheese-makhana",
     name: "Cheese Makhana",
     desc: "Creamy cheese seasoning with a perfectly crunchy bite.",
     tag: "Cheesy",
@@ -96,7 +96,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "chat-pata-makhana", // ADD THIS
+    id: "chat-pata-makhana",
     name: "Chat Pata Makhana",
     desc: "Tangy Indian spices with a chatpata kick. Perfectly roasted for a guilt-free crunch.",
     tag: "Tangy",
@@ -112,7 +112,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "cream-onion-makhana", // ADD THIS
+    id: "cream-onion-makhana",
     name: "Cream & Onion Makhana",
     desc: "Rich cream balanced with savoury onion flavour.",
     tag: "Popular",
@@ -128,7 +128,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "pudina-makhana", // ADD THIS
+    id: "pudina-makhana",
     name: "Pudina Makhana",
     desc: "Refreshing mint flavour with a crisp roasted finish.",
     tag: "Fresh",
@@ -144,7 +144,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "salt-pepper-makhana", // ADD THIS
+    id: "salt-pepper-makhana",
     name: "Salt & Pepper Makhana",
     desc: "Lightly seasoned with salt and cracked pepper a classic you'll keep coming back to",
     tag: "Classic",
@@ -160,7 +160,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "makhana-cookies", // ADD THIS
+    id: "makhana-cookies",
     name: "Makhana Cookies",
     desc: "Crunchy cookies made with wholesome makhana goodness.",
     tag: "Cookies",
@@ -176,7 +176,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: "sugar-free-cookies", // ADD THIS
+    id: "sugar-free-cookies",
     name: "Sugar Free Cookies",
     desc: "Guilt-free cookies crafted without added sugar.",
     tag: "Sugar Free",
@@ -229,21 +229,26 @@ function PatternBackground({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden bg-[#F8F3E6]">
+
+      {/* Static doodle background — now truly seamless via repeat */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `url(${productBg})`,
           backgroundRepeat: "repeat",
-          backgroundSize: "1040px",
-          backgroundPosition: "center top",
-          opacity: 0.8,
+          backgroundSize: "600px",
+          backgroundPosition: "center center",
+          backgroundAttachment: "fixed",
+          opacity: 0.5,
         }}
       />
 
+      {/* Content */}
       <div className="relative z-10">
         {children}
       </div>
+
     </div>
   );
 }
@@ -484,7 +489,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = "100% Natural · No Preservatives · High Protein · Gluten Free · Handcrafted in India · Guilt-Free Snacking";
+  const items = "100% Vegetarian · Made in India · Crafted with Care";
   return (
     <div className="bg-olive text-cream py-4 overflow-hidden">
       <div className="flex w-max animate-marquee whitespace-nowrap">
@@ -618,7 +623,7 @@ function Products() {
                         bg-[#FCF5EF]
                         rounded-[28px]
                         overflow-hidden
-                        border-2 border-olive/30
+                        border-2 border-olive
                         flex flex-col
                         h-full
                         w-full
@@ -947,8 +952,8 @@ function Benefits() {
           text-center
           px-3
           bg-[#FDF8EE]
-          border
-          border-[#E9DCC6]
+          border-2
+          border-olive
           shadow-xl
           hover:scale-110
           hover:rotate-0
@@ -989,17 +994,11 @@ function Benefits() {
   return (
     <section
       id="benefits"
-      className="relative min-h-screen flex items-center py-16 lg:py-24 px-4 sm:px-6 lg:px-10 overflow-hidden bg-fixed"
-      style={{
-        backgroundImage: `url(${productBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="relative min-h-screen flex items-center py-16 lg:py-24 px-4 sm:px-6 lg:px-10 overflow-hidden"
     >
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="relative rounded-[40px] bg-wheat border border-olive/10 shadow-xl overflow-hidden">
+        <div className="relative rounded-[40px] bg-wheat border-2 border-olive shadow-xl overflow-hidden">
 
           <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20">
 
@@ -1166,25 +1165,11 @@ function Testimonials() {
   return (
     < section
       id="products"
-      className="relative bg-cream py-28 px-6 lg:px-10 overflow-hidden"
+      className="relative py-28 px-6 lg:px-10 overflow-hidden"
       onMouseEnter={() => (paused.current = true)
       }
       onMouseLeave={() => (paused.current = false)}
     >
-      <img
-        src={productBg}
-        alt=""
-        className="
-    absolute
-    inset-0
-    w-full
-    h-full
-    object-cover
-    opacity-[0.6]
-    pointer-events-none
-    select-none
-  "
-      />
       <div className="mx-auto max-w-6xl">
         <h2 data-reveal className="reveal text-center font-display text-4xl lg:text-5xl font-semibold text-olive">
           What Our Snackers Say
@@ -1196,7 +1181,7 @@ function Testimonials() {
           >
             {[...TESTIMONIALS, ...TESTIMONIALS].map((t, idx) => (
               <div key={idx} className="shrink-0 w-full md:w-1/2 lg:w-1/3 px-4">
-                <div className="bg-cream border border-wheat rounded-2xl p-8 shadow-[0_8px_28px_-16px_rgba(0,0,0,0.15)] h-full">
+                <div className="bg-cream border-2 border-olive rounded-2xl p-8 shadow-[0_8px_28px_-16px_rgba(0,0,0,0.15)] h-full">
                   <div className="text-gold tracking-widest">
                     {"★".repeat(t.stars)}
                   </div>
@@ -1231,22 +1216,22 @@ function InfluencerReels() {
     {
       name: "Fitness Creator",
       handle: "@creator1",
-      video: null,
+      image: ig1,
     },
     {
       name: "Food Blogger",
       handle: "@creator2",
-      video: null,
+      image: ig2,
     },
     {
       name: "Lifestyle Influencer",
       handle: "@creator3",
-      video: null,
+      image: ig3,
     },
     {
       name: "Nutrition Coach",
       handle: "@creator4",
-      video: null,
+      image: ig4,
     },
   ];
 
@@ -1263,24 +1248,10 @@ function InfluencerReels() {
   return (
     <section
       id="reels"
-      className="relative bg-cream py-28 px-6 lg:px-10 overflow-hidden"
+      className="relative py-28 px-6 lg:px-10 overflow-hidden"
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
     >
-      <img
-        src={productBg}
-        alt=""
-        className="
-      absolute
-      inset-0
-      w-full
-      h-full
-      object-cover
-      opacity-[0.6]
-      pointer-events-none
-      select-none
-    "
-      />
       <div className="relative z-10 mx-auto max-w-7xl">
         <h2
           data-reveal
@@ -1322,26 +1293,25 @@ function InfluencerReels() {
                       rounded-[32px]
                       overflow-hidden
                       bg-wheat
-                      border border-wheat/80
+                      border-2 border-olive
                       shadow-[0_12px_40px_-18px_rgba(0,0,0,0.2)]
                     "
                   >
-                    {/* Replace this with video later */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 rounded-full bg-olive/10 flex items-center justify-center mx-auto">
-                          <svg
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-8 h-8 text-olive"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-
-                        <p className="mt-4 text-sm uppercase tracking-[0.25em] text-olive font-semibold">
-                          Reel Placeholder
-                        </p>
+                    <img
+                      src={reel.image}
+                      alt={`${reel.name} reel`}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                      <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="w-8 h-8 text-olive ml-1"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
                       </div>
                     </div>
                   </div>
@@ -1412,25 +1382,6 @@ function Bestseller() {
       "
     >
       {/* =====================================================
-          COMPLETE SECTION BACKGROUND
-      ====================================================== */}
-      <div
-        className="
-          absolute
-          inset-0
-          z-0
-          w-full
-          h-full
-          bg-cover
-          bg-center
-          bg-repeat
-        "
-        style={{
-          backgroundImage: `url(${productBg})`,
-        }}
-      />
-
-      {/* =====================================================
           BROWN CONTAINER
       ====================================================== */}
       <div
@@ -1448,6 +1399,8 @@ function Bestseller() {
           rounded-[36px]
           lg:rounded-[40px]
           bg-[#6B3E26]
+          border-2
+          border-olive
         "
       >
         {/* =================================================
@@ -1471,7 +1424,7 @@ function Bestseller() {
               bg-cover
               bg-center
               bg-repeat
-              opacity-30
+              opacity-10
             "
             style={{
               backgroundImage: `url(${productBgt})`,
@@ -1631,7 +1584,7 @@ function Bestseller() {
           </div>
 
           {/* =================================================
-              RIGHT — BIG COOKIE
+              RIGHT — BIG COOKIE (peeking in & out of the box)
           ================================================== */}
           <div
             className="
@@ -1677,13 +1630,14 @@ function Bestseller() {
             />
 
             {/* =================================================
-                COOKIE IMAGE
+                COOKIE IMAGE — animated to peek in & out
             ================================================== */}
             <motion.img
               src={cookiebs}
               alt="Chocolate Chip Cookie"
               animate={{
                 y: [0, -10, 0],
+                x: [0, 12, 0],
               }}
               transition={{
                 duration: 4,
@@ -1736,16 +1690,10 @@ function Crumb({
 function Instagram() {
   return (
     <section className="relative py-28 px-6 lg:px-10 overflow-hidden">
-      <img
-        src={productBg}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-20"
-      />
-
       <div className="relative z-10">
         <div className="mx-auto max-w-6xl">
           <h2 data-reveal className="reveal text-center font-display text-4xl lg:text-5xl font-semibold text-[#122300]">
-            Follow <span className="italic">@PRAMMakhana</span>
+            Follow <span className="italic">Pram Foods</span>
           </h2>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-1">
             {IG.map((src, i) => (
@@ -1754,7 +1702,7 @@ function Instagram() {
                 href="#"
                 data-reveal
                 data-delay={i * 80}
-                className="reveal group relative aspect-square overflow-hidden"
+                className="reveal group relative aspect-square overflow-hidden border-2 border-olive"
               >
                 <img src={src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ backgroundColor: "rgba(77,98,44,0.6)" }}>
@@ -1779,7 +1727,7 @@ export function Footer() {
     <footer className="bg-olive text-cream pt-20 pb-8 px-6 lg:px-10">
       <div className="mx-auto max-w-7xl grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <h3 className="font-display text-2xl font-semibold">PRAM <span className="italic">Makhana</span></h3>
+          <h3 className="font-display text-2xl font-semibold">PRAM <span className="italic">Foods</span></h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">Rooted in Nature. Made for You.</p>
           <div className="mt-6 flex gap-4">
             {["instagram", "facebook", "twitter"].map((s) => (
@@ -1840,18 +1788,8 @@ function ShopBrands() {
   pt-20
 pb-1
   overflow-hidden
-  bg-[#FCF8F0]
 "
     >
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `url(${productBg})`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "1060px",
-          opacity: 0.8,
-        }}
-      />
       <div className="relative z-10 text-center mb-8">
         <p className="uppercase tracking-[0.35em] text-[16px] text-gold font-extrabold">
           Available On
@@ -1864,10 +1802,10 @@ pb-1
 
       <div className="relative z-10 overflow-hidden">
         {/* Left Fade */}
-        <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#FCF8F0] to-transparent" />
+        <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#F8F3E6] to-transparent" />
 
         {/* Right Fade */}
-        <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#FCF8F0] to-transparent" />
+        <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#F8F3E6] to-transparent" />
 
         <div className="flex animate-brand-marquee w-max">
           {[...BRANDS, ...BRANDS].map((brand, index) => (
