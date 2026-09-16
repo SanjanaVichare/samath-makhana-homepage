@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Star, Minus, Plus, ShoppingCart, Zap, ChevronRight } from "lucide-react";
 import PageShell from "@/components/layout/PageShell";
-import { getProduct, PRODUCTS, type Product } from "@/data/products";
+import { getProduct, getProductDetails, PRODUCTS, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
 const RECENT_KEY = "PRAM_recent_v1";
