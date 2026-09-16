@@ -25,6 +25,7 @@ function ProductPage() {
   const [recent, setRecent] = useState<string[]>([]);
   const { add } = useCart();
   const navigate = useNavigate();
+  const details = getProductDetails(product.id);
 
   // Create gallery array from product images
   const gallery = useMemo(
