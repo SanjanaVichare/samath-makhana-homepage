@@ -3,7 +3,7 @@ import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Star, Minus, Plus, ShoppingCart, Zap, ChevronRight } from "lucide-react";
 import PageShell from "@/components/layout/PageShell";
-import { getProduct, PRODUCTS, type Product } from "@/data/products";
+import { getProduct, getProductDetails, PRODUCTS, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 
 const RECENT_KEY = "PRAM_recent_v1";
@@ -25,6 +25,7 @@ function ProductPage() {
   const [recent, setRecent] = useState<string[]>([]);
   const { add } = useCart();
   const navigate = useNavigate();
+  const details = getProductDetails(product.id);
 
   // Create gallery array from product images
   const gallery = useMemo(
@@ -177,29 +178,86 @@ function ProductPage() {
 
             <div className="mt-12 grid sm:grid-cols-2 gap-6">
               <div className="rounded-2xl bg-white border border-wheat/60 p-5">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-olive font-semibold">Nutrition (per 100g)</h3>
-                <dl className="mt-4 space-y-2 text-sm">
-                  {product.nutrition.map((n) => (
-                    <div key={n.label} className="flex justify-between border-b border-wheat/50 pb-2">
-                      <dt className="text-ink/60">{n.label}</dt>
-                      <dd className="font-semibold text-olive">{n.value}</dd>
-                    </div>
-                  ))}
-                </dl>
+                <h3 className="text-xs uppercase tracking-[0.2em] text-olive font-semibold">
+                  {details ? "Nutritional Information (Per 50 g)" : "Nutrition (per 100g)"}
+                </h3>
+                {details ? (
+                  <div className="mt-4 -mx-1 overflow-x-auto">
+                    <table className="w-full min-w-[260px] text-sm">
+                      <thead>
+                        <tr className="text-[11px] uppercase tracking-[0.15em] text-ink/50">
+                          <th className="text-left font-semibold pb-2">Nutrient</th>
+                          <th className="text-right font-semibold pb-2">Per 50 g</th>
+                          <th className="text-right font-semibold pb-2">%RDA*</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {details.nutrition50.map((n) => (
+                          <tr key={n.nutrient} className="border-b border-wheat/50">
+                            <td className="py-2 text-ink/60">{n.nutrient}</td>
+                            <td className="py-2 text-right font-semibold text-olive whitespace-nowrap">{n.per50g}</td>
+                            <td className="py-2 text-right text-ink/70 whitespace-nowrap">{n.rda}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <p className="mt-3 text-[11px] text-ink/50">*Percentage of Recommended Dietary Allowance.</p>
+                  </div>
+                ) : (
+                  <dl className="mt-4 space-y-2 text-sm">
+                    {product.nutrition.map((n) => (
+                      <div key={n.label} className="flex justify-between border-b border-wheat/50 pb-2">
+                        <dt className="text-ink/60">{n.label}</dt>
+                        <dd className="font-semibold text-olive">{n.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
               </div>
               <div className="rounded-2xl bg-white border border-wheat/60 p-5">
                 <h3 className="text-xs uppercase tracking-[0.2em] text-olive font-semibold">Ingredients</h3>
-                <ul className="mt-4 space-y-2 text-sm text-ink/70">
-                  {product.ingredients.map((i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-gold" /> {i}
-                    </li>
-                  ))}
-                </ul>
+                {details ? (
+                  <div className="mt-4 space-y-4 text-sm text-ink/70">
+                    <p className="leading-relaxed">{details.ingredients}</p>
+                    {details.addedFlavour && (
+                      <div>
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-olive font-semibold">Added Flavours</p>
+                        <p className="mt-1 leading-relaxed">{details.addedFlavour}</p>
+                      </div>
+                    )}
+                    {details.allergen && (
+                      <div>
+                        <p className="text-[11px] uppercase tracking-[0.2em] text-olive font-semibold">{details.allergen.label}</p>
+                        <p className="mt-1 leading-relaxed">{details.allergen.text}</p>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <ul className="mt-4 space-y-2 text-sm text-ink/70">
+                    {product.ingredients.map((i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-gold" /> {i}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
 
-            {product.category === "Makhana" && (
+            {details ? (
+              <div className="mt-6 rounded-2xl bg-white border border-wheat/60 p-5 text-sm text-ink/70">
+                <h3 className="text-xs uppercase tracking-[0.2em] text-olive font-semibold mb-3">Manufacturer Details</h3>
+                <dl className="grid sm:grid-cols-2 gap-y-2 gap-x-6">
+                  <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">Product</dt><dd className="font-semibold text-olive text-right">{details.displayName}</dd></div>
+                  <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">Category</dt><dd className="font-semibold text-olive text-right">{details.manufacturer.category}</dd></div>
+                  <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">Manufacturer</dt><dd className="font-semibold text-olive text-right">{details.manufacturer.name}</dd></div>
+                  <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">FSSAI</dt><dd className="font-semibold text-olive text-right">{details.manufacturer.fssai}</dd></div>
+                  <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">Sticker Size</dt><dd className="font-semibold text-olive text-right">{details.manufacturer.stickerSize}</dd></div>
+                  <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">Email</dt><dd className="font-semibold text-olive text-right break-all">{details.manufacturer.email}</dd></div>
+                  <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2 sm:col-span-2"><dt className="text-ink/60">Address</dt><dd className="font-semibold text-olive text-right">{details.manufacturer.address}</dd></div>
+                </dl>
+              </div>
+            ) : product.category === "Makhana" ? (
               <div className="mt-6 rounded-2xl bg-white border border-wheat/60 p-5 text-sm text-ink/70">
                 <h3 className="text-xs uppercase tracking-[0.2em] text-olive font-semibold mb-3">Packaging & Origin</h3>
                 <dl className="grid sm:grid-cols-2 gap-y-2 gap-x-6">
@@ -210,7 +268,7 @@ function ProductPage() {
                   <div className="flex justify-between border-b border-wheat/50 pb-2 sm:col-span-2"><dt className="text-ink/60">Marketed by</dt><dd className="font-semibold text-olive">PRAMa Makhana</dd></div>
                 </dl>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
 
