@@ -251,3 +251,177 @@ export const PRODUCTS: Product[] = [
 export function getProduct(id: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === id);
 }
+
+// ---- Official product details (manufacturing document data) ----
+export type NutritionRow50 = { nutrient: string; per50g: string; rda: string };
+export type ProductDetails = {
+  displayName: string;
+  ingredients: string;
+  addedFlavour?: string;
+  allergen?: { label: string; text: string };
+  nutrition50: NutritionRow50[];
+  manufacturer: {
+    category: string;
+    name: string;
+    fssai: string;
+    address: string;
+    email: string;
+    stickerSize: string;
+  };
+};
+
+const MANUFACTURER = {
+  category: "Roasted Flavour Makhana",
+  name: "SHHE FOODS PVT. LTD",
+  fssai: "10421310000224",
+  address: "B21P1, Donar Industrial Area, Donar, Darbhanga, Bihar, 846009",
+  email: "SHHEFOODS@GMAIL.COM",
+  stickerSize: "240 × 68 mm",
+};
+
+const rows = (
+  v: [string, string, string][],
+): NutritionRow50[] => v.map(([nutrient, per50g, rda]) => ({ nutrient, per50g, rda }));
+
+export const PRODUCT_DETAILS: Record<string, ProductDetails> = {
+  "cream-onion-makhana": {
+    displayName: "Cream & Onion",
+    ingredients:
+      "Makhana, Olive Oil, Sunflower Oil, Spices & Makhana Condiments (Yellow Chilli, Onion, Parsley), Salt, Sugar, Milk Solid, Hydrolysed Vegetable Proteins (Peanut), Flavour Enhancer (INS 635).",
+    addedFlavour:
+      "CONTAINS ADDED FLAVOURS – NATURAL AND NATURE IDENTICAL (CREAM & ONION) FLAVOURING SUBSTANCES",
+    nutrition50: rows([
+      ["Energy", "209.37 kcal", "10.47%"],
+      ["Protein", "5.63 g", "10.42%"],
+      ["Carbohydrate", "28.49 g", "9.50%"],
+      ["Total Sugar", "3.10 g", "—"],
+      ["Added Sugar", "1.10 g", "2.20%"],
+      ["Total Fat", "11.20 g", "16.72%"],
+      ["Saturated Fat", "1.56 g", "7.09%"],
+      ["Trans Fat", "0 g", "0%"],
+      ["Dietary Fibre", "3.58 g", "8.95%"],
+      ["Sodium", "270.65 mg", "13.53%"],
+      ["Cholesterol", "0 mg", "0%"],
+    ]),
+    manufacturer: MANUFACTURER,
+  },
+  "cheese-makhana": {
+    displayName: "Tangy Cheese",
+    ingredients:
+      "Makhana, Olive Oil, Sunflower Oil, Sugar, Salt, Hydrolyses Peanut Protein, Dehydrated Blend of Whey (From Milk), Stabilizer Emulsifier (INS 339), Cheese Concentrate, Colour (INS 160c).",
+    addedFlavour:
+      "CONTANS ADDED FLAVOUR (NATURAL, NATURE IDENTICAL AND ARTIFICIAL FLAVOURING SUBSTANCES: MILK)",
+    allergen: {
+      label: "Allergen Alert",
+      text: "THIS PRODUCTS CONTAINS PEANUT, MILK & WHEAT COMPONENTS",
+    },
+    nutrition50: rows([
+      ["Energy", "203.30 kcal", "10.17%"],
+      ["Protein", "5.06 g", "9.37%"],
+      ["Carbohydrate", "23.24 g", "7.75%"],
+      ["Total Sugar", "3.10 g", "—"],
+      ["Added Sugar", "1.65 g", "3.30%"],
+      ["Total Fat", "16.20 g", "24.18%"],
+      ["Saturated Fat", "2.05 g", "9.32%"],
+      ["Trans Fat", "0 g", "0%"],
+      ["Dietary Fibre", "4.02 g", "10.05%"],
+      ["Sodium", "203.30 mg", "10.17%"],
+      ["Cholesterol", "0 mg", "0%"],
+    ]),
+    manufacturer: MANUFACTURER,
+  },
+  "pudina-makhana": {
+    displayName: "Pudina",
+    ingredients:
+      "Makhana, Olive Oil, Sunflower Oil, Spices & Condiments (Red Chilli, Coriander Seeds, Dried Mango, Cumin, Turmeric, Dried Ginger, Long Pepper, Fenugreek, Mace, Nutmeg), Edible Salt, Black Salt, Sugar, Mint Leaves (7%), Fenugreek Leaves, Hydrolysed Veg. Protein (Peanut), Natural Flavour (Mint), Flavour Enhancer (INS-627)(INS-631), Anticaking Agent (INS-551).",
+    allergen: { label: "Allergen Alert", text: "MAY CONTAINS PEANUTS" },
+    nutrition50: rows([
+      ["Energy", "230.92 kcal", "11.55%"],
+      ["Protein", "6.21 g", "11.50%"],
+      ["Carbohydrate", "29.25 g", "9.75%"],
+      ["Total Sugar", "3.20 g", "—"],
+      ["Added Sugar", "1.60 g", "3.20%"],
+      ["Total Fat", "9.90 g", "14.78%"],
+      ["Saturated Fat", "1.95 g", "8.86%"],
+      ["Trans Fat", "0 g", "0%"],
+      ["Dietary Fibre", "3.95 g", "9.88%"],
+      ["Sodium", "283.85 mg", "14.19%"],
+      ["Cholesterol", "0 mg", "0%"],
+    ]),
+    manufacturer: MANUFACTURER,
+  },
+  "salt-pepper-makhana": {
+    displayName: "Salt & Pepper",
+    ingredients:
+      "Makhana, Olive Oil, Sunflower Oil, Black Pepper, Pink Salt, Hydrolysed Vegetable Protein (Peanuts), Flavour Enhancer (INS 635).",
+    addedFlavour:
+      "CONTAINS ADDED FLAVOURS – NATURAL AND NATURE IDENTICAL (GHEE) FLAVOURING SUBSTANCES",
+    allergen: { label: "Allergen Advice", text: "Contains Peanut and Milk Solid" },
+    nutrition50: rows([
+      ["Energy", "211.09 kcal", "10.55%"],
+      ["Protein", "5.95 g", "11.01%"],
+      ["Carbohydrate", "33.04 g", "11.01%"],
+      ["Total Sugar", "2.00 g", "—"],
+      ["Added Sugar", "0 g", "0%"],
+      ["Total Fat", "6.13 g", "9.15%"],
+      ["Saturated Fat", "2.10 g", "9.55%"],
+      ["Trans Fat", "0 g", "0%"],
+      ["Dietary Fibre", "3.46 g", "8.65%"],
+      ["Sodium", "324.55 mg", "16.23%"],
+      ["Cholesterol", "0 mg", "0%"],
+    ]),
+    manufacturer: MANUFACTURER,
+  },
+  "chat-pata-makhana": {
+    displayName: "Chatkara",
+    ingredients:
+      "Makhana, Olive Oil, Sunflower Oil, Sugar, Spices & Condiments (Red Chilli, Dried Mango, Dried Onion, Coriander Seeds, Cumin, Nutmeg, Mace), Salt, Jaggery, Tomato Powder, Hydrolyse Peanut Protein, Colour (INS 160c), Flavour Enhancer (INS-635).",
+    addedFlavour:
+      "CONTANS ADDED FLAVOUR (NATURAL, NATURE IDENTICAL AND ARTIFICIAL FLAVOURING SUBSTANCES-TOMATO)",
+    allergen: {
+      label: "Allergen Information",
+      text: "THIS PRODUCTS CONTAINS PEANUT COMPONENTS",
+    },
+    nutrition50: rows([
+      ["Energy", "221.41 kcal", "11.07%"],
+      ["Protein", "5.20 g", "9.63%"],
+      ["Carbohydrate", "33.44 g", "11.15%"],
+      ["Total Sugar", "1.63 g", "—"],
+      ["Added Sugar", "0.56 g", "1.12%"],
+      ["Total Fat", "7.43 g", "11.09%"],
+      ["Saturated Fat", "1.10 g", "5.00%"],
+      ["Trans Fat", "0 g", "0%"],
+      ["Dietary Fibre", "3.08 g", "7.70%"],
+      ["Sodium", "277.65 mg", "13.88%"],
+      ["Cholesterol", "0 mg", "0%"],
+    ]),
+    manufacturer: MANUFACTURER,
+  },
+  "peri-peri-makhana": {
+    displayName: "Peri-Peri",
+    ingredients:
+      "Makhana, Olive Oil, Sunflower Oil, Sugar, Spices & Condiments (Red Chilli, Dried Mango, Dried Onion, Coriander Seeds, Cumin, Dried Garlic Flakes, Nutmeg, Mace), Salt, Tomato Powder, Hydrolyse Peanut Protein, Colour (INS 160C), Natural and Nature Identical and Flavouring Substances (Peri Peri), Flavour Enhancer (INS 627) & (INS 631).",
+    allergen: {
+      label: "Allergen Information",
+      text: "THIS PRODUCTS CONTAINS PEANUT COMPONENTS",
+    },
+    nutrition50: rows([
+      ["Energy", "227.70 kcal", "11.39%"],
+      ["Protein", "4.98 g", "9.22%"],
+      ["Carbohydrate", "31.25 g", "10.42%"],
+      ["Total Sugar", "0.40 g", "—"],
+      ["Added Sugar", "0.10 g", "0.20%"],
+      ["Total Fat", "9.20 g", "13.73%"],
+      ["Saturated Fat", "2.10 g", "9.55%"],
+      ["Trans Fat", "0 g", "0%"],
+      ["Dietary Fibre", "3.13 g", "7.83%"],
+      ["Sodium", "266 mg", "13.30%"],
+      ["Cholesterol", "0 mg", "0%"],
+    ]),
+    manufacturer: MANUFACTURER,
+  },
+};
+
+export function getProductDetails(id: string): ProductDetails | undefined {
+  return PRODUCT_DETAILS[id];
+}
