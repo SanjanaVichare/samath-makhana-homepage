@@ -25,23 +25,62 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#122300] text-cream pt-8 pb-8 px-6 lg:px-10">
+
       {/* Top Info Strip */}
       <div className="border-y border-cream/10 bg-[#122300]">
         <div className="mx-auto max-w-7xl px-4 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-[11px] uppercase tracking-[0.22em] text-cream/75">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-[12px] uppercase tracking-[0.22em] text-white font-bold">            <div className="flex items-center gap-2">
+            <span>100% Vegetarian</span>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <Leaf size={13} className="text-wheat" strokeWidth={2} />
-              <span>100% Vegetarian</span>
-            </div>
+            <span className="text-wheat/70">·</span>
 
+            <span className="flex items-center gap-2">
+              <span>Made in India</span>
 
+              <svg
+                width="22"
+                height="15"
+                viewBox="0 0 22 15"
+                className="inline-block shrink-0"
+                aria-label="India flag"
+                role="img"
+              >
+                <rect width="22" height="5" fill="#FF9933" />
+                <rect y="5" width="22" height="5" fill="#FFFFFF" />
+                <rect y="10" width="22" height="5" fill="#138808" />
 
+                <circle
+                  cx="11"
+                  cy="7.5"
+                  r="2"
+                  fill="none"
+                  stroke="#000080"
+                  strokeWidth="0.5"
+                />
 
+                <circle
+                  cx="11"
+                  cy="7.5"
+                  r="0.35"
+                  fill="#000080"
+                />
 
-            <span className="text-wheat">
-              Made in India · Crafted with care
+                <g
+                  stroke="#000080"
+                  strokeWidth="0.25"
+                >
+                  <line x1="11" y1="5.5" x2="11" y2="9.5" />
+                  <line x1="9" y1="7.5" x2="13" y2="7.5" />
+                  <line x1="9.6" y1="6.1" x2="12.4" y2="8.9" />
+                  <line x1="12.4" y1="6.1" x2="9.6" y2="8.9" />
+                </g>
+              </svg>
             </span>
+
+            <span className="text-wheat/70">·</span>
+
+            <span>Crafted with care</span>
 
           </div>
         </div>
@@ -49,7 +88,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl pt-14 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-2xl font-semibold">
-            PRAM <span className="italic">Makhana</span>
+            PRAM FOODS
           </h3>
           <p className="mt-4 text-cream/80 text-sm leading-relaxed">
             5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers, Naigaon, Dadar(E), Mumbai - 400014.
@@ -77,7 +116,7 @@ export default function Footer() {
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
             <li><Link to="/shop" className="hover:text-cream transition-colors">Shop All</Link></li>
             <li><Link to="/about" className="hover:text-cream transition-colors">Our Story</Link></li>
-            <li><Link to="/blog" className="hover:text-cream transition-colors">Journal</Link></li>
+            <li><Link to="/blog" className="hover:text-cream transition-colors">Blog</Link></li>
             <li><Link to="/contact" className="hover:text-cream transition-colors">Contact</Link></li>
             <li><Link to="/cart" className="hover:text-cream transition-colors">Cart</Link></li>
           </ul>
@@ -88,7 +127,7 @@ export default function Footer() {
           <ul className="mt-5 space-y-3 text-sm text-cream/85">
             <li>
               <a href="mailto:hello@PRAMmakhana.in" className="hover:text-cream transition-colors">
-                hello@PRAMmakhana.in
+                hello@pramfoods.in
               </a>
             </li>
             <li>+91 79000 91250</li>
@@ -133,7 +172,7 @@ export default function Footer() {
             </p>
             <p>
               <span className="uppercase tracking-[0.18em] text-wheat font-semibold">GSTIN:</span>{" "}
-              22ABCDE1234F1Z5
+              27DNLPR6551N1Z2
             </p>
           </div>
         </div>

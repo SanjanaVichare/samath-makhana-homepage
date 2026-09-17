@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import logo from "@/assets/PRAMlogo.png";
+import logo from "@/assets/PRAMlogo-new.png";
 
 const LINKS = [
   { label: "Home", to: "/" as const },
@@ -23,6 +23,7 @@ export default function Navbar({
 
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
   const { count } = useCart();
 
   useEffect(() => {
@@ -46,8 +47,8 @@ export default function Navbar({
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${solid
-        ? "bg-cream/95 backdrop-blur-xl shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
-        : "bg-transparent"
+          ? "bg-cream/95 backdrop-blur-xl shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
+          : "bg-transparent"
         }`}
     >
       <div className="mx-auto max-w-7xl h-20 flex items-center justify-between pl-1 pr-6 lg:pl-5 lg:pr-10">
@@ -66,7 +67,7 @@ export default function Navbar({
 
         {/* Desktop Navigation */}
         <nav
-          className="hidden lg:flex gap-9"
+          className="hidden lg:flex items-center gap-9"
           aria-label="Primary"
         >
           {LINKS.map((l) => {
@@ -79,9 +80,9 @@ export default function Navbar({
               <Link
                 key={l.to}
                 to={l.to}
-                className={`relative text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors ${active
-                  ? "text-[#122300]"
-                  : "text-ink hover:text-[#122300]"
+                className={`relative text-[14px] font-semibold uppercase tracking-[0.12em] transition-colors ${active
+                    ? "text-[#122300]"
+                    : "text-ink hover:text-[#122300]"
                   }`}
               >
                 {l.label}
@@ -98,11 +99,7 @@ export default function Navbar({
         {/* Right Side */}
         <div className="flex items-center gap-4">
 
-
-
-
-
-
+          {/* Login */}
           <Link
             to="/login"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full border border-[#122300] text-[#122300] text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#122300] hover:text-cream transition-all duration-200"
@@ -111,7 +108,6 @@ export default function Navbar({
           </Link>
 
           {/* Sign Up */}
-          
           <Link
             to="/signup"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-[#122300] text-cream text-xs font-semibold uppercase tracking-[0.15em] hover:bg-[#122300]/90 transition-all duration-200"
@@ -119,6 +115,7 @@ export default function Navbar({
             Sign Up
           </Link>
 
+          {/* Cart */}
           <Link
             to="/cart"
             aria-label={`Cart, ${count} items`}
@@ -133,8 +130,7 @@ export default function Navbar({
             )}
           </Link>
 
-
-
+          {/* Mobile Menu Button */}
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}

@@ -7,7 +7,7 @@ const SHOPIFY_CONFIG = {
   storefrontApiVersion:
     (env.VITE_SHOPIFY_STOREFRONT_API_VERSION as
       | string
-      | undefined) || "2025-07",
+      | undefined) || "2026-07",
 
   storefrontToken:
     env.VITE_SHOPIFY_STOREFRONT_PUBLIC_TOKEN as
@@ -19,6 +19,7 @@ const SHOPIFY_CONFIG = {
     | string
     | undefined,
 
+  // Fallbacks only. We prefer Shopify discovery endpoints.
   authUrl:
     env.VITE_SHOPIFY_AUTHORIZATION_ENDPOINT as
     | string
@@ -40,23 +41,12 @@ const SHOPIFY_CONFIG = {
     | undefined,
 };
 
-/**
- * True when the Storefront API can be reached
- * for products, cart and checkout.
- */
 export const isStorefrontConfigured = () =>
   Boolean(
     SHOPIFY_CONFIG.storeDomain &&
     SHOPIFY_CONFIG.storefrontToken,
   );
 
-/**
- * Returns the Customer Account API configuration
- * variables that are currently missing.
- *
- * This is useful for debugging deployment
- * environment-variable problems.
- */
 export const getMissingCustomerAuthConfig = () => {
   const missing: string[] = [];
 
@@ -70,25 +60,16 @@ export const getMissingCustomerAuthConfig = () => {
     );
   }
 
-  if (!SHOPIFY_CONFIG.authUrl) {
-    missing.push(
-      "VITE_SHOPIFY_AUTHORIZATION_ENDPOINT",
-    );
-  }
-
-  if (!SHOPIFY_CONFIG.tokenUrl) {
-    missing.push(
-      "VITE_SHOPIFY_TOKEN_ENDPOINT",
-    );
+  if (
+    !SHOPIFY_CONFIG.redirectUri &&
+    typeof window === "undefined"
+  ) {
+    missing.push("VITE_SHOPIFY_REDIRECT_URI");
   }
 
   return missing;
 };
 
-/**
- * True when Shopify hosted customer accounts
- * using OAuth/PKCE can be used.
- */
 export const isCustomerAuthConfigured = () =>
   getMissingCustomerAuthConfig().length === 0;
 

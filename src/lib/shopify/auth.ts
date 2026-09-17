@@ -3,12 +3,12 @@ import SHOPIFY_CONFIG, {
   isCustomerAuthConfigured,
 } from "./config";
 
-const RETURN_TO_KEY = "shopify_return_to";
+import { getAuthDiscovery } from "./discovery";
 
-/**
- * Generate a cryptographically secure random
- * string for OAuth state / PKCE.
- */
+const RETURN_TO_KEY = "shopify_return_to";
+const STATE_KEY = "shopify_state";
+const CODE_VERIFIER_KEY = "shopify_code_verifier";
+
 function generateRandomString(length = 64) {
   const array = new Uint8Array(length);
 
@@ -22,14 +22,10 @@ function generateRandomString(length = 64) {
     .slice(0, length);
 }
 
-/**
- * Generate the PKCE SHA-256 code challenge.
- */
 async function generateCodeChallenge(
   verifier: string,
 ) {
-  const data =
-    new TextEncoder().encode(verifier);
+  const data = new TextEncoder().encode(verifier);
 
   const digest = await crypto.subtle.digest(
     "SHA-256",
@@ -46,11 +42,6 @@ async function generateCodeChallenge(
     .replace(/=/g, "");
 }
 
-/**
- * Only same-origin relative paths are accepted.
- *
- * This prevents open-redirect attacks.
- */
 export function sanitizeReturnTo(
   value?: string | null,
 ) {
@@ -66,10 +57,6 @@ export function sanitizeReturnTo(
   return value;
 }
 
-/**
- * Store the page the user should return to
- * after successful authentication.
- */
 export function storeReturnTo(
   returnTo?: string | null,
 ) {
@@ -87,9 +74,6 @@ export function storeReturnTo(
   }
 }
 
-/**
- * Retrieve and remove the stored return URL.
- */
 export function consumeReturnTo() {
   const value =
     sessionStorage.getItem(
@@ -103,13 +87,6 @@ export function consumeReturnTo() {
   return sanitizeReturnTo(value) ?? "/";
 }
 
-/**
- * Get the OAuth redirect URI.
- *
- * Uses the configured Vercel/production URI when
- * available, otherwise falls back to the current
- * origin.
- */
 export function getRedirectUri() {
   return (
     SHOPIFY_CONFIG.redirectUri ||
@@ -117,16 +94,9 @@ export function getRedirectUri() {
   );
 }
 
-/**
- * Start Shopify Customer Account OAuth login.
- */
 export async function login(
   returnTo?: string | null,
 ) {
-  // --------------------------------
-  // Check configuration
-  // --------------------------------
-
   if (!isCustomerAuthConfigured()) {
     const missing =
       getMissingCustomerAuthConfig();
@@ -136,100 +106,120 @@ export async function login(
     );
   }
 
-  // --------------------------------
-  // Generate OAuth state
-  // --------------------------------
+  if (!SHOPIFY_CONFIG.customerClientId) {
+    throw new Error(
+      "Shopify Customer Account Client ID is missing.",
+    );
+  }
+
+  // Discover Shopify's current OAuth endpoints.
+  const discovery =
+    await getAuthDiscovery();
 
   const state =
     generateRandomString(32);
 
-  // --------------------------------
-  // Generate PKCE verifier
-  // --------------------------------
-
   const codeVerifier =
     generateRandomString(64);
-
-  // --------------------------------
-  // Generate PKCE challenge
-  // --------------------------------
 
   const codeChallenge =
     await generateCodeChallenge(
       codeVerifier,
     );
 
-  // --------------------------------
-  // Save temporary OAuth information
-  // --------------------------------
-
   sessionStorage.setItem(
-    "shopify_state",
+    STATE_KEY,
     state,
   );
 
   sessionStorage.setItem(
-    "shopify_code_verifier",
+    CODE_VERIFIER_KEY,
     codeVerifier,
   );
 
   storeReturnTo(returnTo);
 
-  // --------------------------------
-  // Configuration is guaranteed after
-  // isCustomerAuthConfigured()
-  // --------------------------------
-
-  const customerClientId =
-    SHOPIFY_CONFIG.customerClientId;
-
-  const authUrl =
+  const authorizationEndpoint =
+    discovery.authorization_endpoint ||
     SHOPIFY_CONFIG.authUrl;
 
-  if (!customerClientId || !authUrl) {
+  if (!authorizationEndpoint) {
     throw new Error(
-      "Shopify Customer Account authentication configuration is incomplete.",
+      "Shopify authorization endpoint is missing.",
     );
   }
 
-  // --------------------------------
-  // Build Shopify OAuth URL
-  // --------------------------------
+  const redirectUri =
+    getRedirectUri();
 
-  const params = new URLSearchParams({
-    client_id: customerClientId,
+  const authorizationUrl =
+    new URL(
+      authorizationEndpoint,
+    );
 
-    response_type: "code",
+  authorizationUrl.searchParams.set(
+    "scope",
+    "openid email customer-account-api:full",
+  );
 
-    redirect_uri: getRedirectUri(),
+  authorizationUrl.searchParams.set(
+    "client_id",
+    SHOPIFY_CONFIG.customerClientId,
+  );
 
-    scope:
-      "openid email customer-account-api:full",
+  authorizationUrl.searchParams.set(
+    "response_type",
+    "code",
+  );
 
+  authorizationUrl.searchParams.set(
+    "redirect_uri",
+    redirectUri,
+  );
+
+  authorizationUrl.searchParams.set(
+    "state",
     state,
+  );
 
-    code_challenge: codeChallenge,
+  authorizationUrl.searchParams.set(
+    "code_challenge",
+    codeChallenge,
+  );
 
-    code_challenge_method: "S256",
-  });
-
-  // --------------------------------
-  // Redirect to Shopify
-  // --------------------------------
+  authorizationUrl.searchParams.set(
+    "code_challenge_method",
+    "S256",
+  );
 
   window.location.href =
-    `${authUrl}?${params.toString()}`;
+    authorizationUrl.toString();
 }
 
-/**
- * Start the account creation flow.
- *
- * Shopify Customer Account authentication
- * handles account creation through the hosted
- * customer account experience.
- */
 export async function signup(
   returnTo?: string | null,
 ) {
   await login(returnTo);
+}
+
+export function getStoredOAuthState() {
+  return sessionStorage.getItem(
+    STATE_KEY,
+  );
+}
+
+export function getStoredCodeVerifier() {
+  return sessionStorage.getItem(
+    CODE_VERIFIER_KEY,
+  );
+}
+
+export function clearOAuthState() {
+  sessionStorage.removeItem(
+    STATE_KEY,
+  );
+
+  sessionStorage.removeItem(
+    CODE_VERIFIER_KEY,
+  );
 }

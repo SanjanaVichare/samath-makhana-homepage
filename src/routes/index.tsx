@@ -1413,8 +1413,6 @@ function Bestseller() {
           rounded-[36px]
           lg:rounded-[40px]
           bg-[#6B3E26]
-          border-2
-          border-olive
         "
       >
         {/* =================================================
@@ -1491,20 +1489,17 @@ function Bestseller() {
             ================================================== */}
             <h2
               className="
-                text-4xl
-                sm:text-5xl
-                md:text-5xl
-                lg:text-6xl
-                xl:text-6xl
-                font-black
-                leading-[0.92]
-                tracking-[-0.02em]
-                text-[#F7ECD9]
-              "
-              style={{
-                fontFamily:
-                  '"Arial Rounded MT Bold", "Arial Black", "Trebuchet MS", sans-serif',
-              }}
+    font-display
+    text-4xl
+    sm:text-5xl
+    md:text-5xl
+    lg:text-6xl
+    xl:text-6xl
+    font-semibold
+    leading-[0.92]
+    tracking-[-0.02em]
+    text-[#F7ECD9]
+  "
             >
               Makhana Chip
               <br />
@@ -1516,18 +1511,21 @@ function Bestseller() {
             ================================================== */}
             <p
               className="
-                mt-4
-                max-w-lg
-                mx-auto
-                lg:mx-0
-                text-sm
-                sm:text-base
-                lg:text-base
-                xl:text-lg
-                font-semibold
-                leading-7
-                text-[#F7ECD9]
-              "
+    font-display
+    mt-5
+    max-w-xl
+    mx-auto
+    lg:mx-0
+    text-base
+    sm:text-lg
+    md:text-xl
+    lg:text-xl
+    xl:text-2xl
+    font-semibold
+    leading-8
+    xl:leading-9
+    text-[#F7ECD9]
+  "
             >
               Crafted with premium makhana and baked to perfection.
               Light, crunchy, delicious and surprisingly wholesome.
@@ -1703,11 +1701,11 @@ function Crumb({
 
 function Instagram() {
   return (
-    <section className="relative py-28 px-6 lg:px-10 overflow-hidden">
+    <section className="relative py-10 px-6 lg:px-10 overflow-hidden">
       <div className="relative z-10">
         <div className="mx-auto max-w-6xl">
           <h2 data-reveal className="reveal text-center font-display text-4xl lg:text-5xl font-semibold text-[#122300]">
-            Follow <span className="italic">Pram Foods</span>
+            Follow Pram Foods
           </h2>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-1">
             {IG.map((src, i) => (
@@ -1716,7 +1714,7 @@ function Instagram() {
                 href="#"
                 data-reveal
                 data-delay={i * 80}
-                className="reveal group relative aspect-square overflow-hidden border-2 border-olive"
+                className="reveal group relative aspect-square overflow-hidden "
               >
                 <img src={src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ backgroundColor: "rgba(77,98,44,0.6)" }}>

@@ -1,22 +1,44 @@
 import { Leaf, Sprout, Flame, ShieldCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+
 export function WhyChooseUs() {
   const items = [
-    { Icon: Leaf, title: "Farm Fresh", text: "Direct from family farms — no middlemen, no compromise." },
-    { Icon: Sprout, title: "High Protein", text: "9-10g protein per 100g. The clean fuel your day deserves." },
-    { Icon: Flame, title: "Roasted, Never Fried", text: "Slow-roasted in iron pans for a crunch you can taste." },
-    { Icon: ShieldCheck, title: "No Preservatives", text: "Pure ingredients. Nothing artificial. Ever." },
+    {
+      Icon: Leaf,
+      title: "Farm Fresh",
+      text: "Direct from family farms — no middlemen, no compromise.",
+    },
+    {
+      Icon: Sprout,
+      title: "High Protein",
+      text: "9-10g protein per 100g. The clean fuel your day deserves.",
+    },
+    {
+      Icon: Flame,
+      title: "Roasted, Never Fried",
+      text: "Slow-roasted in iron pans for a crunch you can taste.",
+    },
+    {
+      Icon: ShieldCheck,
+      title: "No Preservatives",
+      text: "Pure ingredients. Nothing artificial. Ever.",
+    },
   ];
+
   return (
     <section className="relative py-28 px-6 lg:px-10 bg-cream">
       <div className="mx-auto max-w-6xl">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">Why Choose Us</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">
+            Why Choose Us
+          </p>
+
           <h2 className="mt-4 font-display text-4xl lg:text-5xl font-semibold text-olive">
             Small choices. <span className="italic">Real</span> difference.
           </h2>
         </div>
+
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ Icon, title, text }, i) => (
             <div
@@ -28,8 +50,14 @@ export function WhyChooseUs() {
               <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-olive/10 text-olive transition-colors group-hover:bg-olive group-hover:text-cream">
                 <Icon size={26} strokeWidth={1.5} />
               </div>
-              <h3 className="mt-6 font-display text-2xl font-semibold text-olive">{title}</h3>
-              <p className="mt-3 text-sm text-ink/70 leading-relaxed">{text}</p>
+
+              <h3 className="mt-6 font-display text-2xl font-semibold text-olive">
+                {title}
+              </h3>
+
+              <p className="mt-3 text-sm text-ink/70 leading-relaxed">
+                {text}
+              </p>
             </div>
           ))}
         </div>
@@ -41,13 +69,20 @@ export function WhyChooseUs() {
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "ok" | "err">("idle");
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return setStatus("err");
+
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      return setStatus("err");
+    }
+
     setStatus("ok");
     setEmail("");
+
     setTimeout(() => setStatus("idle"), 4000);
   };
+
   return (
     <section className="relative py-28 px-6 lg:px-10 bg-cream">
       <div className="mx-auto max-w-3xl">
@@ -56,26 +91,45 @@ export function NewsletterSection() {
           className="reveal relative overflow-hidden rounded-[36px] bg-olive text-cream p-10 sm:p-14 text-center"
         >
           <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-gold/30 blur-3xl" />
+
           <div className="absolute -bottom-20 -left-12 h-56 w-56 rounded-full bg-wheat/20 blur-3xl" />
+
           <div className="relative">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-wheat font-semibold">Newsletter</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-wheat font-semibold">
+              Newsletter
+            </p>
+
             <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold">
               Slow emails, <span className="italic">small joys.</span>
             </h2>
+
             <p className="mt-4 text-cream/80 max-w-md mx-auto text-sm leading-relaxed">
-              Recipes, restocks, and the occasional kitchen story. Once a month, never more.
+              Recipes, restocks, and the occasional kitchen story. Once a
+              month, never more.
             </p>
-            <form onSubmit={onSubmit} noValidate className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <label htmlFor="newsletter-email" className="sr-only">Email</label>
+
+            <form
+              onSubmit={onSubmit}
+              noValidate
+              className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+            >
+              <label htmlFor="newsletter-email" className="sr-only">
+                Email
+              </label>
+
               <input
                 id="newsletter-email"
                 type="email"
                 required
                 value={email}
-                onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setStatus("idle");
+                }}
                 placeholder="your@email.com"
                 className="flex-1 rounded-full bg-cream/10 border border-cream/30 focus:border-cream outline-none px-5 py-3 text-sm text-cream placeholder:text-cream/50"
               />
+
               <button
                 type="submit"
                 className="rounded-full bg-gold text-cream px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] hover:bg-gold/90 transition-all hover:scale-[1.02]"
@@ -83,8 +137,18 @@ export function NewsletterSection() {
                 Subscribe
               </button>
             </form>
-            {status === "ok" && <p className="mt-4 text-xs text-wheat">Welcome to the table 🌿</p>}
-            {status === "err" && <p className="mt-4 text-xs text-wheat">Please enter a valid email.</p>}
+
+            {status === "ok" && (
+              <p className="mt-4 text-xs text-wheat">
+                Welcome to the table 🌿
+              </p>
+            )}
+
+            {status === "err" && (
+              <p className="mt-4 text-xs text-wheat">
+                Please enter a valid email.
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -145,31 +209,9 @@ export function FinalCTA() {
         py-4
         px-6
         lg:px-10
-
-        bg-gradient-to-br
-        from-[#869D45]
-        via-[#B9C978]
-        to-[#6F8240]
+        bg-[#B9C978]
       "
     >
-      {/* Center Glow */}
-      <div className="absolute inset-0">
-        <div
-          className="
-            absolute
-            left-1/2
-            top-1/2
-            h-[700px]
-            w-[700px]
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            bg-white/45
-            blur-[130px]
-          "
-        />
-      </div>
-
       {/* Decorative Product Images */}
       <div className="absolute inset-0 pointer-events-none">
         {products.map((product, index) => (
@@ -187,16 +229,15 @@ export function FinalCTA() {
         data-reveal
         className="reveal relative z-20 mx-auto max-w-5xl text-center pt-37"
       >
-
         <h2 className="mt-5 font-display text-5xl lg:text-7xl font-semibold text-olive leading-tight">
           Snack quietly.
           <span className="italic">Live loudly.</span>
         </h2>
 
-<p className="mt-8 max-w-2xl mx-auto text-xl font-semibold text-olive/90 leading-relaxed tracking-wide">
-  Discover the small-batch range or talk to us about wholesale,
-  gifting and premium snack solutions. We answer every email.
-</p>
+        <p className="mt-8 max-w-2xl mx-auto text-xl font-semibold text-olive/90 leading-relaxed tracking-wide">
+          Discover the small-batch range or talk to us about wholesale,
+          gifting and premium snack solutions. We answer every email.
+        </p>
 
         <div className="mt-12 flex flex-wrap justify-center gap-5">
           <Link
