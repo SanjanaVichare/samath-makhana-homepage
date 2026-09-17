@@ -119,14 +119,14 @@ function AboutPage() {
                 <span className="italic">worth opening.</span>
               </h2>
 
-              <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink/80">
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-olive/80">
                 PRAM began with a simple frustration — every "healthy" snack
                 we tried felt like a compromise. So we went back to a snack
                 our grandmothers knew well: the lotus seed. Light, ancient,
                 and quietly powerful.
               </p>
 
-              <p className="mt-4 max-w-lg text-lg leading-relaxed text-ink/80">
+              <p className="mt-4 max-w-lg text-lg leading-relaxed text-olive/80">
                 We partner directly with family farms, slow-roast in iron
                 pans, and season in small batches. No shortcuts. No
                 preservatives. Just makhana the way it was always meant to be.
