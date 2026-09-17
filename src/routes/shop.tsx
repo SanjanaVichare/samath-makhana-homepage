@@ -67,124 +67,124 @@ function ShopPage() {
   const visible = filtered.slice(0, page * PAGE_SIZE);
 
   return (
-<PageShell>
-  <div
-    className="min-h-screen bg-[#FFF8E6]"
-    style={{
-      backgroundImage: `url(${productBg})`,
-      backgroundRepeat: "repeat",
-      backgroundSize: "500px",
-    }}
-  >
+    <PageShell>
+      <div
+        className="min-h-screen bg-[#FFF8E6]"
+        style={{
+          backgroundImage: `url(${productBg})`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "500px",
+        }}
+      >
 
-    {/* Hero */}
-<section className="relative overflow-hidden py-28 px-6 lg:px-10">
-  <div className="relative mx-auto max-w-6xl text-center">
-    <h1 className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-[#122300]">
-      The Pantry
-    </h1>
+        {/* Hero */}
+        <section className="relative overflow-hidden py-28 px-6 lg:px-10">
+          <div className="relative mx-auto max-w-6xl text-center">
+            <h1 className="mt-6 font-display text-[64px] leading-[0.95] sm:text-[80px] lg:text-[88px] font-semibold text-[#122300]">
+              The Pantry
+            </h1>
 
-    <p className="mt-8 mx-auto max-w-2xl text-xl font-medium leading-relaxed text-ink/85">
-      Discover our handcrafted range of roasted makhana and wholesome cookies,
-      made in small batches and delivered fresh.
-    </p>
-  </div>
-</section>
+            <p className="mt-8 mx-auto max-w-2xl text-xl font-medium leading-relaxed text-ink/85">
+              Discover our handcrafted range of roasted makhana and wholesome cookies,
+              made in small batches and delivered fresh.
+            </p>
+          </div>
+        </section>
 
-      {/* Controls */}
-      <section className="px-6 lg:px-10">
-        <div className="mx-auto max-w-6xl bg-white rounded-3xl p-6 lg:p-8 shadow-[0_24px_60px_-30px_rgba(77,98,44,0.25)] border border-wheat/60 -mt-12 relative">
-          <div className="grid gap-5 lg:grid-cols-[1fr_auto_auto]">
-            <div className="relative">
-              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/40" />
+        {/* Controls */}
+        <section className="px-6 lg:px-10">
+          <div className="mx-auto max-w-6xl bg-white rounded-3xl p-6 lg:p-8 shadow-[0_24px_60px_-30px_rgba(77,98,44,0.25)] border border-wheat/60 -mt-12 relative">
+            <div className="grid gap-5 lg:grid-cols-[1fr_auto_auto]">
+              <div className="relative">
+                <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/40" />
+                <input
+                  type="search"
+                  value={q}
+                  onChange={(e) => { setQ(e.target.value); setPage(1); }}
+                  placeholder="Search makhana, cookies…"
+                  aria-label="Search products"
+                  className="w-full rounded-full bg-cream/60 border border-wheat pl-11 pr-4 py-3 text-sm outline-none focus:border-olive transition-colors"
+                />
+              </div>
+              <div className="flex items-center gap-2 flex-wrap">
+                {CATEGORIES.map((c) => (
+                  <button
+                    key={c}
+                    onClick={() => { setCat(c); setPage(1); }}
+                    className={`px-4 py-2 rounded-full text-[11px] uppercase tracking-[0.15em] font-semibold transition-all ${cat === c ? "bg-olive text-cream" : "bg-cream text-ink hover:bg-wheat/60"
+                      }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+              <label className="text-sm text-ink/70 flex items-center gap-2">
+                <SlidersHorizontal size={14} />
+                <select
+                  value={sort}
+                  onChange={(e) => setSort(e.target.value as typeof sort)}
+                  aria-label="Sort"
+                  className="bg-transparent border-b border-wheat focus:border-olive outline-none py-1 text-sm"
+                >
+                  {SORTS.map((s) => <option key={s}>{s}</option>)}
+                </select>
+              </label>
+            </div>
+            <div className="mt-6 flex items-center gap-4">
+              <span className="text-[11px] uppercase tracking-[0.2em] text-ink/60">Max ₹{maxPrice}</span>
               <input
-                type="search"
-                value={q}
-                onChange={(e) => { setQ(e.target.value); setPage(1); }}
-                placeholder="Search makhana, cookies…"
-                aria-label="Search products"
-                className="w-full rounded-full bg-cream/60 border border-wheat pl-11 pr-4 py-3 text-sm outline-none focus:border-olive transition-colors"
+                type="range"
+                min={100}
+                max={700}
+                step={10}
+                value={maxPrice}
+                onChange={(e) => { setMaxPrice(Number(e.target.value)); setPage(1); }}
+                aria-label="Maximum price"
+                className="flex-1 accent-olive"
               />
             </div>
-            <div className="flex items-center gap-2 flex-wrap">
-              {CATEGORIES.map((c) => (
+          </div>
+        </section>
+
+        {/* Grid */}
+        <section className="py-16 px-6 lg:px-10">
+          <div className="mx-auto max-w-6xl">
+            {visible.length === 0 ? (
+              <p className="text-center text-ink/60 py-20">No products match. Try adjusting filters.</p>
+            ) : (
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {visible.map((p) => (
+                  <ProductCard
+                    key={p.id}
+                    product={p}
+                    wished={!!wish[p.id]}
+                    onWish={() => setWish((w) => ({ ...w, [p.id]: !w[p.id] }))}
+                    onQuick={() => setQuick(p)}
+                    onAdd={() => add({
+                      id: p.id, name: p.name, price: p.sizes[0].price,
+                      image: p.images[0], weight: p.sizes[0].weight,
+                    })}
+                  />
+                ))}
+              </div>
+            )}
+            {visible.length < filtered.length && (
+              <div className="mt-14 text-center">
                 <button
-                  key={c}
-                  onClick={() => { setCat(c); setPage(1); }}
-                  className={`px-4 py-2 rounded-full text-[11px] uppercase tracking-[0.15em] font-semibold transition-all ${cat === c ? "bg-olive text-cream" : "bg-cream text-ink hover:bg-wheat/60"
-                    }`}
+                  onClick={() => setPage((n) => n + 1)}
+                  className="px-8 py-4 rounded-full border-2 border-olive text-olive text-xs font-semibold uppercase tracking-[0.18em] hover:bg-olive hover:text-cream transition-all"
                 >
-                  {c}
+                  Load More
                 </button>
-              ))}
-            </div>
-            <label className="text-sm text-ink/70 flex items-center gap-2">
-              <SlidersHorizontal size={14} />
-              <select
-                value={sort}
-                onChange={(e) => setSort(e.target.value as typeof sort)}
-                aria-label="Sort"
-                className="bg-transparent border-b border-wheat focus:border-olive outline-none py-1 text-sm"
-              >
-                {SORTS.map((s) => <option key={s}>{s}</option>)}
-              </select>
-            </label>
+              </div>
+            )}
           </div>
-          <div className="mt-6 flex items-center gap-4">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-ink/60">Max ₹{maxPrice}</span>
-            <input
-              type="range"
-              min={100}
-              max={700}
-              step={10}
-              value={maxPrice}
-              onChange={(e) => { setMaxPrice(Number(e.target.value)); setPage(1); }}
-              aria-label="Maximum price"
-              className="flex-1 accent-olive"
-            />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Grid */}
-      <section className="py-16 px-6 lg:px-10">
-        <div className="mx-auto max-w-6xl">
-          {visible.length === 0 ? (
-            <p className="text-center text-ink/60 py-20">No products match. Try adjusting filters.</p>
-          ) : (
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {visible.map((p) => (
-                <ProductCard
-                  key={p.id}
-                  product={p}
-                  wished={!!wish[p.id]}
-                  onWish={() => setWish((w) => ({ ...w, [p.id]: !w[p.id] }))}
-                  onQuick={() => setQuick(p)}
-                  onAdd={() => add({
-                    id: p.id, name: p.name, price: p.sizes[0].price,
-                    image: p.images[0], weight: p.sizes[0].weight,
-                  })}
-                />
-              ))}
-            </div>
-          )}
-          {visible.length < filtered.length && (
-            <div className="mt-14 text-center">
-              <button
-                onClick={() => setPage((n) => n + 1)}
-                className="px-8 py-4 rounded-full border-2 border-olive text-olive text-xs font-semibold uppercase tracking-[0.18em] hover:bg-olive hover:text-cream transition-all"
-              >
-                Load More
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
+        {quick && <QuickView product={quick} onClose={() => setQuick(null)} />}
 
-    {quick && <QuickView product={quick} onClose={() => setQuick(null)} />}
-
-  </div>
-</PageShell>
+      </div>
+    </PageShell>
   );
 }
 
