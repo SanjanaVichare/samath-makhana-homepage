@@ -49,6 +49,8 @@ import blinkit from "@/assets/blinkit.png";
 import zepto from "@/assets/Zepto.png";
 import instamart from "@/assets/instamart.png";
 import flipkart from "@/assets/flipcart.png";
+import pcp6 from "@/assets/packet-salt-pepper.png";
+import bowlplain from "@/assets/bowl-salt-pepper.png";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -63,6 +65,22 @@ const BRANDS = [
 ];
 
 const PRODUCTS = [
+  {
+    id: "tangi-tomato-makhana",
+    name: "Tangi Tomato Makhana",
+    desc: "Tangy tomato with a chatpata kick. Perfectly roasted for a guilt-free crunch.",
+    tag: "Tangy",
+    images: {
+      "60g": pcp,
+      "100g": pcp,
+      "500g": pcp,
+    },
+    bowlImages: {
+      "30g": bowlchatpata,
+      "60g": bowlchatpata,
+      "120g": bowlchatpata,
+    },
+  },
   {
     id: "peri-peri-makhana",
     name: "Peri Peri Makhana",
@@ -80,8 +98,8 @@ const PRODUCTS = [
     },
   },
   {
-    id: "cheese-makhana",
-    name: "Cheese Makhana",
+    id: "cheezzy-pop-makhana",
+    name: "Cheezzy Pop Makhana",
     desc: "Creamy cheese seasoning with a perfectly crunchy bite.",
     tag: "Cheesy",
     images: {
@@ -96,25 +114,9 @@ const PRODUCTS = [
     },
   },
   {
-    id: "chat-pata-makhana",
-    name: "Chat Pata Makhana",
-    desc: "Tangy Indian spices with a chatpata kick. Perfectly roasted for a guilt-free crunch.",
-    tag: "Tangy",
-    images: {
-      "60g": pcp,
-      "100g": pcp,
-      "500g": pcp,
-    },
-    bowlImages: {
-      "30g": bowlchatpata,
-      "60g": bowlchatpata,
-      "120g": bowlchatpata,
-    },
-  },
-  {
-    id: "cream-onion-makhana",
-    name: "Cream & Onion Makhana",
-    desc: "Rich cream balanced with savoury onion flavour.",
+    id: "creame-onion-makhana",
+    name: "Creame & Onion Makhana",
+    desc: "Rich cream balanced with savoury onion flavoured makhana.",
     tag: "Popular",
     images: {
       "60g": pcp5,
@@ -128,9 +130,9 @@ const PRODUCTS = [
     },
   },
   {
-    id: "pudina-makhana",
-    name: "Pudina Makhana",
-    desc: "Refreshing mint flavour with a crisp roasted finish.",
+    id: "pudina-punch-makhana",
+    name: "Pudina Punch Makhana",
+    desc: "Refreshing mint flavour with a crispy roasted finish.",
     tag: "Fresh",
     images: {
       "60g": pcp3,
@@ -144,9 +146,9 @@ const PRODUCTS = [
     },
   },
   {
-    id: "salt-pepper-makhana",
-    name: "Salt & Pepper Makhana",
-    desc: "Lightly seasoned with salt and cracked pepper a classic you'll keep coming back to",
+    id: "himalayan-salt-pepper-makhana",
+    name: "Himalayan Salt and Pepper",
+    desc: "Lightly seasoned with pink salt and cracked pepper — a classic you'll keep coming back to.",
     tag: "Classic",
     images: {
       "60g": pcp4,
@@ -160,34 +162,46 @@ const PRODUCTS = [
     },
   },
   {
+    id: "plain-makhana",
+    name: "Plain Makhana",
+    desc: "Pure, unflavoured roasted makhana. Light, crunchy and perfect for anytime snacking.",
+    tag: "Plain",
+    images: {
+      "60g": pcp6,
+      "100g": pcp6,
+      "500g": pcp6,
+    },
+    bowlImages: {
+      "30g": bowlplain,
+      "60g": bowlplain,
+      "120g": bowlplain,
+    },
+  },
+  {
     id: "makhana-cookies",
     name: "Makhana Cookies",
     desc: "Crunchy cookies made with wholesome makhana goodness.",
     tag: "Cookies",
     images: {
-      "150g": cookiep,
-      "250g": cookiep,
+      "100g": cookiep,
       "500g": cookiep,
     },
     bowlImages: {
-      "150g": bowlcookies,
-      "250g": bowlcookies,
+      "100g": bowlcookies,
       "500g": bowlcookies,
     },
   },
   {
     id: "sugar-free-cookies",
     name: "Sugar Free Cookies",
-    desc: "Guilt-free cookies crafted without added sugar.",
+    desc: "Guilt-free cookies crafted without added sugar and makhana.",
     tag: "Sugar Free",
     images: {
-      "150g": cookiesf,
-      "250g": cookiesf,
+      "100g": cookiesf,
       "500g": cookiesf,
     },
     bowlImages: {
-      "150g": bowlcookiesf,
-      "250g": bowlcookiesf,
+      "100g": bowlcookiesf,
       "500g": bowlcookiesf,
     },
   },
