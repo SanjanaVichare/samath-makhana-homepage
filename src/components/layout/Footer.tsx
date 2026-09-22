@@ -26,18 +26,87 @@ export default function Footer() {
   return (
     <footer className="bg-[#122300] text-cream pt-8 pb-8 px-6 lg:px-10">
 
-      {/* Top Info Strip */}
+      {/* =================================================
+    TOP INFO STRIP
+================================================== */}
       <div className="border-y border-cream/10 bg-[#122300]">
         <div className="mx-auto max-w-7xl px-4 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 text-[12px] uppercase tracking-[0.22em] text-white font-bold">            <div className="flex items-center gap-2">
-            <span>100% Vegetarian</span>
-          </div>
+          <div
+            className="
+        flex
+        flex-wrap
+        items-center
+        justify-center
+        gap-x-10
+        gap-y-2
+        text-[12px]
+        font-bold
+        uppercase
+        tracking-[0.22em]
+        text-white
+      "
+          >
 
+            {/* =================================================
+          VEGETARIAN
+      ================================================= */}
+            <div className="flex items-center gap-2.5">
+              <span>100% Vegetarian</span>
+
+              {/* Vegetarian Logo */}
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 28 28"
+                className="shrink-0"
+                aria-label="Vegetarian"
+                role="img"
+              >
+                {/* Outer rounded square */}
+                <rect
+                  x="1.5"
+                  y="1.5"
+                  width="25"
+                  height="25"
+                  rx="5"
+                  fill="#FFFFFF"
+                  stroke="#138808"
+                  strokeWidth="2"
+                />
+
+                {/* Green circle */}
+                <circle
+                  cx="14"
+                  cy="11"
+                  r="5.5"
+                  fill="#138808"
+                />
+
+                {/* VEG text */}
+                <text
+                  x="14"
+                  y="22"
+                  textAnchor="middle"
+                  fill="#138808"
+                  fontSize="5.5"
+                  fontWeight="700"
+                  fontFamily="Arial, sans-serif"
+                >
+                  VEG
+                </text>
+              </svg>
+            </div>
+
+            {/* Separator */}
             <span className="text-wheat/70">·</span>
 
-            <span className="flex items-center gap-2">
+            {/* =================================================
+          MADE IN INDIA
+      ================================================= */}
+            <div className="flex items-center gap-2">
               <span>Made in India</span>
 
+              {/* India Flag */}
               <svg
                 width="22"
                 height="15"
@@ -46,10 +115,30 @@ export default function Footer() {
                 aria-label="India flag"
                 role="img"
               >
-                <rect width="22" height="5" fill="#FF9933" />
-                <rect y="5" width="22" height="5" fill="#FFFFFF" />
-                <rect y="10" width="22" height="5" fill="#138808" />
+                {/* Saffron */}
+                <rect
+                  width="22"
+                  height="5"
+                  fill="#FF9933"
+                />
 
+                {/* White */}
+                <rect
+                  y="5"
+                  width="22"
+                  height="5"
+                  fill="#FFFFFF"
+                />
+
+                {/* Green */}
+                <rect
+                  y="10"
+                  width="22"
+                  height="5"
+                  fill="#138808"
+                />
+
+                {/* Ashoka Chakra */}
                 <circle
                   cx="11"
                   cy="7.5"
@@ -70,17 +159,52 @@ export default function Footer() {
                   stroke="#000080"
                   strokeWidth="0.25"
                 >
-                  <line x1="11" y1="5.5" x2="11" y2="9.5" />
-                  <line x1="9" y1="7.5" x2="13" y2="7.5" />
-                  <line x1="9.6" y1="6.1" x2="12.4" y2="8.9" />
-                  <line x1="12.4" y1="6.1" x2="9.6" y2="8.9" />
+                  <line
+                    x1="11"
+                    y1="5.5"
+                    x2="11"
+                    y2="9.5"
+                  />
+
+                  <line
+                    x1="9"
+                    y1="7.5"
+                    x2="13"
+                    y2="7.5"
+                  />
+
+                  <line
+                    x1="9.6"
+                    y1="6.1"
+                    x2="12.4"
+                    y2="8.9"
+                  />
+
+                  <line
+                    x1="12.4"
+                    y1="6.1"
+                    x2="9.6"
+                    y2="8.9"
+                  />
                 </g>
               </svg>
-            </span>
+            </div>
 
+            {/* Separator */}
             <span className="text-wheat/70">·</span>
 
-            <span>Crafted with care</span>
+            {/* =================================================
+          CRAFTED WITH CARE
+      ================================================= */}
+            <div className="flex items-center gap-2">
+
+              <span>
+                Crafted with care
+              </span>
+              <span className="text-[16px] leading-none">
+                🌿
+              </span>
+            </div>
 
           </div>
         </div>
@@ -179,8 +303,8 @@ export default function Footer() {
       </div>
 
       <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-wheat">© {new Date().getFullYear()} PRAM Foods. All rights reserved.</p>
-        <p className="text-xs text-wheat">Made in India · Crafted with care 🌿</p>
+        <p className="ml-15 text-xs text-wheat">© {new Date().getFullYear()} PRAM Foods. All rights reserved.</p>
+        <p className="mr-15 text-xs text-wheat">Made in India · Crafted with care 🌿</p>
       </div>
     </footer>
   );

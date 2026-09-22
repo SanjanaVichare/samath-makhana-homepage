@@ -246,7 +246,7 @@ function ProductPage() {
 
             {details ? (
               <div className="mt-6 rounded-2xl bg-white border border-wheat/60 p-5 text-sm text-ink/70">
-                <h3 className="text-xs uppercase tracking-[0.2em] text-olive font-semibold mb-3">Manufacturer Details</h3>
+                <h3 className="text-xs uppercase tracking-[0.2em] text-olive font-semibold mb-3">Marketer Details</h3>
                 <dl className="grid sm:grid-cols-2 gap-y-2 gap-x-6">
                   <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">Product</dt><dd className="font-semibold text-olive text-right">{details.displayName}</dd></div>
                   <div className="flex justify-between gap-4 border-b border-wheat/50 pb-2"><dt className="text-ink/60">Category</dt><dd className="font-semibold text-olive text-right">{details.manufacturer.category}</dd></div>

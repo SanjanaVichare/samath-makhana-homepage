@@ -430,10 +430,10 @@ export type ProductDetails = {
 
 const MANUFACTURER = {
   category: "Roasted Flavour Makhana",
-  name: "SHHE FOODS PVT. LTD",
+  name: "PRAM FOODS",
   fssai: "10421310000224",
-  address: "B21P1, Donar Industrial Area, Donar, Darbhanga, Bihar, 846009",
-  email: "SHHEFOODS@GMAIL.COM",
+  address: "5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers, Naigaon, Dadar(E), Mumbai - 400014.",
+  email: "hello@pramfoods.in",
   stickerSize: "240 × 68 mm",
 };
 

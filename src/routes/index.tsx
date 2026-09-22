@@ -5,7 +5,14 @@ import { createFileRoute, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/hero-makhana2.png";
 import storyImg from "@/assets/story-lotus.jpg";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ChevronLeft, ChevronRight, Flame,
+  Dumbbell,
+  Wheat,
+  Leaf,
+  Ban,
+  HeartPulse,
+} from "lucide-react";
 import cookiePack from "@/assets/cookies.png";
 import cookieSplash from "@/assets/product-spiced.jpg";
 import cursorMakhana from "@/assets/makhana.png";
@@ -964,21 +971,26 @@ function Benefits() {
   ];
 
   const nutritionStats = [
+
     {
       value: "4.98–6.21g",
-      label: "Protein / 50g",
+      label: "PROTEIN / 50G",
+      icon: Dumbbell,
+    },
+    {
+      value: "CARBS",
+      label: "SOURCE OF ENERGY",
+      icon: Wheat,
     },
     {
       value: "3.08–4.09g",
-      label: "Dietary Fibre / 50g",
-    },
-    {
-      value: "0g",
-      label: "Trans Fat / 50g",
+      label: "FIBRE / 50G",
+      icon: Leaf,
     },
     {
       value: "0mg",
-      label: "Cholesterol / 50g",
+      label: "CHOLESTEROL / 50G",
+      icon: HeartPulse,
     },
   ];
 
@@ -988,9 +1000,9 @@ function Benefits() {
       className="
         relative
         overflow-hidden
-        py-10
-        sm:py-14
-        lg:py-20
+        py-5
+        sm:py-5
+        lg:py-5
       "
     >
       {/* =========================================================
@@ -1048,7 +1060,7 @@ function Benefits() {
       {/* =========================================================
           TOP NUTRITION MARQUEE
       ========================================================= */}
-      <div className="relative z-10 mb-8 -rotate-[1deg] sm:mb-10 lg:mb-12">
+      <div className="relative z-10 mb-8 sm:mb-10 lg:mb-12">
         <div
           className="
             overflow-hidden
@@ -1129,33 +1141,16 @@ function Benefits() {
         <div
           data-reveal
           className="
-            relative
-            overflow-hidden
-            rounded-[30px]
-            border-2
-            border-olive
-            bg-wheat
-            shadow-[0_18px_50px_-20px_rgba(10,51,35,0.22)]
-            sm:rounded-[38px]
-          "
+    relative
+    overflow-hidden
+    rounded-[30px]
+    border-2
+    border-olive
+    bg-wheat
+    shadow-[0_18px_50px_-20px_rgba(10,51,35,0.22)]
+    sm:rounded-[38px]
+  "
         >
-          {/* =====================================================
-              INNER BORDER
-          ===================================================== */}
-          <div
-            className="
-              pointer-events-none
-              absolute
-              inset-3
-              rounded-[24px]
-              border
-              border-olive/15
-              sm:inset-4
-              sm:rounded-[30px]
-            "
-          />
-
-
           {/* =====================================================
               CONTENT GRID
           ===================================================== */}
@@ -1187,46 +1182,6 @@ function Benefits() {
                 lg:pt-0
               "
             >
-              {/* Outer ring */}
-              <div
-                className="
-                  absolute
-                  h-[270px]
-                  w-[270px]
-                  rounded-full
-                  border-2
-                  border-olive/20
-                  sm:h-[340px]
-                  sm:w-[340px]
-                  lg:h-[420px]
-                  lg:w-[420px]
-                "
-              />
-
-              {/* Inner ring */}
-              <div
-                className="
-                  absolute
-                  h-[215px]
-                  w-[215px]
-                  rounded-full
-                  border
-                  border-olive/20
-                  sm:h-[275px]
-                  sm:w-[275px]
-                  lg:h-[345px]
-                  lg:w-[345px]
-                "
-              />
-
-              {/* Decorative dots */}
-              <span className="absolute left-[14%] top-[22%] h-2 w-2 rounded-full bg-[#A56B42]" />
-
-              <span className="absolute right-[15%] top-[28%] h-3 w-3 rounded-full bg-olive" />
-
-              <span className="absolute bottom-[21%] left-[18%] h-2 w-2 rounded-full bg-[#8D5A32]" />
-
-              <span className="absolute bottom-[27%] right-[18%] h-2 w-2 rounded-full bg-[#A56B42]" />
 
               {/* Product */}
               <img
@@ -1331,64 +1286,116 @@ function Benefits() {
               </p>
 
               {/* =================================================
-                  NUTRITION STATS
-              ================================================= */}
+    NUTRITION STATS
+================================================== */}
               <div
                 className="
-                  mt-8
-                  grid
-                  grid-cols-2
-                  gap-3
-                  sm:mt-9
-                  sm:gap-4
-                "
+    mt-8
+    grid
+    grid-cols-2
+    gap-3
+    sm:grid-cols-2
+    sm:gap-4
+    lg:mt-10
+  "
               >
-                {nutritionStats.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className="
-                      group
-                      relative
-                      overflow-hidden
-                      rounded-[22px]
-                      border-2
-                      border-olive
-                      bg-[#FDF8EE]
-                      px-4
-                      py-5
-                      transition-all
-                      duration-300
-                      hover:-translate-y-1
-                      hover:shadow-lg
-                      sm:rounded-[25px]
-                      sm:px-5
-                      sm:py-6
-                    "
-                  >
-                    {/* Number */}
-                    <span className="absolute right-4 top-3 text-[9px] font-bold tracking-wider text-olive/25">
-                      0{index + 1}
-                    </span>
+                {nutritionStats.map((stat, index) => {
+                  const Icon = stat.icon;
 
-                    <p
+                  return (
+                    <div
+                      key={stat.label}
                       className="
-                        font-display
-                        text-[25px]
-                        font-semibold
-                        leading-none
-                        text-olive
-                        sm:text-3xl
-                        lg:text-[32px]
-                      "
+          group
+          relative
+          overflow-hidden
+          rounded-[22px]
+          border-2
+          border-olive
+          bg-[#FDF8EE]
+          px-4
+          py-5
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-lg
+          sm:rounded-[25px]
+          sm:px-5
+          sm:py-6
+        "
                     >
-                      {stat.value}
-                    </p>
+                      {/* Number */}
+                      <span
+                        className="
+            absolute
+            right-4
+            top-2
+            text-[9px]
+            font-bold
+            tracking-wider
+            text-olive/20
+          "
+                      >
+                        0{index + 1}
+                      </span>
 
-                    <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.12em] text-ink/55 sm:text-[10px] lg:text-xs">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
+                      {/* Icon */}
+                      <div
+                        className="
+            mb-4
+            flex
+            h-12
+            w-12
+            items-center
+            justify-center
+            rounded-full
+            border-2
+            border-olive
+            text-olive
+            transition-transform
+            duration-300
+            group-hover:scale-105
+          "
+                      >
+                        <Icon
+                          size={24}
+                          strokeWidth={2}
+                        />
+                      </div>
+
+                      {/* Value */}
+                      <p
+                        className="
+            text-xl
+            font-bold
+            leading-tight
+            tracking-wide
+            text-olive
+            sm:text-2xl
+            lg:text-3xl
+          "
+                      >
+                        {stat.value}
+                      </p>
+
+                      {/* Label */}
+                      <p
+                        className="
+            mt-2
+            text-[9px]
+            font-bold
+            uppercase
+            tracking-[0.12em]
+            text-ink/60
+            sm:text-[10px]
+            lg:text-xs
+          "
+                      >
+                        {stat.label}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* =================================================
@@ -1474,7 +1481,7 @@ function Benefits() {
       {/* =========================================================
           BOTTOM MARQUEE — OPPOSITE DIRECTION
       ========================================================= */}
-      <div className="relative z-10 mt-8 -rotate-[1deg] sm:mt-10 lg:mt-12">
+      <div className="relative z-10 mt-8 sm:mt-10 lg:mt-12">
         <div
           className="
             overflow-hidden
@@ -1898,20 +1905,15 @@ function Bestseller() {
             ================================================== */}
             <p
               className="
-    font-display
-    mt-5
-    max-w-xl
+    mt-8
+    max-w-2xl
     mx-auto
     lg:mx-0
-    text-base
-    sm:text-lg
-    md:text-xl
-    lg:text-xl
-    xl:text-2xl
+    text-xl
     font-semibold
-    leading-8
-    xl:leading-9
-    text-[#F7ECD9]
+    text-[#F7ECD9]/90
+    leading-relaxed
+    tracking-wide
   "
             >
               Crafted with premium makhana and baked to perfection.
@@ -1999,7 +2001,7 @@ function Bestseller() {
               flex
               items-center
               justify-center
-              w-[52%]
+              w-[45%]
               lg:w-[54%]
               xl:w-[56%]
               h-[120%]
@@ -2048,17 +2050,17 @@ function Bestseller() {
                 rotate: imageRotate,
               }}
               className="
-                relative
-                z-10
-                w-[300px]
-                sm:w-[380px]
-                md:w-[430px]
-                lg:w-[500px]
-                xl:w-[580px]
-                max-w-none
-                object-contain
-                drop-shadow-[0_30px_45px_rgba(0,0,0,0.45)]
-              "
+    relative
+    z-10
+    w-[220px]
+    sm:w-[280px]
+    md:w-[320px]
+    lg:w-[370px]
+    xl:w-[430px]
+    max-w-none
+    object-contain
+    drop-shadow-[0_30px_45px_rgba(0,0,0,0.45)]
+  "
             />
           </div>
         </div>

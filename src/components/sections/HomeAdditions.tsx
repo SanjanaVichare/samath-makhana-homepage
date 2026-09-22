@@ -27,7 +27,7 @@ export function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative py-28 px-6 lg:px-10 bg-cream">
+    <section className="relative py-25 px-6 lg:px-1 bg-cream">
       <div className="mx-auto max-w-6xl">
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">
@@ -47,7 +47,7 @@ export function WhyChooseUs() {
               data-delay={i * 100}
               className="reveal group relative bg-white rounded-3xl p-8 border border-wheat/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_24px_60px_-24px_rgba(77,98,44,0.35)]"
             >
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-olive/10 text-olive transition-colors group-hover:bg-olive group-hover:text-cream">
+              <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-olive/10 text-olive transition-colors group-hover:bg-olive group-hover:text-cream">
                 <Icon size={26} strokeWidth={1.5} />
               </div>
 
@@ -201,89 +201,135 @@ export function FinalCTA() {
     <section
       className="
         relative
-        overflow-hidden
         min-h-screen
+        overflow-hidden
         flex
         items-center
         justify-center
-        py-4
+        bg-olive
         px-6
+        py-4
         lg:px-10
-        bg-[#B9C978]
       "
     >
-      {/* Decorative Product Images */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* =================================================
+          DECORATIVE PRODUCT IMAGES
+      ================================================= */}
+      <div className="pointer-events-none absolute inset-0">
         {products.map((product, index) => (
           <img
             key={index}
             src={product.src}
             alt=""
-            className={`absolute ${product.className} drop-shadow-2xl transition-transform duration-500 hover:scale-105`}
+            className={`
+              absolute
+              ${product.className}
+              drop-shadow-2xl
+              transition-transform
+              duration-500
+              hover:scale-105
+            `}
           />
         ))}
       </div>
 
-      {/* Content */}
+      {/* =================================================
+          CONTENT
+      ================================================= */}
       <div
         data-reveal
-        className="reveal relative z-20 mx-auto max-w-5xl text-center pt-37"
+        className="
+          reveal
+          relative
+          z-20
+          mx-auto
+          max-w-5xl
+          pt-37
+          text-center
+        "
       >
-        <h2 className="mt-5 font-display text-5xl lg:text-7xl font-semibold text-olive leading-tight">
+        {/* Heading */}
+        <h2
+          className="
+            mt-5
+            font-display
+            text-5xl
+            font-semibold
+            leading-tight
+            text-white
+            lg:text-7xl
+          "
+        >
           Snack quietly.
-          <span className="italic">Live loudly.</span>
+          <span className="italic"> Live loudly.</span>
         </h2>
 
-        <p className="mt-8 max-w-2xl mx-auto text-xl font-semibold text-olive/90 leading-relaxed tracking-wide">
+        {/* Description */}
+        <p
+          className="
+            mx-auto
+            mt-8
+            max-w-2xl
+            text-xl
+            font-semibold
+            leading-relaxed
+            tracking-wide
+            text-white/90
+          "
+        >
           Discover the small-batch range or talk to us about wholesale,
           gifting and premium snack solutions. We answer every email.
         </p>
 
+        {/* Buttons */}
         <div className="mt-12 flex flex-wrap justify-center gap-5">
+
+          {/* Shop Now */}
           <Link
             to="/shop"
             className="
               rounded-full
-              bg-olive
+              bg-white
               px-10
               py-4
-              text-cream
-              uppercase
-              tracking-[0.18em]
               text-xs
               font-semibold
+              uppercase
+              tracking-[0.18em]
+              text-olive
               transition-all
               duration-300
               hover:scale-105
-              hover:bg-olive/90
+              hover:bg-white/90
             "
           >
             Shop Now
           </Link>
 
+          {/* Contact Us */}
           <Link
             to="/contact"
             className="
               rounded-full
               border-2
-              border-olive
-              bg-white/20
-              backdrop-blur-sm
+              border-white
+              bg-transparent
               px-10
               py-4
-              text-olive
-              uppercase
-              tracking-[0.18em]
               text-xs
               font-semibold
+              uppercase
+              tracking-[0.18em]
+              text-white
               transition-all
               duration-300
-              hover:bg-olive
-              hover:text-cream
+              hover:bg-white
+              hover:text-olive
             "
           >
             Contact Us
           </Link>
+
         </div>
       </div>
     </section>
