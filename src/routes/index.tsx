@@ -944,223 +944,610 @@ function Story() {
 }
 
 function Benefits() {
-  function NutritionCard({
-    title,
-    value,
-    icon,
-  }: {
-    title: string;
-    value: string;
-    icon: string;
-  }) {
-    return (
-      <div
-        className="
-          relative
-          w-32
-          h-36
-          flex
-          flex-col
-          items-center
-          justify-center
-          text-center
-          px-3
-          bg-[#FDF8EE]
-          border-2
-          border-olive
-          shadow-xl
-          hover:scale-110
-          hover:rotate-0
-          transition-all
-          duration-500
-        "
-        style={{
-          borderRadius: "58% 42% 53% 47% / 44% 56% 42% 58%",
-          transform: "rotate(-12deg)",
-        }}
-      >
-        {/* Little brown dots */}
-        <span className="absolute top-4 left-5 w-1 h-1 rounded-full bg-[#A56B42]" />
-        <span className="absolute top-7 right-6 w-1.5 h-1.5 rounded-full bg-[#8D5A32]" />
-        <span className="absolute bottom-5 left-8 w-1 h-1 rounded-full bg-[#9F6A3F]" />
-        <span className="absolute bottom-8 right-7 w-1 h-1 rounded-full bg-[#A56B42]" />
+  const topNutrition = [
+    "PROTEIN",
+    "DIETARY FIBRE",
+    "ZERO TRANS FAT",
+    "ZERO CHOLESTEROL",
+    "PLANT-BASED",
+    "ROASTED MAKHANA",
+    "WHOLESOME CRUNCH",
+  ];
 
-        <div className="text-3xl">{icon}</div>
+  const bottomNutrition = [
+    "4.98–6.21G PROTEIN / 50G",
+    "3.08–4.09G FIBRE / 50G",
+    "0G TRANS FAT / 50G",
+    "0MG CHOLESTEROL / 50G",
+    "203–242 KCAL / 50G",
+    "0–1.65G ADDED SUGAR / 50G",
+  ];
 
-        <div className="mt-2 text-2xl font-bold text-olive">
-          {value}
-        </div>
-
-        <div className="mt-1 text-xs font-semibold text-olive leading-tight">
-          {title}
-        </div>
-      </div>
-    );
-  }
-
-  const benefits = [
-    "Protein Rich",
-    "Naturally Gluten Free",
-    "Light & Crunchy",
-    "No Artificial Preservatives",
+  const nutritionStats = [
+    {
+      value: "4.98–6.21g",
+      label: "Protein / 50g",
+    },
+    {
+      value: "3.08–4.09g",
+      label: "Dietary Fibre / 50g",
+    },
+    {
+      value: "0g",
+      label: "Trans Fat / 50g",
+    },
+    {
+      value: "0mg",
+      label: "Cholesterol / 50g",
+    },
   ];
 
   return (
     <section
       id="benefits"
-      className="relative min-h-screen flex items-center py-16 lg:py-24 px-4 sm:px-6 lg:px-10 overflow-hidden"
+      className="
+        relative
+        overflow-hidden
+        py-10
+        sm:py-14
+        lg:py-20
+      "
     >
+      {/* =========================================================
+          MARQUEE ANIMATIONS
+      ========================================================= */}
+      <style>{`
+        @keyframes pram-benefits-marquee-left {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
 
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="relative rounded-[40px] bg-wheat border-2 border-olive shadow-xl overflow-hidden">
+        @keyframes pram-benefits-marquee-right {
+          from {
+            transform: translateX(-50%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
 
-          <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-20">
+        .pram-benefits-marquee-left {
+          animation: pram-benefits-marquee-left 34s linear infinite;
+        }
 
-            {/* LEFT CONTENT */}
-            <div data-reveal className="reveal">
+        .pram-benefits-marquee-right {
+          animation: pram-benefits-marquee-right 38s linear infinite;
+        }
 
+        .pram-benefits-marquee:hover {
+          animation-play-state: paused;
+        }
 
-              <h2 className="mt-4 font-display text-4xl lg:text-6xl leading-tight text-olive font-semibold">
-                Wholesome Nutrition
-                <br />
-                In Every Bite
-              </h2>
+        @media (max-width: 640px) {
+          .pram-benefits-marquee-left {
+            animation-duration: 25s;
+          }
 
-              <p className="mt-6 max-w-lg text-lg font-semibold leading-relaxed text-ink/80">
-                Crafted from premium lotus seeds and roasted to perfection,
-                PRAM delivers the perfect balance of taste, crunch and
-                nutrition.
-              </p>
-              <div className="mt-8 space-y-4">
-                {benefits.map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-olive text-white text-sm">
-                      ✓
-                    </div>
+          .pram-benefits-marquee-right {
+            animation-duration: 29s;
+          }
+        }
 
-                    <span className="text-ink font-medium">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
+        @media (prefers-reduced-motion: reduce) {
+          .pram-benefits-marquee-left,
+          .pram-benefits-marquee-right {
+            animation-play-state: paused;
+          }
+        }
+      `}</style>
 
+      {/* =========================================================
+          TOP NUTRITION MARQUEE
+      ========================================================= */}
+      <div className="relative z-10 mb-8 -rotate-[1deg] sm:mb-10 lg:mb-12">
+        <div
+          className="
+            overflow-hidden
+            border-y-2
+            border-olive
+            bg-[#FDF8EE]
+            py-3
+            sm:py-4
+            lg:py-5
+          "
+        >
+          <div className="pram-benefits-marquee pram-benefits-marquee-left flex w-max">
+            {/* First copy */}
+            <div className="flex shrink-0 items-center">
+              {[...topNutrition, ...topNutrition].map((item, index) => (
+                <div
+                  key={`top-${index}`}
+                  className="flex items-center whitespace-nowrap"
+                >
+                  <span
+                    className="
+                      font-display
+                      text-xl
+                      font-semibold
+                      tracking-[0.06em]
+                      text-olive
+                      sm:text-2xl
+                      lg:text-3xl
+                      xl:text-4xl
+                    "
+                  >
+                    {item}
+                  </span>
 
-              <a href="#products"
-                className="
-              group mt-3 inline-flex items-center gap-2
-              rounded-full
-              bg-olive
-              px-7 py-3.5
-              text-sm font-semibold tracking-wide text-white
-              shadow-md shadow-olive/20
-              transition-all duration-300 ease-out
-              hover:-translate-y-1
-              hover:scale-105
-              hover:bg-[#4d6924]
-              hover:shadow-xl hover:shadow-olive/30
-              active:scale-95
-              "
-              >
-                Explore Flavours
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </a>
+                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                    •
+                  </span>
+                </div>
+              ))}
             </div>
 
-            {/* RIGHT INFOGRAPHIC */}
+            {/* Second copy */}
+            <div className="flex shrink-0 items-center">
+              {[...topNutrition, ...topNutrition].map((item, index) => (
+                <div
+                  key={`top-copy-${index}`}
+                  className="flex items-center whitespace-nowrap"
+                >
+                  <span
+                    className="
+                      font-display
+                      text-xl
+                      font-semibold
+                      tracking-[0.06em]
+                      text-olive
+                      sm:text-2xl
+                      lg:text-3xl
+                      xl:text-4xl
+                    "
+                  >
+                    {item}
+                  </span>
+
+                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                    •
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================
+          MAIN NUTRITION PANEL
+      ========================================================= */}
+      <div className="relative z-10 mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
+        <div
+          data-reveal
+          className="
+            relative
+            overflow-hidden
+            rounded-[30px]
+            border-2
+            border-olive
+            bg-wheat
+            shadow-[0_18px_50px_-20px_rgba(10,51,35,0.22)]
+            sm:rounded-[38px]
+          "
+        >
+          {/* =====================================================
+              INNER BORDER
+          ===================================================== */}
+          <div
+            className="
+              pointer-events-none
+              absolute
+              inset-3
+              rounded-[24px]
+              border
+              border-olive/15
+              sm:inset-4
+              sm:rounded-[30px]
+            "
+          />
+
+
+          {/* =====================================================
+              CONTENT GRID
+          ===================================================== */}
+          <div
+            className="
+              relative
+              z-10
+              grid
+              items-center
+              lg:grid-cols-[0.9fr_1.1fr]
+            "
+          >
+            {/* ===================================================
+                LEFT — PRODUCT
+            =================================================== */}
             <div
-              data-reveal
               className="
-                reveal
-                flex flex-col items-center gap-6
-                lg:relative lg:flex lg:items-center lg:justify-center
-                lg:h-[600px]
+                relative
+                flex
+                min-h-[400px]
+                items-center
+                justify-center
+                px-5
+                pt-12
+                sm:min-h-[500px]
+                sm:px-10
+                lg:min-h-[620px]
+                lg:px-12
+                lg:pt-0
               "
             >
-              {/* Center Product — hidden on mobile, shown from lg up */}
+              {/* Outer ring */}
+              <div
+                className="
+                  absolute
+                  h-[270px]
+                  w-[270px]
+                  rounded-full
+                  border-2
+                  border-olive/20
+                  sm:h-[340px]
+                  sm:w-[340px]
+                  lg:h-[420px]
+                  lg:w-[420px]
+                "
+              />
+
+              {/* Inner ring */}
+              <div
+                className="
+                  absolute
+                  h-[215px]
+                  w-[215px]
+                  rounded-full
+                  border
+                  border-olive/20
+                  sm:h-[275px]
+                  sm:w-[275px]
+                  lg:h-[345px]
+                  lg:w-[345px]
+                "
+              />
+
+              {/* Decorative dots */}
+              <span className="absolute left-[14%] top-[22%] h-2 w-2 rounded-full bg-[#A56B42]" />
+
+              <span className="absolute right-[15%] top-[28%] h-3 w-3 rounded-full bg-olive" />
+
+              <span className="absolute bottom-[21%] left-[18%] h-2 w-2 rounded-full bg-[#8D5A32]" />
+
+              <span className="absolute bottom-[27%] right-[18%] h-2 w-2 rounded-full bg-[#A56B42]" />
+
+              {/* Product */}
               <img
                 src={makhanaInBowl}
                 alt="PRAM Makhana"
                 className="
-                  hidden
-                  lg:block
-                  relative z-20
-                  lg:w-[340px] xl:w-[380px]
-                  lg:absolute
-                  drop-shadow-2xl animate-float
+                  relative
+                  z-10
+                  w-[240px]
+                  max-w-[88%]
+                  drop-shadow-2xl
+                  transition-transform
+                  duration-700
+                  hover:scale-105
+                  sm:w-[315px]
+                  lg:w-[400px]
+                  xl:w-[445px]
                 "
               />
 
-              {/* Cards: simple grid on mobile, orbiting absolute layout from lg up */}
+              {/* Badge */}
               <div
                 className="
-                  grid grid-cols-3 gap-3
-                  sm:grid-cols-3 sm:gap-4
-                  lg:contents
+                  absolute
+                  bottom-6
+                  left-1/2
+                  z-20
+                  -translate-x-1/2
+                  whitespace-nowrap
+                  rounded-full
+                  border-2
+                  border-olive
+                  bg-[#FDF8EE]
+                  px-5
+                  py-2
+                  shadow-md
+                  sm:bottom-8
+                  sm:px-7
+                  sm:py-2.5
                 "
               >
-                {/* Protein */}
-                <div className="relative lg:absolute lg:top-0 lg:left-1/2 lg:-translate-x-1/2">
-                  <NutritionCard
-                    title="Protein Rich"
-                    value="11.25g+"
-                    icon="💪"
-                  />
-                </div>
-
-                {/* Gluten */}
-                <div className="relative lg:absolute lg:top-24 lg:right-0">
-                  <NutritionCard
-                    title="Gluten Free"
-                    value="100%"
-                    icon="🌾"
-                  />
-                </div>
-
-                {/* Calories */}
-                <div className="relative lg:absolute lg:bottom-24 lg:right-4">
-                  <NutritionCard
-                    title="Cholesterol Free"
-                    value="0%"
-                    icon="🔥"
-                  />
-                </div>
-
-                {/* Fiber */}
-                <div className="relative lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2">
-                  <NutritionCard
-                    title="High Fiber"
-                    value="Rich"
-                    icon="🌿"
-                  />
-                </div>
-
-                {/* Natural */}
-                <div className="relative lg:absolute lg:bottom-24 lg:left-4">
-                  <NutritionCard
-                    title="100% Natural"
-                    value="Pure"
-                    icon="🍃"
-                  />
-                </div>
-
-                {/* Cholesterol */}
-                <div className="relative lg:absolute lg:top-24 lg:left-0">
-                  <NutritionCard
-                    title="0% Cholesterol"
-                    value="Zero"
-                    icon="❤️"
-                  />
-                </div>
+                <p className="text-center text-[9px] font-bold uppercase tracking-[0.16em] text-olive sm:text-[10px] lg:text-xs">
+                  100% Vegetarian • Made in India
+                </p>
               </div>
             </div>
 
+            {/* ===================================================
+                RIGHT — TEXT + NUTRITION
+            =================================================== */}
+            <div
+              data-reveal
+              className="
+                relative
+                px-6
+                pb-12
+                sm:px-10
+                sm:pb-14
+                lg:px-12
+                lg:py-16
+                xl:px-16
+                xl:py-20
+              "
+            >
+
+              {/* Main heading */}
+              <h2
+                className="
+                  font-display
+                  text-[48px]
+                  font-semibold
+                  leading-[0.9]
+                  tracking-tight
+                  text-olive
+                  sm:text-6xl
+                  md:text-7xl
+                  lg:text-7xl
+                  xl:text-[84px]
+                "
+              >
+                Wholesome
+                <br />Nutrition
+              </h2>
+
+              {/* Copy */}
+              <p
+                className="
+                  mt-6
+                  max-w-xl
+                  text-base
+                  font-semibold
+                  leading-7
+                  text-ink/75
+                  sm:text-lg
+                  sm:leading-8
+                  lg:text-xl
+                "
+              >
+                Every crunch starts with makhana. Roasted for a satisfying
+                bite and packed with nutrients you can actually see on the
+                label.
+              </p>
+
+              {/* =================================================
+                  NUTRITION STATS
+              ================================================= */}
+              <div
+                className="
+                  mt-8
+                  grid
+                  grid-cols-2
+                  gap-3
+                  sm:mt-9
+                  sm:gap-4
+                "
+              >
+                {nutritionStats.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className="
+                      group
+                      relative
+                      overflow-hidden
+                      rounded-[22px]
+                      border-2
+                      border-olive
+                      bg-[#FDF8EE]
+                      px-4
+                      py-5
+                      transition-all
+                      duration-300
+                      hover:-translate-y-1
+                      hover:shadow-lg
+                      sm:rounded-[25px]
+                      sm:px-5
+                      sm:py-6
+                    "
+                  >
+                    {/* Number */}
+                    <span className="absolute right-4 top-3 text-[9px] font-bold tracking-wider text-olive/25">
+                      0{index + 1}
+                    </span>
+
+                    <p
+                      className="
+                        font-display
+                        text-[25px]
+                        font-semibold
+                        leading-none
+                        text-olive
+                        sm:text-3xl
+                        lg:text-[32px]
+                      "
+                    >
+                      {stat.value}
+                    </p>
+
+                    <p className="mt-2 text-[9px] font-bold uppercase tracking-[0.12em] text-ink/55 sm:text-[10px] lg:text-xs">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* =================================================
+                  PRODUCT RANGE
+              ================================================= */}
+              <div className="mt-7 border-l-2 border-olive pl-4 sm:mt-8 sm:pl-5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-olive sm:text-xs">
+                  Across PRAM flavours
+                </p>
+
+                <p className="mt-1.5 max-w-lg text-xs font-medium leading-5 text-ink/60 sm:text-sm sm:leading-6">
+                  Protein ranges from 4.98g–6.21g and dietary fibre from
+                  3.08g–4.09g per 50g serving across the supplied product
+                  labels.
+                </p>
+              </div>
+              {/* CTA */}
+              <a
+                href="#products"
+                className="
+                  group
+                  mt-8
+                  inline-flex
+                  w-fit
+                  items-center
+                  gap-3
+                  rounded-full
+                  bg-olive
+                  px-7
+                  py-3.5
+                  text-xs
+                  font-bold
+                  uppercase
+                  tracking-[0.12em]
+                  text-white
+                  shadow-md
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:scale-105
+                  hover:bg-[#4d6924]
+                  hover:shadow-xl
+                  active:scale-95
+                  sm:px-8
+                  sm:py-4
+                  sm:text-sm
+                "
+              >
+                Explore Flavours
+
+                <span className="text-lg transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
+          </div>
+
+          {/* =====================================================
+              LABEL FOOTER
+          ===================================================== */}
+          <div
+            className="
+              relative
+              z-10
+              border-t
+              border-olive/20
+              bg-[#FDF8EE]/40
+              px-5
+              py-3
+              text-center
+              sm:px-10
+              sm:py-3.5
+            "
+          >
+            <p className="text-[8px] font-medium uppercase tracking-[0.12em] text-ink/40 sm:text-[9px] lg:text-[10px]">
+              Nutritional values shown are based on the supplied product
+              labels and may vary by flavour.
+            </p>
           </div>
         </div>
       </div>
-    </section >
+
+      {/* =========================================================
+          BOTTOM MARQUEE — OPPOSITE DIRECTION
+      ========================================================= */}
+      <div className="relative z-10 mt-8 -rotate-[1deg] sm:mt-10 lg:mt-12">
+        <div
+          className="
+            overflow-hidden
+            border-y-2
+            border-olive
+            bg-[#FDF8EE]
+            py-3
+            sm:py-4
+            lg:py-5
+          "
+        >
+          <div className="pram-benefits-marquee pram-benefits-marquee-right flex w-max">
+            {/* First copy */}
+            <div className="flex shrink-0 items-center">
+              {[...bottomNutrition, ...bottomNutrition].map((item, index) => (
+                <div
+                  key={`bottom-${index}`}
+                  className="flex items-center whitespace-nowrap"
+                >
+                  <span
+                    className="
+                      font-display
+                      text-xl
+                      font-semibold
+                      tracking-[0.04em]
+                      text-olive
+                      sm:text-2xl
+                      lg:text-3xl
+                      xl:text-4xl
+                    "
+                  >
+                    {item}
+                  </span>
+
+                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                    •
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Second copy */}
+            <div className="flex shrink-0 items-center">
+              {[...bottomNutrition, ...bottomNutrition].map((item, index) => (
+                <div
+                  key={`bottom-copy-${index}`}
+                  className="flex items-center whitespace-nowrap"
+                >
+                  <span
+                    className="
+                      font-display
+                      text-xl
+                      font-semibold
+                      tracking-[0.04em]
+                      text-olive
+                      sm:text-2xl
+                      lg:text-3xl
+                      xl:text-4xl
+                    "
+                  >
+                    {item}
+                  </span>
+
+                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                    •
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
