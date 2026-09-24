@@ -5,12 +5,12 @@ import PageShell from "@/components/layout/PageShell";
 import { PRODUCTS, type Product } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import productBg from "@/assets/bg-doodle.png";
-import peri from "@/assets/packet-peri-peri.png";
-import cheese from "@/assets/packet-cheese.png";
-import chatpata from "@/assets/packet-chat-pata.png";
-import cream from "@/assets/packet-cream-onion.png";
-import pudina from "@/assets/packet-pudina.png";
-import salt from "@/assets/packet-salt-pepper.png";
+import peri from "@/assets/periperi.png";
+import cheese from "@/assets/chezzy.png";
+import chatpata from "@/assets/tomato.png";
+import cream from "@/assets/creamandonion.png";
+import pudina from "@/assets/pudina.png";
+import salt from "@/assets/himalayan.png";
 import cookies from "@/assets/packet-cookies.png";
 import sugarfree from "@/assets/packet-cookies-sugar-free.png";
 
@@ -200,7 +200,7 @@ function ProductCard({
 
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 
-  const packetImage = PRODUCT_PACKET_IMAGES[product.id];
+  const packetImage = PRODUCT_PACKET_IMAGES[product.id] || product.images[0];
 
   return (
     <article

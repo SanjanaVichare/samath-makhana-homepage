@@ -1,18 +1,21 @@
 import productBg from "@/assets/bg-doodle.png";
 import { useRef } from "react";
 import MakhanaCursor from "@/components/MakhanaCursor";
-import pcp from "@/assets/packet-chat-pata.png";
-import pcp1 from "@/assets/packet-peri-peri.png";
-import pcp2 from "@/assets/packet-cheese.png";
-import pcp3 from "@/assets/packet-pudina.png";
-import pcp4 from "@/assets/packet-salt-pepper.png";
-import pcp5 from "@/assets/packet-cream-onion.png";
+
+import pcp from "@/assets/tomato.png";
+import pcp1 from "@/assets/periperi.png";
+import pcp2 from "@/assets/chezzy.png";
+import pcp3 from "@/assets/pudina.png";
+import pcp4 from "@/assets/himalayan.png";
+import pcp5 from "@/assets/creamandonion.png";
+
 import cookiep from "@/assets/product-cookies.jpg";
 import cookiesf from "@/assets/product-cookies.jpg";
 import cursorMakhana from "@/assets/makhana.png";
 import ig1 from "@/assets/ig-1.jpg";
 import ig2 from "@/assets/ig-2.jpg";
 import ig3 from "@/assets/ig-3.jpg";
+
 import { Navbar, Footer } from "./index";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
@@ -511,19 +514,19 @@ function ProductsPage() {
                           }
                           alt={p.name}
                           className="
-      relative
-      z-20
-      w-[200px]
-      h-[230px]
-      object-contain
-      transition-all
-      duration-700
-      ease-out
-      drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
-      group-hover:drop-shadow-[0_30px_50px_rgba(255,200,80,0.55)]
-      group-hover:scale-110
-      group-hover:-translate-y-2
-    "
+    relative
+    z-20
+    w-[200px]
+    h-[230px]
+    object-contain
+    transition-all
+    duration-700
+    ease-out
+    drop-shadow-[0_18px_30px_rgba(255,190,60,0.35)]
+    group-hover:drop-shadow-[0_30px_50px_rgba(255,200,80,0.55)]
+    group-hover:scale-110
+    group-hover:-translate-y-2
+  "
                         />
                       </div>
                       {/* Content */}

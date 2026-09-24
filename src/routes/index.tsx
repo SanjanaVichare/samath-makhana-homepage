@@ -3,7 +3,7 @@ import MakhanaCursor from "@/components/MakhanaCursor";
 import makhanaInBowl from "@/assets/makahna-bowl.png";
 import { createFileRoute, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import heroImg from "@/assets/hero-makhana2.png";
+import heroImg from "@/assets/heroimg.jpg";
 import storyImg from "@/assets/story-lotus.jpg";
 import {
   ChevronLeft, ChevronRight, Flame,
@@ -19,19 +19,19 @@ import cursorMakhana from "@/assets/makhana.png";
 import productBg from "@/assets/bg-doodle.png";
 import productBgt from "@/assets/bg-doodle-t.png";
 import cookieHamper from "@/assets/gift.png";
-import cookiebs from "@/assets/bscookie.png";
+import cookiebs from "@/assets/cookiemak.png";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import bcookie from "@/assets/broken-cookie.png"
 import bestcookie from "@/assets/cookie-full.png"
-import pcp from "@/assets/packet-chat-pata.png";
-import pcp1 from "@/assets/packet-peri-peri.png";
-import pcp2 from "@/assets/packet-cheese.png";
-import pcp3 from "@/assets/packet-pudina.png";
-import pcp4 from "@/assets/packet-salt-pepper.png";
-import pcp5 from "@/assets/packet-cream-onion.png";
+import pcp from "@/assets/tomato.png";
+import pcp1 from "@/assets/periperi.png";
+import pcp2 from "@/assets/chezzy.png";
+import pcp3 from "@/assets/pudina.png";
+import pcp4 from "@/assets/himalayan.png";
+import pcp5 from "@/assets/creamandonion.png";
 import cookiep from "@/assets/packet-cookies.png";
 import cookiesf from "@/assets/packet-cookies-sugar-free.png";
 import bowlchatpata from "@/assets/bowl-chat-pata.png";
@@ -502,7 +502,7 @@ function Hero() {
           w-full
           h-full
           object-cover
-          object-[38%_42%]
+          object-[38%_31%]
         "
       />
     </section>
@@ -971,7 +971,6 @@ function Benefits() {
   ];
 
   const nutritionStats = [
-
     {
       value: "4.98–6.21g",
       label: "PROTEIN / 50G",
@@ -1067,9 +1066,9 @@ function Benefits() {
             border-y-2
             border-olive
             bg-[#FDF8EE]
-            py-3
-            sm:py-4
-            lg:py-5
+            py-0.5
+            sm:py-1
+            lg:py-1.5
           "
         >
           <div className="pram-benefits-marquee pram-benefits-marquee-left flex w-max">
@@ -1082,7 +1081,7 @@ function Benefits() {
                 >
                   <span
                     className="
-                      font-display
+                      font-sans
                       text-xl
                       font-semibold
                       tracking-[0.06em]
@@ -1095,7 +1094,18 @@ function Benefits() {
                     {item}
                   </span>
 
-                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                  <span
+                    className="
+                      mx-5
+                      font-sans
+                      text-lg
+                      font-bold
+                      text-[#A56B42]
+                      sm:mx-7
+                      sm:text-xl
+                      lg:text-2xl
+                    "
+                  >
                     •
                   </span>
                 </div>
@@ -1111,7 +1121,7 @@ function Benefits() {
                 >
                   <span
                     className="
-                      font-display
+                      font-sans
                       text-xl
                       font-semibold
                       tracking-[0.06em]
@@ -1124,7 +1134,18 @@ function Benefits() {
                     {item}
                   </span>
 
-                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                  <span
+                    className="
+                      mx-5
+                      font-sans
+                      text-lg
+                      font-bold
+                      text-[#A56B42]
+                      sm:mx-7
+                      sm:text-xl
+                      lg:text-2xl
+                    "
+                  >
                     •
                   </span>
                 </div>
@@ -1141,15 +1162,15 @@ function Benefits() {
         <div
           data-reveal
           className="
-    relative
-    overflow-hidden
-    rounded-[30px]
-    border-2
-    border-olive
-    bg-wheat
-    shadow-[0_18px_50px_-20px_rgba(10,51,35,0.22)]
-    sm:rounded-[38px]
-  "
+            relative
+            overflow-hidden
+            rounded-[30px]
+            border-2
+            border-olive
+            bg-wheat
+            shadow-[0_18px_50px_-20px_rgba(10,51,35,0.22)]
+            sm:rounded-[38px]
+          "
         >
           {/* =====================================================
               CONTENT GRID
@@ -1173,6 +1194,7 @@ function Benefits() {
                 min-h-[400px]
                 items-center
                 justify-center
+                overflow-hidden
                 px-5
                 pt-12
                 sm:min-h-[500px]
@@ -1182,14 +1204,558 @@ function Benefits() {
                 lg:pt-0
               "
             >
+              {/* =================================================
+                  BACKGROUND DECORATION
+              ================================================= */}
 
-              {/* Product */}
+              {/* Soft organic blob - top left */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[8%]
+                  top-[18%]
+                  h-28
+                  w-28
+                  rounded-full
+                  bg-[#D8CFA8]/35
+                  blur-[2px]
+                  sm:h-36
+                  sm:w-36
+                  lg:h-44
+                  lg:w-44
+                "
+              />
+
+              {/* Soft organic blob - bottom right */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-[15%]
+                  right-[5%]
+                  h-24
+                  w-24
+                  rounded-full
+                  bg-[#D8CFA8]/30
+                  blur-[2px]
+                  sm:h-32
+                  sm:w-32
+                  lg:h-40
+                  lg:w-40
+                "
+              />
+
+              {/* =================================================
+                  TWO CONCENTRIC CIRCLES
+              ================================================= */}
+
+              {/* Outer circle */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  left-1/2
+                  top-1/2
+                  h-[290px]
+                  w-[290px]
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  rounded-full
+                  border-[2px]
+                  border-olive/70
+                  sm:h-[350px]
+                  sm:w-[350px]
+                  lg:h-[430px]
+                  lg:w-[430px]
+                  xl:h-[470px]
+                  xl:w-[470px]
+                "
+              />
+
+              {/* Inner circle */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  left-1/2
+                  top-1/2
+                  h-[255px]
+                  w-[255px]
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  rounded-full
+                  border
+                  border-[#A56B42]/35
+                  sm:h-[315px]
+                  sm:w-[315px]
+                  lg:h-[390px]
+                  lg:w-[390px]
+                  xl:h-[425px]
+                  xl:w-[425px]
+                "
+              />
+
+              {/* =================================================
+                  BOTANICAL DECORATIONS
+              ================================================= */}
+
+              {/* Large top-left leaf */}
+              <svg
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[8%]
+                  top-[12%]
+                  z-10
+                  h-16
+                  w-16
+                  -rotate-[25deg]
+                  text-olive/55
+                  sm:h-20
+                  sm:w-20
+                  lg:h-24
+                  lg:w-24
+                "
+                viewBox="0 0 100 100"
+                fill="none"
+              >
+                <path
+                  d="M50 90C48 62 24 43 8 40C14 66 30 86 50 90Z"
+                  fill="currentColor"
+                  fillOpacity="0.12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M50 90C39 69 25 52 11 43"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M30 63L20 59M39 75L28 70"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                />
+              </svg>
+
+              {/* Small upper-right leaf */}
+              <svg
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[10%]
+                  top-[14%]
+                  z-10
+                  h-11
+                  w-11
+                  rotate-[35deg]
+                  text-olive/50
+                  sm:h-14
+                  sm:w-14
+                  lg:h-16
+                  lg:w-16
+                "
+                viewBox="0 0 100 100"
+                fill="none"
+              >
+                <path
+                  d="M50 90C53 66 72 48 88 46C82 69 69 84 50 90Z"
+                  fill="currentColor"
+                  fillOpacity="0.1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M50 90C61 70 73 56 86 48"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              </svg>
+
+              {/* Bottom-left botanical leaf */}
+              <svg
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-[17%]
+                  left-[9%]
+                  z-10
+                  h-12
+                  w-12
+                  rotate-[20deg]
+                  text-olive/45
+                  sm:h-16
+                  sm:w-16
+                  lg:h-20
+                  lg:w-20
+                "
+                viewBox="0 0 100 100"
+                fill="none"
+              >
+                <path
+                  d="M50 92C48 67 27 51 12 49C17 73 31 88 50 92Z"
+                  fill="currentColor"
+                  fillOpacity="0.1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M50 92C39 72 26 58 14 51"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              </svg>
+
+              {/* Bottom-right leaf */}
+              <svg
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-[14%]
+                  right-[7%]
+                  z-10
+                  h-14
+                  w-14
+                  -rotate-[20deg]
+                  text-olive/50
+                  sm:h-18
+                  sm:w-18
+                  lg:h-22
+                  lg:w-22
+                "
+                viewBox="0 0 100 100"
+                fill="none"
+              >
+                <path
+                  d="M50 90C52 65 74 49 90 46C84 71 69 86 50 90Z"
+                  fill="currentColor"
+                  fillOpacity="0.1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M50 90C62 70 75 55 88 48"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              </svg>
+
+              {/* =================================================
+                  BOTANICAL STEM - LEFT
+              ================================================= */}
+
+              <svg
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[5%]
+                  top-[38%]
+                  z-10
+                  h-24
+                  w-16
+                  rotate-[-15deg]
+                  text-olive/35
+                  sm:h-32
+                  sm:w-20
+                  lg:h-40
+                  lg:w-24
+                "
+                viewBox="0 0 100 180"
+                fill="none"
+              >
+                <path
+                  d="M50 175C47 130 48 75 55 10"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M50 130C30 120 18 106 13 92C30 94 43 105 50 118"
+                  fill="currentColor"
+                  fillOpacity="0.12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M51 90C68 82 80 70 84 57C69 60 57 69 51 80"
+                  fill="currentColor"
+                  fillOpacity="0.12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              </svg>
+
+              {/* =================================================
+                  BOTANICAL STEM - RIGHT
+              ================================================= */}
+
+              <svg
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-[24%]
+                  right-[3%]
+                  z-10
+                  h-28
+                  w-20
+                  rotate-[18deg]
+                  text-olive/30
+                  sm:h-36
+                  sm:w-24
+                  lg:h-44
+                  lg:w-28
+                "
+                viewBox="0 0 100 180"
+                fill="none"
+              >
+                <path
+                  d="M50 175C52 130 52 70 44 10"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M50 135C68 124 80 110 85 96C69 99 57 109 50 122"
+                  fill="currentColor"
+                  fillOpacity="0.1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+
+                <path
+                  d="M48 92C31 83 20 70 16 57C30 60 42 69 48 81"
+                  fill="currentColor"
+                  fillOpacity="0.1"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                />
+              </svg>
+
+              {/* =================================================
+                  SMALL DECORATIVE DOTS
+              ================================================= */}
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[18%]
+                  top-[25%]
+                  z-10
+                  h-3
+                  w-3
+                  rounded-full
+                  bg-[#A56B42]
+                  opacity-80
+                  sm:h-4
+                  sm:w-4
+                "
+              />
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[16%]
+                  top-[32%]
+                  z-10
+                  h-2
+                  w-2
+                  rounded-full
+                  bg-olive
+                  opacity-70
+                  sm:h-3
+                  sm:w-3
+                "
+              />
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-[28%]
+                  left-[14%]
+                  z-10
+                  h-2
+                  w-2
+                  rounded-full
+                  bg-[#A56B42]/70
+                  sm:h-3
+                  sm:w-3
+                "
+              />
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-[20%]
+                  right-[20%]
+                  z-10
+                  h-3
+                  w-3
+                  rounded-full
+                  bg-olive/60
+                "
+              />
+
+              {/* Additional tiny seeds */}
+              <span className="pointer-events-none absolute left-[31%] top-[18%] z-10 h-2 w-2 rounded-full bg-[#A56B42]/55" />
+
+              <span className="pointer-events-none absolute right-[27%] top-[23%] z-10 h-1.5 w-1.5 rounded-full bg-olive/60" />
+
+              <span className="pointer-events-none absolute left-[14%] top-[54%] z-10 h-2 w-2 rounded-full bg-[#A56B42]/45" />
+
+              <span className="pointer-events-none absolute right-[12%] top-[55%] z-10 h-2 w-2 rounded-full bg-olive/50" />
+
+              <span className="pointer-events-none absolute left-[27%] bottom-[17%] z-10 h-1.5 w-1.5 rounded-full bg-[#A56B42]/50" />
+
+              <span className="pointer-events-none absolute right-[29%] bottom-[20%] z-10 h-2 w-2 rounded-full bg-olive/45" />
+
+              {/* =================================================
+                  FLOATING MAKHANA SHAPES
+              ================================================= */}
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[21%]
+                  top-[27%]
+                  z-10
+                  h-7
+                  w-7
+                  rotate-[18deg]
+                  rounded-[45%]
+                  border-2
+                  border-[#A56B42]/40
+                  bg-[#FDF8EE]
+                  shadow-sm
+                  sm:h-9
+                  sm:w-9
+                "
+              >
+                <span className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#A56B42]/30" />
+              </span>
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[18%]
+                  top-[38%]
+                  z-10
+                  h-8
+                  w-8
+                  -rotate-[20deg]
+                  rounded-[45%]
+                  border-2
+                  border-[#A56B42]/35
+                  bg-[#FDF8EE]
+                  shadow-sm
+                  sm:h-10
+                  sm:w-10
+                "
+              >
+                <span className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#A56B42]/25" />
+              </span>
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  bottom-[30%]
+                  left-[21%]
+                  z-10
+                  h-5
+                  w-5
+                  rotate-45
+                  rounded-[40%]
+                  bg-[#A56B42]/20
+                  sm:h-7
+                  sm:w-7
+                "
+              />
+
+              {/* =================================================
+                  BOTANICAL SPARKLES
+              ================================================= */}
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[16%]
+                  top-[18%]
+                  z-10
+                  text-xl
+                  text-[#A56B42]/60
+                  sm:text-2xl
+                "
+              >
+                ✦
+              </span>
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[14%]
+                  top-[28%]
+                  z-10
+                  text-lg
+                  text-olive/50
+                  sm:text-xl
+                "
+              >
+                ✦
+              </span>
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[12%]
+                  bottom-[28%]
+                  z-10
+                  text-lg
+                  text-[#A56B42]/45
+                "
+              >
+                ✦
+              </span>
+
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[17%]
+                  bottom-[19%]
+                  z-10
+                  text-xl
+                  text-olive/50
+                "
+              >
+                ✦
+              </span>
+
+              {/* =================================================
+                  PRODUCT
+              ================================================= */}
+
               <img
                 src={makhanaInBowl}
                 alt="PRAM Makhana"
                 className="
                   relative
-                  z-10
+                  z-20
                   w-[240px]
                   max-w-[88%]
                   drop-shadow-2xl
@@ -1202,13 +1768,16 @@ function Benefits() {
                 "
               />
 
-              {/* Badge */}
+              {/* =================================================
+                  BADGE
+              ================================================= */}
+
               <div
                 className="
                   absolute
                   bottom-6
                   left-1/2
-                  z-20
+                  z-30
                   -translate-x-1/2
                   whitespace-nowrap
                   rounded-full
@@ -1223,7 +1792,18 @@ function Benefits() {
                   sm:py-2.5
                 "
               >
-                <p className="text-center text-[9px] font-bold uppercase tracking-[0.16em] text-olive sm:text-[10px] lg:text-xs">
+                <p
+                  className="
+                    text-center
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.16em]
+                    text-olive
+                    sm:text-[10px]
+                    lg:text-xs
+                  "
+                >
                   100% Vegetarian • Made in India
                 </p>
               </div>
@@ -1246,7 +1826,6 @@ function Benefits() {
                 xl:py-20
               "
             >
-
               {/* Main heading */}
               <h2
                 className="
@@ -1263,7 +1842,8 @@ function Benefits() {
                 "
               >
                 Wholesome
-                <br />Nutrition
+                <br />
+                Nutrition
               </h2>
 
               {/* Copy */}
@@ -1286,18 +1866,18 @@ function Benefits() {
               </p>
 
               {/* =================================================
-    NUTRITION STATS
-================================================== */}
+                  NUTRITION STATS
+              ================================================== */}
               <div
                 className="
-    mt-8
-    grid
-    grid-cols-2
-    gap-3
-    sm:grid-cols-2
-    sm:gap-4
-    lg:mt-10
-  "
+                  mt-8
+                  grid
+                  grid-cols-2
+                  gap-3
+                  sm:grid-cols-2
+                  sm:gap-4
+                  lg:mt-10
+                "
               >
                 {nutritionStats.map((stat, index) => {
                   const Icon = stat.icon;
@@ -1306,35 +1886,35 @@ function Benefits() {
                     <div
                       key={stat.label}
                       className="
-          group
-          relative
-          overflow-hidden
-          rounded-[22px]
-          border-2
-          border-olive
-          bg-[#FDF8EE]
-          px-4
-          py-5
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:shadow-lg
-          sm:rounded-[25px]
-          sm:px-5
-          sm:py-6
-        "
+                        group
+                        relative
+                        overflow-hidden
+                        rounded-[22px]
+                        border-2
+                        border-olive
+                        bg-[#FDF8EE]
+                        px-4
+                        py-5
+                        transition-all
+                        duration-300
+                        hover:-translate-y-1
+                        hover:shadow-lg
+                        sm:rounded-[25px]
+                        sm:px-5
+                        sm:py-6
+                      "
                     >
                       {/* Number */}
                       <span
                         className="
-            absolute
-            right-4
-            top-2
-            text-[9px]
-            font-bold
-            tracking-wider
-            text-olive/20
-          "
+                          absolute
+                          right-4
+                          top-2
+                          text-[9px]
+                          font-bold
+                          tracking-wider
+                          text-olive/20
+                        "
                       >
                         0{index + 1}
                       </span>
@@ -1342,38 +1922,35 @@ function Benefits() {
                       {/* Icon */}
                       <div
                         className="
-            mb-4
-            flex
-            h-12
-            w-12
-            items-center
-            justify-center
-            rounded-full
-            border-2
-            border-olive
-            text-olive
-            transition-transform
-            duration-300
-            group-hover:scale-105
-          "
+                          mb-4
+                          flex
+                          h-12
+                          w-12
+                          items-center
+                          justify-center
+                          rounded-full
+                          border-2
+                          border-olive
+                          text-olive
+                          transition-transform
+                          duration-300
+                          group-hover:scale-105
+                        "
                       >
-                        <Icon
-                          size={24}
-                          strokeWidth={2}
-                        />
+                        <Icon size={24} strokeWidth={2} />
                       </div>
 
                       {/* Value */}
                       <p
                         className="
-            text-xl
-            font-bold
-            leading-tight
-            tracking-wide
-            text-olive
-            sm:text-2xl
-            lg:text-3xl
-          "
+                          text-xl
+                          font-bold
+                          leading-tight
+                          tracking-wide
+                          text-olive
+                          sm:text-2xl
+                          lg:text-3xl
+                        "
                       >
                         {stat.value}
                       </p>
@@ -1381,15 +1958,15 @@ function Benefits() {
                       {/* Label */}
                       <p
                         className="
-            mt-2
-            text-[9px]
-            font-bold
-            uppercase
-            tracking-[0.12em]
-            text-ink/60
-            sm:text-[10px]
-            lg:text-xs
-          "
+                          mt-2
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.12em]
+                          text-ink/60
+                          sm:text-[10px]
+                          lg:text-xs
+                        "
                       >
                         {stat.label}
                       </p>
@@ -1412,6 +1989,7 @@ function Benefits() {
                   labels.
                 </p>
               </div>
+
               {/* CTA */}
               <a
                 href="#products"
@@ -1488,9 +2066,9 @@ function Benefits() {
             border-y-2
             border-olive
             bg-[#FDF8EE]
-            py-3
-            sm:py-4
-            lg:py-5
+            py-0.5
+            sm:py-1
+            lg:py-1.5
           "
         >
           <div className="pram-benefits-marquee pram-benefits-marquee-right flex w-max">
@@ -1499,11 +2077,11 @@ function Benefits() {
               {[...bottomNutrition, ...bottomNutrition].map((item, index) => (
                 <div
                   key={`bottom-${index}`}
-                  className="flex items-center whitespace-nowrap"
+                  className="flex items-center whitespace-nowrap font-sans"
                 >
                   <span
                     className="
-                      font-display
+                      font-sans
                       text-xl
                       font-semibold
                       tracking-[0.04em]
@@ -1516,7 +2094,18 @@ function Benefits() {
                     {item}
                   </span>
 
-                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                  <span
+                    className="
+                      mx-5
+                      font-sans
+                      text-lg
+                      font-bold
+                      text-[#A56B42]
+                      sm:mx-7
+                      sm:text-xl
+                      lg:text-2xl
+                    "
+                  >
                     •
                   </span>
                 </div>
@@ -1528,11 +2117,11 @@ function Benefits() {
               {[...bottomNutrition, ...bottomNutrition].map((item, index) => (
                 <div
                   key={`bottom-copy-${index}`}
-                  className="flex items-center whitespace-nowrap"
+                  className="flex items-center whitespace-nowrap font-sans"
                 >
                   <span
                     className="
-                      font-display
+                      font-sans
                       text-xl
                       font-semibold
                       tracking-[0.04em]
@@ -1545,7 +2134,18 @@ function Benefits() {
                     {item}
                   </span>
 
-                  <span className="mx-5 text-lg font-bold text-[#A56B42] sm:mx-7 sm:text-xl lg:text-2xl">
+                  <span
+                    className="
+                      mx-5
+                      font-sans
+                      text-lg
+                      font-bold
+                      text-[#A56B42]
+                      sm:mx-7
+                      sm:text-xl
+                      lg:text-2xl
+                    "
+                  >
                     •
                   </span>
                 </div>

@@ -1,9 +1,9 @@
-import pcp from "@/assets/packet-chat-pata.png";
-import pcp1 from "@/assets/packet-peri-peri.png";
-import pcp2 from "@/assets/packet-cheese.png";
-import pcp3 from "@/assets/packet-pudina.png";
-import pcp4 from "@/assets/packet-salt-pepper.png";
-import pcp5 from "@/assets/packet-cream-onion.png";
+import pcp from "@/assets/tomato.png";
+import pcp1 from "@/assets/periperi.png";
+import pcp2 from "@/assets/chezzy.png";
+import pcp3 from "@/assets/pudina.png";
+import pcp4 from "@/assets/himalayan.png";
+import pcp5 from "@/assets/creamandonion.png";
 import pcp6 from "@/assets/packet-salt-pepper.png"; // add this asset for Plain Makhana
 import cookiep from "@/assets/packet-cookies.png";
 import cookiesf from "@/assets/packet-cookies-sugar-free.png";
