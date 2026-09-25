@@ -431,7 +431,7 @@ export type ProductDetails = {
 const MANUFACTURER = {
   category: "Roasted Flavour Makhana",
   name: "PRAM FOODS",
-  fssai: "10421310000224",
+  fssai: "12345678901234",
   address: "5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers, Naigaon, Dadar(E), Mumbai - 400014.",
   email: "hello@pramfoods.in",
   stickerSize: "240 × 68 mm",

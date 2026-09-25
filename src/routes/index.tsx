@@ -1059,7 +1059,7 @@ function Benefits() {
       {/* =========================================================
           TOP NUTRITION MARQUEE
       ========================================================= */}
-      <div className="relative z-10 mb-8 sm:mb-10 lg:mb-12">
+      <div className="relative z-5 mb-1 sm:mb-18 lg:mt-1">
         <div
           className="
             overflow-hidden
@@ -1158,7 +1158,7 @@ function Benefits() {
       {/* =========================================================
           MAIN NUTRITION PANEL
       ========================================================= */}
-      <div className="relative z-10 mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-[1380px] px-6 sm:px-6 lg:px-10">
         <div
           data-reveal
           className="
@@ -2059,7 +2059,7 @@ function Benefits() {
       {/* =========================================================
           BOTTOM MARQUEE — OPPOSITE DIRECTION
       ========================================================= */}
-      <div className="relative z-10 mt-8 sm:mt-10 lg:mt-12">
+      <div className="relative z-5 mt-1 sm:mt-18 lg:mb-16">
         <div
           className="
             overflow-hidden
