@@ -1,5 +1,15 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Twitter, Mail, Leaf, ShieldCheck, Wheat, Flag, BadgeCheck } from "lucide-react";
+import {
+  Instagram,
+  Facebook,
+  Twitter,
+  Mail,
+  Leaf,
+  ShieldCheck,
+  Wheat,
+  Flag,
+  BadgeCheck,
+} from "lucide-react";
 import { useState } from "react";
 
 const TRUST = [
@@ -16,40 +26,45 @@ export default function Footer() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+
     const ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+
     if (!ok) return setStatus("err");
+
     setStatus("ok");
     setEmail("");
+
     setTimeout(() => setStatus("idle"), 3500);
   };
 
   return (
-    <footer className="bg-[#122300] text-cream pt-8 pb-8 px-6 lg:px-10">
+    <footer className="bg-[#122300] text-[#F7F4D5] pt-8 pb-8 px-6 lg:px-10">
 
       {/* =================================================
-    TOP INFO STRIP
-================================================== */}
-      <div className="border-y border-cream/10 bg-[#122300]">
+          TOP INFO STRIP
+      ================================================== */}
+      <div className="border-y border-[#F7F4D5]/10 bg-[#122300]">
         <div className="mx-auto max-w-7xl px-4 py-4">
+
           <div
             className="
-        flex
-        flex-wrap
-        items-center
-        justify-center
-        gap-x-10
-        gap-y-2
-        text-[12px]
-        font-bold
-        uppercase
-        tracking-[0.22em]
-        text-white
-      "
+              flex
+              flex-wrap
+              items-center
+              justify-center
+              gap-x-10
+              gap-y-2
+              text-[12px]
+              font-bold
+              uppercase
+              tracking-[0.22em]
+              text-[#F7F4D5]
+            "
           >
 
             {/* =================================================
-          VEGETARIAN
-      ================================================= */}
+                VEGETARIAN
+            ================================================= */}
             <div className="flex items-center gap-2.5">
               <span>100% Vegetarian</span>
 
@@ -98,11 +113,11 @@ export default function Footer() {
             </div>
 
             {/* Separator */}
-            <span className="text-wheat/70">·</span>
+            <span className="text-[#F7F4D5]">·</span>
 
             {/* =================================================
-          MADE IN INDIA
-      ================================================= */}
+                MADE IN INDIA
+            ================================================= */}
             <div className="flex items-center gap-2">
               <span>Made in India</span>
 
@@ -191,16 +206,16 @@ export default function Footer() {
             </div>
 
             {/* Separator */}
-            <span className="text-wheat/70">·</span>
+            <span className="text-[#F7F4D5]">·</span>
 
             {/* =================================================
-          CRAFTED WITH CARE
-      ================================================= */}
+                CRAFTED WITH CARE
+            ================================================= */}
             <div className="flex items-center gap-2">
-
               <span>
                 Crafted with care
               </span>
+
               <span className="text-[16px] leading-none">
                 🌿
               </span>
@@ -209,103 +224,378 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+
+      {/* =================================================
+          MAIN FOOTER
+      ================================================= */}
       <div className="mx-auto max-w-7xl pt-14 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+
+        {/* =================================================
+            BRAND
+        ================================================= */}
         <div>
-          <h3 className="font-display text-2xl font-semibold">
+
+          <h3 className="font-display text-[#F7F4D5] text-2xl font-semibold">
             PRAM FOODS
           </h3>
-          <p className="mt-4 text-cream/80 text-sm leading-relaxed">
-            5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers, Naigaon, Dadar(E), Mumbai - 400014.
+
+          <p className="mt-4 text-[#F7F4D5] text-sm leading-relaxed">
+            5/246, Kohinoor Compound, Jyotiba Phule Road, Opp. Swastik Jewellers,
+            Naigaon, Dadar(E), Mumbai - 400014.
           </p>
+
           <div className="mt-6 flex gap-3">
+
             {[
               { Icon: Instagram, label: "Instagram" },
               { Icon: Facebook, label: "Facebook" },
               { Icon: Twitter, label: "Twitter" },
             ].map(({ Icon, label }) => (
+
               <a
                 key={label}
                 href="#"
                 aria-label={label}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-cream/20 text-wheat hover:bg-cream hover:text-olive transition-colors"
+                className="
+                  inline-flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#F7F4D5]/20
+                  text-[#F7F4D5]
+                  hover:bg-[#F7F4D5]
+                  hover:text-[#122300]
+                  transition-colors
+                "
               >
                 <Icon size={16} />
               </a>
+
             ))}
+
           </div>
         </div>
 
+
+        {/* =================================================
+            QUICK LINKS
+        ================================================= */}
         <div>
-          <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Quick Links</h4>
-          <ul className="mt-5 space-y-3 text-sm text-cream/85">
-            <li><Link to="/shop" className="hover:text-cream transition-colors">Shop All</Link></li>
-            <li><Link to="/about" className="hover:text-cream transition-colors">Our Story</Link></li>
-            <li><Link to="/blog" className="hover:text-cream transition-colors">Blog</Link></li>
-            <li><Link to="/contact" className="hover:text-cream transition-colors">Contact</Link></li>
-            <li><Link to="/cart" className="hover:text-cream transition-colors">Cart</Link></li>
+
+          <h4
+            className="
+              text-[11px]
+              uppercase
+              tracking-[0.25em]
+              font-bold
+              text-[#F7F4D5]
+            "
+          >
+            Quick Links
+          </h4>
+
+          <ul className="mt-5 space-y-3 text-sm text-[#F7F4D5]">
+
+            <li>
+              <Link
+                to="/shop"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Shop All
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/about"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Our Story
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/blog"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Blog
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Contact
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/cart"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Cart
+              </Link>
+            </li>
+
           </ul>
         </div>
 
+
+        {/* =================================================
+            SUPPORT
+        ================================================= */}
         <div>
-          <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Support</h4>
-          <ul className="mt-5 space-y-3 text-sm text-cream/85">
+
+          <h4
+            className="
+              text-[11px]
+              uppercase
+              tracking-[0.25em]
+              font-bold
+              text-[#F7F4D5]
+            "
+          >
+            Support
+          </h4>
+
+          <ul className="mt-5 space-y-3 text-sm text-[#F7F4D5]">
+
             <li>
-              <a href="mailto:hello@PRAMmakhana.in" className="hover:text-cream transition-colors">
+              <a
+                href="mailto:hello@PRAMmakhana.in"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
                 hello@pramfoods.in
               </a>
             </li>
-            <li>+91 79000 91250</li>
-            <li><Link to="/contact" className="hover:text-cream transition-colors">Shipping & Returns</Link></li>
-            <li><Link to="/contact" className="hover:text-cream transition-colors">FAQs</Link></li>
-            <li><a href="#" className="hover:text-cream transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-cream transition-colors">Terms & Conditions</a></li>
+
+            <li>
+              +91 79000 91250
+            </li>
+
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Shipping & Returns
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                FAQs
+              </Link>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Privacy Policy
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                className="hover:text-[#F7F4D5] transition-colors"
+              >
+                Terms & Conditions
+              </a>
+            </li>
+
           </ul>
         </div>
 
+
+        {/* =================================================
+            NEWSLETTER
+        ================================================= */}
         <div>
-          <h4 className="text-[11px] uppercase tracking-[0.25em] font-bold text-wheat">Newsletter</h4>
-          <p className="mt-5 text-sm text-cream/80">Small batch drops. Quiet emails.</p>
-          <form className="mt-5 flex gap-2" onSubmit={submit} noValidate>
-            <label htmlFor="footer-email" className="sr-only">Email</label>
+
+          <h4
+            className="
+              text-[11px]
+              uppercase
+              tracking-[0.25em]
+              font-bold
+              text-[#F7F4D5]
+            "
+          >
+            Newsletter
+          </h4>
+
+          <p className="mt-5 text-sm text-[#F7F4D5]">
+            Small batch drops. Quiet emails.
+          </p>
+
+          <form
+            className="mt-5 flex gap-2"
+            onSubmit={submit}
+            noValidate
+          >
+
+            <label
+              htmlFor="footer-email"
+              className="sr-only"
+            >
+              Email
+            </label>
+
             <div className="flex-1 relative">
-              <Mail size={14} className="absolute left-0 top-1/2 -translate-y-1/2 text-cream/60" />
+
+              <Mail
+                size={14}
+                className="
+                  absolute
+                  left-0
+                  top-1/2
+                  -translate-y-1/2
+                  text-[#F7F4D5]
+                "
+              />
+
               <input
                 id="footer-email"
                 type="email"
                 required
                 value={email}
-                onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setStatus("idle");
+                }}
                 placeholder="your@email.com"
-                className="w-full bg-transparent border-b border-cream/40 focus:border-cream outline-none py-2 pl-6 text-sm text-cream placeholder:text-cream/50"
+                className="
+                  w-full
+                  bg-transparent
+                  border-b
+                  border-[#F7F4D5]/40
+                  focus:border-[#F7F4D5]
+                  outline-none
+                  py-2
+                  pl-6
+                  text-sm
+                  text-[#F7F4D5]
+                  placeholder:text-[#F7F4D5]
+                "
               />
+
             </div>
+
             <button
               type="submit"
-              className="px-4 py-2 rounded-full bg-gold text-cream text-[11px] font-semibold uppercase tracking-[0.18em] hover:bg-gold/90 transition-colors"
+              className="
+                px-4
+                py-2
+                rounded-full
+                bg-gold
+                text-[#F7F4D5]
+                text-[11px]
+                font-semibold
+                uppercase
+                tracking-[0.18em]
+                hover:bg-gold/90
+                transition-colors
+              "
             >
               Join
             </button>
-          </form>
-          {status === "ok" && <p className="mt-3 text-xs text-wheat">Thanks — you're on the list.</p>}
-          {status === "err" && <p className="mt-3 text-xs text-wheat">Please enter a valid email.</p>}
 
-          <div className="mt-7 space-y-2 text-[11px] text-cream/70 leading-relaxed">
+          </form>
+
+          {status === "ok" && (
+            <p className="mt-3 text-xs text-[#F7F4D5]">
+              Thanks — you're on the list.
+            </p>
+          )}
+
+          {status === "err" && (
+            <p className="mt-3 text-xs text-[#F7F4D5]">
+              Please enter a valid email.
+            </p>
+          )}
+
+
+          {/* =================================================
+              BUSINESS DETAILS
+          ================================================= */}
+          <div className="mt-7 space-y-2 text-[11px] text-[#F7F4D5] leading-relaxed">
+
             <p>
-              <span className="uppercase tracking-[0.18em] text-wheat font-semibold">FSSAI:</span>{" "}
+              <span
+                className="
+                  uppercase
+                  tracking-[0.18em]
+                  text-[#F7F4D5]
+                  font-semibold
+                "
+              >
+                FSSAI:
+              </span>{" "}
               12345678901234
             </p>
+
             <p>
-              <span className="uppercase tracking-[0.18em] text-wheat font-semibold">GSTIN:</span>{" "}
+              <span
+                className="
+                  uppercase
+                  tracking-[0.18em]
+                  text-[#F7F4D5]
+                  font-semibold
+                "
+              >
+                GSTIN:
+              </span>{" "}
               27DNLPR6551N1Z2
             </p>
+
           </div>
+
         </div>
       </div>
 
-      <div className="mt-16 pt-6 border-t border-cream/15 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="ml-15 text-xs text-wheat">© {new Date().getFullYear()} PRAM Foods. All rights reserved.</p>
-        <p className="mr-15 text-xs text-wheat">Made in India · Crafted with care 🌿</p>
+
+      {/* =================================================
+          BOTTOM BAR
+      ================================================= */}
+      <div
+        className="
+          mt-16
+          pt-6
+          border-t
+          border-[#F7F4D5]/15
+          flex
+          flex-col
+          sm:flex-row
+          items-center
+          justify-between
+          gap-3
+        "
+      >
+
+        <p className="ml-15 text-xs text-[#F7F4D5]">
+          © {new Date().getFullYear()} PRAM Foods. All rights reserved.
+        </p>
+
+        <p className="mr-15 text-xs text-[#F7F4D5]">
+          Made in India · Crafted with care 🌿
+        </p>
+
       </div>
+
     </footer>
   );
 }

@@ -50,7 +50,7 @@ import ig5 from "@/assets/ig-5.jpg";
 import ig6 from "@/assets/ig-6.jpg";
 import SiteNavbar from "@/components/layout/Navbar";
 import SiteFooter from "@/components/layout/Footer";
-import { NewsletterSection, FinalCTA } from "@/components/sections/HomeAdditions";
+import { FinalCTA } from "@/components/sections/HomeAdditions";
 import amazon from "@/assets/amazon.png";
 import blinkit from "@/assets/blinkit.png";
 import zepto from "@/assets/Zepto.png";
@@ -2693,7 +2693,10 @@ function Instagram() {
     <section className="relative py-10 px-6 lg:px-10 overflow-hidden">
       <div className="relative z-10">
         <div className="mx-auto max-w-6xl">
-          <h2 data-reveal className="reveal text-center font-display text-4xl lg:text-5xl font-semibold text-[#122300]">
+          <h2
+            data-reveal
+            className="reveal text-center text-[#122300] font-display text-4xl lg:text-5xl font-semibold"
+          >
             Follow Pram Foods
           </h2>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-3 gap-1">

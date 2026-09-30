@@ -102,12 +102,12 @@ export function FinalCTA() {
             sm:text-5xl
             font-semibold
             leading-tight
-            text-white
+            text-[#F7F4D5]
             lg:text-7xl
           "
         >
           Snack quietly.
-          <span className="italic"> Live loudly.</span>
+          Live loudly.
         </h2>
 
         <p
@@ -121,7 +121,7 @@ export function FinalCTA() {
             font-semibold
             leading-relaxed
             tracking-wide
-            text-white/90
+            text-[#F7F4D5]
           "
         >
           Discover the small-batch range or talk to us about wholesale,
@@ -133,7 +133,7 @@ export function FinalCTA() {
             to="/shop"
             className="
               rounded-full
-              bg-white
+              bg-[#F7F4D5]
               px-10
               py-4
               text-xs
@@ -144,10 +144,10 @@ export function FinalCTA() {
               transition-all
               duration-300
               hover:scale-105
-              hover:bg-white/90
+              hover:bg-[#F7F4D5]
             "
           >
-            Shop Now
+            <span className="font-extrabold">Shop Now</span>
           </Link>
 
           <Link
@@ -155,7 +155,7 @@ export function FinalCTA() {
             className="
               rounded-full
               border-2
-              border-white
+              border-[#F7F4D5]
               bg-transparent
               px-10
               py-4
@@ -163,14 +163,14 @@ export function FinalCTA() {
               font-semibold
               uppercase
               tracking-[0.18em]
-              text-white
+              text-[#F7F4D5]
               transition-all
               duration-300
-              hover:bg-white
+              hover:bg-[#F7F4D5]
               hover:text-olive
             "
           >
-            Contact Us
+            <span className="font-extrabold">Contact Us</span>
           </Link>
         </div>
       </div>
