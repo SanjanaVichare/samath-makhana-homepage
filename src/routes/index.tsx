@@ -929,18 +929,18 @@ function Story() {
       </div>
       <div className="bg-[#122300] text-cream flex items-center px-8 lg:px-20 py-20">
         <div className="max-w-lg">
-          <p data-reveal className="reveal text-[11px] font-bold uppercase tracking-[0.3em] text-wheat">Our Story</p>
-          <h2 data-reveal data-delay="120" className="reveal mt-5 font-display text-4xl lg:text-5xl font-semibold leading-tight">
+          <p data-reveal className="reveal text-[15px] font-bold uppercase tracking-[0.3em] text-wheat">Our Story</p>
+          <h2 data-reveal data-delay="120" className="reveal mt-5 font-display text-4xl text-wheat lg:text-5xl font-semibold leading-tight">
             From the Lotus Ponds of India to Your Snack Bowl.
           </h2>
-          <p data-reveal data-delay="240" className="reveal mt-6 text-cream/85 leading-relaxed">
+          <p data-reveal data-delay="240" className="reveal text-wheat mt-6 text-cream/85 leading-relaxed">
             PRAM sources lotus seeds from family-run farms, then slow-roasts them in small kitchens — the way grandmothers have for generations. No shortcuts, no fillers, just the patient craft of turning a humble seed into something irresistible.
           </p>
           <a
             href="/about"
             data-reveal
             data-delay="360"
-            className="reveal mt-9 inline-flex items-center px-7 py-3.5 rounded-full border border-cream text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-cream hover:text-olive transition-colors duration-200"
+            className="reveal text-wheat mt-9 inline-flex items-center px-7 py-3.5 rounded-full border border-cream text-cream text-xs font-semibold uppercase tracking-[0.18em] hover:bg-cream hover:text-olive transition-colors duration-200"
           >
             Read Our Story
           </a>
