@@ -1067,8 +1067,6 @@ function Benefits() {
             border-olive
             bg-[#FDF8EE]
             py-0.5
-            sm:py-1
-            lg:py-1.5
           "
         >
           <div className="pram-benefits-marquee pram-benefits-marquee-left flex w-max">
@@ -2483,17 +2481,17 @@ function Bestseller() {
             ================================================== */}
             <h2
               className="
-    font-display
-    text-4xl
-    sm:text-5xl
-    md:text-5xl
-    lg:text-6xl
-    xl:text-6xl
-    font-semibold
-    leading-[0.92]
-    tracking-[-0.02em]
-    text-[#F7ECD9]
-  "
+  font-display
+  text-4xl
+  sm:text-5xl
+  md:text-5xl
+  lg:text-6xl
+  xl:text-6xl
+  font-extrabold
+  leading-[0.92]
+  tracking-[-0.02em]
+  text-[#F7ECD9]
+"
             >
               Makhana Chip
               <br />
@@ -2510,7 +2508,6 @@ function Bestseller() {
     mx-auto
     lg:mx-0
     text-xl
-    font-semibold
     text-[#F7ECD9]/90
     leading-relaxed
     tracking-wide
@@ -2542,7 +2539,7 @@ function Bestseller() {
                   justify-center
                   rounded-full
                   border-2
-                  border-[#F7ECD9]
+                  border-cream
                   px-7
                   py-3
                   text-[#F7ECD9]
@@ -2553,6 +2550,7 @@ function Bestseller() {
                   hover:bg-[#F7ECD9]
                   hover:text-[#6B3E26]
                   hover:scale-105
+                  text-cream
                 "
               >
                 Learn More
@@ -2566,7 +2564,7 @@ function Bestseller() {
                   items-center
                   justify-center
                   rounded-full
-                  bg-[#F7ECD9]
+                  bg-cream
                   px-7
                   py-3
                   text-[#6B3E26]
@@ -2575,7 +2573,7 @@ function Bestseller() {
                   transition-all
                   duration-300
                   hover:scale-105
-                  hover:bg-[#E8C27A]
+                  hover:bg-cream
                   hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)]
                 "
               >

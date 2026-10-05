@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
-import logo from "@/assets/PRAMlogo-new.png";
+import logo from "@/assets/logo_new.png";
 
 const LINKS = [
   { label: "Home", to: "/" as const },
@@ -47,8 +47,8 @@ export default function Navbar({
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${solid
-          ? "bg-cream/95 backdrop-blur-xl shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
-          : "bg-transparent"
+        ? "bg-cream/95 backdrop-blur-xl shadow-[0_2px_24px_-12px_rgba(0,0,0,0.18)]"
+        : "bg-transparent"
         }`}
     >
       <div className="mx-auto max-w-7xl h-20 flex items-center justify-between pl-1 pr-6 lg:pl-5 lg:pr-10">
@@ -81,8 +81,8 @@ export default function Navbar({
                 key={l.to}
                 to={l.to}
                 className={`relative text-[14px] font-semibold uppercase tracking-[0.12em] transition-colors ${active
-                    ? "text-[#122300]"
-                    : "text-ink hover:text-[#122300]"
+                  ? "text-[#122300]"
+                  : "text-ink hover:text-[#122300]"
                   }`}
               >
                 {l.label}
