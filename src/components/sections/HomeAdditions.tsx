@@ -147,7 +147,7 @@ export function FinalCTA() {
               hover:bg-[#F7F4D5]
             "
           >
-            <span className="font-extrabold">Shop Now</span>
+            Shop Now
           </Link>
 
           <Link
@@ -170,7 +170,7 @@ export function FinalCTA() {
               hover:text-olive
             "
           >
-            <span className="font-extrabold">Contact Us</span>
+            Contact Us
           </Link>
         </div>
       </div>

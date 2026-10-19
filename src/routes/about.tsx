@@ -50,7 +50,7 @@ const TIMELINE = [
 ];
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <p className="text-[11px] uppercase tracking-[0.3em] text-gold font-semibold">{children}</p>;
+  return <p className="text-[16px] uppercase tracking-[0.3em] text-gold font-bold">{children}</p>;
 }
 
 function Badge({ children }: { children: React.ReactNode }) {
@@ -114,19 +114,18 @@ function AboutPage() {
             <div className="lg:col-span-7 lg:pl-6">
               <Eyebrow>Our Story</Eyebrow>
 
-              <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold leading-[1.05]">
-                A snack drawer{" "}
-                <span className="italic">worth opening.</span>
+              <h2 className="mt-4 font-display text-5xl lg:text-[52px] text-olive font-semibold leading-[1.05]">
+                A snack drawer worth opening.
               </h2>
 
-              <p className="mt-5 max-w-lg text-lg leading-relaxed text-olive/80">
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-ink/75">
                 PRAM began with a simple frustration — every "healthy" snack
                 we tried felt like a compromise. So we went back to a snack
                 our grandmothers knew well: the lotus seed. Light, ancient,
                 and quietly powerful.
               </p>
 
-              <p className="mt-4 max-w-lg text-lg leading-relaxed text-olive/80">
+              <p className="mt-4 max-w-lg text-lg leading-relaxed text-ink/75">
                 We partner directly with family farms, slow-roast in iron
                 pans, and season in small batches. No shortcuts. No
                 preservatives. Just makhana the way it was always meant to be.
@@ -153,16 +152,16 @@ function AboutPage() {
         </section>
 
         {/* Mission / Vision */}
-        <section className="py-1 px-1 lg:px-10 bg-transparent relative overflow-hidden">
+        <section className="py-1 px-6 lg:px-10 bg-transparent relative overflow-hidden">
           <div className="mx-auto max-w-6xl">
             <div className="text-center max-w-2xl mx-auto">
               <Eyebrow>Purpose</Eyebrow>
 
-              <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold">
+              <h2 className="mt-4 font-display text-5xl lg:text-[52px] text-olive font-semibold">
                 What drives us
               </h2>
 
-              <p className="mt-4 text-ink/65 leading-relaxed">
+              <p className="mt-4 text-base text-ink/70 leading-relaxed">
                 Good food starts with good intentions.
               </p>
             </div>
@@ -194,13 +193,13 @@ function AboutPage() {
                     </span>
                   </div>
 
-                  <h3 className="mt-7 font-display text-3xl lg:text-4xl text-olive">
+                  <h3 className="mt-7 font-display text-3xl lg:text-4xl text-olive font-semibold">
                     {b.title}
                   </h3>
 
                   <div className="mt-4 h-px w-12 bg-gold/50" />
 
-                  <p className="mt-5 text-ink/65 leading-relaxed max-w-lg">
+                  <p className="mt-5 text-base lg:text-lg text-ink/70 leading-relaxed max-w-lg">
                     {b.text}
                   </p>
                 </div>
@@ -216,12 +215,12 @@ function AboutPage() {
               <div className="max-w-2xl">
                 <Eyebrow>Farm to Table</Eyebrow>
 
-                <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold">
+                <h2 className="mt-4 font-display text-5xl lg:text-[52px] text-olive font-semibold">
                   How it gets made.
                 </h2>
               </div>
 
-              <p className="max-w-md text-sm lg:text-base text-ink/60 leading-relaxed lg:text-right">
+              <p className="max-w-md text-base text-ink/70 leading-relaxed lg:text-right">
                 Simple ingredients, careful roasting and a whole lot of
                 attention go into every pack.
               </p>
@@ -243,11 +242,11 @@ function AboutPage() {
                     </span>
                   </div>
 
-                  <h4 className="mt-7 font-display text-xl text-olive">
+                  <h3 className="mt-7 font-display text-2xl text-olive font-semibold">
                     {step}
-                  </h4>
+                  </h3>
 
-                  <p className="mt-3 text-sm text-ink/60 leading-relaxed">
+                  <p className="mt-3 text-base text-ink/70 leading-relaxed">
                     {text}
                   </p>
 
@@ -261,12 +260,12 @@ function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="py-2 px-2 lg:px-1 bg-transparent">
+        <section className="py-2 px-6 lg:px-10 bg-transparent">
           <div className="mx-auto max-w-6xl">
             <div className="text-center max-w-2xl mx-auto">
               <Eyebrow>Our Standards</Eyebrow>
 
-              <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold">
+              <h2 className="mt-4 font-display text-5xl lg:text-[52px] text-olive font-semibold">
                 What we believe
               </h2>
             </div>
@@ -287,11 +286,11 @@ function AboutPage() {
                     </span>
                   </div>
 
-                  <h3 className="mt-6 font-display text-xl text-olive">
+                  <h3 className="mt-6 font-display text-2xl text-olive font-semibold">
                     {title}
                   </h3>
 
-                  <p className="mt-3 text-sm text-ink/65 leading-relaxed">
+                  <p className="mt-3 text-base text-ink/70 leading-relaxed">
                     {text}
                   </p>
                 </div>
@@ -307,15 +306,11 @@ function AboutPage() {
               <div>
                 <Eyebrow>The People</Eyebrow>
 
-                <h2 className="mt-4 font-display text-4xl lg:text-5xl text-olive font-semibold">
+                <h2 className="mt-4 font-display text-5xl lg:text-[52px] text-olive font-bold">
                   Meet the people behind it
                 </h2>
               </div>
 
-              <p className="max-w-sm text-sm text-ink/60 leading-relaxed lg:text-right">
-                A small team with a big love for good food, honest ingredients
-                and better snacking.
-              </p>
             </div>
 
             <div className="mt-12 grid gap-7 sm:grid-cols-3">
@@ -331,11 +326,11 @@ function AboutPage() {
                     <div className="absolute inset-x-0 bottom-0 p-5 bg-white/90">
                       <div className="flex items-end justify-between gap-4">
                         <div>
-                          <h3 className="font-display text-2xl text-olive">
+                          <h3 className="font-display text-2xl text-olive font-bold">
                             {m.name}
                           </h3>
 
-                          <p className="text-xs uppercase tracking-[0.18em] text-gold mt-1">
+                          <p className="text-xs uppercase tracking-[0.18em] text-gold font-bold mt-1">
                             {m.role}
                           </p>
                         </div>
@@ -362,18 +357,11 @@ function AboutPage() {
               <div>
                 <Eyebrow>Our journey</Eyebrow>
 
-                <h2 className="mt-3 max-w-2xl font-display text-4xl leading-[0.95] text-olive sm:text-5xl lg:text-6xl">
-                  Small steps.
-                  <br />
-                  <span className="text-gold">Big milestones.</span>
+                <h2 className="mt-4 max-w-2xl font-display text-5xl lg:text-[52px] text-olive font-semibold">
+                  Small steps. Big milestones.
                 </h2>
               </div>
 
-              <p className="max-w-md text-sm leading-7 text-olive/65 sm:text-base">
-                From one kitchen and a simple idea to thousands of homes, every
-                milestone has been built around better ingredients, better craft,
-                and people who believe in what we do.
-              </p>
             </div>
 
             {/* Timeline */}
@@ -393,7 +381,7 @@ function AboutPage() {
                         <span className="h-2.5 w-2.5 rounded-full bg-gold transition-transform duration-300 group-hover:scale-150" />
                       </div>
 
-                      <span className="ml-0 font-display text-3xl text-olive md:absolute md:left-14 md:top-0 lg:left-16 lg:text-4xl">
+                      <span className="ml-0 font-display text-3xl text-olive font-semibold md:absolute md:left-14 md:top-0 lg:left-16 lg:text-4xl">
                         {item.year}
                       </span>
                     </div>
@@ -426,11 +414,11 @@ function AboutPage() {
                             Milestone {String(index + 1).padStart(2, "0")}
                           </div>
 
-                          <h3 className="font-display text-2xl text-olive sm:text-3xl">
+                          <h3 className="font-display text-2xl text-olive font-semibold sm:text-3xl">
                             {item.title}
                           </h3>
 
-                          <p className="mt-2 max-w-xl text-sm leading-7 text-olive/60 sm:text-base">
+                          <p className="mt-2 max-w-xl text-base leading-relaxed text-ink/70">
                             {item.text}
                           </p>
                         </div>
@@ -454,16 +442,16 @@ function AboutPage() {
             <div className="mt-8 overflow-hidden rounded-[28px] bg-olive px-6 py-8 text-cream sm:px-8 lg:px-10 lg:py-9">
               <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-gold">
                     Still growing
                   </p>
 
-                  <h3 className="mt-2 font-display text-2xl leading-tight sm:text-3xl">
+                  <h3 className="mt-2 font-display text-2xl font-semibold leading-tight sm:text-3xl">
                     The journey is far from over.
                   </h3>
                 </div>
 
-                <p className="max-w-lg text-sm leading-6 text-cream/65">
+                <p className="max-w-lg text-base leading-relaxed text-cream/80">
                   More flavours, more farms, more kitchens, and more reasons to make
                   better snacking part of everyday life.
                 </p>
